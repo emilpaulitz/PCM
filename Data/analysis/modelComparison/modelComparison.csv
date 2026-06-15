@@ -1,0 +1,14 @@
+model_name,nChlRxns,totModelRxns,nTransp,nIntraChlTransp,nMetsStroma,nMetsThylLum,nMetsChl,nGenes,nSubsystems,nChloroplastComps,chlComps,nPanGenes
+aracore,195,585,60,5,182,1,183,372,53,2,"h,l",0
+aragem,93,1601,31,0,105,0,105,168,0,1,"p",0
+sweetlove,396,1312,120,9,412,2,414,583,65,4,"p1,p2,l1,l2",0
+maize,1108,6508,127,0,1155,0,1155,2440,0,1,"d0",0
+rice,577,2444,118,41,500,27,527,880,53,2,"s,u",0
+mintzOron,617,2769,177,0,600,0,600,920,133,1,"Plastid",0
+panAlgae,570,788,95,21,582,54,660,774,66,3,"h,s,u",0
+poplar,1580,9440,352,2,1818,1,1824,5408,0,3,"p,t,i",0
+soy,286,3001,79,0,290,0,290,1168,0,1,"p",0
+potato,487,7092,311,277,341,1,553,610,0,5,"h,hm,ohm,pg,l",0
+Sobliquus,409,1467,142,1,423,0,423,390,0,1,"d0",0
+Cohadii,366,2516,183,15,463,122,585,244,258,2,"ch,th",0
+pcm,1359,1981,85,469,1285,1,1495,1569,427,5,"h,hm,ohm,pg,l",23830
