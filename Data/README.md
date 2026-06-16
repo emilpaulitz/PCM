@@ -1,0 +1,5 @@
+`GenesInModel.txt` is a text file with one identifier of a gene from the union PCM per line. 
+
+`GenesInModel.fasta` is a fasta file containing sequences for the genes in the union PCM.
+
+Both `GenesInModel` files should be updated after a change of the model.

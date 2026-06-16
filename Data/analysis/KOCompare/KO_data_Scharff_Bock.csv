@@ -1,0 +1,115 @@
+Gene,Gene product,Essential for heterotrophic growth,Essential for autotrophic growth,References
+psaA,A subunit of PSI,-,+,Redding et al. (1999); C.r.
+psaB,B subunit of PSI,-,+,Bock et al. (1999)
+psaC,C subunit of PSI,-,+,Redding et al. (1999); C.r.
+psaI,I subunit of PSI,-,-,Schöttler et al. (2011)
+psaJ,J subunit of PSI,-,-,Schöttler et al. (2007)
+ycf3,"Ycf3 protein, PSI assembly",-,+,Ruf et al. (1997)
+ycf4,"Ycf4 protein, PSI assembly",-,-/+,Krech et al. (2012)
+psbA,D1 protein of PSII,-,+,Baena-González et al. (2003)
+psbB,CP47 subunit of PSII,-,+,
+psbC,CP43 subunit of PSII,-,+,Rochaix et al. (1989); C.r.
+psbD,D2 protein of PSII,-,+,Erickson et al. (1986); C.r.
+psbE,α-subunit of cytochrome b₅₅₉,-,+,Swiatek et al. (2003a)
+psbF,ß-subunit of cytochrome b₅₅₉,-,+,Swiatek et al. (2003a)
+psbH,H subunit of PSII,-,+,Erickson et al. (1986); C.r.
+psbI,I subunit of PSII,-,-,Schwenkert et al. (2006)
+psbJ,J subunit of PSII,-,+,Hager et al. (2002)
+psbK,K subunit of PSII,-,+,Takahashi et al. (1994); C.r.
+psbL,L subunit of PSII,-,+,Swiatek et al. (2003a)
+psbM,M subunit of PSII,-,-,Umate et al. (2007)
+psbN/pbf1,Photosystem biogenesis,-,-/+,Krech et al. (2013)
+psbT,T subunit of PSII,-,-,Umate et al. (2008)
+psbZ,Z subunit of PSII,-,-,"Ruf et al. (2000), Swiatek et al. (2001)"
+petA,Cytochrome f,-,+,Monde et al. (2000)
+petB,Cytochrome b₆,-,+,Monde et al. (2000)
+petD,Subunit IV of cyt b₆f,-,+,Monde et al. (2000)
+petG,G subunit of cyt b₆f,-,+,Schwenkert et al. (2007)
+petL,L subunit of cyt b₆f,-,-,Fiebig et al. (2004)
+petN,N subunit of cyt b₆f,-,+,Hager et al. (1999)
+atpA,ATP synthase α-subunit,-,+,Drapier et al. (1998); C.r.
+atpB,ATP synthase ß-subunit,-,+,Karcher and Bock (2002)
+atpE,ATP synthase ε-subunit,-,+,Karcher and Bock (2002)
+atpF,ATP synthase b-subunit,-,+,
+atpH,ATP synthase c-subunit,-,+,Unpublished
+atpI,ATP synthase a-subunit,-,+,
+ndhA,A subunit of NAD(P)H dehydrogenase,-,-,"Kofer et al. (1998), Maliga and Nixon (1998)"
+ndhB,B subunit of NAD(P)H dehydrogenase,-,-,Shikanai et al. (1998)
+ndhC,C subunit of NAD(P)H dehydrogenase,-,-,Burrows et al. (1998)
+ndhD,D subunit of NAD(P)H dehydrogenase,-,-,Unpublished
+ndhE,E subunit of NAD(P)H dehydrogenase,-,-,
+ndhF,F subunit of NAD(P)H dehydrogenase,-,-,Martin et al. (2004)
+ndhG,G subunit of NAD(P)H dehydrogenase,-,-,
+ndhH,H subunit of NAD(P)H dehydrogenase,-,-,"Kofer et al. (1998), Maliga and Nixon (1998)"
+ndhI,I subunit of NAD(P)H dehydrogenase,-,-,"Kofer et al. (1998), Maliga and Nixon (1998)"
+ndhJ,J subunit of NAD(P)H dehydrogenase,-,-,Burrows et al. (1998)
+ndhK,K subunit of NAD(P)H dehydrogenase,-,-,Burrows et al. (1998)
+rbcL,Rubisco large subunit,-,+,Kanevski and Maliga (1994)
+rpoA,RNA polymerase α-subunit,-,+,Serino and Maliga (1998)
+rpoB,RNA polymerase ß-subunit,-,+,Allison et al. (1996)
+rpoC1,RNA polymerase β'-subunit,-,+,Serino and Maliga (1998)
+rpoC2,"RNA polymerase β""-subunit",-,+,Serino and Maliga (1998)
+matK,Splicing factor (group-II intron maturase),+,+,Zoschke et al. (2010)
+rrn16,16S ribosomal RNA,+,+,Unpublished
+rrn23,23S ribosomal RNA,+,+,Unpublished
+rrn5,23S ribosomal RNA,+,+,Unpublished
+rrn4.5,23S ribosomal RNA,+,+,Unpublished
+trnA-UGC,tRNA-Alanine(UGC),+,+,Alkatib et al. (2012a)
+trnC-GCA,tRNA-Cysteine(GCA),+,+,Legen et al. (2007)
+trnD-GUC,tRNA-Aspartate(GUC),+,+,
+trnE-UUC,tRNA-Glutamate(UUC),+,+,
+trnF-GAA,tRNA-Phenylalanine(GAA),+,+,
+trnG-GCC,tRNA-Glycine(GCC),-,-/+,Rogalski et al. (2008b)
+trnG-UCC,tRNA-Glycine(UCC),+,+,Rogalski et al. (2008b)
+trnH-GUG,tRNA-Histidine(GUG),+,+,
+trnI-CAU,tRNA-Isoleucine(CAU),+,+,Alkatib et al. (2012b)
+trnI-GAU,tRNA-Isoleucine (GAU),+,+,Alkatib et al. (2012b)
+trnK-UUU,tRNA-Lysine (UUU),+,+,
+trnL-CAA,tRNA-Leucine (CAA),-,-,Alkatib et al. (2012a)
+trnL-UAA,tRNA-Leucine (UAA),+,+,Alkatib et al. (2012a)
+trnL-UAG,tRNA-Leucine (UAG),+,+,Alkatib et al. (2012a)
+trnM-CAU,tRNA-Methionine (CAU),+,+,Alkatib et al. (2012b)
+trnfM-CAU,tRNA-N-formyl-methionine,+,+,Alkatib et al. (2012b)
+trnN-GUU,tRNA-Asparagine (GUU),+,+,Legen et al. (2007)
+trnP-UGG,tRNA-Proline (UGG),+,+,
+trnQ-UUG,tRNA-Glutamine (UUG),+,+,
+trnR-ACG,tRNA-Arginine (ACG),+,+,Alkatib et al. (2012a)
+trnR-UCU,tRNA-Arginine (UCU),+,+,Alkatib et al. (2012a)
+trnS-GCU,tRNA-Serine (GCU),+,+,Alkatib et al. (2012a)
+trnS-GGA,tRNA-Serine (GGA),-,-,Alkatib et al. (2012a)
+trnS-UGA,tRNA-Serine (UGA),+,+,Alkatib et al. (2012a)
+trnT-GGU,tRNA-Threonine (GGU),-,-/+,Alkatib et al. (2012a)
+trnT-UGU,tRNA-Threonine (UGU),+,+,Alkatib et al. (2012a)
+trnV-GAC,tRNA-Valine (GAC),-,-,Alkatib et al. (2012a)
+trnV-UAC,tRNA-Valine (UAC),+,+,Alkatib et al. (2012a)
+trnW-CCA,tRNA-Tryptophan (CCA),+,+,
+trnY-GUA,tRNA-Tyrosine (GUA),+,+,
+rps2,Ribosomal protein S2,+,+,Rogalski et al. (2008a)
+rps3,Ribosomal protein S3,+,+,Fleischmann et al. (2011)
+rps4,Ribosomal protein S4,+,+,Rogalski et al. (2008a)
+rps7,Ribosomal protein S7,+,+,
+rps8,Ribosomal protein S8,+,+,
+rps11,Ribosomal protein S11,+,+,
+rps12,Ribosomal protein S12,+,+,
+rps14,Ribosomal protein S14,+,+,Ahlert et al. (2003)
+rps15,Ribosomal protein S15,-,-,Fleischmann et al. (2011)
+rps16,Ribosomal protein S16,+,+,Fleischmann et al. (2011)
+rps18,Ribosomal protein S18,+,+,Rogalski et al. (2006)
+rps19,Ribosomal protein S19,+,+,
+rpl2,Ribosomal protein L2,+,+,
+rpl14,Ribosomal protein L14,+,+,
+rpl16,Ribosomal protein L16,+,+,
+rpl20,Ribosomal protein L20,+,+,Rogalski et al. (2008a)
+rpl22,Ribosomal protein L22,+,+,Fleischmann et al. (2011)
+rpl23,Ribosomal protein L23,+,+,Fleischmann et al. (2011)
+rpl32,Ribosomal protein L32,+,+,Fleischmann et al. (2011)
+rpl33,Ribosomal protein L33,-,-,Rogalski et al. (2008a)
+rpl36,Ribosomal protein L36,-,-/+,Fleischmann et al. (2011)
+clpP,Catalytic subunit of the protease Clp,+,+,Shikanai et al. (2001)
+accD,Acetyl-CoA carboxylase subunit,+,+,Kode et al. (2005)
+ycf5/ccsA,Subunit A of the system-II complex for c-type cytochrome biogenesis,-,+,Xie and Merchant (1996); C.r.
+ycf10/cemA,Inner envelope protein,-,-,Swiatek et al. (2003b)
+ycf1/tic214,214-kDa protein of Tic complex,+,+,"Drescher et al. (2000), Kikuchi et al. (2013)"
+ycf2,Putative Ycf2 protein,+,+,Drescher et al. (2000)
+ycf15,Unknown,-,-,Unpublished
+sprA,Small non-coding RNA,-,-,Sugita et al. (1997)

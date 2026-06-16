@@ -1,0 +1,50 @@
+rxn	photo	hetero_suc	hetero_str	name	comment
+Im_hnu	1000	0	0	Photon	
+Im_CO2	1000	0	0	CO2	
+Im_H2O	1000	1000	1000	Water	
+Exch_Pi[c]	1000	1000	1000	Orthoposphate	
+Im_NO2	1000	1000	1000	Nitrite	
+Exch_NH4[c]	1000	1000	1000	Ammonia	
+Im_SO4	1000	1000	1000	Sulfate	
+Im_H2S	1000	1000	1000	Hydrogen sulfide 	
+Im_Mg	1000	1000	1000	Mg2+	
+Im_H	1000	1000	1000	Proton	
+Im_G6P	0	0	0	Glucose-6-P	
+Im_Rib	0	0	0	Ribulose	
+Im_suc	0	1000	0	Sucrose	
+Im_str	0	0	1000	Starch	
+Im_o2	0	100	100	O2	
+Im_CTP	1	1	1	CTP	
+Im_aMet	1	1	1	S-Adenosylmethionine	
+Im_PC34	1	1	1	lipid	
+Im_AMP	0	0	0	AMP	
+Im_PC363	1	1	1	PC363	Needed for lipid metabolism
+Im_PC364	1	1	1	PC364	Needed for lipid metabolism
+Im_AC	0	0	0	Acetate	
+Im_CoA	0	0	0	CoA	
+Im_DHL	0	0	0	dihydrolipoyl-L-lysyl-(protein)	
+Im_GDP	0	0	0	GDP	
+Im_GTP	0	0	0	GTP	
+Im_Glu	0	0	0	glutamate	
+Im_NAD	0	0	0	NAD	
+Im_Ura	0	0	0	Uracil	Not needed since nucleotides are missing from the biomass
+Im_tRNA	0	0	0	tRNA	Is only cycled in protein pool
+Exch_C00101[c]	1000	1000	1000	THF (coupled to ABA)	
+Exch_C00160[c]	1000	1000	1000	Glycolate (coupled to Glycerate)	
+Exch_C00258[c]	1000	1000	1000	Glycerate (coupled to Glycolate)	
+Exch_C00074[c]	0	0	0	PEP	
+Exch_C00111[c]	0	0	0	Dihydroxyacetone-P	
+Exch_C00118[c]	0	0	0	G3P	
+Exch_C00149[c]	0	0	0	Malate	
+Exch_C00197[c]	0	0	0	3PG	
+Exch_C00208[c]	0	0	0	Maltose	
+Exch_C00231[c]	0	0	0	Xylulose-5-P	
+Exch_C00279[c]	0	0	0	Erythrose-4-P	
+Exch_C00022[c]	0	0	0	Pyruvate	
+Exch_C00199[c]	0	0	0	Ribulose-5-P	
+Exch_C00002[c]	0	0	0	ATP	
+Exch_C00008[c]	0	0	0	ADP	
+Exch_C00026[c]	1	1	1	2-Oxoglutarate (coupled to export of pyruvate)	Needed for synthesis of aspartate and similar amino acids, comes from TCA (cyt, mito) and PEPCK (cyt)
+Exch_C00031[c]	0	0	0	Glucose	
+Exch_C00669[c]	0	0	0	Glutamyl-cysteine	
+Exch_C00036[c]	0	0	0	Oxaloacetate	
