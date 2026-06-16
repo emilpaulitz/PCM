@@ -2,3 +2,4 @@
 **__pycache__
 .~lock*
 Resources/*
+Code/gecko/ecAraPcm/data/kegg.tsv

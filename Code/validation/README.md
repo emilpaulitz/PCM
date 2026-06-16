@@ -6,6 +6,6 @@ In this folder, find the code used to perform the KO study and comparison with e
 - The analysis and plotting of results is done with cobraPy in KoCompare.ipynb
 
 ### Enzyme abundance
-- For this, we used the enzyme-constrained PCM version of Arabidopsis (´Data/pcm/ecPCM/Ath.tuned.xml´) that was generated in ´Code/gecko/ecAraPcm/makePcGemFinal.m´
+- For this, we used the enzyme-constrained PCM version of Arabidopsis (´Data/pcm/ecPCM/Ath.tuned.xml´) that was generated in ´Code/gecko/ecAraPcm/makePcGemFinal.m´. The first time you run this, it will take a while to download KEGG data, which was too large to put on GitHub
 - The enzyme-constrained pcm was plugged into an enzyme-constrained AraCore (From https://github.com/pwendering/AraTModel/tree/master/metabolic-models and updated with KEGG IDs) using the code in ´Code/validation/ecPcmIntoAraCore.m´
 - The analysis is done in protDistr.ipynb
