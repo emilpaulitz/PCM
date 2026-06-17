@@ -1,4 +1,9 @@
+% Performs flux coupling analysis with the F2C2 package
+% Please install F2C2 by downloading it and extracting into 
+% [projDir 'Resources/F2C2 v0.95b/']
+
 clearvars -except gurobiAvailable projDir; clc;
+addpath([projDir 'Resources/F2C2 v0.95b/code'])
 
 modelsPath = [projDir 'Data/analysis/cyanoCompare/coupling_models/'];
 outPath = [projDir 'Data/analysis/cyanoCompare/coupling_results/'];
@@ -22,8 +27,6 @@ dayAcy = readCbModel([modelsPath 'day_acy_trin.xml']);
 nightAcy = readCbModel([modelsPath 'night_acy_trin.xml']);
 
 %% Apply F2C2
-addpath([projDir 'Resources/F2C2 v0.95b/code'])
-
 models = {ara, nightAra, dayApc, nightApc, dayAcy, nightAcy};
 modelNames = {'AraCore', 'nightAraCore', 'dayApc_trin', 'nightApc_trin',...
               'dayAcy_trin', 'nightAcy_trin'};

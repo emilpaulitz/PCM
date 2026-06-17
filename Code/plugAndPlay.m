@@ -5,6 +5,8 @@
 %   - check whether model fields are present, only then merge the fields
 %   - let the user choose the symbols of chloroplast etc. compartment in
 %       the cytosol model 
+%   - replace chloroplast model if already present
+%   - added support for merging enzyme-constrained models
 
 function [model, missingMets] = plugAndPlay(cyt, chl, cytIsEc)
 

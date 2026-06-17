@@ -10,14 +10,16 @@ Code and data relating to the pan-chloroplast model (PCM).
 - For running flux coupling analysis, please download [F2C2](https://doi.org/10.1186/1471-2105-13-57) into the Resources folder
 
 ## Generating a genotype-specific chloroplast model
-carvePCM: TODO
+To generate a new genotype-specific chloroplast model, you need a set of chloroplast proteins as a `.fasta` file. Run BLAST against the genes in the union model. Example commands and the required output specifications can be found in `Code/accSpecPCM/blast.sh`. The resulting files should be named as the pattern `${ID}.out.tsv`. Then, open the script `Code/carveNewPCM.m`, adapt the parameters in the ADAPT THESE section, and run. 
 
 ## PlugAndPlay
 To plug the pcm version of your choice into a whole-cell model, apply the interactive function `plugAndPlay.m`. Examples for its usage can be found in `Code/validation/plugIntoAraCore.m`.
 
 ## Structure of this repository
 The Repository is stuctured in folders Code, Data, and Figures
-- Code contains functions used by multiple scripts, and is structured by the different analyses performed for the manuscript. Code and data for generating enzyme-constrained PCM models is found in the gecko folder
+- Code contains folders for the different analyses performed for the manuscript. Code and data for generating enzyme-constrained PCM models is found in the gecko folder. Further, Code contains functions used by multiple scripts, as well as: 
+    - `plugAndPlay.m` for plugging a PCM model into a whole cell model
+    - `carveNewPCM.m` for generating species-specific versions of the PCM
 - Data contains several subfolders:
     - pcm contains all models generated in this work
     - comparison_models contain the corrected and annotated plant models used for comparison

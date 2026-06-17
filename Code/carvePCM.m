@@ -1,4 +1,4 @@
-function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
+function [y_res, v_res] = carvePCM(model, M, eps, ...
     min_gr_photo, min_gr_hetero, rxn_scores, ...
     media, useGurobi, presolve, FeasibilityTol, saveName, solve)
     %description: MILP of the famous carveMe algorithm. Maximizes
@@ -21,8 +21,8 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
     %   presolve: bool; if true, first solve an LP to reduce num of vars
     %   FeasibilityTol: double, sets the gurobi FeasibilityTol param
     %   saveName: name of .mps file to write for solving the model on hpc
-    %       (empty; do not write)
-    %   solve: bool; if false, will only write the model and not solve it
+    %       (default empty; meaning do not write)
+    %   solve: bool; if false, will not attempt to solve the model
     %
     % output:
     %   fluxes: table with fluxes of the obtained solution
@@ -30,15 +30,22 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
     %       y_f, y_b (first forward, then backward for all rxns)
     %   v_res: flux values of the obtained solution
 
+    if nargin < 10
+        FeasibilityTol = 1e-9;
+    end
     if nargin < 11
         saveName = '';
     end
     if nargin < 12
         solve = true;
     end
+    if ~solve && isempty(saveName)
+        error(['carvePCM was called with solve==false but the model is' ...
+            ' not written out. The function would do nothing.'])
+    end
 
     % Extract stoichiometric matrix and problem dimensions
-    S = full(model.S);  % Convert sparse to full if needed
+    S = full(model.S);
     [Nm, N] = size(S);
     bio_ix = find(model.c, 1);
 
@@ -113,12 +120,53 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
     bineq = [bineq1; bineq2; bineq3; bineq4; bineq5; bineq6; bineq7];
 
     % Solve MILP problem using MATLAB's solver
-    % much slower the first time I tried it (>2hrs vs. 5 seconds)
+    % much slower: One time it took >2hrs vs. 5 seconds with Gurobi
     if ~useGurobi
         options = optimoptions('intlinprog', 'Display', 'off');
+
+        % try to fix some variables by solving a linear program instead
+        if presolve 
+            changed = true;
+            while changed
+                changed = false;
+                [x, ~, ~, ~] = linprog(f, Aineq, bineq, ...
+                    Aeq, beq, lb, ub);
+                y_res = x(1:(5 * N));
+                to_1 = 0;
+                % we can only fix variables if y is 1
+                for i = 1:length(y_res)
+                    if lb(i) == 1
+                        continue
+                    end
+                    if y_res(i) + 1e-7 > 1
+                        lb(i) = 1;
+                        to_1 = to_1 + 1;
+                        changed = true;
+                    end
+                end
+            end
+
+            disp(['Presolve resulted in ' num2str(to_1) ...
+                ' variables fixed to 1']);
+        end
+
+        % if specified, save the model to a file for solving on another
+        % machine
+        if ~isempty(saveName)
+            save([saveName '.mat'], 'f', 'intcon', 'Aineq', 'bineq', ...
+                'Aeq', 'beq', 'lb', 'ub', 'options');
+        end
+        if ~solve
+            y_res = [];
+            v_res = [];
+            return;
+        end
+
+        % solve the MILP
         [x, fval, exitflag, output] = intlinprog(f, intcon, Aineq, ...
             bineq, Aeq, beq, lb, ub, options);
-        % Check optimal status
+
+        % Check optimal status and output
         if exitflag == 1
             v_res = x((5 * N + 1):end);
             y_res = x(1:5 * N);
@@ -135,8 +183,9 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
             
             return
         end
-    else
-        % instead, use gurobi
+    else  % use gurobi instead
+
+        % translate into the Gurobi model structure
         gModel = struct();
         gModel.A = sparse([Aineq;Aeq]);
         gModel.obj = f;
@@ -152,7 +201,8 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
         params.IntFeasTol = FeasibilityTol;
         params.OptimalityTol = FeasibilityTol;
 
-        if presolve  % not sure this makes a lot of sense
+        % try to fix some variables by solving a linear program instead
+        if presolve
             changed = true;
             while changed
                 changed = false;
@@ -177,8 +227,12 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
             disp(['Presolve resulted in ' num2str(to_1) ...
                 ' variables fixed to 1']);
         end
+        
         gModel.vtype = [repmat('B', 5*N, 1);
                         repmat('c', 2*N, 1)];
+
+        % if specified, save the model to a file for solving on another
+        % machine
         if ~isempty(saveName)
             gurobi_write(gModel, [saveName '.mps']);
         end
@@ -187,8 +241,11 @@ function [y_res, v_res] = carveMe2Modes_v2(model, M, eps, ...
             v_res = [];
             return;
         end
+
+        % solve the MILP
         result = gurobi(gModel, params);
 
+        % outputs
         if strcmp(result.status, 'OPTIMAL')
             y_res = result.x(1:(5 * N));
             v_res = result.x((5 * N + 1):end);

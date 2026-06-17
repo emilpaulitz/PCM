@@ -1,4 +1,5 @@
 %% User-specific paths
+clear;clc;
 % If you have access to gurobi, add the correct path to gurobi, otherwise
 % leave it empty. For example:
 % gurobiPath = '/opt/gurobi1103/linux64/matlab';
@@ -10,7 +11,12 @@ pathCobraToolbox = '';
 % projDir
 projDir = pwd;
 projDir = [projDir '/'];
-gurobiAvailable = isempty(gurobiPath);
+gurobiAvailable = ~isempty(gurobiPath);
+if ~gurobiAvailable
+    disp(['Without Gurobi, making species-specific chloroplast models ' ...
+        'uses the matlab solver, resulting in dramatically increased ' ...
+        'runtimes of hours.'])
+end
 
 %% setup
 % cobratoolbox
