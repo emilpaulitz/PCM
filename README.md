@@ -10,7 +10,9 @@ Code and data relating to the pan-chloroplast model (PCM).
 - For running flux coupling analysis, please download [F2C2](https://doi.org/10.1186/1471-2105-13-57) into the Resources folder
 
 ## Generating a genotype-specific chloroplast model
-To generate a new genotype-specific chloroplast model, you need a set of chloroplast proteins as a `.fasta` file. Run BLAST against the genes in the union model. Example commands and the required output specifications can be found in `Code/accSpecPCM/blast.sh`. The resulting files should be named as the pattern `${ID}.out.tsv`. Then, open the script `Code/carveNewPCM.m`, adapt the parameters in the ADAPT THESE section, and run. 
+- To generate a new genotype-specific chloroplast model, you need a set of chloroplast proteins as a `.fasta` file.
+- Run BLAST against the genes in the union model. Example commands and the required output specifications can be found in `Code/accSpecPCM/blast.sh`. The resulting files should be named according to the pattern `${ID}.out.tsv`.
+- Then, open the script `Code/carveNewPCM.m`, adapt the parameters in the ADAPT THESE section, and run. 
 
 ## PlugAndPlay
 To plug the pcm version of your choice into a whole-cell model, apply the interactive function `plugAndPlay.m`. Examples for its usage can be found in `Code/validation/plugIntoAraCore.m`.
@@ -29,7 +31,7 @@ The Repository is stuctured in folders Code, Data, and Figures
     - analysis contains sub-folders for each of the analyses performed in the manuscript (see `Code` sub-folders)
 
 ## Feedback
-If you spot a bug, problem, or possible improvement in the code or model, do not hesitate to get in , open an issue, or a pull request. Any feebdack is appreciated!
+If you spot a bug, problem, or possible improvement in the code or model, do not hesitate to get in contact, open an issue, or a pull request. Any feebdack is appreciated!
 
 For improvements to the model, either suggest the changes, or: add a script that shows the changes made, and upload the new model with the version number updated. 
 
