@@ -28,5 +28,10 @@ The Repository is stuctured in folders Code, Data, and Figures
     - supplementary contains all supplementary data also available with the manuscript
     - analysis contains sub-folders for each of the analyses performed in the manuscript (see `Code` sub-folders)
 
+## Feedback
+If you spot a bug, problem, or possible improvement in the code or model, do not hesitate to get in , open an issue, or a pull request. Any feebdack is appreciated!
+
+For improvements to the model, either suggest the changes, or: add a script that shows the changes made, and upload the new model with the version number updated. 
+
 ## How to cite
 TBA
