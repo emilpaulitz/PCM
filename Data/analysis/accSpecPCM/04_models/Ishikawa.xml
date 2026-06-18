@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1" fbc:required="false" groups:required="false">
-  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox">
+  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox" fbc:strict="true">
     <listOfUnitDefinitions>
       <unitDefinition id="mmol_per_gDW_per_hr">
         <listOfUnits>
@@ -32622,34 +32622,6 @@
           <speciesReference species="M_LPA__45__backbone__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
       </reaction>
-      <reaction metaid="R_DGDGS_h13" id="R_DGDGS_h13" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
-            <p>Confidence Level: 2</p>
-          </body>
-        </notes>
-        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h13">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-        <listOfReactants>
-          <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-      </reaction>
       <reaction metaid="R_FAD6_h12" id="R_FAD6_h12" name="omega-6 fatty acid desaturase, chloroplastic" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -32775,7 +32747,7 @@
           <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_MGDGS_h4" id="R_MGDGS_h4" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_MGDGS_h5" id="R_MGDGS_h5" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://www.ncbi.nlm.nih.gov/pubmed/11553816</p>
@@ -32784,7 +32756,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_MGDGS_h4">
+            <rdf:Description rdf:about="#R_MGDGS_h5">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R02691"/>
@@ -32795,12 +32767,12 @@
         </annotation>
         <listOfReactants>
           <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DG__45__36_3_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_3_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_SLIMEr_778" id="R_SLIMEr_778" name="SLIME reaction" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -32945,7 +32917,7 @@
           <speciesReference species="M_MGDG34__45__backbone__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_DGDGS_h1" id="R_DGDGS_h1" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_DGDGS_h3" id="R_DGDGS_h3" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
@@ -32954,7 +32926,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h1">
+            <rdf:Description rdf:about="#R_DGDGS_h3">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
@@ -32965,12 +32937,12 @@
         </annotation>
         <listOfReactants>
           <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__32_0__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__32_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDG__45__32_0__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__32_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_FAD6_h10" id="R_FAD6_h10" name="omega-6 fatty acid desaturase, chloroplastic" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -37651,7 +37623,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_SFR_h54" id="R_SFR_h54" name="galactolipid galactosyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_SFR_h41" id="R_SFR_h41" name="galactolipid galactosyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://doi.org/10.1074/jbc.M114.576694; https://doi.org/10.1105/tpc.104.024018; https://doi.org/10.1105/tpc.016675</p>
@@ -37660,7 +37632,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_SFR_h54">
+            <rdf:Description rdf:about="#R_SFR_h41">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04472"/>
@@ -37670,12 +37642,39 @@
           </rdf:RDF>
         </annotation>
         <listOfReactants>
-          <speciesReference species="M_MGDG__45__36_6__91__hm__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDGe__45__34_3_1__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_DGDG__45__36_6__91__hm__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGe__45__34_3__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="R_SFR_h45" id="R_SFR_h45" name="galactolipid galactosyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>References:Reference: https://doi.org/10.1074/jbc.M114.576694; https://doi.org/10.1105/tpc.104.024018; https://doi.org/10.1105/tpc.016675</p>
+            <p>Confidence Level: 2</p>
+          </body>
+        </notes>
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#R_SFR_h45">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04472"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="M_MGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_DG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_Ex_89" id="R_Ex_89" name="Export lipid precursor" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -54102,13 +54101,12 @@
       <groups:group sboTerm="SBO:0000633" groups:id="group345" groups:name="fatty acid synthesis,Fatty acid metabolism" groups:kind="partonomy"/>
       <groups:group sboTerm="SBO:0000633" groups:id="group346" groups:name="galactolipid synthesis, eukaryotic pathway" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:idRef="R_DGDGS_h13"/>
           <groups:member groups:idRef="R_FAD6_h12"/>
           <groups:member groups:idRef="R_FAD7_8_h11"/>
           <groups:member groups:idRef="R_FAD7_8_h12"/>
           <groups:member groups:idRef="R_FAD7_8_h13"/>
           <groups:member groups:idRef="R_MGDGS_h3"/>
-          <groups:member groups:idRef="R_MGDGS_h4"/>
+          <groups:member groups:idRef="R_MGDGS_h5"/>
           <groups:member groups:idRef="R_FAD6_h13"/>
           <groups:member groups:idRef="R_FAD7_8_h14"/>
           <groups:member groups:idRef="R_FAD7_8_h15"/>
@@ -54134,7 +54132,7 @@
           <groups:member groups:idRef="R_FAD7_8_h4"/>
           <groups:member groups:idRef="R_FAD7_8_h5"/>
           <groups:member groups:idRef="R_FAD7_8_h6"/>
-          <groups:member groups:idRef="R_DGDGS_h1"/>
+          <groups:member groups:idRef="R_DGDGS_h3"/>
           <groups:member groups:idRef="R_FAD6_h10"/>
           <groups:member groups:idRef="R_FAD6_h11"/>
           <groups:member groups:idRef="R_FAD6_h8"/>
@@ -54345,7 +54343,8 @@
           <groups:member groups:idRef="R_PES_pg97"/>
           <groups:member groups:idRef="R_PES_pg98"/>
           <groups:member groups:idRef="R_PES_pg99"/>
-          <groups:member groups:idRef="R_SFR_h54"/>
+          <groups:member groups:idRef="R_SFR_h41"/>
+          <groups:member groups:idRef="R_SFR_h45"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group sboTerm="SBO:0000633" groups:id="group357" groups:name="lipid remodeling, heat shock stress" groups:kind="partonomy">

@@ -30,7 +30,7 @@ cd(projDir)
 
 % gurobi
 if gurobiAvailable
-    addpath gurobiPath
+    addpath(gurobiPath)
     gurobi_setup
 end
 

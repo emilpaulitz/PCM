@@ -3,7 +3,7 @@
 - metaData:
     id: "model"
     name: "Model Exported from COBRA Toolbox"
-    date: "2026-05-26"
+    date: "2026-06-18"
     geckoLight: "false"
 - metabolites:
     - !!omap
@@ -17701,19 +17701,36 @@
           - kegg.reaction: "R00451"
       - confidence_score: 2
     - !!omap
-      - id: "DGDGS_h3"
+      - id: "DGDGS_h1"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DGDG-32_2[hm]: 1
-          - MGDG-32_2_1[hm]: -1
+          - DGDG-32_0[hm]: 1
+          - MGDG-32_0[hm]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.241"
       - subsystem:
           - "galactolipid synthesis, prokaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
+      - id: "DGDGS_h13"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDGe-34_2[hm]: 1
+          - MGDGe-34_2_1[hm]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, eukaryotic pathway"
       - annotation: !!omap
           - kegg.reaction: "R04469"
       - confidence_score: 2
@@ -20751,14 +20768,14 @@
           - kegg.reaction: "R10208"
       - confidence_score: 2
     - !!omap
-      - id: "HIL_h3"
+      - id: "HIL_h4"
       - name: "heat Inducible Lipase "
       - metabolites: !!omap
           - C00001[h]: -1
           - C00080[h]: 1
           - C18_3[hm]: 1
-          - MGDG-36_5[hm]: -1
-          - MGMG-18_2[h]: 1
+          - MGDG-36_6[hm]: -1
+          - MGMG-18_3[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "3.1.1.-"
@@ -21566,14 +21583,14 @@
           - kegg.reaction: "R02691"
       - confidence_score: 2
     - !!omap
-      - id: "MGDGS_h5"
+      - id: "MGDGS_h4"
       - name: "monogalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DG-36_3_2[hm]: -1
-          - MGDG-36_3_2[hm]: 1
+          - DG-36_4_2[hm]: -1
+          - MGDG-36_4_2[hm]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.46"
@@ -51638,29 +51655,13 @@
           - kegg.reaction: "R02412"
       - confidence_score: 2
     - !!omap
-      - id: "SFR_h45"
+      - id: "SFR_h27"
       - name: "galactolipid galactosyltransferase"
       - metabolites: !!omap
-          - DG-36_5[hm]: 1
-          - DGDGe-34_2[hm]: 1
+          - DG-32_5[hm]: 1
+          - DGDG-36_5[hm]: 1
+          - MGDG-32_5[hm]: -1
           - MGDG-36_5[hm]: -1
-          - MGDGe-34_2_1[hm]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.184"
-      - subsystem:
-          - "lipid remodeling, cold stress"
-      - annotation: !!omap
-          - kegg.reaction: "R04472"
-      - confidence_score: 2
-    - !!omap
-      - id: "SFR_h54"
-      - name: "galactolipid galactosyltransferase"
-      - metabolites: !!omap
-          - DGDG-36_6[hm]: 1
-          - DGe-34_3[hm]: 1
-          - MGDG-36_6[hm]: -1
-          - MGDGe-34_3_1[hm]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.184"

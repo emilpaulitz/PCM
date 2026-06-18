@@ -3,7 +3,7 @@
 - metaData:
     id: "model"
     name: "Model Exported from COBRA Toolbox"
-    date: "2026-05-26"
+    date: "2026-06-18"
     geckoLight: "false"
 - metabolites:
     - !!omap
@@ -6048,6 +6048,16 @@
           - kegg.compound: "C04698"
           - pubchem.compound: "7275"
     - !!omap
+      - id: "C04713[h]"
+      - name: "N6-Prenyladenosine 5'-phosphate"
+      - compartment: "h"
+      - formula: "C15H22N5O7P"
+      - charge: 0
+      - smiles: "CC(=CCNC1=C2C(=NC=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)O)O)O)C"
+      - annotation: !!omap
+          - kegg.compound: "C04713"
+          - pubchem.compound: "7285"
+    - !!omap
       - id: "C04732[h]"
       - name: "5-Amino-6-(1-D-ribitylamino)uracil"
       - compartment: "h"
@@ -8291,16 +8301,6 @@
       - annotation: !!omap
           - kegg.compound: "C16426"
           - pubchem.compound: "47205723"
-    - !!omap
-      - id: "C16429[h]"
-      - name: "trans-Zeatin riboside diphosphate"
-      - compartment: "h"
-      - formula: "C15H23N5O11P2"
-      - charge: 0
-      - smiles: "CC(=CCNC1=C2C(=NC=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)O)O)O)CO"
-      - annotation: !!omap
-          - kegg.compound: "C16429"
-          - pubchem.compound: "47205726"
     - !!omap
       - id: "C16430[h]"
       - name: "trans-Zeatin riboside monophosphate"
@@ -17185,6 +17185,23 @@
           - kegg.reaction: "R00451"
       - confidence_score: 2
     - !!omap
+      - id: "DGDGS_h1"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDG-32_0[hm]: 1
+          - MGDG-32_0[hm]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, prokaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
       - id: "DGDGS_h13"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
@@ -17198,40 +17215,6 @@
       - eccodes: "2.4.1.241"
       - subsystem:
           - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h15"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-36_4_2[hm]: 1
-          - MGDG-36_4_2[hm]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h6"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-32_5[hm]: 1
-          - MGDG-32_5[hm]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, prokaryotic pathway"
       - annotation: !!omap
           - kegg.reaction: "R04469"
       - confidence_score: 2
@@ -21017,14 +21000,14 @@
           - kegg.reaction: "R02691"
       - confidence_score: 2
     - !!omap
-      - id: "MGDGS_h5"
+      - id: "MGDGS_h4"
       - name: "monogalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DG-36_3_2[hm]: -1
-          - MGDG-36_3_2[hm]: 1
+          - DG-36_4_2[hm]: -1
+          - MGDG-36_4_2[hm]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.46"
@@ -32384,14 +32367,14 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
-      - id: "R01248"
-      - name: "L-proline:NAD+ 5-oxidoreductase"
+      - id: "R01251"
+      - name: "L-proline:NADP+ 5-oxidoreductase"
       - metabolites: !!omap
-          - C00004[h]: 1
+          - C00005[h]: 1
+          - C00006[h]: -1
           - C00080[h]: 2
           - C00148[h]: -1
           - C03912[h]: 1
-          - NAD[h]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.5.1.2"
@@ -32399,14 +32382,14 @@
           - "Arginine and proline metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R01248_REV"
-      - name: "L-proline:NAD+ 5-oxidoreductase (reversible)"
+      - id: "R01251_REV"
+      - name: "L-proline:NADP+ 5-oxidoreductase (reversible)"
       - metabolites: !!omap
-          - C00004[h]: -1
+          - C00005[h]: -1
+          - C00006[h]: 1
           - C00080[h]: -2
           - C00148[h]: 1
           - C03912[h]: -1
-          - NAD[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.5.1.2"
@@ -39032,6 +39015,22 @@
           - "MetaCyc:L-histidine biosynthesis"
       - confidence_score: 0
     - !!omap
+      - id: "R04038"
+      - name: "2-isopentenyl-diphosphate:AMP delta2-isopentenyltransferase"
+      - metabolites: !!omap
+          - AMP[h]: -1
+          - C00013[h]: 1
+          - C00080[h]: -2
+          - C00235[h]: -1
+          - C04713[h]: 1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.5.1.27"
+      - subsystem:
+          - "MetaCyc:trans-zeatin biosynthesis"
+          - "cytokinin biosynthesis"
+      - confidence_score: 0
+    - !!omap
       - id: "R04109"
       - name: "L-glutamate-semialdehyde: NADP+ oxidoreductase(L-glutamyl-tRNA(Glu)-forming)"
       - metabolites: !!omap
@@ -44483,16 +44482,16 @@
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
-      - id: "R08054"
-      - name: "isopentenyladenosine-5'-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming)"
+      - id: "R08055"
+      - name: "isopentenyladenosine-5'-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming)"
       - metabolites: !!omap
           - C00001[h]: 1
           - C00007[h]: -1
           - C00080[h]: -1
           - C03024[h]: -1
           - C03161[h]: 1
-          - C16426[h]: -1
-          - C16429[h]: 1
+          - C04713[h]: -1
+          - C16430[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.14.13.-"
@@ -44500,50 +44499,20 @@
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
-      - id: "R08054_REV"
-      - name: "isopentenyladenosine-5'-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming) (reversible)"
+      - id: "R08055_REV"
+      - name: "isopentenyladenosine-5'-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming) (reversible)"
       - metabolites: !!omap
           - C00001[h]: -1
           - C00007[h]: 1
           - C00080[h]: 1
           - C03024[h]: 1
           - C03161[h]: -1
-          - C16426[h]: 1
-          - C16429[h]: -1
+          - C04713[h]: 1
+          - C16430[h]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.14.13.-"
       - subsystem:
-          - "cytokinin biosynthesis"
-      - confidence_score: 0
-    - !!omap
-      - id: "R08064"
-      - name: "trans-Zeatin riboside diphosphate dephosphorylation"
-      - metabolites: !!omap
-          - C00001[h]: -1
-          - C00009[h]: 1
-          - C00080[h]: 2
-          - C16429[h]: -1
-          - C16430[h]: 1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "MetaCyc:trans-zeatin biosynthesis"
-          - "cytokinin biosynthesis"
-      - confidence_score: 0
-    - !!omap
-      - id: "R08064_REV"
-      - name: "trans-Zeatin riboside diphosphate dephosphorylation (reversible)"
-      - metabolites: !!omap
-          - C00001[h]: 1
-          - C00009[h]: -1
-          - C00080[h]: -2
-          - C16429[h]: 1
-          - C16430[h]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "MetaCyc:trans-zeatin biosynthesis"
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
@@ -48221,6 +48190,22 @@
           - "Shikimate Pathway"
       - annotation: !!omap
           - kegg.reaction: "R02412"
+      - confidence_score: 2
+    - !!omap
+      - id: "SFR_h54"
+      - name: "galactolipid galactosyltransferase"
+      - metabolites: !!omap
+          - DGDG-36_6[hm]: 1
+          - DGe-34_3[hm]: 1
+          - MGDG-36_6[hm]: -1
+          - MGDGe-34_3_1[hm]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.184"
+      - subsystem:
+          - "lipid remodeling, cold stress"
+      - annotation: !!omap
+          - kegg.reaction: "R04472"
       - confidence_score: 2
     - !!omap
       - id: "SLIMEr_1063"

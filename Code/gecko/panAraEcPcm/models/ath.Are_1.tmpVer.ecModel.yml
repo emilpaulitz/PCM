@@ -3,7 +3,7 @@
 - metaData:
     id: "model"
     name: "Model Exported from COBRA Toolbox"
-    date: "2026-05-26"
+    date: "2026-06-18"
     geckoLight: "false"
 - metabolites:
     - !!omap
@@ -17300,6 +17300,23 @@
           - kegg.reaction: "R04469"
       - confidence_score: 2
     - !!omap
+      - id: "DGDGS_h15"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDG-36_4_2[hm]: 1
+          - MGDG-36_4_2[hm]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, eukaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
       - id: "DHDPS_h"
       - name: "Tetrahydrodipicolinate synthase"
       - metabolites: !!omap
@@ -20374,14 +20391,14 @@
           - kegg.reaction: "R10208"
       - confidence_score: 2
     - !!omap
-      - id: "HIL_h3"
+      - id: "HIL_h4"
       - name: "heat Inducible Lipase "
       - metabolites: !!omap
           - C00001[h]: -1
           - C00080[h]: 1
           - C18_3[hm]: 1
-          - MGDG-36_5[hm]: -1
-          - MGMG-18_2[h]: 1
+          - MGDG-36_6[hm]: -1
+          - MGMG-18_3[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "3.1.1.-"
@@ -27764,23 +27781,6 @@
           - "Pyruvate metabolism"
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
-    - !!omap
-      - id: "R00209"
-      - name: "pyruvate:NAD+ 2-oxidoreductase (CoA-acetylating);"
-      - metabolites: !!omap
-          - C00004[h]: 1
-          - C00022[h]: -1
-          - C00024[h]: 1
-          - CO2[h]: 1
-          - CoA[h]: -1
-          - NAD[h]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "MetaCyc:TCA cycle variation V (plant)"
-      - confidence_score: 0
-      - rxnNotes: "Imported from aragem model, gpr from Uniprot"
     - !!omap
       - id: "R00220"
       - name: "L-serine ammonia-lyase"
@@ -38844,6 +38844,36 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
+      - id: "R03815"
+      - name: "dihydrolipoylprotein:NAD+ oxidoreductase"
+      - metabolites: !!omap
+          - C00004[h]: 1
+          - C00080[h]: 1
+          - C02051[h]: 1
+          - DHL[h]: -1
+          - NAD[h]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "1.8.1.4"
+      - subsystem:
+          - "photorespiration"
+      - confidence_score: 0
+    - !!omap
+      - id: "R03815_REV"
+      - name: "dihydrolipoylprotein:NAD+ oxidoreductase (reversible)"
+      - metabolites: !!omap
+          - C00004[h]: -1
+          - C00080[h]: -1
+          - C02051[h]: -1
+          - DHL[h]: 1
+          - NAD[h]: 1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "1.8.1.4"
+      - subsystem:
+          - "photorespiration"
+      - confidence_score: 0
+    - !!omap
       - id: "R03824"
       - name: "carotenoid beta-end group lyase (decyclizing)"
       - metabolites: !!omap
@@ -48934,22 +48964,6 @@
           - "Shikimate Pathway"
       - annotation: !!omap
           - kegg.reaction: "R02412"
-      - confidence_score: 2
-    - !!omap
-      - id: "SFR_h9"
-      - name: "galactolipid galactosyltransferase"
-      - metabolites: !!omap
-          - DG-32_2[hm]: 1
-          - DGDG-36_5[hm]: 1
-          - MGDG-32_2_1[hm]: -1
-          - MGDG-36_5[hm]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.184"
-      - subsystem:
-          - "lipid remodeling, cold stress"
-      - annotation: !!omap
-          - kegg.reaction: "R04472"
       - confidence_score: 2
     - !!omap
       - id: "SLIMEr_1063"

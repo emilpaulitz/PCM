@@ -4,7 +4,7 @@
     id: "model"
     name: "Model Exported from COBRA Toolbox"
     version: ""
-    date: "2026-05-26"
+    date: "2026-06-18"
     defaultLB: "-1000"
     defaultUB: "1000"
     geckoLight: "false"
@@ -5381,6 +5381,16 @@
           - kegg.compound: "C03263"
           - metanetx.chemical: "MNXM735625"
           - pubchem.compound: "20849114"
+    - !!omap
+      - id: "C03287[h]"
+      - name: "L-gamma-glutamyl"
+      - compartment: "h"
+      - formula: "C5H10NO7P"
+      - charge: 0
+      - annotation: !!omap
+          - chebi: "CHEBI:17798"
+          - kegg.compound: "C03287"
+          - pubchem.compound: "6144"
     - !!omap
       - id: "C03313[h]"
       - name: "Phylloquinol"
@@ -17518,6 +17528,24 @@
           - kegg.reaction: "R00451"
       - confidence_score: 2
     - !!omap
+      - id: "DGDGS_h1"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDG-32_0[hm]: 1
+          - MGDG-32_0[hm]: -1
+          - prot_standard: -0.447730607966457
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, prokaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
       - id: "DGDGS_h13"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
@@ -17532,42 +17560,6 @@
       - eccodes: "2.4.1.241"
       - subsystem:
           - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h15"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-36_4_2[hm]: 1
-          - MGDG-36_4_2[hm]: -1
-          - prot_standard: -0.447730607966457
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h4"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-32_3[hm]: 1
-          - MGDG-32_3_1[hm]: -1
-          - prot_standard: -0.447730607966457
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, prokaryotic pathway"
       - annotation: !!omap
           - kegg.reaction: "R04469"
       - confidence_score: 2
@@ -18709,7 +18701,7 @@
           - C00139[h]: 2
           - PGpl-34_1[hm]: -1
           - PGpl-34_2[hm]: 1
-          - prot_G00509: -43.2058823529412
+          - prot_G00509: -4.32058823529412
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_2G22010"
@@ -18937,7 +18929,7 @@
           - C00139[h]: 2
           - MGDG-32_3_1[hm]: -1
           - MGDG-32_4[hm]: 1
-          - prot_G01000: -91.6687925170066
+          - prot_G01000: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_4G37920"
@@ -19032,7 +19024,7 @@
           - C00139[h]: 2
           - MGDG-32_1[hm]: -1
           - MGDG-32_2_2[hm]: 1
-          - prot_G01000: -9.16687925170066
+          - prot_G01000: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_4G37920"
@@ -19222,7 +19214,7 @@
           - C00139[h]: 2
           - MGDG-36_5[hm]: -1
           - MGDG-36_6[hm]: 1
-          - prot_G01386: -69.0637254901961
+          - prot_G01386: -6.90637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_5G14320"
@@ -19488,7 +19480,7 @@
           - C00139[h]: 2
           - MGDG-32_4[hm]: -1
           - MGDG-32_5[hm]: 1
-          - prot_G01386: -69.0637254901961
+          - prot_G01386: -6.90637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_5G14320"
@@ -19526,7 +19518,7 @@
           - C00139[h]: 2
           - MGDG-32_2_2[hm]: -1
           - MGDG-32_3_2[hm]: 1
-          - prot_G01386: -6.90637254901961
+          - prot_G01386: -69.0637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_5G14320"
@@ -20794,14 +20786,14 @@
           - kegg.reaction: "R10208"
       - confidence_score: 2
     - !!omap
-      - id: "HIL_h3"
+      - id: "HIL_h4"
       - name: "heat Inducible Lipase "
       - metabolites: !!omap
           - C00001[h]: -1
           - C00080[h]: 1
           - C18_3[hm]: 1
-          - MGDG-36_5[hm]: -1
-          - MGMG-18_2[h]: 1
+          - MGDG-36_6[hm]: -1
+          - MGMG-18_3[h]: 1
           - prot_standard: -0.447730607966457
       - lower_bound: 0
       - upper_bound: 1000
@@ -21646,7 +21638,7 @@
           - C00080[h]: 1
           - DG-36_4_2[hm]: -1
           - MGDG-36_4_2[hm]: 1
-          - prot_standard: -0.447730607966457
+          - prot_standard: -0.0447730607966457
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.46"
@@ -29063,6 +29055,26 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
+      - id: "R00239"
+      - name: "ATP:L-glutamate 5-phosphotransferase"
+      - metabolites: !!omap
+          - C00002[h]: -1
+          - C00008[h]: 1
+          - C00025[h]: -1
+          - C00080[h]: -2
+          - C03287[h]: 1
+          - prot_standard: -0.447730607966457
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.7.2.11"
+      - subsystem:
+          - "Arginine and proline metabolism"
+          - "MetaCyc:L-Ndelta-acetylornithine biosynthesis"
+          - "MetaCyc:L-citrulline biosynthesis"
+          - "MetaCyc:L-ornithine biosynthesis II"
+          - "MetaCyc:L-proline biosynthesis I (from L-glutamate)"
+      - confidence_score: 0
+    - !!omap
       - id: "R00243"
       - name: "L-glutamate:NAD+ oxidoreductase (deaminating)"
       - metabolites: !!omap
@@ -34074,14 +34086,14 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
-      - id: "R01248"
-      - name: "L-proline:NAD+ 5-oxidoreductase"
+      - id: "R01251"
+      - name: "L-proline:NADP+ 5-oxidoreductase"
       - metabolites: !!omap
-          - C00004[h]: 1
+          - C00005[h]: 1
+          - C00006[h]: -1
           - C00080[h]: 2
           - C00148[h]: -1
           - C03912[h]: 1
-          - NAD[h]: -1
           - prot_standard: -0.447730607966457
       - lower_bound: 0
       - upper_bound: 1000
@@ -34090,14 +34102,14 @@
           - "Arginine and proline metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R01248_REV"
-      - name: "L-proline:NAD+ 5-oxidoreductase (reversible)"
+      - id: "R01251_REV"
+      - name: "L-proline:NADP+ 5-oxidoreductase (reversible)"
       - metabolites: !!omap
-          - C00004[h]: -1
+          - C00005[h]: -1
+          - C00006[h]: 1
           - C00080[h]: -2
           - C00148[h]: 1
           - C03912[h]: -1
-          - NAD[h]: 1
           - prot_standard: -0.447730607966457
       - lower_bound: 0
       - upper_bound: 1000
@@ -37307,24 +37319,6 @@
           - "porphyrin and chlorophyll metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R02282"
-      - name: "N2-Acetyl-L-ornithine:L-glutamate N-acetyltransferase"
-      - metabolites: !!omap
-          - C00025[h]: -1
-          - C00077[h]: 1
-          - C00080[h]: -1
-          - C00437[h]: -1
-          - C00624[h]: 1
-          - prot_standard: -0.447730607966457
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.3.1.35"
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "Arginine and proline metabolism"
-          - "MetaCyc:L-arginine biosynthesis II (acetyl cycle)"
-      - confidence_score: 0
-    - !!omap
       - id: "R02283"
       - name: "N2-Acetyl-L-ornithine:2-oxoglutarate aminotransferase"
       - metabolites: !!omap
@@ -39814,6 +39808,27 @@
           - "Pyruvate metabolism"
       - confidence_score: 0
     - !!omap
+      - id: "R03313"
+      - name: "L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphorylating)"
+      - metabolites: !!omap
+          - C00005[h]: -1
+          - C00006[h]: 1
+          - C00009[h]: 1
+          - C00080[h]: 1
+          - C01165[h]: 1
+          - C03287[h]: -1
+          - prot_standard: -0.447730607966457
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "1.2.1.41"
+      - subsystem:
+          - "Arginine and proline metabolism"
+          - "MetaCyc:L-Ndelta-acetylornithine biosynthesis"
+          - "MetaCyc:L-citrulline biosynthesis"
+          - "MetaCyc:L-ornithine biosynthesis II"
+          - "MetaCyc:L-proline biosynthesis I (from L-glutamate)"
+      - confidence_score: 0
+    - !!omap
       - id: "R03314"
       - name: " (spontaneous)"
       - metabolites: !!omap
@@ -39948,46 +39963,6 @@
           - "Galactose metabolism"
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
-    - !!omap
-      - id: "R03443"
-      - name: "N-acetyl-L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphrylating)"
-      - metabolites: !!omap
-          - C00005[h]: 1
-          - C00006[h]: -1
-          - C00009[h]: -1
-          - C00080[h]: -1
-          - C01250[h]: -1
-          - C04133[h]: 1
-          - prot_standard: -0.447730607966457
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "1.2.1.38"
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "Arginine and proline metabolism"
-          - "MetaCyc:L-arginine biosynthesis II (acetyl cycle)"
-          - "MetaCyc:L-ornithine biosynthesis I"
-      - confidence_score: 0
-    - !!omap
-      - id: "R03443_REV"
-      - name: "N-acetyl-L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphrylating) (reversible)"
-      - metabolites: !!omap
-          - C00005[h]: -1
-          - C00006[h]: 1
-          - C00009[h]: 1
-          - C00080[h]: 1
-          - C01250[h]: 1
-          - C04133[h]: -1
-          - prot_standard: -0.447730607966457
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "1.2.1.38"
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "Arginine and proline metabolism"
-          - "MetaCyc:L-arginine biosynthesis II (acetyl cycle)"
-          - "MetaCyc:L-ornithine biosynthesis I"
-      - confidence_score: 0
     - !!omap
       - id: "R03457_EXP_1"
       - name: "D-erythro-1-(Imidazol-4-yl)glycerol 3-phosphate hydro-lyase"
@@ -46282,7 +46257,7 @@
           - C00013[h]: 1
           - C03427[h]: -1
           - C05413[h]: 1
-          - prot_G01321: -20.8583398795496
+          - prot_G01321: -208.583398795496
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATShahdara_5G24910"
@@ -51925,6 +51900,23 @@
           - "Shikimate Pathway"
       - annotation: !!omap
           - kegg.reaction: "R02412"
+      - confidence_score: 2
+    - !!omap
+      - id: "SFR_h97"
+      - name: "galactolipid galactosyltransferase"
+      - metabolites: !!omap
+          - DG-36_5[hm]: 1
+          - DGDG-36_4_2[hm]: 1
+          - MGDG-36_4_2[hm]: -1
+          - MGDG-36_5[hm]: -1
+          - prot_standard: -0.447730607966457
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.184"
+      - subsystem:
+          - "lipid remodeling, cold stress"
+      - annotation: !!omap
+          - kegg.reaction: "R04472"
       - confidence_score: 2
     - !!omap
       - id: "SLIMEr_1063"
@@ -63239,8 +63231,9 @@
         - G00234: 1
   - !!omap
     - id: "FAD4_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 1.7
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.43"
     - enzymes: !!omap
         - G00509: 1
@@ -63326,8 +63319,9 @@
         - G01000: 1
   - !!omap
     - id: "FAD6_h2"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01000: 1
@@ -63361,9 +63355,8 @@
         - G01000: 1
   - !!omap
     - id: "FAD6_h7"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01000: 1
@@ -63433,8 +63426,9 @@
         - G00901: 1
   - !!omap
     - id: "FAD7_8_h13_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 1.7
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01386: 1
@@ -63531,8 +63525,9 @@
         - G00901: 1
   - !!omap
     - id: "FAD7_8_h1_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 1.7
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01386: 1
@@ -63545,9 +63540,8 @@
         - G00901: 1
   - !!omap
     - id: "FAD7_8_h2_EXP_2"
-    - kcat: 1.7
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.17 | source:brenda"
+    - kcat: 0.17
+    - source: "brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01386: 1
@@ -72338,9 +72332,8 @@
         - G01096: 1
   - !!omap
     - id: "R07270"
-    - kcat: 0.530416666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.053042 | source:brenda"
+    - kcat: 0.0530416666666667
+    - source: "brenda"
     - eccodes: "2.5.1.32"
     - enzymes: !!omap
         - G01321: 1
@@ -74571,19 +74564,13 @@
         - G00018: 1
         - Q8VYW2: 1
   - !!omap
+    - id: "DGDGS_h1"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
     - id: "DGDGS_h13"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "DGDGS_h15"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "DGDGS_h4"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -74610,7 +74597,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "HIL_h3"
+    - id: "HIL_h4"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -74643,8 +74630,9 @@
         - standard: 1
   - !!omap
     - id: "MGDGS_h4"
-    - kcat: 26.5
-    - source: "standard"
+    - kcat: 265
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=26.5 | source:standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -74747,6 +74735,12 @@
         - standard: 1
   - !!omap
     - id: "R00233"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "R00239"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -75186,13 +75180,13 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R01248"
+    - id: "R01251"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R01248_REV"
+    - id: "R01251_REV"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -75534,12 +75528,6 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R02282"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
     - id: "R02291"
     - kcat: 26.5
     - source: "standard"
@@ -75733,6 +75721,12 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
+    - id: "R03313"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
     - id: "R03315"
     - kcat: 26.5
     - source: "standard"
@@ -75746,18 +75740,6 @@
         - standard: 1
   - !!omap
     - id: "R03418"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R03443"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R03443_REV"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -76385,6 +76367,12 @@
         - standard: 1
   - !!omap
     - id: "SAK_h"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "SFR_h97"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap

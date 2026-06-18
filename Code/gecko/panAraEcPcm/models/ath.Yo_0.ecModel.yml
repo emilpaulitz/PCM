@@ -4,7 +4,7 @@
     id: "model"
     name: "Model Exported from COBRA Toolbox"
     version: ""
-    date: "2026-05-26"
+    date: "2026-06-18"
     defaultLB: "-1000"
     defaultUB: "1000"
     geckoLight: "false"
@@ -6100,6 +6100,16 @@
           - kegg.compound: "C04698"
           - pubchem.compound: "7275"
     - !!omap
+      - id: "C04713[h]"
+      - name: "N6-Prenyladenosine 5'-phosphate"
+      - compartment: "h"
+      - formula: "C15H22N5O7P"
+      - charge: 0
+      - smiles: "CC(=CCNC1=C2C(=NC=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)O)O)O)C"
+      - annotation: !!omap
+          - kegg.compound: "C04713"
+          - pubchem.compound: "7285"
+    - !!omap
       - id: "C04732[h]"
       - name: "5-Amino-6-(1-D-ribitylamino)uracil"
       - compartment: "h"
@@ -8296,16 +8306,6 @@
       - annotation: !!omap
           - kegg.compound: "C16426"
           - pubchem.compound: "47205723"
-    - !!omap
-      - id: "C16429[h]"
-      - name: "trans-Zeatin riboside diphosphate"
-      - compartment: "h"
-      - formula: "C15H23N5O11P2"
-      - charge: 0
-      - smiles: "CC(=CCNC1=C2C(=NC=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)O)O)O)CO"
-      - annotation: !!omap
-          - kegg.compound: "C16429"
-          - pubchem.compound: "47205726"
     - !!omap
       - id: "C16430[h]"
       - name: "trans-Zeatin riboside monophosphate"
@@ -17316,42 +17316,6 @@
           - kegg.reaction: "R04469"
       - confidence_score: 2
     - !!omap
-      - id: "DGDGS_h15"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-36_4_2[hm]: 1
-          - MGDG-36_4_2[hm]: -1
-          - prot_standard: -0.447845911949686
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h3"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-32_2[hm]: 1
-          - MGDG-32_2_1[hm]: -1
-          - prot_standard: -0.447845911949686
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, prokaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
       - id: "DHDPS_h"
       - name: "Tetrahydrodipicolinate synthase"
       - metabolites: !!omap
@@ -18584,7 +18548,7 @@
           - C00139[h]: 2
           - MGDG-32_2_1[hm]: -1
           - MGDG-32_3_1[hm]: 1
-          - prot_G01097: -91.6687925170066
+          - prot_G01097: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_4G38360"
@@ -18717,7 +18681,7 @@
           - C00139[h]: 2
           - MGDG-32_3_1[hm]: -1
           - MGDG-32_4[hm]: 1
-          - prot_G01097: -91.6687925170066
+          - prot_G01097: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_4G38360"
@@ -18831,7 +18795,7 @@
           - C00139[h]: 2
           - DGDG-32_2[hm]: -1
           - DGDG-32_3[hm]: 1
-          - prot_G01097: -9.16687925170066
+          - prot_G01097: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_4G38360"
@@ -18850,7 +18814,7 @@
           - C00139[h]: 2
           - DGDG-32_3[hm]: -1
           - DGDG-32_4[hm]: 1
-          - prot_G01097: -9.16687925170066
+          - prot_G01097: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_4G38360"
@@ -18926,7 +18890,7 @@
           - C00139[h]: 2
           - MGDGe-34_2_1[hm]: -1
           - MGDGe-34_3_1[hm]: 1
-          - prot_G01254: -69.0637254901961
+          - prot_G01254: -0.690637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_5G14280"
@@ -18964,7 +18928,7 @@
           - C00139[h]: 2
           - MGDG-36_4_2[hm]: -1
           - MGDG-36_5[hm]: 1
-          - prot_G01254: -6.90637254901961
+          - prot_G01254: -0.690637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_5G14280"
@@ -19002,7 +18966,7 @@
           - C00139[h]: 2
           - MGDG-36_5[hm]: -1
           - MGDG-36_6[hm]: 1
-          - prot_G01254: -69.0637254901961
+          - prot_G01254: -6.90637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_5G14280"
@@ -19868,7 +19832,7 @@
           - C00058[h]: -1
           - C00101[h]: -1
           - C00234[h]: 1
-          - prot_standard: -0.447845911949686
+          - prot_standard: -0.0447845911949686
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "6.3.4.3"
@@ -21328,7 +21292,7 @@
           - C00080[h]: 1
           - DGe-34_2[hm]: -1
           - MGDGe-34_2_1[hm]: 1
-          - prot_standard: -0.447845911949686
+          - prot_standard: -0.0447845911949686
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.46"
@@ -27998,7 +27962,7 @@
           - C00255[h]: 1
           - C04332[h]: -2
           - C04732[h]: 1
-          - prot_G00545: -24.9053497942387
+          - prot_G00545: -2.49053497942387
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATYo_0_2G20330"
@@ -40894,6 +40858,23 @@
           - "MetaCyc:L-histidine biosynthesis"
       - confidence_score: 0
     - !!omap
+      - id: "R04038"
+      - name: "2-isopentenyl-diphosphate:AMP delta2-isopentenyltransferase"
+      - metabolites: !!omap
+          - AMP[h]: -1
+          - C00013[h]: 1
+          - C00080[h]: -2
+          - C00235[h]: -1
+          - C04713[h]: 1
+          - prot_standard: -0.447845911949686
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.5.1.27"
+      - subsystem:
+          - "MetaCyc:trans-zeatin biosynthesis"
+          - "cytokinin biosynthesis"
+      - confidence_score: 0
+    - !!omap
       - id: "R04109"
       - name: "L-glutamate-semialdehyde: NADP+ oxidoreductase(L-glutamyl-tRNA(Glu)-forming)"
       - metabolites: !!omap
@@ -46986,16 +46967,16 @@
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
-      - id: "R08054"
-      - name: "isopentenyladenosine-5'-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming)"
+      - id: "R08055"
+      - name: "isopentenyladenosine-5'-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming)"
       - metabolites: !!omap
           - C00001[h]: 1
           - C00007[h]: -1
           - C00080[h]: -1
           - C03024[h]: -1
           - C03161[h]: 1
-          - C16426[h]: -1
-          - C16429[h]: 1
+          - C04713[h]: -1
+          - C16430[h]: 1
           - prot_standard: -0.447845911949686
       - lower_bound: 0
       - upper_bound: 1000
@@ -47004,53 +46985,21 @@
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
-      - id: "R08054_REV"
-      - name: "isopentenyladenosine-5'-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming) (reversible)"
+      - id: "R08055_REV"
+      - name: "isopentenyladenosine-5'-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming) (reversible)"
       - metabolites: !!omap
           - C00001[h]: -1
           - C00007[h]: 1
           - C00080[h]: 1
           - C03024[h]: 1
           - C03161[h]: -1
-          - C16426[h]: 1
-          - C16429[h]: -1
+          - C04713[h]: 1
+          - C16430[h]: -1
           - prot_standard: -0.447845911949686
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.14.13.-"
       - subsystem:
-          - "cytokinin biosynthesis"
-      - confidence_score: 0
-    - !!omap
-      - id: "R08064"
-      - name: "trans-Zeatin riboside diphosphate dephosphorylation"
-      - metabolites: !!omap
-          - C00001[h]: -1
-          - C00009[h]: 1
-          - C00080[h]: 2
-          - C16429[h]: -1
-          - C16430[h]: 1
-          - prot_standard: -0.447845911949686
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "MetaCyc:trans-zeatin biosynthesis"
-          - "cytokinin biosynthesis"
-      - confidence_score: 0
-    - !!omap
-      - id: "R08064_REV"
-      - name: "trans-Zeatin riboside diphosphate dephosphorylation (reversible)"
-      - metabolites: !!omap
-          - C00001[h]: 1
-          - C00009[h]: -1
-          - C00080[h]: -2
-          - C16429[h]: 1
-          - C16430[h]: -1
-          - prot_standard: -0.447845911949686
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "MetaCyc:trans-zeatin biosynthesis"
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
@@ -51038,6 +50987,40 @@
           - "Shikimate Pathway"
       - annotation: !!omap
           - kegg.reaction: "R02412"
+      - confidence_score: 2
+    - !!omap
+      - id: "SFR_h25"
+      - name: "galactolipid galactosyltransferase"
+      - metabolites: !!omap
+          - DG-36_5[hm]: 1
+          - DGDG-32_4[hm]: 1
+          - MGDG-32_4[hm]: -1
+          - MGDG-36_5[hm]: -1
+          - prot_standard: -0.447845911949686
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.184"
+      - subsystem:
+          - "lipid remodeling, cold stress"
+      - annotation: !!omap
+          - kegg.reaction: "R04472"
+      - confidence_score: 2
+    - !!omap
+      - id: "SFR_h54"
+      - name: "galactolipid galactosyltransferase"
+      - metabolites: !!omap
+          - DGDG-36_6[hm]: 1
+          - DGe-34_3[hm]: 1
+          - MGDG-36_6[hm]: -1
+          - MGDGe-34_3_1[hm]: -1
+          - prot_standard: -0.447845911949686
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.184"
+      - subsystem:
+          - "lipid remodeling, cold stress"
+      - annotation: !!omap
+          - kegg.reaction: "R04472"
       - confidence_score: 2
     - !!omap
       - id: "SLIMEr_1063"
@@ -62149,8 +62132,9 @@
         - G00798: 1
   - !!omap
     - id: "FAD6_h1"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01097: 1
@@ -62199,8 +62183,9 @@
         - G01097: 1
   - !!omap
     - id: "FAD6_h2"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01097: 1
@@ -62241,17 +62226,15 @@
         - G01097: 1
   - !!omap
     - id: "FAD6_h8"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01097: 1
   - !!omap
     - id: "FAD6_h9"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01097: 1
@@ -62278,8 +62261,9 @@
         - G00673: 1
   - !!omap
     - id: "FAD7_8_h11_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 17
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01254: 1
@@ -62292,7 +62276,7 @@
         - G00673: 1
   - !!omap
     - id: "FAD7_8_h12_EXP_2"
-    - kcat: 1.7
+    - kcat: 17
     - source: "sensitivityTuning"
     - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
@@ -62307,8 +62291,9 @@
         - G00673: 1
   - !!omap
     - id: "FAD7_8_h13_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 1.7
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01254: 1
@@ -65959,7 +65944,7 @@
         - G01531: 1
   - !!omap
     - id: "R00066"
-    - kcat: 0.27
+    - kcat: 2.7
     - source: "sensitivityTuning"
     - notes: "preTuneKcat=0.027 | source:brenda"
     - eccodes: "2.5.1.9"
@@ -73208,18 +73193,6 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "DGDGS_h15"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "DGDGS_h3"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
     - id: "DMAT_h"
     - kcat: 265
     - source: "sensitivityTuning"
@@ -73228,8 +73201,9 @@
         - standard: 1
   - !!omap
     - id: "ForTHFL_h"
-    - kcat: 26.5
-    - source: "standard"
+    - kcat: 265
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=26.5 | source:standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -73267,8 +73241,9 @@
         - standard: 1
   - !!omap
     - id: "MGDGS_h3"
-    - kcat: 26.5
-    - source: "standard"
+    - kcat: 265
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=26.5 | source:standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -74548,6 +74523,12 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
+    - id: "R04038"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
     - id: "R04109"
     - kcat: 265
     - source: "sensitivityTuning"
@@ -74843,25 +74824,13 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R08054"
+    - id: "R08055"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R08054_REV"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R08064"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R08064_REV"
+    - id: "R08055_REV"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -75012,6 +74981,18 @@
         - standard: 1
   - !!omap
     - id: "SAK_h"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "SFR_h25"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "SFR_h54"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap

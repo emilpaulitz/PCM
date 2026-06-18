@@ -4,7 +4,7 @@
     id: "model"
     name: "Model Exported from COBRA Toolbox"
     version: ""
-    date: "2026-05-26"
+    date: "2026-06-18"
     defaultLB: "-1000"
     defaultUB: "1000"
     geckoLight: "false"
@@ -17368,14 +17368,32 @@
           - kegg.reaction: "R00451"
       - confidence_score: 2
     - !!omap
-      - id: "DGDGS_h6"
+      - id: "DGDGS_h13"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DGDG-32_5[hm]: 1
-          - MGDG-32_5[hm]: -1
+          - DGDGe-34_2[hm]: 1
+          - MGDGe-34_2_1[hm]: -1
+          - prot_standard: -0.448039832285115
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, eukaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
+      - id: "DGDGS_h3"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDG-32_2[hm]: 1
+          - MGDG-32_2_1[hm]: -1
           - prot_standard: -0.448039832285115
       - lower_bound: 0
       - upper_bound: 1000
@@ -17413,7 +17431,7 @@
           - C16255[h]: -1
           - CoA[h]: -1
           - DHL[h]: 1
-          - prot_G00373: -2.02638549307254
+          - prot_G00373: -0.0202638549307254
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_1G40310"
@@ -18621,7 +18639,7 @@
           - C00139[h]: 2
           - MGDG-32_2_1[hm]: -1
           - MGDG-32_3_1[hm]: 1
-          - prot_G00954: -9.16687925170066
+          - prot_G00954: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_4G37940"
@@ -18678,7 +18696,7 @@
           - C00139[h]: 2
           - MGDG-36_3_2[hm]: -1
           - MGDG-36_4_2[hm]: 1
-          - prot_G00954: -91.6687925170066
+          - prot_G00954: -0.916687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_4G37940"
@@ -18754,7 +18772,7 @@
           - C00139[h]: 2
           - MGDG-32_3_1[hm]: -1
           - MGDG-32_4[hm]: 1
-          - prot_G00954: -9.16687925170066
+          - prot_G00954: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_4G37940"
@@ -18868,7 +18886,7 @@
           - C00139[h]: 2
           - DGDG-32_2[hm]: -1
           - DGDG-32_3[hm]: 1
-          - prot_G00954: -91.6687925170066
+          - prot_G00954: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_4G37940"
@@ -18887,7 +18905,7 @@
           - C00139[h]: 2
           - DGDG-32_3[hm]: -1
           - DGDG-32_4[hm]: 1
-          - prot_G00954: -91.6687925170066
+          - prot_G00954: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_4G37940"
@@ -19305,7 +19323,7 @@
           - C00139[h]: 2
           - MGDG-32_4[hm]: -1
           - MGDG-32_5[hm]: 1
-          - prot_G01462: -6.90833333333333
+          - prot_G01462: -69.0833333333333
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_5G14330"
@@ -19533,7 +19551,7 @@
           - C00139[h]: 2
           - DGDG-32_4[hm]: -1
           - DGDG-32_5[hm]: 1
-          - prot_G01462: -69.0833333333333
+          - prot_G01462: -6.90833333333333
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_5G14330"
@@ -21434,14 +21452,14 @@
           - kegg.reaction: "R02691"
       - confidence_score: 2
     - !!omap
-      - id: "MGDGS_h4"
+      - id: "MGDGS_h5"
       - name: "monogalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DG-36_4_2[hm]: -1
-          - MGDG-36_4_2[hm]: 1
+          - DG-36_3_2[hm]: -1
+          - MGDG-36_3_2[hm]: 1
           - prot_standard: -0.448039832285115
       - lower_bound: 0
       - upper_bound: 1000
@@ -27266,7 +27284,7 @@
           - Cho[c]: 1
           - PA-36_4_2[ohm]: 1
           - PC-36_4_2[ohm]: -1
-          - prot_standard: -0.0448039832285115
+          - prot_standard: -0.448039832285115
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "3.1.4.4"
@@ -27284,7 +27302,7 @@
           - Cho[c]: 1
           - PA-36_3_2[ohm]: 1
           - PC-36_3_2[ohm]: -1
-          - prot_standard: -0.448039832285115
+          - prot_standard: -0.0448039832285115
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "3.1.4.4"
@@ -28752,24 +28770,6 @@
           - "Pyruvate metabolism"
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
-    - !!omap
-      - id: "R00209"
-      - name: "pyruvate:NAD+ 2-oxidoreductase (CoA-acetylating);"
-      - metabolites: !!omap
-          - C00004[h]: 1
-          - C00022[h]: -1
-          - C00024[h]: 1
-          - CO2[h]: 1
-          - CoA[h]: -1
-          - NAD[h]: -1
-          - prot_standard: -0.00448039832285115
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "MetaCyc:TCA cycle variation V (plant)"
-      - confidence_score: 0
-      - rxnNotes: "Imported from aragem model, gpr from Uniprot"
     - !!omap
       - id: "R00220"
       - name: "L-serine ammonia-lyase"
@@ -34601,7 +34601,7 @@
           - C00008[h]: 1
           - C00197[h]: -1
           - C00236[h]: 1
-          - prot_G00084: -0.0013551751279024
+          - prot_G00084: -0.013551751279024
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATAre_6_1G50190"
@@ -38754,7 +38754,7 @@
       - metabolites: !!omap
           - C04181[h]: 1
           - C06010[h]: -1
-          - prot_standard: -0.0448039832285115
+          - prot_standard: -0.448039832285115
       - lower_bound: 0
       - upper_bound: 1000
       - subsystem:
@@ -40601,6 +40601,38 @@
           - "Porphyrin metabolism"
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
+    - !!omap
+      - id: "R03815"
+      - name: "dihydrolipoylprotein:NAD+ oxidoreductase"
+      - metabolites: !!omap
+          - C00004[h]: 1
+          - C00080[h]: 1
+          - C02051[h]: 1
+          - DHL[h]: -1
+          - NAD[h]: -1
+          - prot_standard: -0.00448039832285115
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "1.8.1.4"
+      - subsystem:
+          - "photorespiration"
+      - confidence_score: 0
+    - !!omap
+      - id: "R03815_REV"
+      - name: "dihydrolipoylprotein:NAD+ oxidoreductase (reversible)"
+      - metabolites: !!omap
+          - C00004[h]: -1
+          - C00080[h]: -1
+          - C02051[h]: -1
+          - DHL[h]: 1
+          - NAD[h]: 1
+          - prot_standard: -0.448039832285115
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "1.8.1.4"
+      - subsystem:
+          - "photorespiration"
+      - confidence_score: 0
     - !!omap
       - id: "R03824"
       - name: "carotenoid beta-end group lyase (decyclizing)"
@@ -51356,29 +51388,12 @@
           - kegg.reaction: "R02412"
       - confidence_score: 2
     - !!omap
-      - id: "SFR_h16"
+      - id: "SFR_h42"
       - name: "galactolipid galactosyltransferase"
       - metabolites: !!omap
-          - DG-32_3[hm]: 1
           - DGDG-36_6[hm]: 1
-          - MGDG-32_3_1[hm]: -1
+          - DGe-34_2[hm]: 1
           - MGDG-36_6[hm]: -1
-          - prot_standard: -0.448039832285115
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.184"
-      - subsystem:
-          - "lipid remodeling, cold stress"
-      - annotation: !!omap
-          - kegg.reaction: "R04472"
-      - confidence_score: 2
-    - !!omap
-      - id: "SFR_h45"
-      - name: "galactolipid galactosyltransferase"
-      - metabolites: !!omap
-          - DG-36_5[hm]: 1
-          - DGDGe-34_2[hm]: 1
-          - MGDG-36_5[hm]: -1
           - MGDGe-34_2_1[hm]: -1
           - prot_standard: -0.448039832285115
       - lower_bound: 0
@@ -62394,8 +62409,9 @@
         - G00595: 1
   - !!omap
     - id: "DHLAcT_h_EXP_1"
-    - kcat: 5.45333333333333
-    - source: "brenda"
+    - kcat: 545.333333333333
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=5.4533 | source:brenda"
     - eccodes: "2.3.1.12"
     - enzymes: !!omap
         - G00373: 1
@@ -62566,9 +62582,8 @@
         - G00917: 1
   - !!omap
     - id: "FAD6_h1"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G00954: 1
@@ -62588,8 +62603,9 @@
         - G00954: 1
   - !!omap
     - id: "FAD6_h12"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 13.0666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G00954: 1
@@ -62616,9 +62632,8 @@
         - G00954: 1
   - !!omap
     - id: "FAD6_h2"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G00954: 1
@@ -62659,15 +62674,17 @@
         - G00954: 1
   - !!omap
     - id: "FAD6_h8"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G00954: 1
   - !!omap
     - id: "FAD6_h9"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G00954: 1
@@ -62822,9 +62839,8 @@
         - G00792: 1
   - !!omap
     - id: "FAD7_8_h1_EXP_2"
-    - kcat: 1.7
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.17 | source:brenda"
+    - kcat: 0.17
+    - source: "brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01462: 1
@@ -62907,8 +62923,9 @@
         - G00792: 1
   - !!omap
     - id: "FAD7_8_h7_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 1.7
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01462: 1
@@ -68175,7 +68192,7 @@
         - G01116: 1
   - !!omap
     - id: "R01512_EXP_1"
-    - kcat: 8470
+    - kcat: 847
     - source: "sensitivityTuning"
     - notes: "preTuneKcat=84.7 | source:brenda"
     - eccodes: "2.7.2.3"
@@ -73778,7 +73795,13 @@
         - G00246: 1
         - G01113: 1
   - !!omap
-    - id: "DGDGS_h6"
+    - id: "DGDGS_h13"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "DGDGS_h3"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -73844,7 +73867,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "MGDGS_h4"
+    - id: "MGDGS_h5"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -73858,15 +73881,15 @@
         - standard: 1
   - !!omap
     - id: "PLD_h2"
-    - kcat: 265
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=26.5 | source:standard"
+    - kcat: 26.5
+    - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
     - id: "PLD_h3"
-    - kcat: 26.5
-    - source: "standard"
+    - kcat: 265
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=26.5 | source:standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -73945,13 +73968,6 @@
     - id: "R00199"
     - kcat: 26.5
     - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R00209"
-    - kcat: 2650
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=26.5 | source:standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -74849,9 +74865,8 @@
         - standard: 1
   - !!omap
     - id: "R03052"
-    - kcat: 265
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=26.5 | source:standard"
+    - kcat: 26.5
+    - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -75072,6 +75087,19 @@
         - standard: 1
   - !!omap
     - id: "R03663_REV"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "R03815"
+    - kcat: 2650
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=26.5 | source:standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "R03815_REV"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -75553,13 +75581,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "SFR_h16"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "SFR_h45"
+    - id: "SFR_h42"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap

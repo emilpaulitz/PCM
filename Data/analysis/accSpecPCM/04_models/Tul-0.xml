@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1" fbc:required="false" groups:required="false">
-  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox">
+  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox" fbc:strict="true">
     <listOfUnitDefinitions>
       <unitDefinition id="mmol_per_gDW_per_hr">
         <listOfUnits>
@@ -41118,18 +41118,18 @@
           <fbc:geneProductRef fbc:geneProduct="G_ATTul_0_1G17330"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R01248" id="R_R01248" name="L-proline:NAD+ 5-oxidoreductase" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_R01251" id="R_R01251" name="L-proline:NADP+ 5-oxidoreductase" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: 0</p>
           </body>
         </notes>
         <listOfReactants>
-          <speciesReference species="M_NAD__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00006__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00148__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_C00004__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00005__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="2" constant="true"/>
           <speciesReference species="M_C03912__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
@@ -52595,7 +52595,7 @@
           <groups:member groups:idRef="R_R03314"/>
           <groups:member groups:idRef="R_R03443"/>
           <groups:member groups:idRef="R_CBPS_h"/>
-          <groups:member groups:idRef="R_R01248"/>
+          <groups:member groups:idRef="R_R01251"/>
           <groups:member groups:idRef="R_R00149"/>
           <groups:member groups:idRef="R_R00259"/>
           <groups:member groups:idRef="R_R00558"/>

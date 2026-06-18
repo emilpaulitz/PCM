@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1" fbc:required="false" groups:required="false">
-  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox">
+  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox" fbc:strict="true">
     <listOfUnitDefinitions>
       <unitDefinition id="mmol_per_gDW_per_hr">
         <listOfUnits>
@@ -32509,7 +32509,7 @@
           <speciesReference species="M_DGDGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_DGDGS_h14" id="R_DGDGS_h14" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_DGDGS_h15" id="R_DGDGS_h15" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
@@ -32518,7 +32518,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h14">
+            <rdf:Description rdf:about="#R_DGDGS_h15">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
@@ -32529,12 +32529,12 @@
         </annotation>
         <listOfReactants>
           <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__36_3_2__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDG__45__36_3_2__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_FAD6_h12" id="R_FAD6_h12" name="omega-6 fatty acid desaturase, chloroplastic" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -32832,7 +32832,7 @@
           <speciesReference species="M_MGDG34__45__backbone__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_DGDGS_h4" id="R_DGDGS_h4" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_DGDGS_h6" id="R_DGDGS_h6" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
@@ -32841,7 +32841,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h4">
+            <rdf:Description rdf:about="#R_DGDGS_h6">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
@@ -32852,12 +32852,12 @@
         </annotation>
         <listOfReactants>
           <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__32_3_1__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__32_5__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDG__45__32_3__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__32_5__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_FAD6_h10" id="R_FAD6_h10" name="omega-6 fatty acid desaturase, chloroplastic" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -41161,18 +41161,18 @@
           <fbc:geneProductRef fbc:geneProduct="G_ATws_4_1G17420"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R01251" id="R_R01251" name="L-proline:NADP+ 5-oxidoreductase" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_R01248" id="R_R01248" name="L-proline:NAD+ 5-oxidoreductase" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: 0</p>
           </body>
         </notes>
         <listOfReactants>
-          <speciesReference species="M_C00006__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00148__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_C00005__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00004__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="2" constant="true"/>
           <speciesReference species="M_C03912__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
@@ -52589,7 +52589,7 @@
           <groups:member groups:idRef="R_R03314"/>
           <groups:member groups:idRef="R_R03443"/>
           <groups:member groups:idRef="R_CBPS_h"/>
-          <groups:member groups:idRef="R_R01251"/>
+          <groups:member groups:idRef="R_R01248"/>
           <groups:member groups:idRef="R_R00149"/>
           <groups:member groups:idRef="R_R00259"/>
           <groups:member groups:idRef="R_R00558"/>
@@ -53808,7 +53808,7 @@
       <groups:group sboTerm="SBO:0000633" groups:id="group346" groups:name="galactolipid synthesis, eukaryotic pathway" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_DGDGS_h13"/>
-          <groups:member groups:idRef="R_DGDGS_h14"/>
+          <groups:member groups:idRef="R_DGDGS_h15"/>
           <groups:member groups:idRef="R_FAD6_h12"/>
           <groups:member groups:idRef="R_FAD7_8_h11"/>
           <groups:member groups:idRef="R_FAD7_8_h12"/>
@@ -53840,7 +53840,7 @@
           <groups:member groups:idRef="R_FAD7_8_h4"/>
           <groups:member groups:idRef="R_FAD7_8_h5"/>
           <groups:member groups:idRef="R_FAD7_8_h6"/>
-          <groups:member groups:idRef="R_DGDGS_h4"/>
+          <groups:member groups:idRef="R_DGDGS_h6"/>
           <groups:member groups:idRef="R_FAD6_h10"/>
           <groups:member groups:idRef="R_FAD6_h11"/>
           <groups:member groups:idRef="R_FAD6_h8"/>

@@ -208,7 +208,7 @@ for accIx = 1:length(fileList)
     [ecModel, tunedKcats] = sensitivityTuning(ecModel);
     %struct2table(tunedKcats)
     
-    % Revert back all kcats that came after rubisco, including rubisco
+    % Revert all kcats that came after rubisco, including rubisco
     rbcIx = find(startsWith(tunedKcats.rxns, 'RBC_h') | ...
         startsWith(tunedKcats.rxns, 'RBO_h'), 1 );
     for i = rbcIx:length(tunedKcats.rxns)

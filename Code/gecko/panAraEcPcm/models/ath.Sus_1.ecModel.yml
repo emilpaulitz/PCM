@@ -4,7 +4,7 @@
     id: "model"
     name: "Model Exported from COBRA Toolbox"
     version: ""
-    date: "2026-05-26"
+    date: "2026-06-18"
     defaultLB: "-1000"
     defaultUB: "1000"
     geckoLight: "false"
@@ -17824,20 +17824,38 @@
           - kegg.reaction: "R00451"
       - confidence_score: 2
     - !!omap
-      - id: "DGDGS_h3"
+      - id: "DGDGS_h1"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DGDG-32_2[hm]: 1
-          - MGDG-32_2_1[hm]: -1
+          - DGDG-32_0[hm]: 1
+          - MGDG-32_0[hm]: -1
           - prot_standard: -0.447505241090147
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.241"
       - subsystem:
           - "galactolipid synthesis, prokaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
+      - id: "DGDGS_h13"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDGe-34_2[hm]: 1
+          - MGDGe-34_2_1[hm]: -1
+          - prot_standard: -0.447505241090147
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, eukaryotic pathway"
       - annotation: !!omap
           - kegg.reaction: "R04469"
       - confidence_score: 2
@@ -19074,7 +19092,7 @@
           - C00139[h]: 2
           - MGDG-32_2_1[hm]: -1
           - MGDG-32_3_1[hm]: 1
-          - prot_G01083: -91.6687925170066
+          - prot_G01083: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_4G38200"
@@ -19131,7 +19149,7 @@
           - C00139[h]: 2
           - MGDG-36_3_2[hm]: -1
           - MGDG-36_4_2[hm]: 1
-          - prot_G01083: -0.916687925170066
+          - prot_G01083: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_4G38200"
@@ -19207,7 +19225,7 @@
           - C00139[h]: 2
           - MGDG-32_3_1[hm]: -1
           - MGDG-32_4[hm]: 1
-          - prot_G01083: -91.6687925170066
+          - prot_G01083: -9.16687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_4G38200"
@@ -19321,7 +19339,7 @@
           - C00139[h]: 2
           - DGDG-32_2[hm]: -1
           - DGDG-32_3[hm]: 1
-          - prot_G01083: -9.16687925170066
+          - prot_G01083: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_4G38200"
@@ -19340,7 +19358,7 @@
           - C00139[h]: 2
           - DGDG-32_3[hm]: -1
           - DGDG-32_4[hm]: 1
-          - prot_G01083: -9.16687925170066
+          - prot_G01083: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_4G38200"
@@ -19416,7 +19434,7 @@
           - C00139[h]: 2
           - MGDGe-34_2_1[hm]: -1
           - MGDGe-34_3_1[hm]: 1
-          - prot_G01522: -6.90637254901961
+          - prot_G01522: -69.0637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_5G14330"
@@ -19454,7 +19472,7 @@
           - C00139[h]: 2
           - MGDG-36_4_2[hm]: -1
           - MGDG-36_5[hm]: 1
-          - prot_G01522: -0.690637254901961
+          - prot_G01522: -6.90637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_5G14330"
@@ -19758,7 +19776,7 @@
           - C00139[h]: 2
           - MGDG-32_4[hm]: -1
           - MGDG-32_5[hm]: 1
-          - prot_G01522: -69.0637254901961
+          - prot_G01522: -6.90637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_5G14330"
@@ -19986,7 +20004,7 @@
           - C00139[h]: 2
           - DGDG-32_4[hm]: -1
           - DGDG-32_5[hm]: 1
-          - prot_G01522: -6.90637254901961
+          - prot_G01522: -69.0637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_5G14330"
@@ -21004,14 +21022,14 @@
           - kegg.reaction: "R10208"
       - confidence_score: 2
     - !!omap
-      - id: "HIL_h3"
+      - id: "HIL_h4"
       - name: "heat Inducible Lipase "
       - metabolites: !!omap
           - C00001[h]: -1
           - C00080[h]: 1
           - C18_3[hm]: 1
-          - MGDG-36_5[hm]: -1
-          - MGMG-18_2[h]: 1
+          - MGDG-36_6[hm]: -1
+          - MGMG-18_3[h]: 1
           - prot_standard: -0.447505241090147
       - lower_bound: 0
       - upper_bound: 1000
@@ -21848,14 +21866,14 @@
           - kegg.reaction: "R02691"
       - confidence_score: 2
     - !!omap
-      - id: "MGDGS_h5"
+      - id: "MGDGS_h4"
       - name: "monogalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DG-36_3_2[hm]: -1
-          - MGDG-36_3_2[hm]: 1
+          - DG-36_4_2[hm]: -1
+          - MGDG-36_4_2[hm]: 1
           - prot_standard: -0.447505241090147
       - lower_bound: 0
       - upper_bound: 1000
@@ -28616,7 +28634,7 @@
           - Cho[c]: 1
           - PA-36_3_2[ohm]: 1
           - PC-36_3_2[ohm]: -1
-          - prot_standard: -0.0447505241090147
+          - prot_standard: -0.447505241090147
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "3.1.4.4"
@@ -29100,30 +29118,30 @@
           - C00205[h]: -4
           - C10385[h]: -2
           - C16695[h]: 2
-          - prot_G00129: -0.000850766883524091
-          - prot_G00191: -0.000585607008103251
-          - prot_G00277: -0.000439889504310873
-          - prot_G00300: -0.000847227039329786
-          - prot_G00496: -0.000411388284560849
-          - prot_G00618: -0.0003546048044955
-          - prot_G00698: -0.000334460536503165
-          - prot_G00906: -0.00105921626535781
-          - prot_G01115: -0.00072063199283448
-          - prot_G01583: -0.00160712575745367
-          - prot_G01590: -0.00266648799576795
-          - prot_G01600: -0.00118792791972188
-          - prot_P56761: -0.00144323462058125
-          - prot_P56779: -0.000342562035587039
-          - prot_P56780: -0.000281070927675655
-          - prot_P56781: -0.000150242665442829
-          - prot_P56782: -0.000254540342837924
-          - prot_P56790: -0.000239724087756606
-          - prot_P60129: -0.000163124778850971
-          - prot_P61839: -0.000139477159903448
-          - prot_P62095: -0.00016144608985161
-          - prot_P62100: -0.000152103820637773
-          - prot_P62109: -0.000138053923577902
-          - prot_P62113: -0.000172321075108341
+          - prot_G00129: -0.00850766883524091
+          - prot_G00191: -0.00585607008103251
+          - prot_G00277: -0.00439889504310873
+          - prot_G00300: -0.00847227039329786
+          - prot_G00496: -0.00411388284560849
+          - prot_G00618: -0.003546048044955
+          - prot_G00698: -0.00334460536503165
+          - prot_G00906: -0.0105921626535781
+          - prot_G01115: -0.0072063199283448
+          - prot_G01583: -0.0160712575745367
+          - prot_G01590: -0.0266648799576795
+          - prot_G01600: -0.0118792791972188
+          - prot_P56761: -0.0144323462058125
+          - prot_P56779: -0.00342562035587039
+          - prot_P56780: -0.00281070927675655
+          - prot_P56781: -0.00150242665442829
+          - prot_P56782: -0.00254540342837924
+          - prot_P56790: -0.00239724087756606
+          - prot_P60129: -0.00163124778850971
+          - prot_P61839: -0.00139477159903448
+          - prot_P62095: -0.0016144608985161
+          - prot_P62100: -0.00152103820637773
+          - prot_P62109: -0.00138053923577902
+          - prot_P62113: -0.00172321075108341
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_CG10020 and ATSus_1_CG10140 and ATSus_1_CG10520 and ATSus_1_1G15530 and ATSus_1_1G42670 and ATSus_1_1G60050 and ATSus_1_1G70790 and ATSus_1_2G14060 and ATSus_1_2G29660 and ATSus_1_3G30300 and ATSus_1_3G46670 and ATSus_1_4G28400 and AtCg00070 and AtCg00080 and AtCg00220 and AtCg00270 and AtCg00300 and AtCg00550 and AtCg00560 and AtCg00570 and AtCg00580 and AtCg00690 and AtCg00700 and AtCg00710"
@@ -29235,30 +29253,30 @@
           - C00205[h]: -4
           - C10385[h]: -2
           - C16695[h]: 2
-          - prot_G00129: -0.00850766883524091
-          - prot_G00191: -0.00585607008103251
-          - prot_G00277: -0.00439889504310873
-          - prot_G00300: -0.00847227039329786
-          - prot_G00496: -0.00411388284560849
-          - prot_G00618: -0.003546048044955
-          - prot_G00698: -0.00334460536503165
-          - prot_G00906: -0.0105921626535781
-          - prot_G01115: -0.0072063199283448
-          - prot_G01583: -0.0160712575745367
-          - prot_G01600: -0.0118792791972188
-          - prot_G01640: -0.0266648799576795
-          - prot_P56761: -0.0144323462058125
-          - prot_P56779: -0.00342562035587039
-          - prot_P56780: -0.00281070927675655
-          - prot_P56781: -0.00150242665442829
-          - prot_P56782: -0.00254540342837924
-          - prot_P56790: -0.00239724087756606
-          - prot_P60129: -0.00163124778850971
-          - prot_P61839: -0.00139477159903448
-          - prot_P62095: -0.0016144608985161
-          - prot_P62100: -0.00152103820637773
-          - prot_P62109: -0.00138053923577902
-          - prot_P62113: -0.00172321075108341
+          - prot_G00129: -0.000850766883524091
+          - prot_G00191: -0.000585607008103251
+          - prot_G00277: -0.000439889504310873
+          - prot_G00300: -0.000847227039329786
+          - prot_G00496: -0.000411388284560849
+          - prot_G00618: -0.0003546048044955
+          - prot_G00698: -0.000334460536503165
+          - prot_G00906: -0.00105921626535781
+          - prot_G01115: -0.00072063199283448
+          - prot_G01583: -0.00160712575745367
+          - prot_G01600: -0.00118792791972188
+          - prot_G01640: -0.00266648799576795
+          - prot_P56761: -0.00144323462058125
+          - prot_P56779: -0.000342562035587039
+          - prot_P56780: -0.000281070927675655
+          - prot_P56781: -0.000150242665442829
+          - prot_P56782: -0.000254540342837924
+          - prot_P56790: -0.000239724087756606
+          - prot_P60129: -0.000163124778850971
+          - prot_P61839: -0.000139477159903448
+          - prot_P62095: -0.00016144608985161
+          - prot_P62100: -0.000152103820637773
+          - prot_P62109: -0.000138053923577902
+          - prot_P62113: -0.000172321075108341
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATSus_1_CG10020 and ATSus_1_CG10100 and ATSus_1_CG10520 and ATSus_1_1G15530 and ATSus_1_1G42670 and ATSus_1_1G60050 and ATSus_1_1G70790 and ATSus_1_2G14060 and ATSus_1_2G29660 and ATSus_1_3G30300 and ATSus_1_3G46670 and ATSus_1_4G28400 and AtCg00070 and AtCg00080 and AtCg00220 and AtCg00270 and AtCg00300 and AtCg00550 and AtCg00560 and AtCg00570 and AtCg00580 and AtCg00690 and AtCg00700 and AtCg00710"
@@ -55482,30 +55500,13 @@
           - kegg.reaction: "R02412"
       - confidence_score: 2
     - !!omap
-      - id: "SFR_h45"
+      - id: "SFR_h27"
       - name: "galactolipid galactosyltransferase"
       - metabolites: !!omap
-          - DG-36_5[hm]: 1
-          - DGDGe-34_2[hm]: 1
+          - DG-32_5[hm]: 1
+          - DGDG-36_5[hm]: 1
+          - MGDG-32_5[hm]: -1
           - MGDG-36_5[hm]: -1
-          - MGDGe-34_2_1[hm]: -1
-          - prot_standard: -0.447505241090147
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.184"
-      - subsystem:
-          - "lipid remodeling, cold stress"
-      - annotation: !!omap
-          - kegg.reaction: "R04472"
-      - confidence_score: 2
-    - !!omap
-      - id: "SFR_h54"
-      - name: "galactolipid galactosyltransferase"
-      - metabolites: !!omap
-          - DGDG-36_6[hm]: 1
-          - DGe-34_3[hm]: 1
-          - MGDG-36_6[hm]: -1
-          - MGDGe-34_3_1[hm]: -1
           - prot_standard: -0.447505241090147
       - lower_bound: 0
       - upper_bound: 1000
@@ -67142,8 +67143,9 @@
         - G00757: 1
   - !!omap
     - id: "FAD6_h1"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01083: 1
@@ -67163,9 +67165,8 @@
         - G01083: 1
   - !!omap
     - id: "FAD6_h12"
-    - kcat: 13.0666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01083: 1
@@ -67192,8 +67193,9 @@
         - G01083: 1
   - !!omap
     - id: "FAD6_h2"
-    - kcat: 0.130666666666667
-    - source: "brenda"
+    - kcat: 1.30666666666667
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.13067 | source:brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01083: 1
@@ -67234,17 +67236,15 @@
         - G01083: 1
   - !!omap
     - id: "FAD6_h8"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01083: 1
   - !!omap
     - id: "FAD6_h9"
-    - kcat: 1.30666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01083: 1
@@ -67271,9 +67271,8 @@
         - G00819: 1
   - !!omap
     - id: "FAD7_8_h11_EXP_2"
-    - kcat: 1.7
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.17 | source:brenda"
+    - kcat: 0.17
+    - source: "brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01522: 1
@@ -67286,7 +67285,7 @@
         - G00819: 1
   - !!omap
     - id: "FAD7_8_h12_EXP_2"
-    - kcat: 17
+    - kcat: 1.7
     - source: "sensitivityTuning"
     - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
@@ -67400,8 +67399,9 @@
         - G00819: 1
   - !!omap
     - id: "FAD7_8_h1_EXP_2"
-    - kcat: 0.17
-    - source: "brenda"
+    - kcat: 1.7
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01522: 1
@@ -67484,9 +67484,8 @@
         - G00819: 1
   - !!omap
     - id: "FAD7_8_h7_EXP_2"
-    - kcat: 1.7
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.17 | source:brenda"
+    - kcat: 0.17
+    - source: "brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01522: 1
@@ -71457,9 +71456,8 @@
         - P62113: 1
   - !!omap
     - id: "PSII_h_EXP_18"
-    - kcat: 7611.76
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=761.176 | source:DLKcat"
+    - kcat: 761.176
+    - source: "DLKcat"
     - eccodes: "1.10.3.9"
     - enzymes: !!omap
         - G00129: 1
@@ -71548,8 +71546,9 @@
         - P62113: 1
   - !!omap
     - id: "PSII_h_EXP_20"
-    - kcat: 761.176
-    - source: "DLKcat"
+    - kcat: 7611.76
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=761.176 | source:DLKcat"
     - eccodes: "1.10.3.9"
     - enzymes: !!omap
         - G00129: 1
@@ -80045,7 +80044,8 @@
   - !!omap
     - id: "RBO_h_EXP_1"
     - kcat: 4.1
-    - source: "brenda"
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=4.1 | source:brenda"
     - eccodes: "4.1.1.39"
     - enzymes: !!omap
         - G00096: 1
@@ -80053,8 +80053,7 @@
   - !!omap
     - id: "RBO_h_EXP_2"
     - kcat: 4.1
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=4.1 | source:brenda"
+    - source: "brenda"
     - eccodes: "4.1.1.39"
     - enzymes: !!omap
         - G00096: 1
@@ -80502,7 +80501,13 @@
         - G00038: 1
         - Q8VYW2: 1
   - !!omap
-    - id: "DGDGS_h3"
+    - id: "DGDGS_h1"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
+    - id: "DGDGS_h13"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -80529,7 +80534,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "HIL_h3"
+    - id: "HIL_h4"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -80561,7 +80566,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "MGDGS_h5"
+    - id: "MGDGS_h4"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -80581,9 +80586,8 @@
         - standard: 1
   - !!omap
     - id: "PLD_h3"
-    - kcat: 265
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=26.5 | source:standard"
+    - kcat: 26.5
+    - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
@@ -82299,13 +82303,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "SFR_h45"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "SFR_h54"
+    - id: "SFR_h27"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap

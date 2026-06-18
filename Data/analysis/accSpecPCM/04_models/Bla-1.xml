@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1" fbc:required="false" groups:required="false">
-  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox">
+  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox" fbc:strict="true">
     <listOfUnitDefinitions>
       <unitDefinition id="mmol_per_gDW_per_hr">
         <listOfUnits>
@@ -11239,14 +11239,14 @@
           </rdf:RDF>
         </annotation>
       </species>
-      <species metaid="M_C16429__91__h__93__" id="M_C16429__91__h__93__" name="trans-Zeatin riboside diphosphate" compartment="h" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C15H23N5O11P2">
+      <species metaid="M_C04713__91__h__93__" id="M_C04713__91__h__93__" name="N6-Prenyladenosine 5&apos;-phosphate" compartment="h" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C15H22N5O7P">
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#M_C16429__91__h__93__">
+            <rdf:Description rdf:about="#M_C04713__91__h__93__">
               <bqbiol:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C16429"/>
-                  <rdf:li rdf:resource="http://identifiers.org/pubchem.compound/47205726"/>
+                  <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C04713"/>
+                  <rdf:li rdf:resource="http://identifiers.org/pubchem.compound/7285"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -21651,6 +21651,24 @@
           <fbc:geneProductRef fbc:geneProduct="G_ATBla_1_3G44340"/>
         </fbc:geneProductAssociation>
       </reaction>
+      <reaction metaid="R_R00235" id="R_R00235" name="Acetate:CoA ligase (AMP-forming)" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>References:AraCore</p>
+            <p>Confidence Level: 0</p>
+          </body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_C00002__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_AC__91__h__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_C00013__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_AMP__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00024__91__h__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
       <reaction metaid="R_R00256" id="R_R00256" name="L-glutamine amidohydrolase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -23580,23 +23598,6 @@
             <fbc:geneProductRef fbc:geneProduct="G_ATBla_1_5G62210"/>
           </fbc:or>
         </fbc:geneProductAssociation>
-      </reaction>
-      <reaction metaid="R_R02282" id="R_R02282" name="N2-Acetyl-L-ornithine:L-glutamate N-acetyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>References:AraCore</p>
-            <p>Confidence Level: 0</p>
-          </body>
-        </notes>
-        <listOfReactants>
-          <speciesReference species="M_C00025__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00437__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00077__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00624__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
       </reaction>
       <reaction metaid="R_R02283" id="R_R02283" name="N2-Acetyl-L-ornithine:2-oxoglutarate aminotransferase" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
         <notes>
@@ -31402,6 +31403,34 @@
           <speciesReference species="M_MGDG__45__32_0__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
+      <reaction metaid="R_MGDGS_h2" id="R_MGDGS_h2" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>References:Reference: https://www.ncbi.nlm.nih.gov/pubmed/11553816</p>
+            <p>Confidence Level: 2</p>
+          </body>
+        </notes>
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#R_MGDGS_h2">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R02691"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGp__45__34_1__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDGp__45__34_1__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
       <reaction metaid="R_FAD5_h1" id="R_FAD5_h1" name="palmitoyl-(glycerolipid) 7-desaturase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -32197,62 +32226,6 @@
           <speciesReference species="M_LPA__45__backbone__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
       </reaction>
-      <reaction metaid="R_DGDGS_h13" id="R_DGDGS_h13" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
-            <p>Confidence Level: 2</p>
-          </body>
-        </notes>
-        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h13">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-        <listOfReactants>
-          <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-      </reaction>
-      <reaction metaid="R_DGDGS_h15" id="R_DGDGS_h15" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
-            <p>Confidence Level: 2</p>
-          </body>
-        </notes>
-        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h15">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-        <listOfReactants>
-          <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-      </reaction>
       <reaction metaid="R_FAD6_h12" id="R_FAD6_h12" name="omega-6 fatty acid desaturase, chloroplastic" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -32349,34 +32322,6 @@
             <fbc:geneProductRef fbc:geneProduct="G_ATBla_1_5G14400"/>
           </fbc:or>
         </fbc:geneProductAssociation>
-      </reaction>
-      <reaction metaid="R_MGDGS_h3" id="R_MGDGS_h3" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>References:Reference: https://www.ncbi.nlm.nih.gov/pubmed/11553816</p>
-            <p>Confidence Level: 2</p>
-          </body>
-        </notes>
-        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_MGDGS_h3">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R02691"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-        <listOfReactants>
-          <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
       </reaction>
       <reaction metaid="R_MGDGS_h5" id="R_MGDGS_h5" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
@@ -32548,7 +32493,7 @@
           <speciesReference species="M_MGDG34__45__backbone__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_DGDGS_h5" id="R_DGDGS_h5" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_DGDGS_h1" id="R_DGDGS_h1" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
@@ -32557,7 +32502,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_DGDGS_h5">
+            <rdf:Description rdf:about="#R_DGDGS_h1">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
@@ -32568,12 +32513,40 @@
         </annotation>
         <listOfReactants>
           <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__32_4__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__32_0__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DGDG__45__32_4__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__32_0__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="R_DGDGS_h9" id="R_DGDGS_h9" name="digalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>References:Reference: https://science.sciencemag.org/content/284/5423/2181</p>
+            <p>Confidence Level: 2</p>
+          </body>
+        </notes>
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#R_DGDGS_h9">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04469"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDGp__45__34_3_1__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDGp__45__34_3_1__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_FAD6_h10" id="R_FAD6_h10" name="omega-6 fatty acid desaturase, chloroplastic" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -37254,6 +37227,33 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
+      <reaction metaid="R_SFR_h5" id="R_SFR_h5" name="galactolipid galactosyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>References:Reference: https://doi.org/10.1074/jbc.M114.576694; https://doi.org/10.1105/tpc.104.024018; https://doi.org/10.1105/tpc.016675</p>
+            <p>Confidence Level: 2</p>
+          </body>
+        </notes>
+        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#R_SFR_h5">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04472"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="M_MGDG__45__32_1__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_DG__45__32_1__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
       <reaction metaid="R_Ex_89" id="R_Ex_89" name="Export lipid precursor" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -41453,6 +41453,22 @@
           <speciesReference species="M_C00568__91__c__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
       </reaction>
+      <reaction metaid="R_R04038" id="R_R04038" name="2-isopentenyl-diphosphate:AMP delta2-isopentenyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>Confidence Level: 0</p>
+          </body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_AMP__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00080__91__h__93__" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_C00235__91__h__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_C00013__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C04713__91__h__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
       <reaction metaid="R_R08052" id="R_R08052" name="dimethylallyl-diphosphate:ADP dimethylallyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -41491,7 +41507,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_ATBla_1_1G33100"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R08054" id="R_R08054" name="isopentenyladenosine-5&apos;-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming)" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_R08055" id="R_R08055" name="isopentenyladenosine-5&apos;-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming)" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: 0</p>
@@ -41501,27 +41517,11 @@
           <speciesReference species="M_C00007__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C03024__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C16426__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C04713__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00001__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C03161__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C16429__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-      </reaction>
-      <reaction metaid="R_R08064" id="R_R08064" name="trans-Zeatin riboside diphosphate dephosphorylation" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>Confidence Level: 0</p>
-          </body>
-        </notes>
-        <listOfReactants>
-          <speciesReference species="M_C00001__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C16429__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00009__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="2" constant="true"/>
           <speciesReference species="M_C16430__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
@@ -52092,7 +52092,6 @@
           <groups:member groups:idRef="R_R01652"/>
           <groups:member groups:idRef="R_R01900"/>
           <groups:member groups:idRef="R_R02199"/>
-          <groups:member groups:idRef="R_R02282"/>
           <groups:member groups:idRef="R_R02283"/>
           <groups:member groups:idRef="R_R02291"/>
           <groups:member groups:idRef="R_R02649"/>
@@ -52210,7 +52209,6 @@
           <groups:member groups:idRef="R_R01086"/>
           <groups:member groups:idRef="R_R01398"/>
           <groups:member groups:idRef="R_R01954"/>
-          <groups:member groups:idRef="R_R02282"/>
           <groups:member groups:idRef="R_R02283"/>
           <groups:member groups:idRef="R_R02649"/>
           <groups:member groups:idRef="R_R03314"/>
@@ -52233,37 +52231,36 @@
         </groups:listOfMembers>
       </groups:group>
       <groups:group sboTerm="SBO:0000633" groups:id="group33" groups:name="Arginine and proline metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group34" groups:name="Arginine and proline metabolism,2-Oxocarboxylic acid metabolism,MetaCyc:L-arginine biosynthesis II (acetyl cycle)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group35" groups:name="Arginine and proline metabolism,2-Oxocarboxylic acid metabolism,MetaCyc:L-arginine biosynthesis II (acetyl cycle),MetaCyc:L-ornithine biosynthesis I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group36" groups:name="Arginine and proline metabolism,MetaCyc:L-arginine degradation X (arginine monooxygenase pathway)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group37" groups:name="Arginine and proline metabolism,MetaCyc:L-citrulline biosynthesis,MetaCyc:L-arginine degradation VI (arginase 2 pathway),MetaCyc:L-arginine degradation I (arginase pathway),MetaCyc:L-ornithine biosynthesis II,MetaCyc:L-Ndelta-acetylornithine biosynthesis,MetaCyc:L-proline biosynthesis III (from L-ornithine)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group38" groups:name="Arginine and proline metabolism,MetaCyc:L-citrulline biosynthesis,MetaCyc:L-arginine degradation VI (arginase 2 pathway),MetaCyc:L-proline biosynthesis I (from L-glutamate),MetaCyc:L-proline degradation I,MetaCyc:L-Ndelta-acetylornithine biosynthesis,MetaCyc:L-proline biosynthesis III (from L-ornithine)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group39" groups:name="Arginine and proline metabolism,MetaCyc:L-citrulline biosynthesis,MetaCyc:L-citrulline degradation,MetaCyc:urea cycle,MetaCyc:L-arginine biosynthesis II (acetyl cycle),MetaCyc:ornithine-citrulline shuttle,MetaCyc:L-arginine biosynthesis I (via L-ornithine)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group40" groups:name="Arginine and proline metabolism,MetaCyc:nitric oxide biosynthesis I (plants)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group41" groups:name="Ascorbate and aldarate metabolism,MetaCyc:UDP-alpha-D-galacturonate biosynthesis I (from UDP-D-glucuronate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group42" groups:name="Ascorbate and aldarate metabolism,MetaCyc:UDP-alpha-D-galacturonate biosynthesis II (from D-galacturonate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group43" groups:name="Ascorbate and aldarate metabolism,MetaCyc:VTC2 cycle" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group44" groups:name="Betalain biosynthesis," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group45" groups:name="Biosynthesis of various nucleotide sugars,MetaCyc:UDP-N-acetyl-D-glucosamine biosynthesis II" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group46" groups:name="Biosynthesis of various nucleotide sugars,MetaCyc:UDP-beta-L-rhamnose biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group47" groups:name="Biotin metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group48" groups:name="Biotin metabolism,MetaCyc:biotin biosynthesis from 8-amino-7-oxononanoate I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group49" groups:name="Butanoate metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group50" groups:name="CDP-diacylglycerol synthesis, chloroplast" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group34" groups:name="Arginine and proline metabolism,2-Oxocarboxylic acid metabolism,MetaCyc:L-arginine biosynthesis II (acetyl cycle),MetaCyc:L-ornithine biosynthesis I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group35" groups:name="Arginine and proline metabolism,MetaCyc:L-arginine degradation X (arginine monooxygenase pathway)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group36" groups:name="Arginine and proline metabolism,MetaCyc:L-citrulline biosynthesis,MetaCyc:L-arginine degradation VI (arginase 2 pathway),MetaCyc:L-arginine degradation I (arginase pathway),MetaCyc:L-ornithine biosynthesis II,MetaCyc:L-Ndelta-acetylornithine biosynthesis,MetaCyc:L-proline biosynthesis III (from L-ornithine)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group37" groups:name="Arginine and proline metabolism,MetaCyc:L-citrulline biosynthesis,MetaCyc:L-arginine degradation VI (arginase 2 pathway),MetaCyc:L-proline biosynthesis I (from L-glutamate),MetaCyc:L-proline degradation I,MetaCyc:L-Ndelta-acetylornithine biosynthesis,MetaCyc:L-proline biosynthesis III (from L-ornithine)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group38" groups:name="Arginine and proline metabolism,MetaCyc:L-citrulline biosynthesis,MetaCyc:L-citrulline degradation,MetaCyc:urea cycle,MetaCyc:L-arginine biosynthesis II (acetyl cycle),MetaCyc:ornithine-citrulline shuttle,MetaCyc:L-arginine biosynthesis I (via L-ornithine)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group39" groups:name="Arginine and proline metabolism,MetaCyc:nitric oxide biosynthesis I (plants)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group40" groups:name="Ascorbate and aldarate metabolism,MetaCyc:UDP-alpha-D-galacturonate biosynthesis I (from UDP-D-glucuronate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group41" groups:name="Ascorbate and aldarate metabolism,MetaCyc:UDP-alpha-D-galacturonate biosynthesis II (from D-galacturonate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group42" groups:name="Ascorbate and aldarate metabolism,MetaCyc:VTC2 cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group43" groups:name="Betalain biosynthesis," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group44" groups:name="Biosynthesis of various nucleotide sugars,MetaCyc:UDP-N-acetyl-D-glucosamine biosynthesis II" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group45" groups:name="Biosynthesis of various nucleotide sugars,MetaCyc:UDP-beta-L-rhamnose biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group46" groups:name="Biotin metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group47" groups:name="Biotin metabolism,MetaCyc:biotin biosynthesis from 8-amino-7-oxononanoate I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group48" groups:name="Butanoate metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group49" groups:name="CDP-diacylglycerol synthesis, chloroplast" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_CDS_h"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group51" groups:name="Calvin-Benson cycle,Glycolysis / Gluconeogenesis,Fructose and mannose metabolism,Inositol phosphate metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:glycolysis IV,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group52" groups:name="Calvin-Benson cycle,MetaCyc:Calvin-Benson-Bassham cycle" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group53" groups:name="Calvin-Benson cycle,MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:Rubisco shunt" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group54" groups:name="Calvin-Benson cycle,MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:Rubisco shunt,MetaCyc:pentose phosphate pathway (non-oxidative branch) I,Pentose phosphate pathway" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group55" groups:name="Calvin-Benson cycle,MetaCyc:sucrose biosynthesis I (from photosynthesis),MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group56" groups:name="Calvin-Benson cycle,MetaCyc:sucrose biosynthesis I (from photosynthesis),MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:glycolysis IV,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group57" groups:name="Calvin-Benson cycle,MetaCyc:sucrose biosynthesis I (from photosynthesis),MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group58" groups:name="Calvin-Benson cycle,Oxidative phosphate pentose cycle" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group59" groups:name="Calvin-Benson cycle,Pyruvate metabolism,MetaCyc:malate-oxaloacetate shuttle II" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group60" groups:name="Carotenoid metabolism" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group50" groups:name="Calvin-Benson cycle,Glycolysis / Gluconeogenesis,Fructose and mannose metabolism,Inositol phosphate metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:glycolysis IV,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group51" groups:name="Calvin-Benson cycle,MetaCyc:Calvin-Benson-Bassham cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group52" groups:name="Calvin-Benson cycle,MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:Rubisco shunt" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group53" groups:name="Calvin-Benson cycle,MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:Rubisco shunt,MetaCyc:pentose phosphate pathway (non-oxidative branch) I,Pentose phosphate pathway" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group54" groups:name="Calvin-Benson cycle,MetaCyc:sucrose biosynthesis I (from photosynthesis),MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group55" groups:name="Calvin-Benson cycle,MetaCyc:sucrose biosynthesis I (from photosynthesis),MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Calvin-Benson-Bassham cycle,MetaCyc:glycolysis IV,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group56" groups:name="Calvin-Benson cycle,MetaCyc:sucrose biosynthesis I (from photosynthesis),MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group57" groups:name="Calvin-Benson cycle,Oxidative phosphate pentose cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group58" groups:name="Calvin-Benson cycle,Pyruvate metabolism,MetaCyc:malate-oxaloacetate shuttle II" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group59" groups:name="Carotenoid metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R03824"/>
           <groups:member groups:idRef="R_R04786"/>
@@ -52305,18 +52302,18 @@
           <groups:member groups:idRef="R_R04218"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group61" groups:name="Carotenoid metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group62" groups:name="Carotenoid metabolism,MetaCyc:alpha-carotene biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group63" groups:name="Carotenoid metabolism,MetaCyc:alpha-carotene biosynthesis,MetaCyc:lutein biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group64" groups:name="Carotenoid metabolism,MetaCyc:beta-carotene biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group65" groups:name="Carotenoid metabolism,MetaCyc:trans-lycopene biosynthesis II (oxygenic phototrophs and green sulfur bacteria)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group66" groups:name="Carotenoid metabolism,MetaCyc:violaxanthin, antheraxanthin and zeaxanthin interconversion" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group67" groups:name="Carotenoid metabolism,MetaCyc:zeaxanthin biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group68" groups:name="Chlorocyclohexane and chlorobenzene degradation," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group69" groups:name="Chlorocyclohexane and chlorobenzene degradation,Degradation of aromatic compounds," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group70" groups:name="Cyanoamino acid metabolism,MetaCyc:cyanide detoxification I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group71" groups:name="Cyanoamino acid metabolism,MetaCyc:cyanide detoxification I,MetaCyc:cyanide degradation" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group72" groups:name="Cysteine and methionine metabolism" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group60" groups:name="Carotenoid metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group61" groups:name="Carotenoid metabolism,MetaCyc:alpha-carotene biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group62" groups:name="Carotenoid metabolism,MetaCyc:alpha-carotene biosynthesis,MetaCyc:lutein biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group63" groups:name="Carotenoid metabolism,MetaCyc:beta-carotene biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group64" groups:name="Carotenoid metabolism,MetaCyc:trans-lycopene biosynthesis II (oxygenic phototrophs and green sulfur bacteria)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group65" groups:name="Carotenoid metabolism,MetaCyc:violaxanthin, antheraxanthin and zeaxanthin interconversion" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group66" groups:name="Carotenoid metabolism,MetaCyc:zeaxanthin biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group67" groups:name="Chlorocyclohexane and chlorobenzene degradation," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group68" groups:name="Chlorocyclohexane and chlorobenzene degradation,Degradation of aromatic compounds," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group69" groups:name="Cyanoamino acid metabolism,MetaCyc:cyanide detoxification I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group70" groups:name="Cyanoamino acid metabolism,MetaCyc:cyanide detoxification I,MetaCyc:cyanide degradation" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group71" groups:name="Cysteine and methionine metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R00480"/>
           <groups:member groups:idRef="R_R00895"/>
@@ -52345,17 +52342,17 @@
           <groups:member groups:idRef="R_R00192"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group73" groups:name="Cysteine and methionine metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group74" groups:name="Cysteine and methionine metabolism,MetaCyc:L-methionine biosynthesis II,MetaCyc:L-threonine biosynthesis,Glycine, serine and threonine metabolism" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group75" groups:name="Cysteine and methionine metabolism,MetaCyc:L-methionine biosynthesis II,MetaCyc:S-adenosyl-L-methionine salvage II" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group76" groups:name="Cysteine and methionine metabolism,MetaCyc:S-adenosyl-L-methionine salvage II,MetaCyc:L-methionine degradation I (to L-homocysteine)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group77" groups:name="Cysteine and methionine metabolism,MetaCyc:S-methyl-5&apos;-thioadenosine degradation I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group78" groups:name="Cysteine and methionine metabolism,MetaCyc:S-methyl-5-thio-alpha-D-ribose 1-phosphate degradation I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group79" groups:name="Cysteine and methionine metabolism,Sulfur metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group80" groups:name="Cysteine and methionine metabolism,Sulfur metabolism,MetaCyc:L-cysteine biosynthesis I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group81" groups:name="Diterpenoid biosynthesis,MetaCyc:ent-kaurene biosynthesis I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group82" groups:name="Flavonoid biosynthesis," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group83" groups:name="Fructose and mannose metabolism" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group72" groups:name="Cysteine and methionine metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group73" groups:name="Cysteine and methionine metabolism,MetaCyc:L-methionine biosynthesis II,MetaCyc:L-threonine biosynthesis,Glycine, serine and threonine metabolism" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group74" groups:name="Cysteine and methionine metabolism,MetaCyc:L-methionine biosynthesis II,MetaCyc:S-adenosyl-L-methionine salvage II" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group75" groups:name="Cysteine and methionine metabolism,MetaCyc:S-adenosyl-L-methionine salvage II,MetaCyc:L-methionine degradation I (to L-homocysteine)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group76" groups:name="Cysteine and methionine metabolism,MetaCyc:S-methyl-5&apos;-thioadenosine degradation I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group77" groups:name="Cysteine and methionine metabolism,MetaCyc:S-methyl-5-thio-alpha-D-ribose 1-phosphate degradation I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group78" groups:name="Cysteine and methionine metabolism,Sulfur metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group79" groups:name="Cysteine and methionine metabolism,Sulfur metabolism,MetaCyc:L-cysteine biosynthesis I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group80" groups:name="Diterpenoid biosynthesis,MetaCyc:ent-kaurene biosynthesis I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group81" groups:name="Flavonoid biosynthesis," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group82" groups:name="Fructose and mannose metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R00756"/>
           <groups:member groups:idRef="R_R01015"/>
@@ -52370,13 +52367,13 @@
           <groups:member groups:idRef="R_R00772"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group84" groups:name="Fructose and mannose metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group85" groups:name="Fructose and mannose metabolism,Biosynthesis of various nucleotide sugars," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group86" groups:name="Fructose and mannose metabolism,Biosynthesis of various nucleotide sugars,MetaCyc:GDP-L-fucose biosynthesis I (from GDP-D-mannose)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group87" groups:name="Fructose and mannose metabolism,MetaCyc:GDP-L-fucose biosynthesis II (from L-fucose)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group88" groups:name="Fructose and mannose metabolism,MetaCyc:GDP-mannose biosynthesis,MetaCyc:mannitol degradation II,MetaCyc:mannitol biosynthesis,MetaCyc:D-mannose degradation I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group89" groups:name="Fructose and mannose metabolism,MetaCyc:fructose 2,6-bisphosphate biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group90" groups:name="Galactose metabolism" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group83" groups:name="Fructose and mannose metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group84" groups:name="Fructose and mannose metabolism,Biosynthesis of various nucleotide sugars," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group85" groups:name="Fructose and mannose metabolism,Biosynthesis of various nucleotide sugars,MetaCyc:GDP-L-fucose biosynthesis I (from GDP-D-mannose)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group86" groups:name="Fructose and mannose metabolism,MetaCyc:GDP-L-fucose biosynthesis II (from L-fucose)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group87" groups:name="Fructose and mannose metabolism,MetaCyc:GDP-mannose biosynthesis,MetaCyc:mannitol degradation II,MetaCyc:mannitol biosynthesis,MetaCyc:D-mannose degradation I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group88" groups:name="Fructose and mannose metabolism,MetaCyc:fructose 2,6-bisphosphate biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group89" groups:name="Galactose metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R00959"/>
           <groups:member groups:idRef="R_R03236"/>
@@ -52389,20 +52386,20 @@
           <groups:member groups:idRef="R_R00502"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group91" groups:name="Galactose metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group92" groups:name="Galactose metabolism,MetaCyc:D-galactose degradation I (Leloir pathway),MetaCyc:stachyose degradation" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group93" groups:name="Galactose metabolism,MetaCyc:D-galactose detoxification,MetaCyc:D-galactose degradation I (Leloir pathway),MetaCyc:stachyose degradation" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group94" groups:name="Galactose metabolism,MetaCyc:D-galactose detoxification,MetaCyc:stachyose degradation" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group95" groups:name="Glucosinolate biosynthesis,2-Oxocarboxylic acid metabolism" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group96" groups:name="Glucosinolate biosynthesis,2-Oxocarboxylic acid metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group97" groups:name="Glutathione metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group98" groups:name="Glutathione metabolism,2-Oxocarboxylic acid metabolism" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group99" groups:name="Glutathione metabolism,MetaCyc:gamma-glutamyl cycle (plant pathway),MetaCyc:gamma-glutamyl cycle" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group100" groups:name="Glutathione metabolism,MetaCyc:gamma-glutamyl cycle (plant pathway),MetaCyc:glutathione degradation,MetaCyc:gamma-glutamyl cycle" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group101" groups:name="Glutathione metabolism,MetaCyc:glutathione biosynthesis,MetaCyc:gamma-glutamyl cycle (plant pathway)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group102" groups:name="Glutathione metabolism,MetaCyc:glutathione-peroxide redox reactions" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group103" groups:name="Glutathione metabolism,MetaCyc:glutathione-peroxide redox reactions,MetaCyc:reactive oxygen species degradation" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group104" groups:name="Glycine, serine and threonine metabolism" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group90" groups:name="Galactose metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group91" groups:name="Galactose metabolism,MetaCyc:D-galactose degradation I (Leloir pathway),MetaCyc:stachyose degradation" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group92" groups:name="Galactose metabolism,MetaCyc:D-galactose detoxification,MetaCyc:D-galactose degradation I (Leloir pathway),MetaCyc:stachyose degradation" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group93" groups:name="Galactose metabolism,MetaCyc:D-galactose detoxification,MetaCyc:stachyose degradation" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group94" groups:name="Glucosinolate biosynthesis,2-Oxocarboxylic acid metabolism" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group95" groups:name="Glucosinolate biosynthesis,2-Oxocarboxylic acid metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group96" groups:name="Glutathione metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group97" groups:name="Glutathione metabolism,2-Oxocarboxylic acid metabolism" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group98" groups:name="Glutathione metabolism,MetaCyc:gamma-glutamyl cycle (plant pathway),MetaCyc:gamma-glutamyl cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group99" groups:name="Glutathione metabolism,MetaCyc:gamma-glutamyl cycle (plant pathway),MetaCyc:glutathione degradation,MetaCyc:gamma-glutamyl cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group100" groups:name="Glutathione metabolism,MetaCyc:glutathione biosynthesis,MetaCyc:gamma-glutamyl cycle (plant pathway)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group101" groups:name="Glutathione metabolism,MetaCyc:glutathione-peroxide redox reactions" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group102" groups:name="Glutathione metabolism,MetaCyc:glutathione-peroxide redox reactions,MetaCyc:reactive oxygen species degradation" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group103" groups:name="Glycine, serine and threonine metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R00220"/>
           <groups:member groups:idRef="R_R00480"/>
@@ -52423,20 +52420,21 @@
           <groups:member groups:idRef="R_R00751"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group105" groups:name="Glycine, serine and threonine metabolism,2-Oxocarboxylic acid metabolism,Cysteine and methionine metabolism,Lysine biosynthesis,MetaCyc:L-lysine biosynthesis VI,MetaCyc:L-homoserine biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group106" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,Lysine biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group107" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,Lysine biosynthesis," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group108" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,MetaCyc:L-serine biosynthesis I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group109" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,MetaCyc:homocysteine and cysteine interconversion" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group110" groups:name="Glycine, serine and threonine metabolism,MetaCyc:L-serine biosynthesis I" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group111" groups:name="Glycine, serine and threonine metabolism,MetaCyc:L-serine biosynthesis II" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group112" groups:name="Glycine, serine and threonine metabolism,MetaCyc:L-threonine biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group113" groups:name="Glycine, serine and threonine metabolism,MetaCyc:glycine biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group114" groups:name="Glycine, serine and threonine metabolism,MetaCyc:glycine degradation" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group115" groups:name="Glycine, serine and threonine metabolism,Phenylalanine, tyrosine and tryptophan biosynthesis," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group116" groups:name="Glycolysis / Gluconeogenesis" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group104" groups:name="Glycine, serine and threonine metabolism,2-Oxocarboxylic acid metabolism,Cysteine and methionine metabolism,Lysine biosynthesis,MetaCyc:L-lysine biosynthesis VI,MetaCyc:L-homoserine biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group105" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,Lysine biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group106" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,Lysine biosynthesis," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group107" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,MetaCyc:L-serine biosynthesis I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group108" groups:name="Glycine, serine and threonine metabolism,Cysteine and methionine metabolism,MetaCyc:homocysteine and cysteine interconversion" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group109" groups:name="Glycine, serine and threonine metabolism,MetaCyc:L-serine biosynthesis I" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group110" groups:name="Glycine, serine and threonine metabolism,MetaCyc:L-serine biosynthesis II" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group111" groups:name="Glycine, serine and threonine metabolism,MetaCyc:L-threonine biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group112" groups:name="Glycine, serine and threonine metabolism,MetaCyc:glycine biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group113" groups:name="Glycine, serine and threonine metabolism,MetaCyc:glycine degradation" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group114" groups:name="Glycine, serine and threonine metabolism,Phenylalanine, tyrosine and tryptophan biosynthesis," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group115" groups:name="Glycolysis / Gluconeogenesis" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R00006"/>
+          <groups:member groups:idRef="R_R00235"/>
           <groups:member groups:idRef="R_R00658"/>
           <groups:member groups:idRef="R_R00756"/>
           <groups:member groups:idRef="R_R00959"/>
@@ -52449,18 +52447,19 @@
           <groups:member groups:idRef="R_R00703"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group117" groups:name="Glycolysis / Gluconeogenesis,Galactose metabolism" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group118" groups:name="Glycolysis / Gluconeogenesis,Glycine, serine and threonine metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:Rubisco shunt,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group119" groups:name="Glycolysis / Gluconeogenesis,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Rubisco shunt,MetaCyc:glycolysis IV,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group120" groups:name="Glycolysis / Gluconeogenesis,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:Rubisco shunt,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group121" groups:name="Glycolysis / Gluconeogenesis,Pentose phosphate pathway,Fructose and mannose metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group122" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group123" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism,MetaCyc:L-valine biosynthesis" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group124" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group125" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism,MetaCyc:pyruvate fermentation to (S)-lactate" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group126" groups:name="Glyoxylate and dicarboxylate metabolism" groups:kind="partonomy">
+      <groups:group sboTerm="SBO:0000633" groups:id="group116" groups:name="Glycolysis / Gluconeogenesis,Galactose metabolism" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group117" groups:name="Glycolysis / Gluconeogenesis,Glycine, serine and threonine metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:Rubisco shunt,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group118" groups:name="Glycolysis / Gluconeogenesis,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:Rubisco shunt,MetaCyc:glycolysis IV,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group119" groups:name="Glycolysis / Gluconeogenesis,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:Rubisco shunt,MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group120" groups:name="Glycolysis / Gluconeogenesis,Pentose phosphate pathway,Fructose and mannose metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:glycolysis IV,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group121" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group122" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism,MetaCyc:L-valine biosynthesis" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group123" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism,MetaCyc:glycolysis I (from glucose 6-phosphate),MetaCyc:gluconeogenesis I,MetaCyc:glycolysis II (from fructose 6-phosphate)" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group124" groups:name="Glycolysis / Gluconeogenesis,Pyruvate metabolism,MetaCyc:pyruvate fermentation to (S)-lactate" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group125" groups:name="Glyoxylate and dicarboxylate metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_R00021"/>
+          <groups:member groups:idRef="R_R00235"/>
           <groups:member groups:idRef="R_R00351"/>
           <groups:member groups:idRef="R_R01325"/>
           <groups:member groups:idRef="R_R01900"/>
@@ -52469,9 +52468,10 @@
           <groups:member groups:idRef="R_R02765"/>
         </groups:listOfMembers>
       </groups:group>
-      <groups:group sboTerm="SBO:0000633" groups:id="group127" groups:name="Glyoxylate and dicarboxylate metabolism," groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group128" groups:name="Glyoxylate and dicarboxylate metabolism,2-Oxocarboxylic acid metabolism" groups:kind="partonomy"/>
-      <groups:group sboTerm="SBO:0000633" groups:id="group129" groups:name="Glyoxylate and dicarboxylate metabolism,2-Oxocarboxylic acid metabolism,MetaCyc:TCA cycle variation V (plant),MetaCyc:nitrogen remobilization from senescing leaves,MetaCyc:TCA cycle II (plants and fungi),MetaCyc:glyoxylate cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group126" groups:name="Glyoxylate and dicarboxylate metabolism," groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group127" groups:name="Glyoxylate and dicarboxylate metabolism,2-Oxocarboxylic acid metabolism" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group128" groups:name="Glyoxylate and dicarboxylate metabolism,2-Oxocarboxylic acid metabolism,MetaCyc:TCA cycle variation V (plant),MetaCyc:nitrogen remobilization from senescing leaves,MetaCyc:TCA cycle II (plants and fungi),MetaCyc:glyoxylate cycle" groups:kind="partonomy"/>
+      <groups:group sboTerm="SBO:0000633" groups:id="group129" groups:name="Glyoxylate and dicarboxylate metabolism,Glycolysis / Gluconeogenesis,MetaCyc:ethanol degradation II" groups:kind="partonomy"/>
       <groups:group sboTerm="SBO:0000633" groups:id="group130" groups:name="Glyoxylate and dicarboxylate metabolism,Nitrogen metabolism,MetaCyc:glutamate-glutamine shuttle,MetaCyc:L-glutamate biosynthesis V,MetaCyc:Inorganic Nitrogen Assimilation,MetaCyc:nitrogen remobilization from senescing leaves,MetaCyc:ammonia assimilation cycle II" groups:kind="partonomy"/>
       <groups:group sboTerm="SBO:0000633" groups:id="group131" groups:name="Histidine metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
@@ -53279,10 +53279,10 @@
       <groups:group sboTerm="SBO:0000633" groups:id="group336" groups:name="alpha-Linolenic acid metabolism,MetaCyc:alpha-linolenate metabolites biosynthesis" groups:kind="partonomy"/>
       <groups:group sboTerm="SBO:0000633" groups:id="group337" groups:name="cytokinin biosynthesis" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:idRef="R_R04038"/>
           <groups:member groups:idRef="R_R08052"/>
           <groups:member groups:idRef="R_R08051"/>
-          <groups:member groups:idRef="R_R08054"/>
-          <groups:member groups:idRef="R_R08064"/>
+          <groups:member groups:idRef="R_R08055"/>
           <groups:member groups:idRef="R_R08070"/>
           <groups:member groups:idRef="R_Tr_tZrib"/>
         </groups:listOfMembers>
@@ -53431,13 +53431,10 @@
       <groups:group sboTerm="SBO:0000633" groups:id="group345" groups:name="fatty acid synthesis,Fatty acid metabolism" groups:kind="partonomy"/>
       <groups:group sboTerm="SBO:0000633" groups:id="group346" groups:name="galactolipid synthesis, eukaryotic pathway" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:idRef="R_DGDGS_h13"/>
-          <groups:member groups:idRef="R_DGDGS_h15"/>
           <groups:member groups:idRef="R_FAD6_h12"/>
           <groups:member groups:idRef="R_FAD7_8_h11"/>
           <groups:member groups:idRef="R_FAD7_8_h12"/>
           <groups:member groups:idRef="R_FAD7_8_h13"/>
-          <groups:member groups:idRef="R_MGDGS_h3"/>
           <groups:member groups:idRef="R_MGDGS_h5"/>
           <groups:member groups:idRef="R_FAD6_h13"/>
           <groups:member groups:idRef="R_FAD7_8_h14"/>
@@ -53448,6 +53445,7 @@
       <groups:group sboTerm="SBO:0000633" groups:id="group347" groups:name="galactolipid synthesis, prokaryotic pathway" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:idRef="R_MGDGS_h1"/>
+          <groups:member groups:idRef="R_MGDGS_h2"/>
           <groups:member groups:idRef="R_FAD5_h1"/>
           <groups:member groups:idRef="R_FAD5_h2"/>
           <groups:member groups:idRef="R_FAD5_h3"/>
@@ -53464,7 +53462,8 @@
           <groups:member groups:idRef="R_FAD7_8_h4"/>
           <groups:member groups:idRef="R_FAD7_8_h5"/>
           <groups:member groups:idRef="R_FAD7_8_h6"/>
-          <groups:member groups:idRef="R_DGDGS_h5"/>
+          <groups:member groups:idRef="R_DGDGS_h1"/>
+          <groups:member groups:idRef="R_DGDGS_h9"/>
           <groups:member groups:idRef="R_FAD6_h10"/>
           <groups:member groups:idRef="R_FAD6_h11"/>
           <groups:member groups:idRef="R_FAD6_h8"/>
@@ -53674,6 +53673,7 @@
           <groups:member groups:idRef="R_PES_pg97"/>
           <groups:member groups:idRef="R_PES_pg98"/>
           <groups:member groups:idRef="R_PES_pg99"/>
+          <groups:member groups:idRef="R_SFR_h5"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group sboTerm="SBO:0000633" groups:id="group357" groups:name="lipid remodeling, heat shock stress" groups:kind="partonomy">

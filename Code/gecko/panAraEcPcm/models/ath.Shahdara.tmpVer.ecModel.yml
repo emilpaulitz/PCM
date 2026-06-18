@@ -3,7 +3,7 @@
 - metaData:
     id: "model"
     name: "Model Exported from COBRA Toolbox"
-    date: "2026-05-26"
+    date: "2026-06-18"
     geckoLight: "false"
 - metabolites:
     - !!omap
@@ -5378,6 +5378,16 @@
           - kegg.compound: "C03263"
           - metanetx.chemical: "MNXM735625"
           - pubchem.compound: "20849114"
+    - !!omap
+      - id: "C03287[h]"
+      - name: "L-gamma-glutamyl"
+      - compartment: "h"
+      - formula: "C5H10NO7P"
+      - charge: 0
+      - annotation: !!omap
+          - chebi: "CHEBI:17798"
+          - kegg.compound: "C03287"
+          - pubchem.compound: "6144"
     - !!omap
       - id: "C03313[h]"
       - name: "Phylloquinol"
@@ -17431,6 +17441,23 @@
           - kegg.reaction: "R00451"
       - confidence_score: 2
     - !!omap
+      - id: "DGDGS_h1"
+      - name: "digalactosyldiacylglycerol synthase"
+      - metabolites: !!omap
+          - C00015[h]: 1
+          - C00052[h]: -1
+          - C00080[h]: 1
+          - DGDG-32_0[hm]: 1
+          - MGDG-32_0[hm]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.241"
+      - subsystem:
+          - "galactolipid synthesis, prokaryotic pathway"
+      - annotation: !!omap
+          - kegg.reaction: "R04469"
+      - confidence_score: 2
+    - !!omap
       - id: "DGDGS_h13"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
@@ -17444,40 +17471,6 @@
       - eccodes: "2.4.1.241"
       - subsystem:
           - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h15"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-36_4_2[hm]: 1
-          - MGDG-36_4_2[hm]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, eukaryotic pathway"
-      - annotation: !!omap
-          - kegg.reaction: "R04469"
-      - confidence_score: 2
-    - !!omap
-      - id: "DGDGS_h4"
-      - name: "digalactosyldiacylglycerol synthase"
-      - metabolites: !!omap
-          - C00015[h]: 1
-          - C00052[h]: -1
-          - C00080[h]: 1
-          - DGDG-32_3[hm]: 1
-          - MGDG-32_3_1[hm]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.4.1.241"
-      - subsystem:
-          - "galactolipid synthesis, prokaryotic pathway"
       - annotation: !!omap
           - kegg.reaction: "R04469"
       - confidence_score: 2
@@ -20572,14 +20565,14 @@
           - kegg.reaction: "R10208"
       - confidence_score: 2
     - !!omap
-      - id: "HIL_h3"
+      - id: "HIL_h4"
       - name: "heat Inducible Lipase "
       - metabolites: !!omap
           - C00001[h]: -1
           - C00080[h]: 1
           - C18_3[hm]: 1
-          - MGDG-36_5[hm]: -1
-          - MGMG-18_2[h]: 1
+          - MGDG-36_6[hm]: -1
+          - MGMG-18_3[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "3.1.1.-"
@@ -28065,6 +28058,25 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
+      - id: "R00239"
+      - name: "ATP:L-glutamate 5-phosphotransferase"
+      - metabolites: !!omap
+          - C00002[h]: -1
+          - C00008[h]: 1
+          - C00025[h]: -1
+          - C00080[h]: -2
+          - C03287[h]: 1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.7.2.11"
+      - subsystem:
+          - "Arginine and proline metabolism"
+          - "MetaCyc:L-Ndelta-acetylornithine biosynthesis"
+          - "MetaCyc:L-citrulline biosynthesis"
+          - "MetaCyc:L-ornithine biosynthesis II"
+          - "MetaCyc:L-proline biosynthesis I (from L-glutamate)"
+      - confidence_score: 0
+    - !!omap
       - id: "R00243"
       - name: "L-glutamate:NAD+ oxidoreductase (deaminating)"
       - metabolites: !!omap
@@ -32782,14 +32794,14 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
-      - id: "R01248"
-      - name: "L-proline:NAD+ 5-oxidoreductase"
+      - id: "R01251"
+      - name: "L-proline:NADP+ 5-oxidoreductase"
       - metabolites: !!omap
-          - C00004[h]: 1
+          - C00005[h]: 1
+          - C00006[h]: -1
           - C00080[h]: 2
           - C00148[h]: -1
           - C03912[h]: 1
-          - NAD[h]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.5.1.2"
@@ -32797,14 +32809,14 @@
           - "Arginine and proline metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R01248_REV"
-      - name: "L-proline:NAD+ 5-oxidoreductase (reversible)"
+      - id: "R01251_REV"
+      - name: "L-proline:NADP+ 5-oxidoreductase (reversible)"
       - metabolites: !!omap
-          - C00004[h]: -1
+          - C00005[h]: -1
+          - C00006[h]: 1
           - C00080[h]: -2
           - C00148[h]: 1
           - C03912[h]: -1
-          - NAD[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.5.1.2"
@@ -35830,23 +35842,6 @@
           - "porphyrin and chlorophyll metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R02282"
-      - name: "N2-Acetyl-L-ornithine:L-glutamate N-acetyltransferase"
-      - metabolites: !!omap
-          - C00025[h]: -1
-          - C00077[h]: 1
-          - C00080[h]: -1
-          - C00437[h]: -1
-          - C00624[h]: 1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "2.3.1.35"
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "Arginine and proline metabolism"
-          - "MetaCyc:L-arginine biosynthesis II (acetyl cycle)"
-      - confidence_score: 0
-    - !!omap
       - id: "R02283"
       - name: "N2-Acetyl-L-ornithine:2-oxoglutarate aminotransferase"
       - metabolites: !!omap
@@ -38182,6 +38177,26 @@
           - "Pyruvate metabolism"
       - confidence_score: 0
     - !!omap
+      - id: "R03313"
+      - name: "L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphorylating)"
+      - metabolites: !!omap
+          - C00005[h]: -1
+          - C00006[h]: 1
+          - C00009[h]: 1
+          - C00080[h]: 1
+          - C01165[h]: 1
+          - C03287[h]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "1.2.1.41"
+      - subsystem:
+          - "Arginine and proline metabolism"
+          - "MetaCyc:L-Ndelta-acetylornithine biosynthesis"
+          - "MetaCyc:L-citrulline biosynthesis"
+          - "MetaCyc:L-ornithine biosynthesis II"
+          - "MetaCyc:L-proline biosynthesis I (from L-glutamate)"
+      - confidence_score: 0
+    - !!omap
       - id: "R03314"
       - name: " (spontaneous)"
       - metabolites: !!omap
@@ -38310,44 +38325,6 @@
           - "Galactose metabolism"
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
-    - !!omap
-      - id: "R03443"
-      - name: "N-acetyl-L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphrylating)"
-      - metabolites: !!omap
-          - C00005[h]: 1
-          - C00006[h]: -1
-          - C00009[h]: -1
-          - C00080[h]: -1
-          - C01250[h]: -1
-          - C04133[h]: 1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "1.2.1.38"
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "Arginine and proline metabolism"
-          - "MetaCyc:L-arginine biosynthesis II (acetyl cycle)"
-          - "MetaCyc:L-ornithine biosynthesis I"
-      - confidence_score: 0
-    - !!omap
-      - id: "R03443_REV"
-      - name: "N-acetyl-L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphrylating) (reversible)"
-      - metabolites: !!omap
-          - C00005[h]: -1
-          - C00006[h]: 1
-          - C00009[h]: 1
-          - C00080[h]: 1
-          - C01250[h]: 1
-          - C04133[h]: -1
-      - lower_bound: 0
-      - upper_bound: 1000
-      - eccodes: "1.2.1.38"
-      - subsystem:
-          - "2-Oxocarboxylic acid metabolism"
-          - "Arginine and proline metabolism"
-          - "MetaCyc:L-arginine biosynthesis II (acetyl cycle)"
-          - "MetaCyc:L-ornithine biosynthesis I"
-      - confidence_score: 0
     - !!omap
       - id: "R03457_EXP_1"
       - name: "D-erythro-1-(Imidazol-4-yl)glycerol 3-phosphate hydro-lyase"
@@ -49554,6 +49531,22 @@
           - "Shikimate Pathway"
       - annotation: !!omap
           - kegg.reaction: "R02412"
+      - confidence_score: 2
+    - !!omap
+      - id: "SFR_h97"
+      - name: "galactolipid galactosyltransferase"
+      - metabolites: !!omap
+          - DG-36_5[hm]: 1
+          - DGDG-36_4_2[hm]: 1
+          - MGDG-36_4_2[hm]: -1
+          - MGDG-36_5[hm]: -1
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.4.1.184"
+      - subsystem:
+          - "lipid remodeling, cold stress"
+      - annotation: !!omap
+          - kegg.reaction: "R04472"
       - confidence_score: 2
     - !!omap
       - id: "SLIMEr_1063"

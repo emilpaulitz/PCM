@@ -104,20 +104,18 @@ function [y_res, v_res] = carvePCM(model, M, eps, ...
     Aineq2 = [sparse(N, 3 * N), eyeN * eps, eyeN * -M, sparse(N, N), -eyeN];
     Aineq3 = [sparse(N, N), eyeN * -M, eyeN * eps, sparse(N, 2 *N), eyeN, sparse(N, N)];
     Aineq4 = [sparse(N, 3 * N), eyeN * -M, eyeN * eps, sparse(N, N), eyeN];
-    Aineq5 = [sparse(N, N), eyeN, eyeN, sparse(N, 4 * N)];
-    Aineq6 = [sparse(N, 3 * N), eyeN, eyeN, sparse(N, 2 * N)];
-    Aineq7 = [eyeN * -2, eyeN, eyeN, eyeN, eyeN, sparse(N, 2 * N)];
+    Aineq5 = [-eyeN, eyeN, eyeN, sparse(N, 4 * N)];
+    Aineq6 = [-eyeN, sparse(N, 2 * N), eyeN, eyeN, sparse(N, 2 * N)];
     bineq1 = zeros(N, 1);  % rhs must be dense for gurobi
     bineq2 = zeros(N, 1);
     bineq3 = zeros(N, 1);
     bineq4 = zeros(N, 1);
-    bineq5 = ones(N, 1);
-    bineq6 = ones(N, 1);
-    bineq7 = zeros(N, 1);
+    bineq5 = zeros(N, 1);
+    bineq6 = zeros(N, 1);
 
     % Combine inequality constraints
-    Aineq = [Aineq1; Aineq2; Aineq3; Aineq4; Aineq5; Aineq6; Aineq7];
-    bineq = [bineq1; bineq2; bineq3; bineq4; bineq5; bineq6; bineq7];
+    Aineq = [Aineq1; Aineq2; Aineq3; Aineq4; Aineq5; Aineq6];
+    bineq = [bineq1; bineq2; bineq3; bineq4; bineq5; bineq6];
 
     % Solve MILP problem using MATLAB's solver
     % much slower: One time it took >2hrs vs. 5 seconds with Gurobi
@@ -190,7 +188,7 @@ function [y_res, v_res] = carvePCM(model, M, eps, ...
         gModel.A = sparse([Aineq;Aeq]);
         gModel.obj = f;
         gModel.rhs = [bineq;beq];
-        gModel.sense = [repmat('<', 7*N, 1);
+        gModel.sense = [repmat('<', 6*N, 1);
                         repmat('=', 2*Nm, 1)];
         gModel.lb = lb;
         gModel.ub = ub;

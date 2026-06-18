@@ -4,7 +4,7 @@
     id: "model"
     name: "Model Exported from COBRA Toolbox"
     version: ""
-    date: "2026-05-26"
+    date: "2026-06-18"
     defaultLB: "-1000"
     defaultUB: "1000"
     geckoLight: "false"
@@ -6142,6 +6142,16 @@
           - kegg.compound: "C04698"
           - pubchem.compound: "7275"
     - !!omap
+      - id: "C04713[h]"
+      - name: "N6-Prenyladenosine 5'-phosphate"
+      - compartment: "h"
+      - formula: "C15H22N5O7P"
+      - charge: 0
+      - smiles: "CC(=CCNC1=C2C(=NC=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)O)O)O)C"
+      - annotation: !!omap
+          - kegg.compound: "C04713"
+          - pubchem.compound: "7285"
+    - !!omap
       - id: "C04732[h]"
       - name: "5-Amino-6-(1-D-ribitylamino)uracil"
       - compartment: "h"
@@ -8369,16 +8379,6 @@
       - annotation: !!omap
           - kegg.compound: "C16426"
           - pubchem.compound: "47205723"
-    - !!omap
-      - id: "C16429[h]"
-      - name: "trans-Zeatin riboside diphosphate"
-      - compartment: "h"
-      - formula: "C15H23N5O11P2"
-      - charge: 0
-      - smiles: "CC(=CCNC1=C2C(=NC=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)O)O)O)CO"
-      - annotation: !!omap
-          - kegg.compound: "C16429"
-          - pubchem.compound: "47205726"
     - !!omap
       - id: "C16430[h]"
       - name: "trans-Zeatin riboside monophosphate"
@@ -17111,12 +17111,12 @@
           - C00009[h]: -1
           - C00080[h]: 3
           - C00080[l]: -4
-          - prot_G01568: -0.00166823361823362
-          - prot_G01589: -0.00328774928774929
-          - prot_G01611: -0.000481267806267806
-          - prot_G01613: -0.0016272792022792
-          - prot_P56759: -0.00149978632478632
-          - prot_P56760: -0.000568091168091168
+          - prot_G01568: -0.0166823361823362
+          - prot_G01589: -0.0328774928774929
+          - prot_G01611: -0.00481267806267806
+          - prot_G01613: -0.016272792022792
+          - prot_P56759: -0.0149978632478632
+          - prot_P56760: -0.00568091168091168
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_CG10030 and ATN13_CG10040 and ATN13_CG10170 and ATN13_CG10300 and AtCg00130 and AtCg00140"
@@ -17136,12 +17136,12 @@
           - C00009[h]: -1
           - C00080[h]: 3
           - C00080[l]: -4
-          - prot_G01568: -0.0166823361823362
-          - prot_G01574: -0.00481267806267806
-          - prot_G01589: -0.0328774928774929
-          - prot_G01613: -0.016272792022792
-          - prot_P56759: -0.0149978632478632
-          - prot_P56760: -0.00568091168091168
+          - prot_G01568: -0.00166823361823362
+          - prot_G01574: -0.000481267806267806
+          - prot_G01589: -0.00328774928774929
+          - prot_G01613: -0.0016272792022792
+          - prot_P56759: -0.00149978632478632
+          - prot_P56760: -0.000568091168091168
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_CG10030 and ATN13_CG10040 and ATN13_CG10280 and ATN13_CG10300 and AtCg00130 and AtCg00140"
@@ -19287,7 +19287,7 @@
           - C00139[h]: 2
           - MGDG-36_3_2[hm]: -1
           - MGDG-36_4_2[hm]: 1
-          - prot_G01122: -0.916687925170066
+          - prot_G01122: -91.6687925170066
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_4G38080"
@@ -19610,7 +19610,7 @@
           - C00139[h]: 2
           - MGDG-36_4_2[hm]: -1
           - MGDG-36_5[hm]: 1
-          - prot_G01411: -0.690637254901961
+          - prot_G01411: -6.90637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_5G14340"
@@ -19648,7 +19648,7 @@
           - C00139[h]: 2
           - MGDG-36_5[hm]: -1
           - MGDG-36_6[hm]: 1
-          - prot_G01411: -6.90637254901961
+          - prot_G01411: -69.0637254901961
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_5G14340"
@@ -21142,14 +21142,14 @@
           - kegg.reaction: "R10208"
       - confidence_score: 2
     - !!omap
-      - id: "HIL_h4"
+      - id: "HIL_h3"
       - name: "heat Inducible Lipase "
       - metabolites: !!omap
           - C00001[h]: -1
           - C00080[h]: 1
           - C18_3[hm]: 1
-          - MGDG-36_6[hm]: -1
-          - MGMG-18_3[h]: 1
+          - MGDG-36_5[hm]: -1
+          - MGMG-18_2[h]: 1
           - prot_standard: -0.447201257861635
       - lower_bound: 0
       - upper_bound: 1000
@@ -21982,14 +21982,14 @@
           - kegg.reaction: "R02691"
       - confidence_score: 2
     - !!omap
-      - id: "MGDGS_h5"
+      - id: "MGDGS_h4"
       - name: "monogalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DG-36_3_2[hm]: -1
-          - MGDG-36_3_2[hm]: 1
+          - DG-36_4_2[hm]: -1
+          - MGDG-36_4_2[hm]: 1
           - prot_standard: -0.447201257861635
       - lower_bound: 0
       - upper_bound: 1000
@@ -31334,30 +31334,30 @@
           - C00205[h]: -4
           - C10385[h]: -2
           - C16695[h]: 2
-          - prot_G00052: -0.000439889504310873
-          - prot_G00096: -0.000851752200980238
-          - prot_G00116: -0.000585607008103251
-          - prot_G00118: -0.000847227039329786
-          - prot_G00524: -0.0003546048044955
-          - prot_G00627: -0.000411388284560849
-          - prot_G00649: -0.00105954470450986
-          - prot_G00738: -0.000334460536503165
-          - prot_G01043: -0.000721215884660344
-          - prot_G01572: -0.000336358184937226
-          - prot_G01612: -0.00118792791972188
-          - prot_G01617: -0.00170967175937117
-          - prot_G01618: -0.00254697263766126
-          - prot_G01619: -0.00237643973126963
-          - prot_P56779: -0.000342562035587039
-          - prot_P56781: -0.000150242665442829
-          - prot_P56782: -0.000254540342837924
-          - prot_P56790: -0.000239724087756606
-          - prot_P60129: -0.000163124778850971
-          - prot_P61839: -0.000139477159903448
-          - prot_P62095: -0.00016144608985161
-          - prot_P62100: -0.000152103820637773
-          - prot_P62109: -0.000138053923577902
-          - prot_P62113: -0.000172321075108341
+          - prot_G00052: -0.00439889504310873
+          - prot_G00096: -0.00851752200980238
+          - prot_G00116: -0.00585607008103251
+          - prot_G00118: -0.00847227039329786
+          - prot_G00524: -0.003546048044955
+          - prot_G00627: -0.00411388284560849
+          - prot_G00649: -0.0105954470450986
+          - prot_G00738: -0.00334460536503165
+          - prot_G01043: -0.00721215884660344
+          - prot_G01572: -0.00336358184937226
+          - prot_G01612: -0.0118792791972188
+          - prot_G01617: -0.0170967175937117
+          - prot_G01618: -0.0254697263766126
+          - prot_G01619: -0.0237643973126963
+          - prot_P56779: -0.00342562035587039
+          - prot_P56781: -0.00150242665442829
+          - prot_P56782: -0.00254540342837924
+          - prot_P56790: -0.00239724087756606
+          - prot_P60129: -0.00163124778850971
+          - prot_P61839: -0.00139477159903448
+          - prot_P62095: -0.0016144608985161
+          - prot_P62100: -0.00152103820637773
+          - prot_P62109: -0.00138053923577902
+          - prot_P62113: -0.00172321075108341
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_CG10190 and ATN13_CG10340 and ATN13_CG10350 and ATN13_CG10600 and ATN13_CG10860 and AtCg00070 and AtCg00080 and AtCg00220 and AtCg00300 and AtCg00550 and AtCg00560 and AtCg00570 and AtCg00580 and AtCg00690 and AtCg00700 and ATN13_1G15630 and ATN13_1G46240 and ATN13_1G60680 and ATN13_1G71250 and ATN13_2G14110 and ATN13_2G29680 and ATN13_3G30340 and ATN13_3G46510 and ATN13_4G28240"
@@ -31649,30 +31649,30 @@
           - C00205[h]: -4
           - C10385[h]: -2
           - C16695[h]: 2
-          - prot_G00052: -0.00439889504310873
-          - prot_G00096: -0.00851752200980238
-          - prot_G00116: -0.00585607008103251
-          - prot_G00118: -0.00847227039329786
-          - prot_G00524: -0.003546048044955
-          - prot_G00627: -0.00411388284560849
-          - prot_G00649: -0.0105954470450986
-          - prot_G00738: -0.00334460536503165
-          - prot_G01043: -0.00721215884660344
-          - prot_G01603: -0.00336358184937226
-          - prot_G01612: -0.0118792791972188
-          - prot_G01616: -0.0254697263766126
-          - prot_G01617: -0.0170967175937117
-          - prot_G01619: -0.0237643973126963
-          - prot_P56779: -0.00342562035587039
-          - prot_P56781: -0.00150242665442829
-          - prot_P56782: -0.00254540342837924
-          - prot_P56790: -0.00239724087756606
-          - prot_P60129: -0.00163124778850971
-          - prot_P61839: -0.00139477159903448
-          - prot_P62095: -0.0016144608985161
-          - prot_P62100: -0.00152103820637773
-          - prot_P62109: -0.00138053923577902
-          - prot_P62113: -0.00172321075108341
+          - prot_G00052: -0.000439889504310873
+          - prot_G00096: -0.000851752200980238
+          - prot_G00116: -0.000585607008103251
+          - prot_G00118: -0.000847227039329786
+          - prot_G00524: -0.0003546048044955
+          - prot_G00627: -0.000411388284560849
+          - prot_G00649: -0.00105954470450986
+          - prot_G00738: -0.000334460536503165
+          - prot_G01043: -0.000721215884660344
+          - prot_G01603: -0.000336358184937226
+          - prot_G01612: -0.00118792791972188
+          - prot_G01616: -0.00254697263766126
+          - prot_G01617: -0.00170967175937117
+          - prot_G01619: -0.00237643973126963
+          - prot_P56779: -0.000342562035587039
+          - prot_P56781: -0.000150242665442829
+          - prot_P56782: -0.000254540342837924
+          - prot_P56790: -0.000239724087756606
+          - prot_P60129: -0.000163124778850971
+          - prot_P61839: -0.000139477159903448
+          - prot_P62095: -0.00016144608985161
+          - prot_P62100: -0.000152103820637773
+          - prot_P62109: -0.000138053923577902
+          - prot_P62113: -0.000172321075108341
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_CG10080 and ATN13_CG10340 and ATN13_CG10350 and ATN13_CG10470 and ATN13_CG10600 and AtCg00070 and AtCg00080 and AtCg00220 and AtCg00300 and AtCg00550 and AtCg00560 and AtCg00570 and AtCg00580 and AtCg00690 and AtCg00700 and ATN13_1G15630 and ATN13_1G46240 and ATN13_1G60680 and ATN13_1G71250 and ATN13_2G14110 and ATN13_2G29680 and ATN13_3G30340 and ATN13_3G46510 and ATN13_4G28240"
@@ -33689,21 +33689,21 @@
           - C00205[h]: -1
           - C03025[h]: -1
           - C03162[h]: 1
-          - prot_G00091: -0.010176571920758
-          - prot_G00117: -0.00905254091300603
-          - prot_G00187: -0.00779213321848981
-          - prot_G00348: -0.0144817685902957
-          - prot_G00359: -0.013362761986793
-          - prot_G00487: -0.0110178007464829
-          - prot_G00722: -0.0090403387884008
-          - prot_G01017: -0.0137037037037037
-          - prot_G01075: -0.00888745334481769
-          - prot_G01315: -0.0110084697100201
-          - prot_G01590: -0.0496691070915877
-          - prot_G01601: -0.0369064025265576
-          - prot_P56768: -0.00296726959517657
-          - prot_P56769: -0.00359532012632788
-          - prot_P62090: -0.00648722365776629
+          - prot_G00091: -0.0010176571920758
+          - prot_G00117: -0.000905254091300603
+          - prot_G00187: -0.000779213321848981
+          - prot_G00348: -0.00144817685902957
+          - prot_G00359: -0.0013362761986793
+          - prot_G00487: -0.00110178007464829
+          - prot_G00722: -0.00090403387884008
+          - prot_G01017: -0.00137037037037037
+          - prot_G01075: -0.000888745334481769
+          - prot_G01315: -0.00110084697100201
+          - prot_G01590: -0.00496691070915877
+          - prot_G01601: -0.00369064025265576
+          - prot_P56768: -0.000296726959517657
+          - prot_P56769: -0.000359532012632788
+          - prot_P62090: -0.000648722365776629
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_CG10110 and ATN13_CG10370 and AtCg00510 and AtCg00630 and AtCg01060 and ATN13_1G12110 and ATN13_1G17290 and ATN13_1G37210 and ATN13_1G38170 and ATN13_1G50420 and ATN13_2G45890 and ATN13_3G25340 and ATN13_4G19840 and ATN13_4G35940 and ATN13_5G62850"
@@ -33791,21 +33791,21 @@
           - C00205[h]: -1
           - C03025[h]: -1
           - C03162[h]: 1
-          - prot_G00091: -0.0010176571920758
-          - prot_G00117: -0.000905254091300603
-          - prot_G00187: -0.000779213321848981
-          - prot_G00348: -0.00144817685902957
-          - prot_G00359: -0.0013362761986793
-          - prot_G00487: -0.00110178007464829
-          - prot_G00722: -0.00090403387884008
-          - prot_G01017: -0.00137037037037037
-          - prot_G01075: -0.000888745334481769
-          - prot_G01315: -0.00110084697100201
-          - prot_G01561: -0.00496691070915877
-          - prot_G01601: -0.00369064025265576
-          - prot_P56768: -0.000296726959517657
-          - prot_P56769: -0.000359532012632788
-          - prot_P62090: -0.000648722365776629
+          - prot_G00091: -0.010176571920758
+          - prot_G00117: -0.00905254091300603
+          - prot_G00187: -0.00779213321848981
+          - prot_G00348: -0.0144817685902957
+          - prot_G00359: -0.013362761986793
+          - prot_G00487: -0.0110178007464829
+          - prot_G00722: -0.0090403387884008
+          - prot_G01017: -0.0137037037037037
+          - prot_G01075: -0.00888745334481769
+          - prot_G01315: -0.0110084697100201
+          - prot_G01561: -0.0496691070915877
+          - prot_G01601: -0.0369064025265576
+          - prot_P56768: -0.00296726959517657
+          - prot_P56769: -0.00359532012632788
+          - prot_P62090: -0.00648722365776629
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATN13_CG10110 and ATN13_CG10210 and AtCg00510 and AtCg00630 and AtCg01060 and ATN13_1G12110 and ATN13_1G17290 and ATN13_1G37210 and ATN13_1G38170 and ATN13_1G50420 and ATN13_2G45890 and ATN13_3G25340 and ATN13_4G19840 and ATN13_4G35940 and ATN13_5G62850"
@@ -48646,6 +48646,23 @@
           - "MetaCyc:L-histidine biosynthesis"
       - confidence_score: 0
     - !!omap
+      - id: "R04038"
+      - name: "2-isopentenyl-diphosphate:AMP delta2-isopentenyltransferase"
+      - metabolites: !!omap
+          - AMP[h]: -1
+          - C00013[h]: 1
+          - C00080[h]: -2
+          - C00235[h]: -1
+          - C04713[h]: 1
+          - prot_standard: -0.447201257861635
+      - lower_bound: 0
+      - upper_bound: 1000
+      - eccodes: "2.5.1.27"
+      - subsystem:
+          - "MetaCyc:trans-zeatin biosynthesis"
+          - "cytokinin biosynthesis"
+      - confidence_score: 0
+    - !!omap
       - id: "R04109"
       - name: "L-glutamate-semialdehyde: NADP+ oxidoreductase(L-glutamyl-tRNA(Glu)-forming)"
       - metabolites: !!omap
@@ -54858,16 +54875,16 @@
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
-      - id: "R08054"
-      - name: "isopentenyladenosine-5'-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming)"
+      - id: "R08055"
+      - name: "isopentenyladenosine-5'-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming)"
       - metabolites: !!omap
           - C00001[h]: 1
           - C00007[h]: -1
           - C00080[h]: -1
           - C03024[h]: -1
           - C03161[h]: 1
-          - C16426[h]: -1
-          - C16429[h]: 1
+          - C04713[h]: -1
+          - C16430[h]: 1
           - prot_standard: -0.447201257861635
       - lower_bound: 0
       - upper_bound: 1000
@@ -54876,53 +54893,21 @@
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
-      - id: "R08054_REV"
-      - name: "isopentenyladenosine-5'-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming) (reversible)"
+      - id: "R08055_REV"
+      - name: "isopentenyladenosine-5'-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming) (reversible)"
       - metabolites: !!omap
           - C00001[h]: -1
           - C00007[h]: 1
           - C00080[h]: 1
           - C03024[h]: 1
           - C03161[h]: -1
-          - C16426[h]: 1
-          - C16429[h]: -1
+          - C04713[h]: 1
+          - C16430[h]: -1
           - prot_standard: -0.447201257861635
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.14.13.-"
       - subsystem:
-          - "cytokinin biosynthesis"
-      - confidence_score: 0
-    - !!omap
-      - id: "R08064"
-      - name: "trans-Zeatin riboside diphosphate dephosphorylation"
-      - metabolites: !!omap
-          - C00001[h]: -1
-          - C00009[h]: 1
-          - C00080[h]: 2
-          - C16429[h]: -1
-          - C16430[h]: 1
-          - prot_standard: -0.447201257861635
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "MetaCyc:trans-zeatin biosynthesis"
-          - "cytokinin biosynthesis"
-      - confidence_score: 0
-    - !!omap
-      - id: "R08064_REV"
-      - name: "trans-Zeatin riboside diphosphate dephosphorylation (reversible)"
-      - metabolites: !!omap
-          - C00001[h]: 1
-          - C00009[h]: -1
-          - C00080[h]: -2
-          - C16429[h]: 1
-          - C16430[h]: -1
-          - prot_standard: -0.447201257861635
-      - lower_bound: 0
-      - upper_bound: 1000
-      - subsystem:
-          - "MetaCyc:trans-zeatin biosynthesis"
           - "cytokinin biosynthesis"
       - confidence_score: 0
     - !!omap
@@ -58971,12 +58956,12 @@
           - kegg.reaction: "R02412"
       - confidence_score: 2
     - !!omap
-      - id: "SFR_h42"
+      - id: "SFR_h41"
       - name: "galactolipid galactosyltransferase"
       - metabolites: !!omap
-          - DGDG-36_6[hm]: 1
+          - DGDG-36_5[hm]: 1
           - DGe-34_2[hm]: 1
-          - MGDG-36_6[hm]: -1
+          - MGDG-36_5[hm]: -1
           - MGDGe-34_2_1[hm]: -1
           - prot_standard: -0.447201257861635
       - lower_bound: 0
@@ -70158,9 +70143,8 @@
         - G01290: 1
   - !!omap
     - id: "ATPase_h_EXP_1"
-    - kcat: 3900
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=390 | source:brenda"
+    - kcat: 390
+    - source: "brenda"
     - eccodes: "3.6.3.14"
     - enzymes: !!omap
         - G01568: 1
@@ -70171,8 +70155,9 @@
         - P56760: 1
   - !!omap
     - id: "ATPase_h_EXP_2"
-    - kcat: 390
-    - source: "brenda"
+    - kcat: 3900
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=390 | source:brenda"
     - eccodes: "3.6.3.14"
     - enzymes: !!omap
         - G01568: 1
@@ -70708,9 +70693,8 @@
         - G01122: 1
   - !!omap
     - id: "FAD6_h12"
-    - kcat: 13.0666666666667
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.13067 | source:brenda"
+    - kcat: 0.130666666666667
+    - source: "brenda"
     - eccodes: "1.14.19.23"
     - enzymes: !!omap
         - G01122: 1
@@ -70829,7 +70813,7 @@
         - G00729: 1
   - !!omap
     - id: "FAD7_8_h12_EXP_2"
-    - kcat: 17
+    - kcat: 1.7
     - source: "sensitivityTuning"
     - notes: "preTuneKcat=0.17 | source:brenda"
     - eccodes: "1.14.19.35"
@@ -70844,9 +70828,8 @@
         - G00729: 1
   - !!omap
     - id: "FAD7_8_h13_EXP_2"
-    - kcat: 1.7
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=0.17 | source:brenda"
+    - kcat: 0.17
+    - source: "brenda"
     - eccodes: "1.14.19.35"
     - enzymes: !!omap
         - G01411: 1
@@ -76397,9 +76380,8 @@
         - P62113: 1
   - !!omap
     - id: "PSII_h_EXP_36"
-    - kcat: 7611.76
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=761.176 | source:DLKcat"
+    - kcat: 761.176
+    - source: "DLKcat"
     - eccodes: "1.10.3.9"
     - enzymes: !!omap
         - G00052: 1
@@ -76608,8 +76590,9 @@
         - P62113: 1
   - !!omap
     - id: "PSII_h_EXP_42"
-    - kcat: 761.176
-    - source: "DLKcat"
+    - kcat: 7611.76
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=761.176 | source:DLKcat"
     - eccodes: "1.10.3.9"
     - enzymes: !!omap
         - G00052: 1
@@ -77931,8 +77914,9 @@
         - P62090: 1
   - !!omap
     - id: "PSI_h_EXP_30"
-    - kcat: 387
-    - source: "brenda"
+    - kcat: 3870
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=387 | source:brenda"
     - eccodes: "1.97.1.12"
     - enzymes: !!omap
         - G00091: 1
@@ -77994,9 +77978,8 @@
         - P62090: 1
   - !!omap
     - id: "PSI_h_EXP_33"
-    - kcat: 3870
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=387 | source:brenda"
+    - kcat: 387
+    - source: "brenda"
     - eccodes: "1.97.1.12"
     - enzymes: !!omap
         - G00091: 1
@@ -86448,7 +86431,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "HIL_h4"
+    - id: "HIL_h3"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -86506,7 +86489,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "MGDGS_h5"
+    - id: "MGDGS_h4"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -87769,6 +87752,12 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
+    - id: "R04038"
+    - kcat: 26.5
+    - source: "standard"
+    - enzymes: !!omap
+        - standard: 1
+  - !!omap
     - id: "R04109"
     - kcat: 265
     - source: "sensitivityTuning"
@@ -88065,25 +88054,13 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R08054"
+    - id: "R08055"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R08054_REV"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R08064"
-    - kcat: 26.5
-    - source: "standard"
-    - enzymes: !!omap
-        - standard: 1
-  - !!omap
-    - id: "R08064_REV"
+    - id: "R08055_REV"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
@@ -88239,7 +88216,7 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "SFR_h42"
+    - id: "SFR_h41"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap

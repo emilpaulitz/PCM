@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1" fbc:required="false" groups:required="false">
-  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox">
+  <model metaid="PanChloroplastModel" id="M_model" name="Model Exported from COBRA Toolbox" fbc:strict="true">
     <listOfUnitDefinitions>
       <unitDefinition id="mmol_per_gDW_per_hr">
         <listOfUnits>
@@ -11239,14 +11239,14 @@
           </rdf:RDF>
         </annotation>
       </species>
-      <species metaid="M_C16429__91__h__93__" id="M_C16429__91__h__93__" name="trans-Zeatin riboside diphosphate" compartment="h" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C15H23N5O11P2">
+      <species metaid="M_C04713__91__h__93__" id="M_C04713__91__h__93__" name="N6-Prenyladenosine 5&apos;-phosphate" compartment="h" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C15H22N5O7P">
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#M_C16429__91__h__93__">
+            <rdf:Description rdf:about="#M_C04713__91__h__93__">
               <bqbiol:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C16429"/>
-                  <rdf:li rdf:resource="http://identifiers.org/pubchem.compound/47205726"/>
+                  <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C04713"/>
+                  <rdf:li rdf:resource="http://identifiers.org/pubchem.compound/7285"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -32556,7 +32556,7 @@
           <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_MGDGS_h5" id="R_MGDGS_h5" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_MGDGS_h4" id="R_MGDGS_h4" name="monogalactosyldiacylglycerol synthase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://www.ncbi.nlm.nih.gov/pubmed/11553816</p>
@@ -32565,7 +32565,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_MGDGS_h5">
+            <rdf:Description rdf:about="#R_MGDGS_h4">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R02691"/>
@@ -32576,12 +32576,12 @@
         </annotation>
         <listOfReactants>
           <speciesReference species="M_C00052__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_DG__45__36_3_2__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00015__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__36_3_2__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_4_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_SLIMEr_778" id="R_SLIMEr_778" name="SLIME reaction" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -33943,7 +33943,7 @@
           <speciesReference species="M_SQDG__45__backbone__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_HIL_h4" id="R_HIL_h4" name="heat Inducible Lipase " reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_HIL_h3" id="R_HIL_h3" name="heat Inducible Lipase " reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://doi.org/10.1105/tpc.18.00347; https://doi.org/10.1104/pp.106.090811; https://doi.org/10.1016/j.febslet.2009.06.021</p>
@@ -33952,12 +33952,12 @@
         </notes>
         <listOfReactants>
           <speciesReference species="M_C00001__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGDG__45__36_6__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C18_3__91__hm__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_MGMG__45__18_3__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGMG__45__18_2__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
       <reaction metaid="R_SLIMEr_799" id="R_SLIMEr_799" name="SLIME reaction" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
@@ -37431,7 +37431,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_SFR_h42" id="R_SFR_h42" name="galactolipid galactosyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_SFR_h41" id="R_SFR_h41" name="galactolipid galactosyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>References:Reference: https://doi.org/10.1074/jbc.M114.576694; https://doi.org/10.1105/tpc.104.024018; https://doi.org/10.1105/tpc.016675</p>
@@ -37440,7 +37440,7 @@
         </notes>
         <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_SFR_h42">
+            <rdf:Description rdf:about="#R_SFR_h41">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.reaction/R04472"/>
@@ -37450,11 +37450,11 @@
           </rdf:RDF>
         </annotation>
         <listOfReactants>
-          <speciesReference species="M_MGDG__45__36_6__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_MGDGe__45__34_2_1__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_DGDG__45__36_6__91__hm__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_DGDG__45__36_5__91__hm__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_DGe__45__34_2__91__hm__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
@@ -41728,6 +41728,22 @@
           <speciesReference species="M_C00568__91__c__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
       </reaction>
+      <reaction metaid="R_R04038" id="R_R04038" name="2-isopentenyl-diphosphate:AMP delta2-isopentenyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>Confidence Level: 0</p>
+          </body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_AMP__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C00080__91__h__93__" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_C00235__91__h__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_C00013__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C04713__91__h__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
       <reaction metaid="R_R08052" id="R_R08052" name="dimethylallyl-diphosphate:ADP dimethylallyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -41766,7 +41782,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_ATN13_1G33170"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R08054" id="R_R08054" name="isopentenyladenosine-5&apos;-diphosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-diphosphate-forming)" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
+      <reaction metaid="R_R08055" id="R_R08055" name="isopentenyladenosine-5&apos;-monophosphate,NADPH---hemoprotein reductase:oxygen oxidoreductase (trans-zeatin-riboside-monophosphate-forming)" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: 0</p>
@@ -41776,27 +41792,11 @@
           <speciesReference species="M_C00007__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C00080__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C03024__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C16426__91__h__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_C04713__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_C00001__91__h__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_C03161__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C16429__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-      </reaction>
-      <reaction metaid="R_R08064" id="R_R08064" name="trans-Zeatin riboside diphosphate dephosphorylation" reversible="true" fast="false" fbc:lowerFluxBound="FB1N1000" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>Confidence Level: 0</p>
-          </body>
-        </notes>
-        <listOfReactants>
-          <speciesReference species="M_C00001__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C16429__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_C00009__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00080__91__h__93__" stoichiometry="2" constant="true"/>
           <speciesReference species="M_C16430__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
@@ -53620,10 +53620,10 @@
       <groups:group sboTerm="SBO:0000633" groups:id="group338" groups:name="alpha-Linolenic acid metabolism,MetaCyc:alpha-linolenate metabolites biosynthesis" groups:kind="partonomy"/>
       <groups:group sboTerm="SBO:0000633" groups:id="group339" groups:name="cytokinin biosynthesis" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:idRef="R_R04038"/>
           <groups:member groups:idRef="R_R08052"/>
           <groups:member groups:idRef="R_R08051"/>
-          <groups:member groups:idRef="R_R08054"/>
-          <groups:member groups:idRef="R_R08064"/>
+          <groups:member groups:idRef="R_R08055"/>
           <groups:member groups:idRef="R_R08070"/>
           <groups:member groups:idRef="R_Tr_tZrib"/>
         </groups:listOfMembers>
@@ -53776,7 +53776,7 @@
           <groups:member groups:idRef="R_FAD7_8_h12"/>
           <groups:member groups:idRef="R_FAD7_8_h13"/>
           <groups:member groups:idRef="R_MGDGS_h3"/>
-          <groups:member groups:idRef="R_MGDGS_h5"/>
+          <groups:member groups:idRef="R_MGDGS_h4"/>
           <groups:member groups:idRef="R_FAD6_h13"/>
           <groups:member groups:idRef="R_FAD7_8_h14"/>
           <groups:member groups:idRef="R_FAD7_8_h15"/>
@@ -54012,12 +54012,12 @@
           <groups:member groups:idRef="R_PES_pg97"/>
           <groups:member groups:idRef="R_PES_pg98"/>
           <groups:member groups:idRef="R_PES_pg99"/>
-          <groups:member groups:idRef="R_SFR_h42"/>
+          <groups:member groups:idRef="R_SFR_h41"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group sboTerm="SBO:0000633" groups:id="group359" groups:name="lipid remodeling, heat shock stress" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:idRef="R_HIL_h4"/>
+          <groups:member groups:idRef="R_HIL_h3"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group sboTerm="SBO:0000633" groups:id="group360" groups:name="lysine synthesis,MetaCyc:L-lysine biosynthesis VI" groups:kind="partonomy"/>

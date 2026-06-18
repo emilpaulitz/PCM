@@ -100,6 +100,7 @@ for orgIx = 1:length(orgs)
         % Carve model and display biomass production
         y = y_res(1:length((pcm.rxns)));
         rxnsToRemove = pcm.rxns(y < 1e-5);
+
         carved = removeRxns(orgPcm, rxnsToRemove);
         sol = solveLP(carved);
         disp(['Initial demand rxn flux: ', num2str(solInit.f)]);

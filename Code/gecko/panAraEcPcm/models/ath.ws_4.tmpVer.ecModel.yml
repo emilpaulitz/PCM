@@ -3,7 +3,7 @@
 - metaData:
     id: "model"
     name: "Model Exported from COBRA Toolbox"
-    date: "2026-06-16"
+    date: "2026-06-18"
     geckoLight: "false"
 - metabolites:
     - !!omap
@@ -24906,14 +24906,14 @@
           - kegg.reaction: "R04469"
       - confidence_score: 2
     - !!omap
-      - id: "DGDGS_h14"
+      - id: "DGDGS_h15"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DGDG-36_3_2[hm]: 1
-          - MGDG-36_3_2[hm]: -1
+          - DGDG-36_4_2[hm]: 1
+          - MGDG-36_4_2[hm]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.241"
@@ -24923,14 +24923,14 @@
           - kegg.reaction: "R04469"
       - confidence_score: 2
     - !!omap
-      - id: "DGDGS_h4"
+      - id: "DGDGS_h6"
       - name: "digalactosyldiacylglycerol synthase"
       - metabolites: !!omap
           - C00015[h]: 1
           - C00052[h]: -1
           - C00080[h]: 1
-          - DGDG-32_3[hm]: 1
-          - MGDG-32_3_1[hm]: -1
+          - DGDG-32_5[hm]: 1
+          - MGDG-32_5[hm]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "2.4.1.241"
@@ -49301,14 +49301,14 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
-      - id: "R01251"
-      - name: "L-proline:NADP+ 5-oxidoreductase"
+      - id: "R01248"
+      - name: "L-proline:NAD+ 5-oxidoreductase"
       - metabolites: !!omap
-          - C00005[h]: 1
-          - C00006[h]: -1
+          - C00004[h]: 1
           - C00080[h]: 2
           - C00148[h]: -1
           - C03912[h]: 1
+          - NAD[h]: -1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.5.1.2"
@@ -49316,14 +49316,14 @@
           - "Arginine and proline metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R01251_REV"
-      - name: "L-proline:NADP+ 5-oxidoreductase (reversible)"
+      - id: "R01248_REV"
+      - name: "L-proline:NAD+ 5-oxidoreductase (reversible)"
       - metabolites: !!omap
-          - C00005[h]: -1
-          - C00006[h]: 1
+          - C00004[h]: -1
           - C00080[h]: -2
           - C00148[h]: 1
           - C03912[h]: -1
+          - NAD[h]: 1
       - lower_bound: 0
       - upper_bound: 1000
       - eccodes: "1.5.1.2"

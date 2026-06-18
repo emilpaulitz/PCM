@@ -4,7 +4,7 @@
     id: "model"
     name: "Model Exported from COBRA Toolbox"
     version: ""
-    date: "2026-05-26"
+    date: "2026-06-18"
     defaultLB: "-1000"
     defaultUB: "1000"
     geckoLight: "false"
@@ -48158,21 +48158,21 @@
           - C00205[h]: -1
           - C03025[h]: -1
           - C03162[h]: 1
-          - prot_G00078: -9.05254091300603e-05
-          - prot_G00204: -0.000144817685902957
-          - prot_G00294: -0.000133527131782946
-          - prot_G00305: -7.79213321848981e-05
-          - prot_G00310: -0.000101650875681883
-          - prot_G00610: -0.000110077519379845
-          - prot_G00884: -9.0403387884008e-05
-          - prot_G00994: -8.88745334481769e-05
-          - prot_G01108: -0.000137037037037037
-          - prot_G01206: -0.000110084697100201
-          - prot_G01651: -0.000490568475452196
-          - prot_G01661: -0.000500043066322136
-          - prot_P56768: -2.96726959517657e-05
-          - prot_P56769: -3.59532012632788e-05
-          - prot_P62090: -6.48722365776629e-05
+          - prot_G00078: -0.00905254091300603
+          - prot_G00204: -0.0144817685902957
+          - prot_G00294: -0.0133527131782946
+          - prot_G00305: -0.00779213321848981
+          - prot_G00310: -0.0101650875681883
+          - prot_G00610: -0.0110077519379845
+          - prot_G00884: -0.0090403387884008
+          - prot_G00994: -0.00888745334481769
+          - prot_G01108: -0.0137037037037037
+          - prot_G01206: -0.0110084697100201
+          - prot_G01651: -0.0490568475452196
+          - prot_G01661: -0.0500043066322136
+          - prot_P56768: -0.00296726959517657
+          - prot_P56769: -0.00359532012632788
+          - prot_P62090: -0.00648722365776629
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATTul_0_CG10280 and ATTul_0_CG10390 and ATTul_0_1G12090 and ATTul_0_1G17210 and ATTul_0_1G37170 and ATTul_0_1G38110 and ATTul_0_1G51040 and ATTul_0_2G45570 and ATTul_0_3G25220 and ATTul_0_4G20280 and ATTul_0_4G36330 and ATTul_0_5G62220 and AtCg00510 and AtCg00630 and AtCg01060"
@@ -48328,21 +48328,21 @@
           - C00205[h]: -1
           - C03025[h]: -1
           - C03162[h]: 1
-          - prot_G00078: -0.00905254091300603
-          - prot_G00204: -0.0144817685902957
-          - prot_G00294: -0.0133527131782946
-          - prot_G00305: -0.00779213321848981
-          - prot_G00310: -0.0101650875681883
-          - prot_G00610: -0.0110077519379845
-          - prot_G00884: -0.0090403387884008
-          - prot_G00994: -0.00888745334481769
-          - prot_G01108: -0.0137037037037037
-          - prot_G01206: -0.0110084697100201
-          - prot_G01651: -0.0490568475452196
-          - prot_G01664: -0.0500043066322136
-          - prot_P56768: -0.00296726959517657
-          - prot_P56769: -0.00359532012632788
-          - prot_P62090: -0.00648722365776629
+          - prot_G00078: -9.05254091300603e-05
+          - prot_G00204: -0.000144817685902957
+          - prot_G00294: -0.000133527131782946
+          - prot_G00305: -7.79213321848981e-05
+          - prot_G00310: -0.000101650875681883
+          - prot_G00610: -0.000110077519379845
+          - prot_G00884: -9.0403387884008e-05
+          - prot_G00994: -8.88745334481769e-05
+          - prot_G01108: -0.000137037037037037
+          - prot_G01206: -0.000110084697100201
+          - prot_G01651: -0.000490568475452196
+          - prot_G01664: -0.000500043066322136
+          - prot_P56768: -2.96726959517657e-05
+          - prot_P56769: -3.59532012632788e-05
+          - prot_P62090: -6.48722365776629e-05
       - lower_bound: 0
       - upper_bound: 1000
       - gene_reaction_rule: "ATTul_0_CG10210 and ATTul_0_CG10280 and ATTul_0_1G12090 and ATTul_0_1G17210 and ATTul_0_1G37170 and ATTul_0_1G38110 and ATTul_0_1G51040 and ATTul_0_2G45570 and ATTul_0_3G25220 and ATTul_0_4G20280 and ATTul_0_4G36330 and ATTul_0_5G62220 and AtCg00510 and AtCg00630 and AtCg01060"
@@ -55873,14 +55873,14 @@
       - confidence_score: 0
       - rxnNotes: "Evidence and GPR from Uniprot or BRENDA"
     - !!omap
-      - id: "R01248"
-      - name: "L-proline:NAD+ 5-oxidoreductase"
+      - id: "R01251"
+      - name: "L-proline:NADP+ 5-oxidoreductase"
       - metabolites: !!omap
-          - C00004[h]: 1
+          - C00005[h]: 1
+          - C00006[h]: -1
           - C00080[h]: 2
           - C00148[h]: -1
           - C03912[h]: 1
-          - NAD[h]: -1
           - prot_standard: -0.447473794549266
       - lower_bound: 0
       - upper_bound: 1000
@@ -55889,14 +55889,14 @@
           - "Arginine and proline metabolism"
       - confidence_score: 0
     - !!omap
-      - id: "R01248_REV"
-      - name: "L-proline:NAD+ 5-oxidoreductase (reversible)"
+      - id: "R01251_REV"
+      - name: "L-proline:NADP+ 5-oxidoreductase (reversible)"
       - metabolites: !!omap
-          - C00004[h]: -1
+          - C00005[h]: -1
+          - C00006[h]: 1
           - C00080[h]: -2
           - C00148[h]: 1
           - C03912[h]: -1
-          - NAD[h]: 1
           - prot_standard: -0.447473794549266
       - lower_bound: 0
       - upper_bound: 1000
@@ -102427,9 +102427,8 @@
         - P62090: 1
   - !!omap
     - id: "PSI_h_EXP_29"
-    - kcat: 38700
-    - source: "sensitivityTuning"
-    - notes: "preTuneKcat=387 | source:brenda"
+    - kcat: 387
+    - source: "brenda"
     - eccodes: "1.97.1.12"
     - enzymes: !!omap
         - G00078: 1
@@ -102533,8 +102532,9 @@
         - P62090: 1
   - !!omap
     - id: "PSI_h_EXP_33"
-    - kcat: 387
-    - source: "brenda"
+    - kcat: 38700
+    - source: "sensitivityTuning"
+    - notes: "preTuneKcat=387 | source:brenda"
     - eccodes: "1.97.1.12"
     - enzymes: !!omap
         - G00078: 1
@@ -111645,13 +111645,13 @@
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R01248"
+    - id: "R01251"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
         - standard: 1
   - !!omap
-    - id: "R01248_REV"
+    - id: "R01251_REV"
     - kcat: 26.5
     - source: "standard"
     - enzymes: !!omap
