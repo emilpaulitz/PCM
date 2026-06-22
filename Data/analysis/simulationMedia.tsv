@@ -13,7 +13,7 @@ Im_G6P	0	0	0	Glucose-6-P
 Im_Rib	0	0	0	Ribulose	
 Im_suc	0	1000	0	Sucrose	
 Im_str	0	0	1000	Starch	
-Im_o2	0	100	100	O2	
+Im_o2	0	1000	1000	O2	
 Im_CTP	1	1	1	CTP	
 Im_aMet	1	1	1	S-Adenosylmethionine	
 Im_PC34	1	1	1	lipid	

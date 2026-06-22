@@ -183,8 +183,8 @@ pcm = updateFromGrRules(pcm);
 
 % At4g26300: annotated cytosolic
 pcm = removeGenesFromModel(pcm, {'At4g26300'});
-% the gpr of rubisco got incorrect after that because the gene simply was
-% removed but not the whole complex
+% the gpr of rubisco got incorrect after that because only the gene was
+% removed, but not the whole complex
 newRule = ['AtCg00490 and At1g67090 or AtCg00490 and At5g38410 or ' ...
     'AtCg00490 and At5g38420 or AtCg00490 and At5g38430'];
 pcm.grRules(strcmp(pcm.rxns, 'RBO_h')) = {newRule};
@@ -269,8 +269,7 @@ genesToRemove = {'NW_015926895.1_prot_XP_016474838.1_66823', ...
 genesToRemove = [genesToRemove, ...
                  'NW_015929945.1_prot_XP_016477130.1_68894'];
 pcm = removeGenesFromModel(pcm, genesToRemove);
-% This one (accD) is has only 66% pid to Arabidopsis, so replace it
-% manually
+% This one (accD) has only 66% pid to Arabidopsis, so replace it manually
 pcm.grRules = strrep(pcm.grRules, 'AtCg00500', ...
     '(NC_001879.2_prot_NP_054508.1_84035 or NC_001879.2_prot_NP_054508.1_34)');
 pcm = updateFromGrRules(pcm);

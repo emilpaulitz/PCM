@@ -177,6 +177,7 @@ for orgIx = 1:length(listOfOrgs)
     % if we found a working solution, produce and write out the model
     carved = updateFromGrRules(carved);
     
+    % write out model
     if isfield(carved, 'A')
         carved = rmfield(carved, 'A');
     end
