@@ -1,0 +1,9 @@
+Results of flux coupling analysis with and without the transporter set between APC and ACY made equal,,,,,,,
+,,,,,,,
+,Coupling type,dayAcy,dayApc,AraCore,nightAcy,nightApc,nightAraCore
+Transporter intersection,Fully,10,32,23,10,32,18
+Transporter intersection,chl_to_cyt,35,311,181,270,345,361
+Transporter intersection,cyt_to_chl,5159,1756,1840,846,1010,1198
+Original transporter set,Fully,10,32,23,10,12,18
+Original transporter set,chl_to_cyt,54,330,181,172,352,361
+Original transporter set,cyt_to_chl,4124,1964,1840,671,958,1198
