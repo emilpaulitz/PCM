@@ -279,7 +279,8 @@ def draw_circular_plot_with_tree(data, filename, categories, nwk, round_legend_l
     _ = circos.ax.legend(handles=handles, bbox_to_anchor=legend_bbox, loc="lower left", fontsize=fontsize_legend)
 
     # Save and display the plot
-    fig.savefig(filename, dpi = 400, transparent=True)
+    if filename:
+        fig.savefig(filename, dpi = 400, transparent=True)
 
 def plot_circular(pav, filename, ncategories, obj='Gene', accs = None, given_order = None,
                   fontsize = 12,  fontsize_legend=12, label_formatter=lambda x: x, 

@@ -20,9 +20,20 @@ for fileIx = 1:length(fileList)
     currFile = fileList(fileIx).name;
     [~, baseName, ~] = fileparts(currFile);
     orgs{fileIx} = baseName;
+    
     load([modelPath 'species/' currFile], 'model');
     orgRxns = sort(model.rxns);
     resArray = [resArray; transpose(ismember(allRxns, orgRxns))];
+
+    % also write the models' genes for further analysis in Python
+    if contains(baseName, 'Marchanta_polymorpha')
+        baseName = ['Marchantia_polymorpha.pcm.v' num2str(importVersion)];
+    end
+    fileID = fopen(['Data/analysis/panGenomeAnalysis/modelGenes/' baseName '.genes.txt'], 'w');
+    for i = 1:length(model.genes)
+        fprintf(fileID, '%s\n', model.genes{i}); 
+    end
+    fclose(fileID);
 end
 
 % output resulting rxnPav
