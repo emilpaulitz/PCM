@@ -221,12 +221,8 @@ function [orgPcm, missingInOrg, orgRxnGenes] = makeSpeciesSpecificECAssoc(pcm, o
                 % Check if currPcmEC is in the list of EC numbers
                 if any(strcmp(ecNumberList, currPcmEC))
                     % Add the corresponding gene to the list of associated genes
-                    if ismember(org, {'Arabidopsis_thaliana', 'Nicotiana_tabacum'}) % handled separately
-                        associatedGenes = [associatedGenes; orgGenes{k}];
-                    else
-                        associatedGenes = [associatedGenes; ...
-                                           strrep(orgGenes{k}, '|', '_')];
-                    end
+                    associatedGenes = [associatedGenes; ...
+                                       strrep(orgGenes{k}, '|', '_')];
                 end
             end
         end
@@ -271,12 +267,8 @@ function [orgPcm, missingInOrg, orgRxnGenes] = makeSpeciesSpecificECAssoc(pcm, o
             % Map organism genes based on BLAST results
             mappedGenesTmp = tableOrgGenes(idxBlast);
             if ~isempty(mappedGenesTmp)
-                if ismember(org, {'Arabidopsis_thaliana', 'Nicotiana_tabacum'}) % handled separately
-                    currRxnOrgGenes = [currRxnOrgGenes; mappedGenesTmp];
-                else
-                    currRxnOrgGenes = [currRxnOrgGenes; ...
-                                   strrep(mappedGenesTmp, '|', '_')];
-                end
+                currRxnOrgGenes = [currRxnOrgGenes; ...
+                               strrep(mappedGenesTmp, '|', '_')];
             end
         end
     
@@ -326,9 +318,7 @@ function [orgPcm, missingInOrg, orgRxnGenes] = makeSpeciesSpecificECAssoc(pcm, o
                 mappedGenesTmp = tableOrgGenes(idxBlast);
                 if ~isempty(mappedGenesTmp)
                     orgGeneMapping = strjoin(unique(mappedGenesTmp), ' Or ');
-                    if ~ismember(org, {'Arabidopsis_thaliana', 'Nicotiana_tabacum'}) % handled separately
-                        orgGeneMapping = strrep(orgGeneMapping, '|', '_');
-                    end
+                    orgGeneMapping = strrep(orgGeneMapping, '|', '_');
                     replacements{j} = ['( ' orgGeneMapping ' )'];
                 end
             end

@@ -1,4 +1,4 @@
-clearvars -except gurobiAvailable projDir; clc;
+clearvars -except wrep_carved carved gurobiAvailable projDir; clc;
 
 importVersion = 1;
 modelPath = [projDir 'Data/pcm/species/'];
@@ -15,7 +15,8 @@ fid = fopen(fastaFile, 'r');
 
 idToLocusMap = containers.Map;
 
-% Process the FASTA file line by line
+% This replaces the ncbi IDs like lcl|NC_003070.9_prot_NP_001322048.1_6859
+% with the TAIR gene names like At5g64300
 while ~feof(fid)
     line = fgetl(fid);
     
@@ -23,6 +24,8 @@ while ~feof(fid)
         % Extract the gene identifier
         parts = strsplit(line, ' ');
         geneId = parts{1}(2:end); % remove '>' from the start
+        % during speciesSpecModels, | was replaced by _
+        geneId = strrep(geneId, '|', '_');
         
         % Extract the locus_tag
         locusTagMatch = regexp(line, '\[locus_tag=([^\]]+)\]', 'tokens');
@@ -158,7 +161,8 @@ for i = 1:length(pcm.grRules)
 
             % catch old chloroplast gene names and problematic characters
             if startsWith(lower(currGene), 'arthcp') || ...
-                contains(currGene, '|') || contains(currGene, '&')
+                contains(currGene, '|') || contains(currGene, '&') || ...
+                contains(currGene, 'NC_003070.9_prot_NP_001322048.1_6859')
                 disp(currGene)
             end
 
@@ -226,14 +230,13 @@ clearvars -except gurobiAvailable projDir importVersion modelPath; clc;
 load([modelPath, 'Nicotiana_tabacum.pcm.v' num2str(importVersion) '.mat'], 'model');
 pcm = model;
 
-% remove "lcl|" from the beginning of gene names since this messes with the
-% grRules parsing.
+% remove "lcl_" from the beginning of gene names
 for i = 1:length(pcm.grRules)
     currGpr = pcm.grRules{i};
     
     if ~isempty(currGpr)
         % Matches 'lcl|N' followed by anything (non-greedy), until a space or end of string
-        pattern = 'lcl\|(N[^\s]*($|\s))';
+        pattern = 'lcl_(N[^\s]*($|\s))';
         pcm.grRules{i} = regexprep(currGpr, pattern, '$1');
     end
 
