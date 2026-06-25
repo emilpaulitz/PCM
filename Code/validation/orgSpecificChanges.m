@@ -1,4 +1,4 @@
-clearvars -except wrep_carved carved gurobiAvailable projDir; clc;
+clearvars -except gurobiAvailable projDir; clc;
 
 importVersion = 1;
 modelPath = [projDir 'Data/pcm/species/'];

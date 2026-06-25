@@ -1,44 +1,65 @@
-Species of which genomic sequences were used for the initial draft of the PCM by source.,,
-,,
-Taxonomy clustering,Clustering of rbcL,Model organisms
-Salvia hispanica,Achillea millefolium,Arabidopsis thaliana
-Papaver somniferum,Allium prattii,Medicago truncatula
-Physcomitrium patens,Amphicarpaea edgeworthii,Setaria viridis
-Catharanthus roseus,Anemone occidentalis,Zea mays
-Phoenix dactylifera,Bougainvillea glabra,Brachypodium distachyon
-Beta vulgaris subsp. vulgaris,Caulerpa lentillifera,Nicotiana tabacum
-Vitis riparia,Chloroparvula japonica,Solanum lycopersicum
-Triticum aestivum,Chloroparvula pacifica,Lotus japonicus
-Taxus chinensis,Chloropicon sieburthii,Oryza sativa
-Tripterygium wilfordii,Cucumis sativus,Solanum tuberosum
-Amborella trichopoda,Derbesia sp. WEST4838,Marchantia polymorpha
-Adiantum capillus-veneris,Jaltomata sinuosa,Populus deltoides
-Apium graveolens,Jenufa perforata,Volvox carteri
-Scenedesmus sp. PABB00446,Juncus gracilicaulis,
-Lithospermum erythrorhizon,Magnolia kobus,
-Eucalyptus grandis,Mallotus paniculatus,
-Benincasa hispida,Nepenthes ventricosa x Nepenthes alata,
-Thlaspi arvense,Nymphoides peltata,
-Asparagus officinalis,Paeonia suffruticosa,
-Nelumbo nucifera,Pharus latifolius,
-Gossypium australe,Pyramimonas parkeae CCMP 726,
-Nymphaea colorata,Rubus coreanus,
-Aristolochia fimbriata,Selaginella bisulcata,
-Chloropicon primus,Selaginella doederleinii,
-Acer yangbiense,Selaginella sanguinolenta,
-Capsicum annuum,Senegalia senegal,
-Chlamydomonas reinhardtii,Solanum aturense,
-Coccomyxa sp. Obi,Sparganium hyperboreum,
-Ceratodon purpureus,Stigeoclonium helveticum UTEX 441,
-Hevea brasiliensis,Takakia lepidozioides,
-Pisum sativum,Teucrium mascatense,
-Zingiber officinale,Trentepohlia odorata,
-Cannabis sativa,Uronema confervicola,
-Chlorella vulgaris,Verdigellas peltata,
-Micromonas commoda,,
-Quercus lobata,,
-Camellia sinensis,,
-Tetracentron sinense,,
-Spirodela intermedia,,
-Helianthus annuus,,
-Dioscorea alata,,
+Subsystem,Number of reactions with strong variation in the response to nitrogen availability of different accession models
+SLIME pseudo reaction,46
+2-Oxocarboxylic acid metabolism,15
+"Valine, leucine and isoleucine biosynthesis",10
+transport,7
+"galactolipid synthesis, prokaryotic pathway",7
+export,5
+C5-Branched dibasic acid metabolism,5
+Arginine and proline metabolism,5
+MetaCyc:L-ornithine biosynthesis I,4
+MetaCyc:L-valine biosynthesis,4
+MetaCyc:sucrose degradation II (sucrose synthase),3
+"Glycine, serine and threonine metabolism",3
+Pantothenate and CoA biosynthesis,3
+Glycolysis / Gluconeogenesis,3
+Starch and sucrose metabolism,3
+MetaCyc:L-arginine biosynthesis II (acetyl cycle),3
+MetaCyc:sucrose biosynthesis II,3
+MetaCyc:starch biosynthesis,3
+"diacylglycerol synthesis, chloroplast",3
+MetaCyc:GDP-alpha-D-glucose biosynthesis,2
+Lysine biosynthesis,2
+import,2
+MetaCyc:malate-oxaloacetate shuttle II,2
+MetaCyc:glyoxylate cycle,2
+MetaCyc:gluconeogenesis I,2
+MetaCyc:TCA cycle variation V (plant),2
+MetaCyc:TCA cycle II (plants and fungi),2
+MetaCyc:D-galactose degradation I (Leloir pathway),2
+MetaCyc:L-lysine biosynthesis VI,2
+Pyruvate metabolism,2
+glycerophospholipid metabolism,2
+MetaCyc:dTDP-beta-L-rhamnose biosynthesis,2
+Glutathione metabolism,2
+MetaCyc:glucose and glucose-1-phosphate degradation,2
+MetaCyc:UDP-alpha-D-glucose biosynthesis,2
+MetaCyc:L-isoleucine biosynthesis I (from threonine),1
+MetaCyc:sucrose degradation III (sucrose invertase),1
+Oxidative phosphate pentose cycle,1
+MetaCyc:trans-zeatin biosynthesis,1
+cytokinin biosynthesis,1
+Glyoxylate and dicarboxylate metabolism,1
+"galactolipid synthesis, eukaryotic pathway",1
+lysine synthesis,1
+Nucleotide metabolism,1
+MetaCyc:pyrimidine ribonucleotides interconversion,1
+MetaCyc:CMP phosphorylation,1
+MetaCyc:glycolysis I (from glucose 6-phosphate),1
+MetaCyc:nitrogen remobilization from senescing leaves,1
+MetaCyc:sucrose biosynthesis I (from photosynthesis),1
+photorespiration,1
+MetaCyc:UDP-N-acetyl-D-glucosamine biosynthesis II,1
+MetaCyc:GDP-mannose biosynthesis,1
+Cysteine and methionine metabolism,1
+Galactose metabolism,1
+MetaCyc:glycine biosynthesis,1
+Calvin-Benson cycle,1
+starch synthesis,1
+MetaCyc:malate-oxaloacetate shuttle I,1
+Butanoate metabolism,1
+Nitrogen metabolism,1
+"Alanine, aspartate and glutamate metabolism",1
+MetaCyc:glutathione-peroxide redox reactions,1
+MetaCyc:NAD(P)/NADPH interconversion,1
+Pyrimidine metabolism,1
