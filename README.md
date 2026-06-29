@@ -37,3 +37,5 @@ For improvements to the model, either suggest the changes, or: add a script that
 
 ## How to cite
 TBA
+
+[![DOI](https://zenodo.org/badge/1246445440.svg)](https://doi.org/10.5281/zenodo.21031415)
