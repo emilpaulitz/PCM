@@ -213,14 +213,17 @@ if (strcmp(metNameCheck(end), ']') == 0) || ...
 end
 clear metNameCheck nameFlag name met comp nName
 
+
 %% 2.5 remove chloroplast compartments from the cyt model
 fprintf('Removing chloroplast compartments from cytosol model.\n')
 rxnToRemIx = zeros(length(cyt.rxns), 1);
 transportedMets = zeros(length(cyt.mets), 1);
 metsToMatch = {};
 
-% neither remove cytosol, nor compartments non-existent in chl
-compsToRemove = setdiff(unique(cytCompSymbs), {'c', '0'});
+% neither remove cytosol, nor compartments non-existent in cyt
+%   cytCompSymbs only encompasses comps also present in pcm
+compsToRemove = setdiff(unique(cytCompSymbs), ...
+    [cytCompSymbs(strcmp(chlCompKeys, 'c')), {'0'}]);
 
 % Ask the user whether to remove transports to a chloroplast compartment
 disp(['Compartments ' strjoin(compsToRemove, ', ') ' will be removed.']);
@@ -325,7 +328,7 @@ protMets = cyt.mets(logical(cytProtIx));
 
 cyt = removeRxns(cyt, cyt.rxns(logical(rxnToRemIx)));
 
-% delete any proteins that only occurs in the draw reactions now
+% delete any proteins that only occur in the draw reactions now
 cytProtIx = ismember(cyt.mets, protMets);
 sNotZero = (cyt.S ~= 0);
 cytProtsToRemoveIx = (sum(sNotZero, 2) == 1) & cytProtIx;
@@ -511,7 +514,6 @@ for compIx = 1:length(chlCompKeys)
         end
     end
 end
-
 
 % Ignore cytosol metabolites that do not have a plastid counterpart
 for i = length(cMets):-1:1
