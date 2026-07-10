@@ -8,18 +8,55 @@
 %   - replace chloroplast model if already present
 %   - added support for merging enzyme-constrained models
 
-function [model, missingMets] = plugAndPlay(cyt, chl, cytIsEc)
+function [model, missingMets] = plugAndPlay(cyt, chl, cytIsEc, bioRxnsIx)
 
 % Merges model without chloroplast compartment with chloroplast model
 % cytIsEc (optional) set to true if the cytosol model is enzyme constrained
+%   (default: false)
+% bioRxnsIx (optional) A logical/zero-and-one array of length of cyt.rxns
+%   identifying the biomass rxns. If not given, the script will prompt the
+%   user and ask whether its guess is correct.
 
 % Additional scripts required to run plugAndPlay.m:
 %   - metKEGGIDsearch.m
 %   - fillKEGGIDholes.m
 %   - KEGGIDfirstAid.m
 %   - updateFromGrRules.m
+
 if nargin < 3
     cytIsEc = false;
+end
+
+% request the user to check bioRxns. Thjs is important to know so we can
+% decide whether a chloroplast reaction should be removed or not.
+if nargin < 4
+    bioRxnsIx = arrayfun(@(i) isBio(cyt, i), 1:length(cyt.rxns));
+    disp(['We found ' num2str(sum(bioRxnsIx)) ' biomass reaction(s). ' ...
+          'Please make sure this is correct and otherwise interrupt' ...
+          newline '  and call this function with a biomassRxnIx. The ' ...
+          'rxns we found:'])
+    for i = 1:length(bioRxnsIx)
+        if bioRxnsIx(i) ~= 0
+            disp(cyt.rxns{i})
+        end
+    end
+    question = ['Is this list of biomass reaction(s) ' ...
+        'correct? (yes = 1, no = 0)'];
+    bioListCorrect = input(sprintf(question));
+    if ~bioListCorrect
+        error(['Please call this script with an index identfying the ' ...
+            'correct biomass reactions. The script excludes these from' ...
+            newline '  being removed as part of the chloroplast. ' ...
+            'Exchange reactions are handles separately.'])
+    end
+elseif ~islogical(bioRxnsIx)
+    try
+        bioRxnsIx = logical(bioRxnsIx);
+    catch ME
+        error('We were unable to convert bioRxnsIx to logical.')
+    end
+elseif length(bioRxnsIx) ~= length(cyt.rxns)
+    error('bioRxnsIx has to have the same length as cyt.rxns')
 end
 
 %% 0 - Saving backup of models and requesting user input
@@ -217,10 +254,10 @@ clear metNameCheck nameFlag name met comp nName
 %% 2.5 remove chloroplast compartments from the cyt model
 fprintf('Removing chloroplast compartments from cytosol model.\n')
 rxnToRemIx = zeros(length(cyt.rxns), 1);
-transportedMets = zeros(length(cyt.mets), 1);
+protectedMets = zeros(length(cyt.mets), 1);
 metsToMatch = {};
 
-% neither remove cytosol, nor compartments non-existent in cyt
+% neither remove cytosol, nor compartments non-existent in cyt model
 %   cytCompSymbs only encompasses comps also present in pcm
 compsToRemove = setdiff(unique(cytCompSymbs), ...
     [cytCompSymbs(strcmp(chlCompKeys, 'c')), {'0'}]);
@@ -232,55 +269,50 @@ remTrans = input(['Should transporters to non-chloroplast compartments' ...
 
 % gather reactions to remove
 for j = 1:length(cyt.rxns)
-    % do not remove bio reactions
-    isBio = contains(cyt.rxns{j}, 'bio', 'IgnoreCase', true) || ...
-        contains(cyt.rxnNames{j}, 'bio', 'IgnoreCase', true);
 
-    % do not remove import reactions (like light)
+    isBioRxn = bioRxnsIx(j);
     isExch = isExchange(cyt, j);
-    if isBio || isExch
-        currRxnMets = cyt.mets(find(cyt.S(:, j)));
-        currRxnMetsChloro = currRxnMets(cellfun(@(metId) ...
-                          isInComps(metId, compsToRemove), currRxnMets));
-        metsToMatch = unique([metsToMatch; currRxnMetsChloro]);
-        continue;
-    end
-
-    % iterate over metabolites in the current reaction
     currMetsIx = find(cyt.S(:, j));
-    allMetsInChloro = true;
-    anyMetsInChloro = false;
-    for k = 1:length(currMetsIx)
 
-        % ignore protein metabolites
-        if cytIsEc && cytProtIx(currMetsIx(k))
+    % do not remove bio reactions or import reactions (like light)
+    if ~isBioRxn && ~isExch
+
+        % iterate over metabolites in the current reaction
+        allMetsInChloro = true;
+        anyMetsInChloro = false;
+        for k = 1:length(currMetsIx)
+    
+            % ignore protein metabolites
+            if cytIsEc && cytProtIx(currMetsIx(k))
+                continue
+            end
+    
+            met = cyt.mets{currMetsIx(k)};
+            currComp = regexp(met, '\[(.*?)\]', 'tokens');
+            if ~isempty(currComp)
+    
+                % Is the current metabolite in a compartment to be removed?
+                currCompIsChloro = ismember(currComp{end}, compsToRemove);
+    
+                % Record whether all or some of the metabolites of the
+                % current rxn are in compartments that should be removed
+                allMetsInChloro = allMetsInChloro && currCompIsChloro;
+                anyMetsInChloro = anyMetsInChloro || currCompIsChloro;
+            else
+                allMetsInChloro = false;
+            end
+        end
+    
+        % this only involves proteins: do nothing
+        if cytIsEc && allMetsInChloro && ~anyMetsInChloro
             continue
         end
-
-        met = cyt.mets{currMetsIx(k)};
-        currComp = regexp(met, '\[(.*?)\]', 'tokens');
-        if ~isempty(currComp)
-
-            % Is the current metabolite in a compartment to be removed?
-            currCompIsChloro = ismember(currComp{end}, compsToRemove);
-
-            % Record whether all or some of the metabolites of the
-            % current rxn are in compartments that should be removed
-            allMetsInChloro = allMetsInChloro && currCompIsChloro;
-            anyMetsInChloro = anyMetsInChloro || currCompIsChloro;
-        else
-            allMetsInChloro = false;
-        end
     end
 
-    % this only involves proteins: do nothing
-    if cytIsEc && allMetsInChloro && ~anyMetsInChloro
-        continue
-    end
-
-    % if this is a transporter out of the chloroplast, iterate a second
-    % time to find and rename transported metabolites
-    if ~remTrans && anyMetsInChloro && ~allMetsInChloro
+    % if this is a reaction protected from removal, iterate a second time
+    % to find and rename metabolites that remain in the chloroplast
+    if isBioRxn || isExch || ...
+        (~remTrans && anyMetsInChloro && ~allMetsInChloro)
         for k = 1:length(currMetsIx)
             metID = cyt.mets{currMetsIx(k)};
             if isInComps(metID, compsToRemove)
@@ -297,8 +329,8 @@ for j = 1:length(cyt.rxns)
                                     sprintf('[%s]', currComp), ...
                                     sprintf('[%s]', newComp));
 
-                % add to transportedMets
-                transportedMets(currMetsIx(k)) = 1;
+                % add to protectedMets
+                protectedMets(currMetsIx(k)) = 1;
             end
         end
     else
@@ -321,8 +353,7 @@ for i = 1:length(compsToRemove)
 end
 
 % removeRxns makes met indices shift, therefore put IDs into metsToMatch
-transportedMetsIds = cyt.mets(logical(transportedMets));
-metsToMatch = unique([metsToMatch; transportedMetsIds]);
+metsToMatch = cyt.mets(logical(protectedMets));
 % and protein met IDs in protMets
 protMets = cyt.mets(logical(cytProtIx));
 
@@ -334,7 +365,7 @@ sNotZero = (cyt.S ~= 0);
 cytProtsToRemoveIx = (sum(sNotZero, 2) == 1) & cytProtIx;
 
 clear rxnToRemIx allMetsInChloro anyMetsInChloro currCompIsChloro;
-clear met newComp currMetsIx currCytSymb transportedMets cytProtIx;
+clear met newComp currMetsIx currCytSymb protectedMets cytProtIx;
 clear protMets sNotZero;
 
 % for some reason there are still some orphan metabolites in the legacy
@@ -374,7 +405,7 @@ for ChlCompIx = 1:length(chlCompKeys)
         rxnsInCurrComp = zeros(1, length(cyt.rxns));
         for j = 1:length(cyt.mets)
             if contains(cyt.mets{j}, ['[' chlCurrSymbol ']']) && ...
-                ~any(strcmp(transportedMetsIds, cyt.mets{j}))
+                ~any(strcmp(metsToMatch, cyt.mets{j}))
                 rxnsInCurrComp = rxnsInCurrComp + (cyt.S(j, :) ~= 0);
             end
         end
@@ -419,8 +450,8 @@ for ChlCompIx = 1:length(chlCompKeys)
 end
 clear cytComps met i ChlCompIx chlCurrSymbol currCompName remTrans;
 
-disp('Following metabolites from imports/biomass/transporters need to be matched:');
-disp(metsToMatch);
+disp(['From imports/biomass/transporters, ' ...
+    num2str(length(metsToMatch)) ' metabolites need to be matched.'])
 
 %% 3 - Making sure cytosol model contains KEGG IDs for metabolites
 % convert nested cell arrays to flat cell arrays where multiple KEGG IDs
@@ -708,6 +739,7 @@ for a = 1:length(cMets)
             chl.metNames(i) = cyt.metNames(cytCmet);
             fprintf('  Metabolite %i of %i: Metabolite name changed from %s to %s\n', ...
                 a, length(cMets), oldCname, char(chl.metNames(i)))
+            cytCytosol = ['[' cytCompSymbs{strcmp(chlCompKeys, 'c')} ']'];
             newCname = char(chl.metNames(i));
             % Changing other compartments metabolite name
             for compSymbolIx = 1:length(chlCompKeys)
@@ -721,8 +753,11 @@ for a = 1:length(cMets)
                     continue
                 end
                 oldPname = char(chl.metNames(currCompMetIx));
-                % TODO from newCname, we would have to remove [c] (or [cy]
-                % or whatever)
+                % From newCname, we remove [c] (or [cy] or whatever)
+                if endsWith(strip(newCname), cytCytosol)
+                    newCname = strip(newCname);
+                    newCname(1:end-length(cytCytosol));
+                end
                 newPname = sprintf('%s [%s]', newCname, currCompSymbol);
                 chl.metNames(currCompMetIx) = cellstr(newPname);
                 fprintf('  Metabolite %i of %i: Metabolite name changed from %s to %s\n', ...
@@ -1065,6 +1100,14 @@ function isExch = isExchange(model, rxnIx)
     isExch = all(currFactors >= 0) || all(currFactors <= 0);
 end
 
+function isBioRxn = isBio(model, rxnIx)
+    % checks whether the given reaction is a biomass reaction. This is very
+    % coarse an the user is asked to correct this in the beginning of the
+    % script
+    isBioRxn = contains(model.rxns{rxnIx}, 'bio', 'IgnoreCase', true) || ...
+        contains(model.rxnNames{rxnIx}, 'bio', 'IgnoreCase', true);
+end
+
 function isTransp = isTransport(model, rxnIx)
     % checks whether the given reaction is an exchange, by checking
     % whether all metabolites are consumed, or all metabolites are
@@ -1096,13 +1139,11 @@ function inComp = isInComp(metId, comp)
 end
 
 function inComps = isInComps(metId, comps)
-    metComp = regexp(metId, '\[(.*?)\]', 'tokens');
+    metComp = extractComp(metId);
     inComps = false;
     if ~isempty(metComp)
-        metComp = metComp{end}{1};
         for compIx = 1:length(comps)
-            comp = comps{compIx};
-            if strcmp(metComp, comp)
+            if strcmp(metComp, comps{compIx})
                 inComps = true;
                 break
             end
