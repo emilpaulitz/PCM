@@ -17,6 +17,16 @@ Code and data relating to the pan-chloroplast model (PCM).
 ## PlugAndPlay
 To plug the pcm version of your choice into a whole-cell model, apply the interactive function `plugAndPlay.m`. Examples for its usage can be found in `Code/validation/plugIntoAraCore.m`.
 
+The script first deletes the whole-cell model's chloroplast and then renames metabolites that the models share across all compartments of the PCM. Keep that in mind when it comes to difficult decisions. So, say you integrate the PCM into a model from the MNXM namespace and the script asks you:
+```
+Rxn Tr_OPDA_c1 (974 / 1612) already exists. Please choose which version to keep (0 is from cyt, 1 from chl model):
+(0) Tr_OPDA_c1 : 12-OPDA[hm] <==> MNXM729361[cy]
+(1) Tr_OPDA_c1 : MNXM729361[hm] <==> MNXM729361[cy]
+(2) Keep both, appending _chl to chl rxn ID
+Index of reaction to keep (0|1|2):
+```
+The reaction (1) from the PCM uses the metabolite that was re-named using the name of the cytosol metabolite. However, given the old metabolite in the whole-cell model's chloroplast inner membrane (`12-OPDA[hm]`) had a different name, the script has to ask the user. Here, you should probably type 1, because `12-OPDA[hm]` is likely not connected anymore because the whole-cell model's chloroplast was removed. However, it can never hurt to choose 2 and check this manually after the procedure ran through.
+
 ## Structure of this repository
 The Repository is stuctured in folders Code, Data, and Figures
 - Code contains folders for the different analyses performed for the manuscript. Code and data for generating enzyme-constrained PCM models is found in the gecko folder. Further, Code contains functions used by multiple scripts, as well as: 

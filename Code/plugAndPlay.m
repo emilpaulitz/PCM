@@ -127,6 +127,7 @@ end
 
 %% 1 - Changes to chl model:
 % - Deleting biomass and exchange reactions
+% - Remove now-orphaned metabolites
 % - Remove pseudo metabolites
 % - Change compartment symbol of cytosol reactions
 
@@ -140,7 +141,9 @@ clear bioList bioNames
 % Remove (exchange, import, export) reactions
 exchRxnIx = find(chl.rxn2subSystem(:, strcmp(chl.subSystemNames, 'export')) | ...
     chl.rxn2subSystem(:, strcmp(chl.subSystemNames, 'import')) | ...
-    chl.rxn2subSystem(:, strcmp(chl.subSystemNames, 'exchange')));
+    chl.rxn2subSystem(:, strcmp(chl.subSystemNames, 'exchange')) | ...
+    startsWith(chl.rxns, 'Ex_') | startsWith(chl.rxns, 'Im_') | ...
+    startsWith(chl.rxns, 'Exch_'));
 if isfield(chl, 'confidenceScores')
     chl.confidenceScores(exchRxnIx) = [];
 end
@@ -220,7 +223,7 @@ end
 clear met pos fullID
 
 % Changing format of compartment symbols in cytosol model
-metNameCheck = char(cyt.metNames(1));
+metNameCheck = cyt.metNames{1};
 if (strcmp(metNameCheck(end), ']') == 0) || ...
         (strcmp(metNameCheck(end-2), '_') > 0) || ...
         (strcmp(metNameCheck(end-1), '_') > 0)
@@ -449,7 +452,7 @@ for ChlCompIx = 1:length(chlCompKeys)
                 if strcmp(met(end-1), chlCurrSymbol)
                     newMetID = sprintf('%s[%s]', met(1:end-3), newChloroplastSymb);
                     chl.mets(i) = cellstr(newMetID);
-                    oldMetName = char(chl.metNames(i));
+                    oldMetName = chl.metNames{i};
                     newMetName = sprintf('%s [%s]', oldMetName(1:end-4), newChloroplastSymb);
                     chl.metNames(i) = cellstr(newMetName);
                 end
@@ -535,21 +538,16 @@ clear i fill KEGGID KEGGsPresent noKEGGID stillEmptyKEGGs backup
 fprintf('Translating exchange metabolites in chloroplast model into cytosol model namespace\n\n')
 
 % Generate a list of cytosol metabolites in chloroplast model
-cMets = double.empty(0,1); 
-n = 1;
-for i = 1:length(chl.mets)
-    met = char(chl.mets(i));
-    if strcmp(met(end-1), chlModelCytSymb)
-        cMets(n,1) = i;
-        n = n + 1;
-    end
-end
+cMets = find(strcmp( ...
+    cellfun(@extractComp, chl.mets, 'UniformOutput', false), ...
+    chlModelCytSymb));
+
 % Identify the versions of cytosol metabolites in other compartments
 compMets = zeros(length(chlCompKeys), length(cMets));
 for compIx = 1:length(chlCompKeys)
     for a = 1:length(cMets)
         i = cMets(a);
-        met = char(chl.mets(i));
+        met = chl.mets{i};
         pMet = sprintf('%s[%s]', met(1:end-3), chlCompKeys{compIx});
         pMatches = smatch(chl.mets, pMet, 'exact');
         if ~isempty(pMatches) && isscalar(pMatches)
@@ -604,219 +602,199 @@ missingMets = cell.empty(0,2);
 n = 1;
 cytCytosolSymb = cytCompSymbs{strcmp(chlCompKeys, chlModelCytSymb)};
 
+% Find which KEGGIDs are duplicated in each model. These cannot be matched
+% automatically
+chlDupKEGG = getDupKEGGs(chl);
+
 % Search for cMets in cytosol model, translating cMets and hMets into
 % cytosol namespace
 changedMetIDs = {};
-for a = 1:length(cMets) 
-    i = cMets(a);
-
-    metName = char(chl.metNames(i));
-    KEGGID = char(chl.metKEGGID(i));
-    chlMet = char(chl.mets(i));
-    chlMetComp = extractComp(chlMet);
-
-    % only use 'contains' functionality of smatch in case multiple KEGGIDs
-    % are mapped in the cytosol model
-    metMatch = [];
-    singleKeggIds = strsplit(KEGGID, ',');
-    for ix = 1:length(singleKeggIds)
-        singleKeggId = singleKeggIds{ix};
-        if ~isempty(singleKeggId)
-            metMatch = [metMatch, smatch(cyt.metKEGGID, singleKeggId)];
-        end
+cytComps = cellfun(@extractComp, cyt.mets, 'UniformOutput', false);
+a = 1; % Solely for numbering metabolites in the printed output
+chlMetsProcessed = zeros(size(chl.mets));
+for cMetsIx = 1:length(cMets)
+    i = cMets(cMetsIx);
+    if chlMetsProcessed(i) == 1
+        continue;
     end
 
-    % only consider matches of the correct compartment
-    correctComp = arrayfun(@(metIxCyt) ...
-            strcmp(extractComp(char(cyt.mets(metIxCyt))), ...
-                   cytCompSymbs(strcmp(chlCompKeys, chlMetComp))), ...
-        metMatch);
-    metMatch = metMatch(correctComp);
+    metName = chl.metNames{i};
+    KEGGID = strtrim(chl.metKEGGID{i});
+    chlMet = chl.mets{i};
+    chlMetComp = extractComp(chlMet);
+
+    % Find matches in cyt based on KEGG ID and compartment
+    metMatch = findMatches(cyt, strsplit(KEGGID, ','), cytComps, ...
+        cytCompSymbs(strcmp(chlCompKeys, chlMetComp)));
 
     if isempty(metMatch)
         % Met might not be present in cytosol model
-        missingMets(n,1) = cellstr(metName);
-        missingMets(n,2) = cellstr(KEGGID);
-        n = n + 1;
-        fprintf('* Metabolite %i of %i:\n', a, length(cMets))
-        fprintf(['  Metabolite %s is seemingly not present in cytosol ' ...
-            'model\n'], metName)
-        fprintf(['  Metabolite has been added to list of missing metab' ...
-            'olites\n\n'])
-        % Still change the compartment identifier
-        chl.mets{i} = sprintf('%s[%s]', chlMet(1:end-3), cytCytosolSymb);
+        [chl, missingMets, n] = processMissingMet(chl, missingMets, ...
+                    i, n, a, length(cMets), cytCytosolSymb);
     else
-        constName = 1;
-        % Going through metabolite matches based on KEGG ID from cyt model.
-        % If metabolite roots are different, program lets user pick correct
-        % metabolite.
-        for j = 1:length(metMatch) 
-            if j == 1
-                refMet = char(cyt.mets(metMatch(j)));
-                refRoot = strtok(refMet, '[');
-            else
-                checkMet = char(cyt.mets(metMatch(j)));
-                checkRoot = strtok(checkMet, '[');
-                if ~strcmp(refRoot, checkRoot)
-                    constName = 0;
-                end
-            end
-        end
-        % Cyt metabolite IDs are on different format. Choosing manually
-        if constName == 0 
-            fprintf('* Altering namespace for chloroplast metabolite %s\n\n', chlMet)
-            fprintf('Metabolite hits in cytosol model:\n')
-            disp([transpose(num2cell(1:length(metMatch))), cyt.mets(metMatch)])
-            correctMet = input('Index of correct metabolite (if correct metabolite is not present, press 0): ');
-            disp(' ')
-            if correctMet > 0
-                cytCmet = metMatch(correctMet);
-            elseif correctMet == 0
-                cytCmet = 0;
-            end
-        elseif constName == 1 % Cyt metabolite IDs are on the same format
-            % Search for cytosol metabolite in cytosol model
-            if isscalar(metMatch) 
+
+        if ~chlDupKEGG(i)
+            % Normal metabolite without duplications
+
+            if isscalar(metMatch)
                 cytCmet = metMatch;
             else
-                cytCmet = double.empty(0,1);
-                m = 1;
-                for j = 1:length(metMatch)
-                    cytMet = char(cyt.mets(metMatch(j)));
-                    currCytComp = extractComp(cytMet);
-                    if strcmp(currCytComp, ...
-                        cytCompSymbs(strcmp(chlCompKeys, chlModelCytSymb)))
-                        cytCmet(m,1) = metMatch(j);
-                        m = m + 1;
-                    end
-                end
-                if length(cytCmet) > 1
-                    fprintf('Input required for chloroplast metabolite %s\n\n', chlMet)
-                    fprintf('Choose correct cytosol metabolite:\n')
-                    disp([transpose(num2cell(1:length(cytCmet))), cyt.mets(cytCmet)])
-                    cytCmet = input('Choose index of correct metabolite: ');
-                    disp(' ')
+                fprintf(['* Altering namespace for chloroplast ' ...
+                    'metabolite %s\n\n  Metabolite hits in cytosol' ...
+                    ' model:\n'], chlMet)
+                disp([transpose(num2cell(1:length(metMatch))), ...
+                    cyt.mets(metMatch)])
+                correctMet = input(['Index of correct metabolite ' ...
+                    '(if correct metabolite is not present, press 0): ']);
+                disp(' ')
+                if correctMet > 0
+                    cytCmet = metMatch(correctMet);
+                elseif correctMet == 0
+                    cytCmet = 0;
                 end
             end
-        end
-
-        % Changing name of cytosol metabolite and corresponding plastid
-        % metabolite in chloroplast model
-        if cytCmet == 0 % Metabolite is not present in cytosol compartment of cytosol model
-            missingMets(n,1) = cellstr(metName);
-            missingMets(n,2) = cellstr(KEGGID);
-            n = n + 1;
-            fprintf('* Metabolite %i of %i:\n', a, length(cMets))
-            fprintf('  Metabolite %s is present in cytosol model, but does not seem to be present in the cytosol compartment\n', metName(1:end-3))
-            fprintf('  Metabolite has been added to list of missing metabolites\n\n')
-
-            % Still change the compartment identifier
-            chl.mets{i} = sprintf('%s[%s]', chlMet(1:end-3), cytCytosolSymb);
-        else
-            % Changing cytosol metabolite ID in chl model
-            oldCid = char(chl.mets(i));
-            if ~strcmp(cyt.mets(cytCmet), chl.mets(i)) && ...
-                    any(strcmp(chl.mets, char(cyt.mets(cytCmet))))
-                fprintf('* Metabolite %i of %i: Cannot change ID of metabolite %s to %s. %s found in chl model already. Names will still be changed.\n', ...
-                    a, length(cMets), oldCid, char(cyt.mets(cytCmet)), ...
-                    char(cyt.mets(cytCmet)))
-
-                % Still change the compartment identifier
-                chl.mets{i} = sprintf('%s[%s]', chlMet(1:end-3), cytCytosolSymb);
+    
+            % Changing name of cytosol metabolite and corresponding plastid
+            % metabolite(s) in chloroplast model
+            if cytCmet == 0
+                % Metabolite is not present in cytosol compartment of
+                % cytosol model
+                [chl, missingMets, n] = processMissingMet(chl, ...
+                    missingMets, i, n, a, length(cMets), cytCytosolSymb);
             else
-                chl.mets(i) = cyt.mets(cytCmet);
-                fprintf('* Metabolite %i of %i: Metabolite ID changed from %s to %s\n', ...
-                    a, length(cMets), oldCid, char(chl.mets(i)))
-                newCid = char(chl.mets(i));
+                [chl, changedMetIDs] = processMetMatch(chl, cyt, i, ...
+                    cytCmet, a, cMetsIx, length(cMets), cytCytosolSymb, ...
+                    chlCompKeys, chlModelCytSymb, compMets, ...
+                    changedMetIDs, cytCompSymbs);
+            end
+            chlMetsProcessed(i) = 1;
+            a = a + 1;
 
-                % Changing compartment metabolite ID
-                for compSymbolIx = 1:length(chlCompKeys)
-                    currCompSymbol = chlCompKeys{compSymbolIx};
-                    if strcmp(currCompSymbol, chlModelCytSymb) % cytosol was done above
-                        continue
-                    end
-                    currCompMetIx = compMets(strcmp(chlCompKeys, ...
-                                             currCompSymbol), a);
-                    if currCompMetIx == 0
-                        continue
-                    end
+        else
+            % if the current chl metabolite has duplicated KEGGID, ask for
+            % user input
 
-                    oldPid = char(chl.mets(currCompMetIx));
-                    nameBase = strtok(newCid, '[');
-                    newPid = sprintf('%s[%s]', nameBase, ...
-                                               currCompSymbol);
-                    chl.mets(currCompMetIx) = cellstr(newPid);
-                    fprintf('  Metabolite %i of %i: Metabolite ID changed from %s to %s\n', ...
-                        a, length(cMets), oldPid, char(chl.mets(currCompMetIx)))
-                    changedMetIDs = [changedMetIDs, newPid];
+            % Search for all chl metabolites of the current set of KEGG IDs
+            currChlMets = zeros(size(chl.mets)); % will be find() later
+            currChlMets(i) = 1;
+
+            % Start the search with the current chl KEGG IDs
+            searchSet = strsplit(KEGGID, ',');
+            finishedSet = {};
+        
+            while ~isempty(searchSet)
+                % Pop the first KEGG ID from the search set for processing
+                currentKEGGID = searchSet{1};
+                searchSet(1) = [];
+                finishedSet = [finishedSet, currentKEGGID];
+        
+                % Find chl metabolites matching the KEGG ID and compartment
+                for j = 1:length(chl.metKEGGID)
+                    chlKeggIds = strsplit(strtrim(chl.metKEGGID{j}), ',');
+                    if ismember(currentKEGGID, chlKeggIds) && ...
+                            strcmp(extractComp(chl.mets{j}), chlMetComp)
+                        currChlMets(j) = 1;
+        
+                        % Add new KEGG IDs to the search set if not already finished
+                        for keggId = chlKeggIds
+                            if ~isempty(keggId) && ...
+                                ~ismember(keggId, finishedSet) && ...
+                                ~ismember(keggId, searchSet)
+                                searchSet = [searchSet, keggId];
+                            end
+                        end
+                    end
                 end
             end
+            currChlMets = find(currChlMets);
+            
+            % Find matches in cyt
+            currCytMets = findMatches(cyt, finishedSet, cytComps, ...
+                cytCompSymbs(strcmp(chlCompKeys, chlMetComp)));
 
-            % Changing cytosol metabolite name
-            oldCname = char(chl.metNames(i));
-            chl.metNames(i) = cyt.metNames(cytCmet);
-            fprintf('  Metabolite %i of %i: Metabolite name changed from %s to %s\n', ...
-                a, length(cMets), oldCname, char(chl.metNames(i)))
-            cytCytosol = ['[' cytCompSymbs{strcmp(chlCompKeys, chlModelCytSymb)} ']'];
-            newCname = char(chl.metNames(i));
-            % Changing other compartments metabolite name
-            for compSymbolIx = 1:length(chlCompKeys)
-                currCompSymbol = chlCompKeys{compSymbolIx};
-                if strcmp(currCompSymbol, chlModelCytSymb) % cytosol was done above
-                    continue
-                end
-                currCompMetIx = compMets(strcmp(chlCompKeys, ...
-                                         currCompSymbol), a);
-                if currCompMetIx == 0
-                    continue
-                end
-                oldPname = char(chl.metNames(currCompMetIx));
-                % From newCname, we remove [c] (or [cy] or whatever)
-                if endsWith(strip(newCname), cytCytosol)
-                    newCname = strip(newCname);
-                    newCname = strip(newCname(1:end-length(cytCytosol)));
-                end
-                newPname = sprintf('%s [%s]', newCname, currCompSymbol);
-                chl.metNames(currCompMetIx) = cellstr(newPname);
-                fprintf('  Metabolite %i of %i: Metabolite name changed from %s to %s\n', ...
-                    a, length(cMets), oldPname, char(chl.metNames(currCompMetIx)))
+            if ~isempty(currCytMets)
+                % Communicate with the user
+                fprintf('* Metabolite %i of %i:\n', a, length(cMets))
+                fprintf(['  Encountered metabolite %s with non-unique ' ...
+                        'KEGG ID %s in the chloroplast model.\n'], ...
+                        metName, KEGGID)
+                fprintf('  Metabolites in chl and cyt models:\n')
+                
+                % Pad shorter columns with empty cells
+                maxLength = max(length(currChlMets), length(currCytMets));
+                chlPad = repmat({''}, maxLength - length(currChlMets), 1);
+                cytPad = repmat({''}, maxLength - length(currCytMets), 1);
+                disp([[transpose(num2cell(1:length(currChlMets))); chlPad], ...
+                      [chl.mets(currChlMets); chlPad], ...
+                      [transpose(num2cell(1:length(currCytMets))); cytPad], ...
+                      [cyt.mets(currCytMets); cytPad]]);
+
+                fprintf(['  For each metabolite in the chl model, please ' ...
+                    'type the index of the corresponding\n    metabolite ' ...
+                    'in the cyt model (if correct metabolite is not ' ...
+                    'present, press 0):\n'])
             end
-            disp(' ')
-            clear oldCid newCid oldPid newPid oldCname newCname oldPname newPname
+
+            % for each chl metabolite:
+            % ask the user to pick the corresponding cyt metabolite or 0
+            for chlIx = 1:length(currChlMets)
+                if ~isempty(currCytMets)
+                    correctMet = input(['Index of correct metabolite in ' ...
+                        'cyt model for (' num2str(chlIx) ') ' ...
+                        chl.mets{currChlMets(chlIx)} ': ']);
+                    if correctMet > 0
+                        cytCmet = metMatch(correctMet);
+                    elseif correctMet == 0
+                        cytCmet = 0;
+                    end
+                else
+                    cytCmet = 0;
+                end
+
+                % Change names and IDs of cytosol and corresponding plastid
+                % metabolites in chl model
+                if cytCmet == 0
+                    [chl, missingMets, n] = processMissingMet(chl, ...
+                        missingMets, currChlMets(chlIx), n, a, ...
+                        length(cMets), cytCytosolSymb);
+                else
+                    [chl, changedMetIDs] = processMetMatch(chl, cyt, ...
+                        currChlMets(chlIx), cytCmet, a, cMetsIx, ...
+                        length(cMets), cytCytosolSymb, chlCompKeys, ...
+                        chlModelCytSymb, compMets, changedMetIDs, ...
+                        cytCompSymbs);
+                end
+                chlMetsProcessed(currChlMets(chlIx)) = 1;
+                a = a + 1;
+            end
         end
     end
 end
 clear cytCmet cytMet a i j m n KEGGID chlMet metMatch metName constName
-clear refMet refRoot checkMet checkRoot correctMet compMets cMets
+clear refMet refRoot checkMet checkRoot correctMet compMets cMets cMetsIx
+clear chlMetsProcessed chlDupKEGG
 
 % After changing the name of chl model metabolites, check whether any mets
 % in metToMatch are left unmatched
 disp('Checking which metabolites are not ready to be mapped automatically')
+chlComps = cellfun(@extractComp, chl.mets, 'UniformOutput', false);
+cytDupKEGG = getDupKEGGs(cyt);
 for i = 1:length(metsToMatch)
     if ~any(strcmp(metsToMatch{i}, chl.mets))
         cytMetIx = strcmp(metsToMatch{i}, cyt.mets);
         cytKegg = cyt.metKEGGID{cytMetIx};
 
         % match KEGG IDs provided compartments match up
-        matchingChlMets = [];
-        for j = 1:length(chl.mets)
-            for chlKegg = strsplit(chl.metKEGGID{j}, ',')
-                if ~isempty(chlKegg{1}) && contains(cytKegg, chlKegg) &&...
-                        strcmp(extractComp(chl.mets{j}), ...
-                               extractComp(metsToMatch{i}))
-                    matchingChlMets = [matchingChlMets, j];
-                    break % do not add the same j twice
-                end
-            end
-        end
+        matchingChlMets = findMatches(chl, strsplit(cytKegg, ','), ...
+            chlComps, extractComp(metsToMatch{i}));
 
         chlMetIx = 0;
         % if we find one match, we have a match unless the chl met was 
-        % changed before
+        % changed before or the cyt met is one of many with that KEGG ID
         if isscalar(matchingChlMets)
             chlMetIx = matchingChlMets(1);
             if any(strcmp(changedMetIDs, chl.mets{chlMetIx}))
-                % put into missing Mets
+                % was matched before; put cytMet into missing Mets
                 missingMets(end + 1, 1) = cellstr(cyt.metNames{cytMetIx});
                 missingMets(end, 2) = cellstr([cyt.mets{cytMetIx} '; ' cytKegg]);
                 fprintf('* Chloroplast metabolite %i of %i:\n', i, length(metsToMatch));
@@ -824,14 +802,44 @@ for i = 1:length(metsToMatch)
                     cyt.metNames{cytMetIx}, chl.metNames{chlMetIx});
                 fprintf('  Metabolite has been added to list of missing metabolites\n\n')
                 chlMetIx = -1;
+            elseif cytDupKEGG(cytMetIx)
+                % multiple cyt mets in that compartment have that KEGG ID
+                currMatchingCytMets = findMatches(cyt, strsplit(cytKegg, ','), ...
+                    cytComps, extractComp(metsToMatch{i}));
+
+                % ask user with all possible cyt mets
+                fprintf('* Chloroplast metabolite %i of %i:\n', i, length(metsToMatch));
+                fprintf('  Trying to match following chloroplast metabolites from cyt model to chl model.\n\n')
+                disp([transpose(num2cell(1:length(currMatchingCytMets))), cyt.mets(currMatchingCytMets)])
+                fprintf('  For their KEGG ID %s, found %s as hit.\n', cytKegg, chl.mets{matchingChlMets})
+                correctMet = input('Index of correct cyt metabolite (if correct metabolite is not present, press 0): ');
+                disp(' ')
+
+                % Match the chosen metabolite
+                if correctMet > 0
+                   oldPid = chl.mets{chlMetIx};
+                   chl.mets{chlMetIx} = cyt.mets{currMatchingCytMets(correctMet)};
+                   fprintf('  Chloroplast metabolite %i of %i: Metabolite ID changed from %s to %s\n', ...
+                            i, length(metsToMatch), oldPid, chl.mets{chlMetIx})
+                end
+
+                % If the chosen metabolite is not the one of the current 
+                % iteration, add that one to missing metabolites
+                if correctMet == 0 || ...
+                        currMatchingCytMets(correctMet) ~= find(cytMetIx)
+                    missingMets(end + 1, 1) = cellstr(cyt.metNames{cytMetIx});
+                    missingMets(end, 2) = cellstr([cyt.mets{cytMetIx} '; ' cytKegg]);
+                    fprintf('  Metabolite %s has been added to list of missing metabolites\n\n', cyt.mets{cytMetIx})
+                end
+                chlMetIx = -1;  % Do not do anything more
             end
 
         % if we find multiple matches, let user decide
         elseif length(matchingChlMets) > 1
-            fprintf('* Trying to matching chloroplast metabolite %s in cyt model to chl model.\n\n', cyt.mets{cytMetIx})
-            fprintf('Metabolite name: %s\n', cyt.metNames{cytMetIx})
-            fprintf('Metabolite hits in chl model for KEGG ID %s:\n', cytKegg)
-            disp([transpose(num2cell(1:length(matchingChlMets))), chl.mets(matchingChlMets)])
+            fprintf('* Trying to match chloroplast metabolite %s in cyt model to chl model.\n\n', cyt.mets{cytMetIx})
+            fprintf('  Metabolite name: %s\n', cyt.metNames{cytMetIx})
+            fprintf('  Metabolite hits in chl model for KEGG ID %s:\n', cytKegg)
+            disp([transpose(num2cell(1:length(matchingChlMets))), chl.mets(matchingChlMets), chl.metNames(matchingChlMets)])
             correctMet = input('Index of correct metabolite (if correct metabolite is not present, press 0): ');
             disp(' ')
             if correctMet > 0
@@ -894,6 +902,9 @@ if numSLIMEs > 10
     fprintf(' ')
 end
 
+% if true, cyt uses the subsystems format with cells, otherwise the one
+% with chars
+cytSubSystemsFormat = any(cellfun(@iscell, cyt.subSystems));
 for j = 1:length(chl.rxns) % Looping through chloroplast model reactions
     n = length(model.rxns) + 1; % Index of next reaction from chl model to be added to model
     % change name of prot_pool_exchange of chloroplast automatically 
@@ -946,7 +957,11 @@ for j = 1:length(chl.rxns) % Looping through chloroplast model reactions
     % rxnName
     model.rxnNames(n) = chl.rxnNames(j);
     % subSystems
-    model.subSystems(n) = chl.subSystems(j);
+    if cytSubSystemsFormat
+        model.subSystems{n} = chl.subSystemNames(logical(chl.rxn2subSystem(j, :)));
+    else
+        model.subSystems(n) = chl.subSystems(j);
+    end
     % ub
     model.ub(n) = chl.ub(j);
     % lb
@@ -965,13 +980,28 @@ for j = 1:length(chl.rxns) % Looping through chloroplast model reactions
     end
 
 
-    % handle fields present in both chl and cyt
+    % handle rxn fields present in both chl and cyt, or only in cyt
     rxnFieldNames = {'rev', 'confidenceScores', 'rxnConfidenceScores', ...
-                     'rules', 'rxnReferences', 'rxnNotes', 'rxnKEGGID'};
+                     'rules', 'rxnReferences', 'rxnNotes', 'rxnKEGGID', ...
+                     'rxnisECID', 'rxnisbiggID', 'rxnismetacycID', ...
+                     'rxnisseedID'};
     for i = 1:length(rxnFieldNames)
         rxnFieldName = rxnFieldNames{i};
         if isfield(model, rxnFieldName) && isfield(chl, rxnFieldName)
             model.(rxnFieldName)(n) = chl.(rxnFieldName)(j);
+        elseif isfield(model, rxnFieldName)
+            % figure out type of array/cell content and fill with empty
+            if iscell(model.(rxnFieldName)(end)) && ...
+                    ischar(model.(rxnFieldName){end})
+                model.(rxnFieldName)(n) = {char.empty};
+            elseif isnumeric(model.(rxnFieldName)(end))
+                model.(rxnFieldName)(n) = nan;
+            else
+                warning('Problem with reaction fields while merging:');
+                disp(['Reaction field ' rxnFieldName ' is not present' ...
+                    ' in chl and its type could not be inferred to pad' ...
+                    ' with empty'])
+            end
         end
     end
     
@@ -1005,7 +1035,9 @@ for j = 1:length(chl.rxns) % Looping through chloroplast model reactions
     metFieldNames = {'metFormulas', 'metChEBIID', ...
                 'metPubChemID', 'metInChIString', 'metCharge', ...
                 'metCharges', 'metKEGGID', 'metNotes', 'metSEEDID', ...
-                'metisinchikeyID'};
+                'metisinchikeyID', 'metLIPIDMAPSID', 'metisInChIKeyID', ...
+                'metisSMILESID', 'metisbiggID', 'metismetacycID', ...
+                'metismetanetxID', 'metispubchemID', 'metisseedID'};
     for i = 1:size(metMatrix,1)
         h = metMatrix(i,1); % Metabolite index in chl model
         c = metMatrix(i,3); % Metabolite index in model
@@ -1076,7 +1108,8 @@ end
 model.description = sprintf('Merged model made from %s and %s', ...
     cytDescr, chl.description);
 
-clear i j n metMatrix metIDs m met h c rxGenes rxGeneNames x b yPos currentSize cytDescription chlDescription borderRxns modelMetIndex
+clear i j n metMatrix metIDs m met h c rxGenes rxGeneNames x b yPos
+clear currentSize cytDescription chlDescription borderRxns modelMetIndex
 
 % update comps, compNames
 if isfield(model, 'comps') && isfield(model, 'compNames')
@@ -1112,7 +1145,6 @@ model.C = [model.C, zeros(size(model.C, 1), ...
     length(model.rxns) - size(model.C, 2))];
 end
 
-%clc
 fprintf(['Congratulations, you successfully merged the cytosol ' ...
     'model and the chloroplast model!\n\nPlease run verifyModel(model)' ...
     ' to check if this script missed any field. Inspect the ' ...
@@ -1270,4 +1302,158 @@ end
 function metabolites = sortMetabolites(part)
     % Split and sort metabolites within each part
     metabolites = sort(strtrim(split(strtrim(part), '+')));
+end
+
+function dupIx = getDupKEGGs(model)
+    % Find the metabolites of the model that have non-unique KEGGIDs in
+    % the model among metabolites of the same compartment
+    metKEGGIDs = model.metKEGGID;
+    mets = model.mets;
+    
+    dupIx = zeros(size(metKEGGIDs));
+    keggMap = containers.Map('KeyType', 'char', 'ValueType', 'any');
+    
+    for i = 1:length(metKEGGIDs)
+        currIDs = strsplit(metKEGGIDs{i}, ',');
+        compI = extractComp(mets{i});
+        if isempty(compI)
+            continue
+        end
+        
+        % Iterate over each individual ID
+        for j = 1:length(currIDs)
+            currID = strtrim(currIDs{j});
+            if isempty(currID)
+                continue;
+            end
+            
+            % Check if the ID is already in the map
+            if isKey(keggMap, currID)
+                prevIx = keggMap(currID);
+                
+                % Check if any of the existing indices have matching comp
+                for k = prevIx
+                    compK = extractComp(mets{k});
+                    if ~isempty(compK) && strcmp(compI, compK)
+                        % If they match, flag both indices
+                        dupIx(k) = 1;
+                        dupIx(i) = 1;
+                        break;
+                    end
+                end
+    
+                % Add to the map
+                keggMap(currID) = [keggMap(currID), i];
+            else
+                keggMap(currID) = i;
+            end
+        end
+    end
+
+    dupIx = logical(dupIx);
+end
+
+% Functions for metabolite matching
+% cytCompSymbs(strcmp(chlCompKeys, chlMetComp))
+function currCytMets = findMatches(targetModel, keggIdSet, targetComps, ...
+    searchedCompTargetNamespace)
+    % Search for corresponding metabolites in targetModel and filter by 
+    % compartment
+
+    currCytMets = zeros(size(targetModel.mets)); % will be find() later
+    for keggIdIx = 1:length(keggIdSet)
+        keggId = keggIdSet{keggIdIx};
+        if ~isempty(keggId)
+            currCytMets(smatch(targetModel.metKEGGID, keggId)) = 1;
+        end
+    end
+
+    % Filter for compartment
+    currCytMets = find(currCytMets & strcmp(targetComps, ...
+        searchedCompTargetNamespace));
+end
+
+function [chl, missingMets, n] = processMissingMet(chl, missingMets, i, n, a, numMets, cytCytosolSymb)
+
+    metName = chl.metNames{i};
+    KEGGID = strtrim(char(chl.metKEGGID(i)));
+    chlMet = chl.mets{i};
+
+    missingMets(n,1) = cellstr(metName);
+    missingMets(n,2) = cellstr(KEGGID);
+    n = n + 1;
+    fprintf('* Metabolite %i of %i:\n', a, numMets)
+    fprintf('  Metabolite %s (%s) was marked as missing in cytosol model\n', metName(1:end-3), chlMet)
+    fprintf('  Metabolite has been added to list of missing metabolites\n\n')
+
+    % Still change the compartment identifier
+    chl.mets{i} = sprintf('%s[%s]', chlMet(1:end-3), cytCytosolSymb);
+end
+
+function [chl, changedMetIDs] = processMetMatch(chl, cyt, i, cytCmet, a, cMetsIx, numMets, ...
+    cytCytosolSymb, chlCompKeys, chlModelCytSymb, compMets, changedMetIDs, cytCompSymbs)
+    chlMet = chl.mets{i};
+
+    % Changing cytosol metabolite ID in chl model
+    metIDchange = false;
+    oldCid = char(chl.mets(i));
+    if ~strcmp(cyt.mets(cytCmet), chl.mets(i)) && ...
+            any(strcmp(chl.mets, char(cyt.mets(cytCmet))))
+        fprintf('* Metabolite %i of %i: Cannot change ID of metabolite %s to %s. %s found in chl model already. Names will still be changed.\n', ...
+            a, numMets, oldCid, cyt.mets{cytCmet}, cyt.mets{cytCmet})
+
+        % Still change the compartment identifier
+        chl.mets{i} = sprintf('%s[%s]', chlMet(1:end-3), cytCytosolSymb);
+    else
+        metIDchange = true;
+        chl.mets(i) = cyt.mets(cytCmet);
+        newCid = chl.mets{i};
+        fprintf('* Metabolite %i of %i: Metabolite ID changed from %s to %s\n', ...
+            a, numMets, oldCid, newCid)
+        changedMetIDs = [changedMetIDs, newCid];
+    end
+
+    % Changing cytosol metabolite name
+    oldCname = chl.metNames{i};
+    chl.metNames(i) = cyt.metNames(cytCmet);
+    fprintf('  Metabolite %i of %i: Metabolite name changed from %s to %s\n', ...
+        a, numMets, oldCname, chl.metNames{i})
+    cytCytosol = ['[' cytCompSymbs{strcmp(chlCompKeys, chlModelCytSymb)} ']'];
+    newCname = chl.metNames{i};
+
+    % Changing other compartments metabolite ID (if appropriate) and name
+    for compSymbolIx = 1:length(chlCompKeys)
+        currCompSymbol = chlCompKeys{compSymbolIx};
+        if strcmp(currCompSymbol, chlModelCytSymb) % cytosol was done above
+            continue
+        end
+        currCompMetIx = compMets(strcmp(chlCompKeys, ...
+                                 currCompSymbol), cMetsIx);
+        if currCompMetIx == 0
+            continue
+        end
+        
+        % Change metabolite IDs of metabolites in other compartments
+        if metIDchange
+            oldPid = chl.mets{currCompMetIx};
+            newPid = sprintf('%s[%s]', strtok(newCid, '['),currCompSymbol);
+            chl.mets(currCompMetIx) = cellstr(newPid);
+            fprintf('  Metabolite %i of %i: Metabolite ID changed from %s to %s\n', ...
+                a, numMets, oldPid, chl.mets{currCompMetIx})
+            changedMetIDs = [changedMetIDs, newPid];
+        end
+
+        % Change metabolite names of metabolites in other compartments
+        oldPname = chl.metNames{currCompMetIx};
+        % From newCname, remove [c] (or [cy] or whatever)
+        if endsWith(strip(newCname), cytCytosol)
+            newCname = strip(newCname);
+            newCname = strip(newCname(1:end-length(cytCytosol)));
+        end
+        newPname = sprintf('%s [%s]', newCname, currCompSymbol);
+        chl.metNames(currCompMetIx) = cellstr(newPname);
+        fprintf('  Metabolite %i of %i: Metabolite name changed from %s to %s\n', ...
+            a, numMets, oldPname, chl.metNames{currCompMetIx})
+    end
+    disp(' ')
 end
