@@ -1216,16 +1216,6 @@ function isTransp = isTransport(model, rxnIx)
     end
 end
 
-function inComp = isInComp(metId, comp)
-    metComp = regexp(metId, '\[(.*?)\]', 'tokens');
-    if ~isempty(metComp)
-        metComp = metComp{end}{1};
-        inComp = strcmp(metComp, comp);
-    else
-        inComp = false;
-    end
-end
-
 function inComps = isInComps(metId, comps)
     metComp = extractComp(metId);
     inComps = false;

@@ -64,6 +64,25 @@ for modelIx = 1:length(models)
     allColNames = [{' '}; rxns];
     T = cell2table(cellData, 'VariableNames', allColNames);
     writetable(T, [outPath modelNames{modelIx} '.csv']);
+
+    % For ACY: Make sure the water sink did not influence the results
+    if contains(modelNames{modelIx}, 'Acy')
+        disp(['Working on ' modelNames{modelIx} ' without the water sink']);
+        h2oSkIdx = strcmp(conformModel.Reactions, 'Sk_h2o_h');
+        conformModel.Reactions(h2oSkIdx) = [];
+        conformModel.reversibilityVector(h2oSkIdx) = [];
+        conformModel.stoichiometricMatrix(:, h2oSkIdx) = [];
+
+        % all other solvers are not usable
+        [fctable, blocked] = F2C2('glpk', conformModel);
+
+        % Write out data
+        rxns = conformModel.Reactions(~blocked);
+        cellData = [rxns, num2cell(fctable)];
+        allColNames = [{' '}; rxns];
+        T = cell2table(cellData, 'VariableNames', allColNames);
+        writetable(T, [outPath modelNames{modelIx} '_woH2oSk.csv']);
+    end
 end
 
 % Analyze data in Python

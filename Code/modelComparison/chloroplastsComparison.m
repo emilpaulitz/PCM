@@ -1,7 +1,7 @@
 % gather data about the different models used for comparison
 clearvars -except gurobiAvailable projDir; clc;
 
-pcmImportVersion = 1;
+pcmImportVersion = 2;
 
 %% import models for comparison
 aragem = readCbModel([projDir 'Data/comparison_models/' 'AraGEM_valid.xml']);

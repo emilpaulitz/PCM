@@ -58623,8 +58623,8 @@
       </groups:group>
       <groups:group metaid="meta_G_group62" sboTerm="SBO:0000633" groups:id="G_group62" groups:name="alanine synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Ala transaminase" groups:idRef="R_AlaTA_m"/>
           <groups:member groups:name="Ala transaminase" groups:idRef="R_AlaTA_p"/>
+          <groups:member groups:name="Ala transaminase" groups:idRef="R_AlaTA_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group63" sboTerm="SBO:0000633" groups:id="G_group63" groups:name="arginine synthesis,IMP synthesis,AMP synthesis" groups:kind="partonomy"/>
@@ -58639,10 +58639,10 @@
       </groups:group>
       <groups:group metaid="meta_G_group66" sboTerm="SBO:0000633" groups:id="G_group66" groups:name="biomass reaction" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Light limiting biomass" groups:idRef="R_Bio_opt"/>
-          <groups:member groups:name="Carbon limiting biomass" groups:idRef="R_Bio_CLim"/>
           <groups:member groups:name="Hydroxypyruvate transporter" groups:idRef="R_Tr_HPR1"/>
           <groups:member groups:name="Nitrogen limiting biomass" groups:idRef="R_Bio_NLim"/>
+          <groups:member groups:name="Light limiting biomass" groups:idRef="R_Bio_opt"/>
+          <groups:member groups:name="Carbon limiting biomass" groups:idRef="R_Bio_CLim"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group67" sboTerm="SBO:0000633" groups:id="G_group67" groups:name="carbon fixation" groups:kind="partonomy">
@@ -58659,14 +58659,18 @@
       </groups:group>
       <groups:group metaid="meta_G_group69" sboTerm="SBO:0000633" groups:id="G_group69" groups:name="cysteine synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Ser O-acetyltransferase" groups:idRef="R_SerAcT_m"/>
-          <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_c"/>
-          <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_m"/>
           <groups:member groups:name="Ser O-acetyltransferase" groups:idRef="R_SerAcT_c"/>
+          <groups:member groups:name="Ser O-acetyltransferase" groups:idRef="R_SerAcT_m"/>
+          <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_m"/>
+          <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group70" sboTerm="SBO:0000633" groups:id="G_group70" groups:name="export" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_h"/>
+          <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_m"/>
+          <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_p"/>
+          <groups:member groups:name="Export Met" groups:idRef="R_Ex_Met_c"/>
           <groups:member groups:name="Export Met" groups:idRef="R_Ex_Met_h"/>
           <groups:member groups:name="Export Met" groups:idRef="R_Ex_Met_m"/>
           <groups:member groups:name="Export Met" groups:idRef="R_Ex_Met_p"/>
@@ -58751,17 +58755,13 @@
           <groups:member groups:name="Export Leu" groups:idRef="R_Ex_Leu_m"/>
           <groups:member groups:name="Export Leu" groups:idRef="R_Ex_Leu_p"/>
           <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_c"/>
-          <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_h"/>
-          <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_m"/>
-          <groups:member groups:name="Export lys" groups:idRef="R_Ex_Lys_p"/>
-          <groups:member groups:name="Export Met" groups:idRef="R_Ex_Met_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group71" sboTerm="SBO:0000633" groups:id="G_group71" groups:name="gluconeogenesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="PEP carboxylase" groups:idRef="R_PEPC2_c"/>
           <groups:member groups:name="Mal dehydrogenase" groups:idRef="R_MalDH1_c"/>
           <groups:member groups:name="PEP carboxylase" groups:idRef="R_PEPC1_c"/>
+          <groups:member groups:name="PEP carboxylase" groups:idRef="R_PEPC2_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group72" sboTerm="SBO:0000633" groups:id="G_group72" groups:name="gluconeogenesis,glycolysis" groups:kind="partonomy"/>
@@ -58776,8 +58776,8 @@
       </groups:group>
       <groups:group metaid="meta_G_group74" sboTerm="SBO:0000633" groups:id="G_group74" groups:name="glutamate synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Glnase" groups:idRef="R_Glnase_c"/>
           <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH3NADP_c"/>
+          <groups:member groups:name="Glnase" groups:idRef="R_Glnase_c"/>
           <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH1NAD_m"/>
           <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH1NADP_m"/>
         </groups:listOfMembers>
@@ -58797,26 +58797,26 @@
       <groups:group metaid="meta_G_group77" sboTerm="SBO:0000633" groups:id="G_group77" groups:name="glycolysis" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:name="GAP dehydrogenase" groups:idRef="R_GAPDH3_c"/>
-          <groups:member groups:name="Pyr kinase" groups:idRef="R_PyrK_c"/>
           <groups:member groups:name="6-Phosphofructokinase" groups:idRef="R_F6PK1_c"/>
+          <groups:member groups:name="Pyr kinase" groups:idRef="R_PyrK_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group78" sboTerm="SBO:0000633" groups:id="G_group78" groups:name="import" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Import NH4" groups:idRef="R_Im_NH4"/>
-          <groups:member groups:name="Import SO4" groups:idRef="R_Im_SO4"/>
-          <groups:member groups:name="Import H2S" groups:idRef="R_Im_H2S"/>
-          <groups:member groups:name="Export O2" groups:idRef="R_Ex_O2"/>
           <groups:member groups:name="Import CO2" groups:idRef="R_Im_CO2"/>
           <groups:member groups:name="Import H2O" groups:idRef="R_Im_H2O"/>
           <groups:member groups:name="Import Pi" groups:idRef="R_Im_Pi"/>
           <groups:member groups:name="Import NO3" groups:idRef="R_Im_NO3"/>
+          <groups:member groups:name="Import NH4" groups:idRef="R_Im_NH4"/>
+          <groups:member groups:name="Import SO4" groups:idRef="R_Im_SO4"/>
+          <groups:member groups:name="Import H2S" groups:idRef="R_Im_H2S"/>
+          <groups:member groups:name="Export O2" groups:idRef="R_Ex_O2"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group79" sboTerm="SBO:0000633" groups:id="G_group79" groups:name="maintenance" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Amino acid composition" groups:idRef="R_Bio_AA"/>
           <groups:member groups:name="Maintenance" groups:idRef="R_NGAM_m"/>
+          <groups:member groups:name="Amino acid composition" groups:idRef="R_Bio_AA"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group80" sboTerm="SBO:0000633" groups:id="G_group80" groups:name="methionine synthesis" groups:kind="partonomy">
@@ -58835,24 +58835,24 @@
       </groups:group>
       <groups:group metaid="meta_G_group83" sboTerm="SBO:0000633" groups:id="G_group83" groups:name="nucleotide metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dUDPK_c"/>
           <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dCDPK_c"/>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_GDPK_c"/>
+          <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_UDPR_c"/>
           <groups:member groups:name="UMP/CMP kinase" groups:idRef="R_NMPK_c"/>
-          <groups:member groups:name="Deoxyuridine-triphosphatase" groups:idRef="R_dUTPP_c"/>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dADPK_c"/>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dGDPK_c"/>
-          <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_CDPR_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_GDPK_c"/>
           <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_ADPR_c"/>
           <groups:member groups:name="Nucleoside-triphosphatase" groups:idRef="R_CTPP_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dGDPK_c"/>
+          <groups:member groups:name="Deoxyuridine-triphosphatase" groups:idRef="R_dUTPP_c"/>
           <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_UDPK_c"/>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dTDPK_c"/>
+          <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_CDPR_c"/>
           <groups:member groups:name="Thymidylate synthase" groups:idRef="R_dTMPS_c"/>
-          <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_GDPR_c"/>
           <groups:member groups:name="adenylate kinase" groups:idRef="R_AMPK_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dTDPK_c"/>
           <groups:member groups:name="guanylate kinase" groups:idRef="R_GMPK_c"/>
-          <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_UDPR_c"/>
+          <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_GDPR_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dADPK_c"/>
           <groups:member groups:name="Thymidine monophosphate kinase" groups:idRef="R_dTMPK_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dUDPK_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group84" sboTerm="SBO:0000633" groups:id="G_group84" groups:name="oxidative phosphorylation" groups:kind="partonomy">
@@ -58868,24 +58868,23 @@
           <groups:member groups:name="Gly hydroxymethyltransferase" groups:idRef="R_GlyHMT_m"/>
           <groups:member groups:name="Gly dehydrogenase" groups:idRef="R_GlyDH_m"/>
           <groups:member groups:name="GCA oxidase" groups:idRef="R_GCAO_p"/>
+          <groups:member groups:name="Catalase" groups:idRef="R_CAT_p"/>
           <groups:member groups:name="GCEA dehydrogenase" groups:idRef="R_GCEADH_p"/>
           <groups:member groups:name="Aminomethyltransferase" groups:idRef="R_AMT_m"/>
-          <groups:member groups:name="Catalase" groups:idRef="R_CAT_p"/>
           <groups:member groups:name="DHL dehydrogenase" groups:idRef="R_DHLDH1_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group86" sboTerm="SBO:0000633" groups:id="G_group86" groups:name="photorespiration,glycine synthesis" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group87" sboTerm="SBO:0000633" groups:id="G_group87" groups:name="proline degradation" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="P5C dehydrogenase" groups:idRef="R_P5CDHNADP_m"/>
           <groups:member groups:name="Pro dehydrogenase" groups:idRef="R_ProDHNAD_m"/>
           <groups:member groups:name="Pro dehydrogenase" groups:idRef="R_ProDHNADP_m"/>
           <groups:member groups:name="P5C dehydrogenase" groups:idRef="R_P5CDHNAD_m"/>
-          <groups:member groups:name="P5C dehydrogenase" groups:idRef="R_P5CDHNADP_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group88" sboTerm="SBO:0000633" groups:id="G_group88" groups:name="proline synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="P5C reductase" groups:idRef="R_P5CRNAD_c"/>
           <groups:member groups:name="Glu kinase" groups:idRef="R_GluK_c"/>
           <groups:member groups:name="spontaneous" groups:idRef="R_GluSeADA_c"/>
           <groups:member groups:name="Arginase" groups:idRef="R_Arginase_m"/>
@@ -58895,6 +58894,7 @@
           <groups:member groups:name="GluSeA dehydrogenase" groups:idRef="R_GluSeADH_c"/>
           <groups:member groups:name="Orn aminotransferase" groups:idRef="R_OrnAT_m"/>
           <groups:member groups:name="GluSeA dehydrogenase" groups:idRef="R_GluSeADH_m"/>
+          <groups:member groups:name="P5C reductase" groups:idRef="R_P5CRNAD_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group89" sboTerm="SBO:0000633" groups:id="G_group89" groups:name="pyrophosphate recycling" groups:kind="partonomy">
@@ -58930,8 +58930,8 @@
       </groups:group>
       <groups:group metaid="meta_G_group94" sboTerm="SBO:0000633" groups:id="G_group94" groups:name="starch degradation" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="disproportionating enzyme" groups:idRef="R_DPE2_c"/>
           <groups:member groups:name="(starch) phosphorylase" groups:idRef="R_StP21_c"/>
+          <groups:member groups:name="disproportionating enzyme" groups:idRef="R_DPE2_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group95" sboTerm="SBO:0000633" groups:id="G_group95" groups:name="starch degradation,sucrose degradation" groups:kind="partonomy"/>
@@ -58957,9 +58957,8 @@
       <groups:group metaid="meta_G_group102" sboTerm="SBO:0000633" groups:id="G_group102" groups:name="tRNA biosynthesis" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group103" sboTerm="SBO:0000633" groups:id="G_group103" groups:name="transport" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="G6P exporter" groups:idRef="R_Tr_GPT1"/>
-          <groups:member groups:name="Glc transporter" groups:idRef="R_Tr_pGlc"/>
           <groups:member groups:name="Mas exporter" groups:idRef="R_Tr_Mex1"/>
+          <groups:member groups:name="G6P exporter" groups:idRef="R_Tr_GPT1"/>
           <groups:member groups:name="Polyol transporter 5" groups:idRef="R_Tr_PLT5"/>
           <groups:member groups:name="Dicarboxylate carrier" groups:idRef="R_Tr_DIC1"/>
           <groups:member groups:name="Dicarboxylate carrier" groups:idRef="R_Tr_DIC2"/>
@@ -58988,34 +58987,34 @@
           <groups:member groups:name="Pro uniporter" groups:idRef="R_Tr_ProU"/>
           <groups:member groups:name="Pro/Glu antiporter" groups:idRef="R_Tr_ProA"/>
           <groups:member groups:name="P5C exporter" groups:idRef="R_Tr_P5C1"/>
+          <groups:member groups:name="transport, CAs [m]" groups:idRef="R_Tr_CAs_m"/>
           <groups:member groups:name="P5C exporter" groups:idRef="R_Tr_P5C2"/>
           <groups:member groups:name="PRPP exporter" groups:idRef="R_Tr_PRPP"/>
           <groups:member groups:name="Fum exporter" groups:idRef="R_Tr_Fum"/>
           <groups:member groups:name="H-Cys exporter" groups:idRef="R_Tr_HCys"/>
           <groups:member groups:name="ORO exporter" groups:idRef="R_Tr_ORO"/>
           <groups:member groups:name="DHO shuffle" groups:idRef="R_Tr_DHO2"/>
+          <groups:member groups:name="transport, CAs [h]" groups:idRef="R_Tr_CAs_h"/>
           <groups:member groups:name="Gly/Ser shuffle" groups:idRef="R_Tr_GlySer"/>
           <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2h"/>
           <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2m"/>
           <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2p"/>
           <groups:member groups:name="CO2 diffusion" groups:idRef="R_Tr_CO2h"/>
-          <groups:member groups:name="transport, CAs [m]" groups:idRef="R_Tr_CAs_m"/>
           <groups:member groups:name="CO2 diffusion" groups:idRef="R_Tr_CO2m"/>
           <groups:member groups:name="H2O diffusion" groups:idRef="R_Tr_H2Oh"/>
           <groups:member groups:name="H2O diffusion" groups:idRef="R_Tr_H2Om"/>
           <groups:member groups:name="H2O diffusion" groups:idRef="R_Tr_H2Op"/>
           <groups:member groups:name="Proton diffusion" groups:idRef="R_Tr_Hp"/>
           <groups:member groups:name="NH4 diffusion" groups:idRef="R_Tr_NH41"/>
-          <groups:member groups:name="transport, CAs [h]" groups:idRef="R_Tr_CAs_h"/>
           <groups:member groups:name="NH4 diffusion" groups:idRef="R_Tr_NH42"/>
           <groups:member groups:name="H2S diffusion" groups:idRef="R_Tr_H2S1"/>
-          <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT3"/>
           <groups:member groups:name="H2S diffusion" groups:idRef="R_Tr_H2S2"/>
           <groups:member groups:name="AC diffusion" groups:idRef="R_Tr_AC1"/>
           <groups:member groups:name="AC diffusion" groups:idRef="R_Tr_AC2"/>
           <groups:member groups:name="Pyr diffusion" groups:idRef="R_Tr_Pyr1"/>
           <groups:member groups:name="Pyr diffusion" groups:idRef="R_Tr_Pyr2"/>
           <groups:member groups:name="Pyr diffusion" groups:idRef="R_Tr_Pyr3"/>
+          <groups:member groups:name="Glc transporter" groups:idRef="R_Tr_pGlc"/>
           <groups:member groups:name="GCA diffusion" groups:idRef="R_Tr_GCA2"/>
           <groups:member groups:name="GCEA diffusion" groups:idRef="R_Tr_GCEA2"/>
           <groups:member groups:name="Mal diffusion" groups:idRef="R_Tr_Mal"/>
@@ -59071,7 +59070,7 @@
           <groups:member groups:name="Import Photon" groups:idRef="R_Im_hnu"/>
           <groups:member groups:name="SO4 diffusion" groups:idRef="R_Tr_SO4"/>
           <groups:member groups:name="NO2 transporter" groups:idRef="R_Tr_NO2"/>
-          <groups:member groups:name="PEP/Pi translocator" groups:idRef="R_Tr_PPT"/>
+          <groups:member groups:name="GCA/GCEA shuffle" groups:idRef="R_Tr_GCEA1"/>
           <groups:member groups:name="Nucleotide transporter" groups:idRef="R_Tr_NTT"/>
           <groups:member groups:name="GCA/GCEA shuffle" groups:idRef="R_Tr_GCA1"/>
           <groups:member groups:name="ADP/ATP carrier" groups:idRef="R_Tr_AAC"/>
@@ -59082,7 +59081,8 @@
           <groups:member groups:name="NAD transporter" groups:idRef="R_Tr_NDT2"/>
           <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT1"/>
           <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT2"/>
-          <groups:member groups:name="GCA/GCEA shuffle" groups:idRef="R_Tr_GCEA1"/>
+          <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT3"/>
+          <groups:member groups:name="PEP/Pi translocator" groups:idRef="R_Tr_PPT"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group104" sboTerm="SBO:0000633" groups:id="G_group104" groups:name="trehalose synthesis" groups:kind="partonomy">
@@ -59093,11 +59093,11 @@
       </groups:group>
       <groups:group metaid="meta_G_group105" sboTerm="SBO:0000633" groups:id="G_group105" groups:name="tricarboxylic acid cycle" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Fum hydratase" groups:idRef="R_FumHA_m"/>
-          <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNAD_m"/>
-          <groups:member groups:name="SCA-CoA ligase" groups:idRef="R_SCACoAL_m"/>
           <groups:member groups:name="KG dehydrogenase" groups:idRef="R_KGDH_m"/>
           <groups:member groups:name="DHL succinyltransferase" groups:idRef="R_DHLST_m"/>
+          <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNAD_m"/>
+          <groups:member groups:name="SCA-CoA ligase" groups:idRef="R_SCACoAL_m"/>
+          <groups:member groups:name="Fum hydratase" groups:idRef="R_FumHA_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group106" sboTerm="SBO:0000633" groups:id="G_group106" groups:name="tricarboxylic acid cycle,glyoxylate cycle" groups:kind="partonomy"/>
