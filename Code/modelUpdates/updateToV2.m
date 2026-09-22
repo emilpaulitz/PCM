@@ -605,9 +605,13 @@ model = removeRxns(model, {'R03524', 'R01267'});
 % R01401 no evidence for chloroplast; rather cytsol. R04143 no known 
 % subcellular localization, but occurrence was  found in vascular tissue
 % and thus not relevant for out leaf-chloroplast model. R00179 (ACS) was
-% found predominantly in the cytosol
+% found predominantly in the cytosol.
 % https://doi.org/10.48130/ph-0025-0007 
 model = removeRxns(model, {'R01401', 'R04143', 'R00179'});
+
+% This makes R00997 dead-end, but it is most likely mitochondrial anyway
+% dx.doi.org/10.1111/j.1742-4658.2005.04567.x
+model = removeRxns(model, {'R00997'});
 
 % Degradation of cell wall constituent (not modelled) and therefore
 % dead-end

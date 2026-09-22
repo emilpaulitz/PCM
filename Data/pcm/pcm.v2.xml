@@ -11817,25 +11817,6 @@
           </rdf:RDF>
         </annotation>
       </species>
-      <species metaid="M_C01234__91__h__93__" id="M_C01234__91__h__93__" name="1-Aminocyclopropane-1-carboxylate" compartment="h" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H7NO2">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>ChEBIID:18053</p>
-          </body>
-        </notes>
-        <annotation xmlns:sbml="http://www.sbml.org/sbml/level3/version1/core">
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#M_C01234__91__h__93__">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C01234"/>
-                  <rdf:li rdf:resource="http://identifiers.org/pubchem.compound/4455"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </species>
       <species metaid="M_C00054__91__h__93__" id="M_C00054__91__h__93__" name="Adenosine 3&apos;,5&apos;-bisphosphate" compartment="h" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="-4" fbc:chemicalFormula="C10H11N5O10P2">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -48778,29 +48759,6 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R00997" id="R_R00997" name="1-aminocyclopropane-1-carboxylate aminohydrolase (isomerizing);" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">
-            <p>Confidence Level: 0</p>
-            <p>NOTES: Evidence and GPR from Uniprot or BRENDA</p>
-          </body>
-        </notes>
-        <listOfReactants>
-          <speciesReference species="M_C00001__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C01234__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="M_NH4__91__h__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_C00109__91__h__93__" stoichiometry="1" constant="true"/>
-        </listOfProducts>
-        <fbc:geneProductAssociation>
-          <fbc:or>
-            <fbc:geneProductRef fbc:geneProduct="G_GRMZM2G151440_T01__46__CDS"/>
-            <fbc:geneProductRef fbc:geneProduct="G_GRMZM2G151440_T03__46__CDS"/>
-            <fbc:geneProductRef fbc:geneProduct="G_GRMZM2G151440_T02__46__CDS"/>
-          </fbc:or>
-        </fbc:geneProductAssociation>
-      </reaction>
       <reaction metaid="R_R01036" id="R_R01036" name="glycerol:NAD+ oxidoreductase" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB5N1000">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">
@@ -54259,9 +54217,6 @@
       <fbc:geneProduct metaid="G_GRMZM2G147819_T01__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G147819_T01__46__CDS" fbc:label="GRMZM2G147819_T01.CDS"/>
       <fbc:geneProduct metaid="G_GRMZM2G149567_T01__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G149567_T01__46__CDS" fbc:label="GRMZM2G149567_T01.CDS"/>
       <fbc:geneProduct metaid="G_GRMZM2G149567_T02__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G149567_T02__46__CDS" fbc:label="GRMZM2G149567_T02.CDS"/>
-      <fbc:geneProduct metaid="G_GRMZM2G151440_T01__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G151440_T01__46__CDS" fbc:label="GRMZM2G151440_T01.CDS"/>
-      <fbc:geneProduct metaid="G_GRMZM2G151440_T02__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G151440_T02__46__CDS" fbc:label="GRMZM2G151440_T02.CDS"/>
-      <fbc:geneProduct metaid="G_GRMZM2G151440_T03__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G151440_T03__46__CDS" fbc:label="GRMZM2G151440_T03.CDS"/>
       <fbc:geneProduct metaid="G_GRMZM2G152958_T01__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G152958_T01__46__CDS" fbc:label="GRMZM2G152958_T01.CDS"/>
       <fbc:geneProduct metaid="G_GRMZM2G152958_T02__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G152958_T02__46__CDS" fbc:label="GRMZM2G152958_T02.CDS"/>
       <fbc:geneProduct metaid="G_GRMZM2G155323_T01__46__CDS" sboTerm="SBO:0000243" fbc:id="G_GRMZM2G155323_T01__46__CDS" fbc:label="GRMZM2G155323_T01.CDS"/>
@@ -54861,7 +54816,6 @@
           <groups:member groups:idRef="R_R03105"/>
           <groups:member groups:idRef="R_R00590"/>
           <groups:member groups:idRef="R_R00177"/>
-          <groups:member groups:idRef="R_R00997"/>
           <groups:member groups:idRef="R_R01290"/>
           <groups:member groups:idRef="R_R00903"/>
           <groups:member groups:idRef="R_R01777"/>
