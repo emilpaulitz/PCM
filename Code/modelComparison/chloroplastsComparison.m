@@ -21,13 +21,15 @@ soy = readCbModel([projDir 'Data/comparison_models/' 'soybean_wComps.xml']);
 pcm = readCbModel([projDir 'Data/pcm/' 'pcm.v' num2str(pcmImportVersion) '.xml']);
 
 nModels = 13;
-%% extract chloroplast networks for each model
+%% extract chloroplast networks for each model and gather stats
 
 data.model_name = cell(nModels, 1);
 data.nChlRxns = zeros(nModels, 1);
 data.totModelRxns = zeros(nModels, 1);
 data.nTransp = zeros(nModels, 1);
 data.nIntraChlTransp = zeros(nModels, 1);
+data.deadEndChlRxns = zeros(nModels, 1);
+data.blockedChlRxns = zeros(nModels, 1);
 data.nMetsStroma = zeros(nModels, 1);
 data.nMetsThylLum = zeros(nModels, 1);
 data.nMetsChl = zeros(nModels, 1);
@@ -341,6 +343,41 @@ function [stromaMets, thylMets, totalMets] = ...
     totalMets = model.mets(logical(totalMetsIx));
 end
 
+function model = addExchRxns(model, transpIDs, metComps, chlComps)
+
+    metToAdd = zeros(size(metComps));
+    for i = 1:length(transpIDs)
+        rxnIx = find(strcmp(model.rxns, transpIDs{i}));
+        
+        % Extract the metabolites and their compartments that participate 
+        % in the reaction
+        metsInRxnIx = find(model.S(:, rxnIx) ~= 0);
+        mids = model.mets(metsInRxnIx);
+        comps = metComps(metsInRxnIx);
+        
+        % Iterate over each metabolite and check its compartment
+        for j = 1:length(mids)
+            metComp = comps(j);
+
+            % Check if the compartment is chloroplast
+            if ~ismember(metComp, chlComps)
+                % Otherwise, stage metabolite for addition of exchange
+                % reaction
+                metToAdd(metsInRxnIx(j)) = 1;
+            end
+        end
+    end
+    metToAdd = find(metToAdd);
+    for i = 1:length(metToAdd)
+        metID = model.mets{i};
+        model = addReaction(model, ['tmp_EX_' metID], ...
+            'reactionName', ['Exchange ' metID], ...
+            'reactionFormula', [metID ' <=>']);
+    end
+    disp(['For checking blocked reactions, added ' ...
+        num2str(length(metToAdd)) ' exchange reactions']);
+end
+
 function data = gather_data(data, model, chlComps, stromaComp, ...
     thylComp, metComps, modelIx, subsRegexpSplit)
 
@@ -353,6 +390,24 @@ function data = gather_data(data, model, chlComps, stromaComp, ...
     data.nChlRxns(modelIx) = length(chlRxns);
     data.nTransp(modelIx) = length(chlTransp);
     data.nIntraChlTransp(modelIx) = length(intraChlTransp);
+
+    % extract number of non-dead-end-reactions among the chloroplast
+    % reactions (The fact we use the whole-cell S matrix should not be a
+    % problem since non-chloroplast metabolites cannot participate in
+    % chloroplast reactions). Exclude transporters
+    bool_S = (model.S ~= 0);
+    deadEndMetsIx = (sum(bool_S, 2) < 2);
+    chlRxnsWithDeadEndMets = any(bool_S(deadEndMetsIx, :), 1) & ...
+        ismember(model.rxns, [chlRxns; intraChlTransp])';
+    data.deadEndChlRxns(modelIx) = sum(chlRxnsWithDeadEndMets);
+
+    % extract number of blocked reactions if all transporters have
+    % matching exchange reactions. Exclude transporters
+    tmpModel = model;
+    tmpModel = addExchRxns(tmpModel, chlTransp, metComps, chlComps);
+    [~, blockedRxns] = identifyBlockedRxns(tmpModel);
+    data.blockedChlRxns(modelIx) = ...
+        length(intersect(blockedRxns.allRxns, [chlRxns; intraChlTransp]));
     
     % extract nMets of stroma, thylakoid/lumen, and plastid total
     [stromaMets, thylMets, totalMets] = ...

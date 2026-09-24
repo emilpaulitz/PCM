@@ -9,6 +9,12 @@ disp('Working on general changes')
 % Update the subsystem of import reactions
 model = addToSubsystem(model, {'Im_suc', 'Im_str', 'Im_o2'}, 'import');
 
+% Make the upper bound of these import non-zero to ensure flux is possible
+% through every reaction in default medium
+model.ub(strcmp(model.rxns, 'Im_suc')) = 0.1;
+model.ub(strcmp(model.rxns, 'Im_str')) = 0.1;
+model.ub(strcmp(model.rxns, 'Im_o2')) = 0.1;
+
 % G6P (beta-G6P) annotation with C00092 (general G6P) leads to problems in
 % plugAndPlay because C00092 exists as its own metabolite
 model.metKEGGID{strcmp(model.mets, 'G6P[h]')} = 'C01172';
@@ -27,7 +33,7 @@ model.rxnNotes(strcmp(model.rxns, 'Tr_pABA')) = {'10.1111/j.1399-3054.2006.00587
 % cytidine transport route has not been identified, this gives reasoning to
 % couple CAs export to Ura import. PRPP is also needed but the carbon atoms
 % are not retained in uracil, so do not couple it. Since the route of
-% cytidine import in unknown, keep the solution of low upper bounds
+% cytidine import is unknown, keep the solution of low upper bounds
 model = addMetabolite(model, 'CONST_pyri[h]', ...
     'Pyrimidine (precursor) ex-/import pseudo metabolite');
 model.S(strcmp(model.mets, 'CONST_pyri[h]'), ...
@@ -35,6 +41,8 @@ model.S(strcmp(model.mets, 'CONST_pyri[h]'), ...
 model.S(strcmp(model.mets, 'CONST_pyri[h]'), ...
     strcmp(model.rxns, 'Tr_Ura')) = -1;
 model.rxnNotes(strcmp(model.rxns, 'Tr_Ura')) = {'doi.org/10.1105/tpc.112.096743'};
+% pyrimidine steps not in the chloroplast
+model = removeRxns(model, {'R01993', 'R01870', 'R00965'});
 
 % After extensive research on pyrimidine metabolism in chloroplasts, I
 % found that there are single enzymes that are known, but their connections
@@ -45,11 +53,11 @@ model.rxnNotes(strcmp(model.rxns, 'Tr_Ura')) = {'doi.org/10.1105/tpc.112.096743'
 model = addImportTransport(model, 'C00881', 'Deoxycytidine', 'dCyt', ...
     ['Cytidine synthesis occurs in the cytosol exclusively, but the ' ...
     'reactions downstream are identified in chloroplast']);
-model.ub(strcmp(model.rxns, 'Im_dCyt')) = 0;
+model.ub(strcmp(model.rxns, 'Im_dCyt')) = 0.1;
 model = addImportTransport(model, 'C00239', 'dCMP', 'dCMP', ...
     ['Cytidine synthesis occurs in the cytosol exclusively, but the ' ...
     'reactions downstream are identified in chloroplast']);
-model.ub(strcmp(model.rxns, 'Im_dCMP')) = 0;
+model.ub(strcmp(model.rxns, 'Im_dCMP')) = 0.1;
 
 % These import reactions are set by the medium, but also set their upper
 % bound to less in the general model
@@ -169,7 +177,7 @@ model = addToSubsystem(model, {'Tr_suc'}, 'transport');
 model = addReaction(model, 'Im_oxgl', 'reactionName', ...
     'Exchange of 2-Oxoglutaramate', 'reactionFormula', '<=> C00940[c]');
 model = addToSubsystem(model, {'Im_oxgl'}, 'import');
-model.ub(strcmp(model.rxns, 'Im_oxgl')) = 0;
+model.ub(strcmp(model.rxns, 'Im_oxgl')) = 0.1;
 
 % disconnected cliques; unlikely to be correct
 model = removeRxns(model, {'R05409', 'R05397'});
@@ -193,7 +201,7 @@ model = addReaction(model, 'Im_oxsuc', 'reactionName', ...
     'Import of 2-Oxosuccinamate (produced in the peroxisome)', ...
     'reactionFormula', '--> C02362[c]');
 model = addToSubsystem(model, {'Im_oxsuc'}, 'import');
-model.ub(strcmp(model.rxns, 'Im_oxsuc')) = 0;
+model.ub(strcmp(model.rxns, 'Im_oxsuc')) = 0.1;
 
 % beta-alanine biosynthesis is relatively well characterized
 % (doi.org/10.3389/fpls.2019.00921), but its subcellular localization I had
@@ -281,7 +289,7 @@ model = removeRxns(model, {'R02976', 'R02464', 'R01468', 'R01274'});
 
 % Monoloignol biosynthesis is cytosolic, specialized pathways have been
 % found in peroxisome and chloroplasts, but not these basic ones
-model = removeRxns(model, {'R01616', 'R01617'});
+model = removeRxns(model, {'R01616', 'R01617', 'R03337', 'R03339'});
 
 % Rather cytosolic (uniprot Q949W8)
 model = removeRxns(model, {'R01639'});
@@ -326,16 +334,18 @@ model.rxnNotes(strcmp(model.rxns, 'Ex_NNPP')) = {['Non-canonical precursor of' .
 % Alternatively, SLG might be exported into other compartments, like
 % mitochondria where that cleavage has been confirmed. However, there is no
 % evidence for either option. GSH is needed in chloroplasts for redox
-% balance, so direct cleavage would make sence. There is no evidence for a
+% balance, so direct cleavage would make sense. There is no evidence for a
 % further metabolism of D-lactate in chloroplasts, which would make the
-% export of SLG more likely. Because the latter would require even more
-% assumptions before inclusion of cleavage, I decide for the simple export
-% of SLG
+% export of SLG more likely. Because including chloroplastic cleavage would
+% require even more assumptions, I decide for the simple export of SLG.
 model = addExportTransport(model, 'C03451', 'Lactoylglutathione', 'SLG', ...
     ['Evidence for production exists (Q8W593); further pathway unclear; ' ...
     'export for metabolism in mitochondria']);
 % remove the cleavage reaction
 model = removeRxns(model, {'R01736'});
+% add an import for methylglyoxal so de-toxification can run
+model = addImportTransport(model, 'C00546', 'Methylglyoxal', 'MetGlyox', ...
+    'There is evidence for de-toxification of Methylglyoxal, so add import');
 
 % No evidence for this reaction
 model = removeRxns(model, {'R01817'});
@@ -432,10 +442,18 @@ model = removeRxns(model, {'R07618'});
 % Likely correct, but I see no possible route for its product octanoic acid
 % (C06423). It might be involved in coniine biosynthesis, but subcellular
 % localization of this compound is unclear doi.org/10.1111/febs.13410
+% Therefore, simply export
 % Same for R08158, decanoic acid
 % Same for R04014, dodecanoic acid
 % Same for R08159, tetradecanoic acid
-model = removeRxns(model, {'R08157', 'R08158', 'R04014', 'R08159'});
+model = addExportTransport(model, 'C06423', 'Octanoic acid', 'octa', ...
+    'Evidence for enzymes producing is there, but furhter fate is unclear');
+model = addExportTransport(model, 'C01571', 'Decanoic acid', 'deca', ...
+    'Evidence for enzymes producing is there, but furhter fate is unclear');
+model = addExportTransport(model, 'C02679', 'Dodecanoic acid', 'dodeca', ...
+    'Evidence for enzymes producing is there, but furhter fate is unclear');
+model = addExportTransport(model, 'C06424', 'Tetradecanoic acid', 'tetradeca', ...
+    'Evidence for enzymes producing is there, but furhter fate is unclear');
 
 % 9beta-Pimara-7,15-diene is a precursor for momilactones, but its fate is
 % not well known, and so is the subcellular localization of subsequent 
@@ -472,11 +490,6 @@ model = mergeMets(model, 'C02336[h]', 'C00095[h]', metAnnoFields);
 
 % No evidence for the chloroplast and dead-end
 model = removeRxns(model, {'R03293', 'R03291', 'R00471'});
-
-% vitamin B6 biosynthesis is cytosolic (doi.org/10.1073/pnas.0506228102) 
-% and the gprs of R05086 and R05085 have unclear connection to the
-% reactions
-model = removeRxns(model, {'R05086', 'R05085', 'R02493', 'R00277'});
 
 % dead-end; reaction definition of the enzyme is extremely broad (same 
 % enzyme(s) for all of these reactions); likely involved in de-toxification
@@ -597,10 +610,6 @@ model = addToSubsystem(model, {'Ex_bAla'}, 'export');
 % produce inositol-1,4-P
 model = removeRxns(model, {'R03393', 'R01186'});
 
-% Probably detoxification reactions of hydrogen cyanide; no support for
-% chloroplast found; simply remove
-model = removeRxns(model, {'R03524', 'R01267'});
-
 % Both are part of Yang cycle for methioine recycling
 % R01401 no evidence for chloroplast; rather cytsol. R04143 no known 
 % subcellular localization, but occurrence was  found in vascular tissue
@@ -621,18 +630,17 @@ model = removeRxns(model, {'R01101', 'R05549'});
 disp(['Working on degradation of various metabolites ' ...
     'produced spontaneously or outside the model'])
 
-% D-Alanine and D-Arginine can be degraded, but are orphan metabolites. 
-% Since these metabolites might occur randomly, add exchange but set bounds
-% to 0 to prevent the model from using it for energy metabolism. No 
-% evidence for transport found
+% D-Alanine can be degraded, but is an orphan metabolite. Since these 
+% metabolite might occur randomly, add exchange but set bounds to 0 to
+% prevent the model from using it for energy metabolism. No evidence for 
+% transport found
 model = addReaction(model, 'Exch_DAla', 'reactionName', ...
     'Exchange of D-alanine', 'reactionFormula', '<=> C00133[h]');
 model = addToSubsystem(model, {'Exch_DAla'}, 'exchange');
 model.ub(strcmp(model.rxns, 'Exch_DAla')) = 0;
-model = addReaction(model, 'Exch_DArg', 'reactionName', ...
-    'Exchange of D-arginine', 'reactionFormula', '<=> C00792[h]');
-model = addToSubsystem(model, {'Exch_DArg'}, 'exchange');
-model.ub(strcmp(model.rxns, 'Exch_DArg')) = 0;
+% No evidence found for degradation reactions of D-arginine and analogous
+% reaction with L-alanine
+model = removeRxns(model, {'R02923', 'R08197'});
 
 % pseudouridine is a similar case: It is formed post-transcriptionally in
 % RNA, but during degradation, it has to be recycled (which it is).
@@ -642,7 +650,7 @@ model = addReaction(model, 'Exch_pseudouridine', 'reactionName', ...
     ['Exchange of Pseudouridine from degradation of post-' ...
     'transcriptionally modified RNA'], 'reactionFormula', '<=> C02067[h]');
 model = addToSubsystem(model, {'Exch_pseudouridine'}, 'exchange');
-model.ub(strcmp(model.rxns, 'Exch_pseudouridine')) = 0;
+model.ub(strcmp(model.rxns, 'Exch_pseudouridine')) = 0.1;
 
 % NADPH can spontaneously react to NADPHX, which is repaired by R10288. Add
 % the damage reaction
@@ -655,6 +663,14 @@ model = addReaction(model, 'NADH_dmg_h', 'reactionName', ...
     'spontaneous NADH damaging; MNXR117736', ...
     'reactionFormula', 'C00004[h] + C00001[h] --> C04856[h]');
 model.subSystems(strcmp(model.rxns, 'NADH_dmg_h')) = {''};
+
+% Detoxification reactions of hydrogen cyanide
+model = addReaction(model, 'Exch_HCN', 'reactionName', ...
+    'Exchange of HCN', 'reactionFormula', '<=> C01326[h]');
+model = addToSubsystem(model, {'Exch_HCN'}, 'exchange');
+model.ub(strcmp(model.rxns, 'Exch_HCN')) = 0.1;
+model = addSubSystem(model, {'R03524', 'R01267', 'Exch_HCN'}, ...
+    'HCN detoxification');
 
 %% Chlorophyll degradation
 % It progresses until "primary fluorescent chlorophyll catabolite" in 
@@ -799,12 +815,51 @@ model = addToSubsystem(model, {'Ex_bTocotrienol'}, 'export');
 
 % PLP is synthesized in the chloroplast and helps with resistance to
 % photooxidative damage https://doi.org/10.1016/j.plaphy.2010.10.003
-% But, downstream processes are catalyzed in other organelles as far as I
-% found doi.org/10.1093/plcell/koae176
-% Therefore, add it to biomass as required for normal chloroplast
-% functionality
-model.S(strcmp(model.mets, 'C00018[h]'), ...
-        strcmp(model.rxns, 'precursorPool')) = -0.1;
+% But, biosynthesis (R10089) happens in the cytosol
+% (https://doi.org/10.1073/pnas.0506228102) and downstream processes are 
+% catalyzed in other organelles as far as I found
+% doi.org/10.1093/plcell/koae176 
+% Therefore, import it, ensure interconversion of B6 vitamers works by 
+% adding B6 to biomass as required for normal chloroplast functionality. 
+model = removeRxns(model, {'R10089'});
+% Gprs have unclear connection to the reactions. This pathway is bacterial
+model = removeRxns(model, {'R05086', 'R05085'});
+
+model = addImportTransport(model, 'C00018', ...
+    'Pyridoxal phosphate; vitamin B6', 'PLP', ['Biosynthesis is ' ...
+    'cytosolic (doi.org/10.1073/pnas.0506228102) but B6 and ' ...
+    'enzymes interconverting its vitamers have been found in ' ...
+    'chloroplasts (e.g. doi.org/10.1016/j.plaphy.2010.10.003)']);
+
+model = addMetabolite(model, 'B6[h]', 'metName', 'B6 vitamers');
+model.S(strcmp(model.mets, 'B6[h]'), ...
+    strcmp(model.rxns, 'precursorPool')) =  -1;
+model = addReaction(model, 'b6Pool', 'reactionName', ...
+    'Pool for B6 vitamers', 'reactionFormula', ...
+    'C00534[h] + C00647[h] + C00250[h] + C00018[h] + C00314[h] + C00627[h]  <=> B6[h]', ...
+    'geneRule', 'PSEUDO');
+model = addToSubsystem(model, {'b6Pool'}, 'pseudo reaction');
+
+[model, addedRxnId, errorMsg] = addKEGGReactionNew(model, 'R00173', ...
+    'At2g33255', 'doi.org/10.1093/plphys/kiac048');
+if ~isempty(errorMsg)
+    rxnErrorI = rxnErrorI + 1;
+    rxnsToLookAt{rxnErrorI} = [addedRxnId ': ' errorMsg];
+end
+model.rxnKEGGID(strcmp(model.rxns, 'R00173')) = {'R00173'};
+model = addToSubsystem(model, {'R00173'}, ...
+    'Vitamin B6 metabolism');
+
+[model, addedRxnId, errorMsg] = addKEGGReactionNew(model, 'R01710', ...
+    'At5g49970', '');
+if ~isempty(errorMsg)
+    rxnErrorI = rxnErrorI + 1;
+    rxnsToLookAt{rxnErrorI} = [addedRxnId ': ' errorMsg];
+end
+model.rxnKEGGID(strcmp(model.rxns, 'R01710')) = {'R01710'};
+model = addToSubsystem(model, {'R01710'}, ...
+    'Vitamin B6 metabolism');
+model.lb(strcmp(model.rxns, 'R01710')) = -1000;
 
 %% Selenium-containing metabolites
 disp('Working on selenium metabolites')
@@ -813,11 +868,13 @@ model = addCytosolMet(model, 'C05697[h]');
 model = addReaction(model, 'Exch_SeO4', 'reactionName', ...
     'Exchange of selenate', 'reactionFormula', '<=> C05697[c]');
 model = addToSubsystem(model, {'Exch_SeO4'}, 'exchange');
+model = addToSubsystem(model, {'Exch_SeO4'}, 'Selenocompound metabolism');
 
 model = addReaction(model, 'Tr_SeO4', 'reactionName', ...
     'Diffusion of selenate (analogously to SO4)', 'reactionFormula', ...
     'C05697[c] <=> C05697[h]');
 model = addToSubsystem(model, {'Tr_SeO4'}, 'transport');
+model = addToSubsystem(model, {'Tr_SeO4'}, 'Selenocompound metabolism');
 
 % conversion to selenomethioine (R09365) is cytosolic. Therefore, remove it
 % and add transport and export for its precursor selenohomocysteine C05698
@@ -827,15 +884,32 @@ model = addReaction(model, 'Tr_SeHcys', 'reactionName', ...
     'Transport of Selenohomocysteine', 'reactionFormula', ...
     'C05698[h] --> C05698[c]');
 model = addToSubsystem(model, {'Tr_SeHcys'}, 'transport');
+model = addToSubsystem(model, {'Tr_SeHcys'}, 'Selenocompound metabolism');
 model.rxnNotes(strcmp(model.rxns, 'Tr_SeHcys')) = ...
     {'doi.org/10.1016/j.jhazmat.2020.124178'};
 
-model = addReaction(model, 'Exch_SeHcys', 'reactionName', ...
-    'Exchange of Selenohomocysteine', 'reactionFormula', '<=> C05698[c]');
-model = addToSubsystem(model, {'Exch_SeHcys'}, 'exchange');
-model.ub(strcmp(model.rxns, 'Exch_SeHcys')) = 0;
-model.rxnNotes(strcmp(model.rxns, 'Exch_SeHcys')) = ...
+model = addReaction(model, 'Ex_SeHcys', 'reactionName', ...
+    'Export of Selenohomocysteine', 'reactionFormula', 'C05698[c] -->');
+model = addToSubsystem(model, {'Ex_SeHcys'}, 'exchange');
+model = addToSubsystem(model, {'Ex_SeHcys'}, 'Selenocompound metabolism');
+model.ub(strcmp(model.rxns, 'Ex_SeHcys')) = 0.1;
+model.rxnNotes(strcmp(model.rxns, 'Ex_SeHcys')) = ...
     {'doi.org/10.1016/j.jhazmat.2020.124178'};
+
+% No evidence for production of cystathionine (or selenocystathionine) from
+% acetyl-homoserine in chloroplasts (or plants) found.
+model = removeRxns(model, {'R04945', 'R03217'});
+
+% Now, C05699 Selenocystathionine cannot be produced, so add reaction that
+% uses Phosphohomoserine for synthesis, analogously to cystathionine
+% synthesis
+model = addReaction(model, 'SeCTHS_h', 'reactionName', ...
+    'plant cystathionine gamma-synthase', ...
+    'reactionFormula','C05688[h] + C01102[h] --> C00009[h] + C05699[h]',...
+    'geneRule', 'At3g01120');
+model.rxnEC{strcmp(model.rxns, 'SeCTHS_h')} = '2.5.1.48';
+model.eccodes(strcmp(model.rxns, 'R10712')) = {'2.5.1.48'};
+model = addToSubsystem(model, {'SeCTHS_h'}, 'Selenocompound metabolism');
 
 % Could not find evidence for this reaction; the enzyme included in KEGG
 % seems to actually be responsible for a different reaction
@@ -868,6 +942,7 @@ model = addToSubsystem(model, {'R09369', 'R04931'}, ...
 model = addReaction(model, 'Ex_DMSe', 'reactionName', ...
     'Export of volatile DMSE', 'reactionFormula', 'C02535[h] -->');
 model = addToSubsystem(model, {'Ex_DMSe'}, 'export');
+model = addToSubsystem(model, {'Ex_DMSe'}, 'Selenocompound metabolism');
 
 %% Glucosamine metabolism
 % R02058 is ER-localized (uniprot Q9LFU9)
@@ -876,7 +951,10 @@ model = addToSubsystem(model, {'Ex_DMSe'}, 'export');
 % is probably because of the other reaction of the enzyme, converting 
 % Glc-1-P and Glc-6-P (https://doi.org/10.3389/fpls.2024.1349064). 
 % Therefore, remove it 
-model = removeRxns(model, {'R02058', 'R00416', 'R08193'});
+% R01965 R01961 are dead-end side-reactions of hexokinases
+% R00768 is now a dead-end and no evidence for chloroplast was found
+model = removeRxns(model, {'R02058', 'R00416', 'R08193', 'R01965', ...
+    'R01961', 'R00768'});
 
 %% Choline is currently a dead-end, but it should be imported from the
 % cytosol to produce glycine betaine (aka betaine): 10.1006/MBEN.2000.0158
@@ -1086,7 +1164,7 @@ model.S(strcmp(model.mets, 'CONST_mel_prec[h]'), ...
 % Now remove the cytosolic reactions
 model = removeRxns(model, {'R00685', 'R03130', 'R02912'});
 
-%% Thiamine phosphate is chloroplastic but currently not functional
+%% Thiamine-P biosynthesis is chloroplastic but currently not functional
 disp('Working on thiamine biosynthesis')
 % thiazole part
 [model, addedRxnId, errorMsg] = addKEGGReactionNew(model, 'R10711', ...
@@ -1210,6 +1288,7 @@ model = addToSubsystem(model, {'R10712'}, ...
 model = addToSubsystem(model, {'R10712'}, ...
     'Thiamine metabolism');
 model.rxnKEGGID(strcmp(model.rxns, 'R10712')) = {'R10712'};
+model.rxnEC(strcmp(model.rxns, 'R10712')) = {'2.5.1.3'};
 model.eccodes(strcmp(model.rxns, 'R10712')) = {'2.5.1.3'};
 
 % add thiamine phosphate to the precursors
@@ -1371,9 +1450,6 @@ model.S(HIx, rxnIx) = model.S(HIx, rxnIx) - 5;
 rxnIx = strcmp(model.rxns, 'R12172');
 model.S(HIx, rxnIx) = model.S(HIx, rxnIx) - 4;
 
-% Balance reactions with protons and water
-model = automaticBalancing(model);
-
 %% miscellaneous
 disp('Working on miscellaneous changes')
 % Let MEMOTE find the NGAM reaction
@@ -1453,8 +1529,136 @@ model = removeRxns(model, {'R00670'});
 % chloroplasts and poorly understood pathways
 model = removeRxns(model, {'R00462', 'R06740'});
 
-%% Address stoichiometric consistency TODO
+% Function of At3g47450 (R00557 is the same as R00111+R00558) as NOS has 
+% been questioned doi.org/10.1074/jbc.M804838200 and NO is currently a 
+% dead-end in the model.
+% Although NO is known to be produced in chloroplasts and be involved in 
+% regulation, signaling, photodamage resilience 
+% (doi.org/10.1093/jxb/eraa504), its production mechanism is unknown.
+% Therefore, remove all. If kept, should remove lump rxn R00557 and make
+% the other two reversible 
+model = removeRxns(model, {'R00557', 'R00111', 'R00558'});
 
+% No evidence for even plants
+model = removeRxns(model, {'R00123'});
+
+% Long, blocked pathway with reactions from branched chain amino acid
+% degradation. All rxns are not chloroplastic:
+% R02085 probably mitochondrial
+% R00238 cytosol, peroxisome
+% R01978 Unclear loc but probably mitochondrion
+% R04138 gpr probably misannotation and rxn rather mitochondrial
+% R04095 mitochondrial
+% R01651 No evidence even for plants
+model = removeRxns(model, {'R02085', 'R00238', 'R01978', 'R04138', ...
+    'R04095', 'R01651'});
+
+% Rather mitochondrial
+model = removeRxns(model, {'R01868'}); 
+
+% Succinate can be produced but cannot be converted further. In higher
+% plants, fate is unclear: Either conversion to malate, or export to
+% cytosol. In Chlamydomonas, chloroplastic succinate dehydrogenase (Suc ->
+% Fum) has been confirmed doi.org/10.1104/pp.90.3.1084 
+% This might not hold for land plants, and no enzymes are known. Therefore,
+% export succinate, and also keep rxns without gpr in this union-model
+model = addExportTransport(model, 'C00042', 'Succinate', 'Succ', ...
+    'Fate of succinate in chloroplasts of plants is unknown; export it');
+model.grRules(strcmp(model.rxns, 'R02164')) = {'unknown'};
+
+% This part of photorespiration is clearly peroxisomal!
+model = removeRxns(model, {'R00475', 'R00717'});
+% allantoate metabolism is not chloroplastic: peroxisome and ER
+model = removeRxns(model, {'R02422', 'R05554', 'R02423', 'R00469'});
+
+% Identical to R03050, but corresponding to KEGG definition
+model = removeRxns(model, {'R04672'});
+
+% Enzyme not identified in plants, but is required for thiamine metabolism   
+[model, addedRxnId, errorMsg] = addKEGGReactionNew(model, 'R00615', 'unknown', ...
+    'Enzyme unknown. Rxn required for thiamine metabolism');
+if ~isempty(errorMsg)
+    rxnErrorI = rxnErrorI + 1;
+    rxnsToLookAt{rxnErrorI} = [addedRxnId ': ' errorMsg];
+end
+model = addToSubsystem(model, {'R00615'}, 'Thiamine metabolism');
+model.rxnKEGGID(strcmp(model.rxns, 'R00615')) = {'R00615'};
+
+% No evidence for this whole clique; integration was based on an automatic
+% annotation of 2.4.1.82 to 4 compartments, one of which was chloroplast.
+model = removeRxns(model, {'R02411', 'R03418', 'R01103', ...
+    'R03634', 'R01194'});
+
+% Found no evidence for these, and I do not see a way how its product,
+% hypoxanthine, can not be a dead-end but connected to the metabolism
+model = removeRxns(model, {'R01560', 'R01770', 'R01863', 'R01126'});
+
+% R07511 is a lump of R09658+R09656, and all are reversible. Remove the
+% lump to prevent futile cycle
+model = removeRxns(model, {'R07511'});
+
+% Multiple reactions are blocked because the pair quinone / hydroquinone
+% can only be reduced, coming back to quinone is impossible. Proceed
+% analogously to the PLM with plastoquinone and use O2 and At4g22260
+model = addReaction(model, 'AOX4_quin_h', 'reactionName', ...
+    'Alternative NAD(P)H-ubiquinone oxidoreductase', ...
+    'reactionFormula', 'C00007[h] + 2 C15603[h] --> 2 C00001[h] + 2 C15602[h]');
+model.grRules(strcmp(model.rxns, 'AOX4_quin_h')) = {'At4g22260'};
+model.subSystems(strcmp(model.rxns, 'AOX4_quin_h')) = {''};
+
+% pairs of dead-end, side reactions of At4g34240 (promiscuos enzyme, 
+% moonlighting activity)
+model = removeRxns(model, {'R02549', 'R01986'});
+model = removeRxns(model, {'R04904', 'R04903'});
+
+% pairs of dead-end, side reactions of multiple enzymes
+model = removeRxns(model, {'R05395', 'R05396'});
+
+% triangle clique (R08869+R08868 = R05165) that is completely disconnected.
+% Has reviewed uniprot entry but no publication associated and localization
+% is from a bulk-MS study
+model = removeRxns(model, {'R08869', 'R08868', 'R05165'});
+
+% two-sided dead-end cliques with no evidence
+model = removeRxns(model, {'R02124', 'R08379'});
+model = removeRxns(model, {'R03581', 'R10308'});
+model = removeRxns(model, {'R03544', 'R03545'});
+model = removeRxns(model, {'R07141', 'R07142'});
+
+% dead-end, very slim evidence for chloroplast localization
+model = removeRxns(model, {'R02300', 'R02301'});
+
+% two-sided dead-end, all 4 are the same reaction
+model = removeRxns(model, {'R03239', 'R03237', 'R03236', 'R03238'});
+
+% Add a piece of evidence for myo-inositol production in chloroplasts
+model.rxnNotes(strcmp(model.rxns, 'R07324')) = ...
+    {[model.rxnNotes{strcmp(model.rxns, 'R07324')} ...
+    'Enzyme unknown, but presence in plant chloroplasts known:' ...
+    ' doi.org/10.1111/j.1365-3040.1996.tb00023.x']};
+% Main production of myo-inositol is cytosolic, but there are also
+% chloroplast enzymes known, and myo-inositol has been found to be shared
+% across the whole plant doi.org/10.1105/tpc.10.5.753 . Export it 
+model = addExportTransport(model, 'C00137', 'myo-Inositol', 'MI', ...
+    ['Known to be shared in the whole plant doi.org/10.1105/tpc.10.5.753' ...
+    ' doi.org/10.1111/j.1365-3040.1996.tb00023.x']);
+
+% Heptaprenyl-diphosphate is a valid intermediate compound, but no KEGG
+% reaction exists for its further processing into nonaprenyl-diphosphate 
+% (or first octa, which can be processed into nona), which is required for
+% plastoquinol-9 biosynthesis
+model = addReaction(model, 'hepta2octaPP_h', 'reactionName', ...
+    ['(E)-heptaprenyl-diphosphate:isopentenyl-diphosphate ' ...
+    'heptaprenyltranstransferase'], ...
+    'reactionFormula', 'C00129[h] + C04216[h] --> C00013[h] + C04146[h]');
+model.subSystems(strcmp(model.rxns, 'hepta2octaPP_h')) = {''};
+model.grRules(strcmp(model.rxns, 'hepta2octaPP_h')) = ...
+    model.grRules(strcmp(model.rxns, 'R07267'));
+
+%% Address stoichiometric consistency
+% Actually, there is nothing to do here since the stoichiometric
+% inconsistency comes only from pseudo-metabolites and photons, which is
+% fine
 
 %% Final, automatic procedures that have to be at the end
 disp('Working on final, automatic procedures')
@@ -1477,7 +1681,24 @@ while true
     end
 end
 
+% Balance reactions with protons and water
+model = automaticBalancing(model);
+
+% Fill KEGG rxn IDs for all rxns that have KEGG IDs as their IDs
+for rxnIx = 1:length(model.rxns)
+    rid = model.rxns{rxnIx};
+    
+    if isempty(model.rxnKEGGID{rxnIx})
+        % Determine if rxn ID is a KEGG ID
+        if ~isempty(regexp(rid, '^R\d+$', 'once'))
+            model.rxnKEGGID{rxnIx} = rid;
+        end
+    end
+end
+
 % TODO add all new import and exchange reactions to the media tsv
+% TODO remove stoichiometrically identical rxns
+
 %% write pcm to disk
 disp('Writing to disk')
 if isfield(model, 'A')
@@ -1494,11 +1715,16 @@ writeCbModel(model, 'fileName', ...
 % For xml: Change format of the subsystems array
 % This will give warnings with writeCbModel, but will map subsystems
 % correctly in the .xml
-for i = 1:length(model.rxns)
-    s = model.subSystemNames(logical(model.rxn2subSystem(i, :)));
-    model.subSystems{i} = s;
+xmlModel = model;
+for i = 1:length(xmlModel.rxns)
+    s = xmlModel.subSystemNames(logical(xmlModel.rxn2subSystem(i, :)));
+    xmlModel.subSystems{i} = s;
 end
-writeCbModel(model, 'fileName', ...
+
+% Also name the EC field so COBRA detects it
+xmlModel.rxnECNumbers = xmlModel.rxnEC;
+
+writeCbModel(xmlModel, 'fileName', ...
     [modelPath 'pcm.v' num2str(importVersion + 1) '.xml']);
 
 %% Functions
