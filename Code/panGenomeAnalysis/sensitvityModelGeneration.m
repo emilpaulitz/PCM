@@ -4,10 +4,10 @@ clearvars -except gurobiAvailable projDir; clc;
 % when mapping complex gprs, do we require all Arabidopsis subunits to have
 % an ortholog in the new organism to consider the gpr valid?
 requireAllSubunits = false;
-importVersion = 1;
+importVersion = 2;
 
 % If false, reads the solved models and generates carved COBRA models
-onlyWriteGurobiModel = false;
+onlyWriteGurobiModel = true;
 reGenerate = false; % Overwrite existing Gurobi models
 carvedModelOutPath = [projDir '/Data/analysis/panGenomeAnalysis/' ...
     'demand_threshold_sensitivity/04_carved_models/'];

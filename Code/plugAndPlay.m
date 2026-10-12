@@ -8,7 +8,8 @@
 %   - replace chloroplast model if already present
 %   - added support for merging enzyme-constrained models
 
-function [model, missingMets] = plugAndPlay(cyt, chl, cytIsEc, bioRxnsIx)
+function [model, missingMets] = plugAndPlay(cyt, chl, cytIsEc, ...
+    bioRxnsIx, onlyKnockOutExchanges)
 
 % Merges model without chloroplast compartment with chloroplast model
 % cytIsEc (optional) set to true if the cytosol model is enzyme constrained
@@ -16,6 +17,9 @@ function [model, missingMets] = plugAndPlay(cyt, chl, cytIsEc, bioRxnsIx)
 % bioRxnsIx (optional) A logical/zero-and-one array of length of cyt.rxns
 %   identifying the biomass rxns. If not given, the script will prompt the
 %   user and ask whether its guess is correct.
+% onlyKnockOutExchanges (optional) If true, PCM exchange
+%   reactions are not removed but its bounds are set to 0; relevant for 
+%   simulation of different conditions (default: false)
 
 % Additional scripts required to run plugAndPlay.m:
 %   - metKEGGIDsearch.m
@@ -57,6 +61,10 @@ elseif ~islogical(bioRxnsIx)
     end
 elseif length(bioRxnsIx) ~= length(cyt.rxns)
     error('bioRxnsIx has to have the same length as cyt.rxns')
+end
+
+if nargin < 5
+    onlyKnockOutExchanges = false;
 end
 
 %% 0 - Saving backup of models and requesting user input
@@ -147,12 +155,12 @@ exchRxnIx = find(chl.rxn2subSystem(:, strcmp(chl.subSystemNames, 'export')) | ..
 if isfield(chl, 'confidenceScores')
     chl.confidenceScores(exchRxnIx) = [];
 end
-toRemove = chl.rxns(exchRxnIx);
-chl = removeRxns(chl, toRemove);
-for rxnIx = 1:length(toRemove)
-    if any(strcmp(chl.rxns, toRemove{rxnIx}))
-        disp(toRemove{rxnIx})
-    end
+if onlyKnockOutExchanges
+    chl.lb(exchRxnIx) = 0;
+    chl.ub(exchRxnIx) = 0;
+else
+    toRemove = chl.rxns(exchRxnIx);
+    chl = removeRxns(chl, toRemove);
 end
 
 % remove pseudo metabolites used to constrain reactions
@@ -475,11 +483,7 @@ if ~isfield(cyt, 'metKEGGID')
     cyt.metKEGGID = cell(size(cyt.rxns));
 end
 if iscell(cyt.metKEGGID{1})
-    cyt.metKEGGID = cellfun(@ (x) strjoin(x, ','), cyt.metKEGGID, ...
-        'UniformOutput', false);
-end
-if iscell(cyt.rxnKEGGID{1})
-    cyt.rxnKEGGID = cellfun(@ (x) strjoin(x, ','), cyt.rxnKEGGID, ...
+    cyt.metKEGGID = cellfun(@ (x) strjoin(x, ';'), cyt.metKEGGID, ...
         'UniformOutput', false);
 end
 
@@ -567,7 +571,7 @@ for i = 1:length(metsToMatch)
         cytKegg = cyt.metKEGGID{cytMetIx};
         chlKegg = chl.metKEGGID{matchingChlMetIx};
         keggMatch = false;
-        for singleChlKegg = strsplit(chlKegg, ',')
+        for singleChlKegg = strsplit(chlKegg, ';')
             keggMatch = keggMatch || contains(cytKegg, singleChlKegg);
         end
         if ~keggMatch
@@ -624,7 +628,7 @@ for cMetsIx = 1:length(cMets)
     chlMetComp = extractComp(chlMet);
 
     % Find matches in cyt based on KEGG ID and compartment
-    metMatch = findMatches(cyt, strsplit(KEGGID, ','), cytComps, ...
+    metMatch = findMatches(cyt, strsplit(KEGGID, ';'), cytComps, ...
         cytCompSymbs(strcmp(chlCompKeys, chlMetComp)));
 
     if isempty(metMatch)
@@ -679,7 +683,7 @@ for cMetsIx = 1:length(cMets)
             currChlMets(i) = 1;
 
             % Start the search with the current chl KEGG IDs
-            searchSet = strsplit(KEGGID, ',');
+            searchSet = strsplit(KEGGID, ';');
             finishedSet = {};
         
             while ~isempty(searchSet)
@@ -690,7 +694,7 @@ for cMetsIx = 1:length(cMets)
         
                 % Find chl metabolites matching the KEGG ID and compartment
                 for j = 1:length(chl.metKEGGID)
-                    chlKeggIds = strsplit(strtrim(chl.metKEGGID{j}), ',');
+                    chlKeggIds = strsplit(strtrim(chl.metKEGGID{j}), ';');
                     if ismember(currentKEGGID, chlKeggIds) && ...
                             strcmp(extractComp(chl.mets{j}), chlMetComp)
                         currChlMets(j) = 1;
@@ -785,7 +789,7 @@ for i = 1:length(metsToMatch)
         cytKegg = cyt.metKEGGID{cytMetIx};
 
         % match KEGG IDs provided compartments match up
-        matchingChlMets = findMatches(chl, strsplit(cytKegg, ','), ...
+        matchingChlMets = findMatches(chl, strsplit(cytKegg, ';'), ...
             chlComps, extractComp(metsToMatch{i}));
 
         chlMetIx = 0;
@@ -804,7 +808,7 @@ for i = 1:length(metsToMatch)
                 chlMetIx = -1;
             elseif cytDupKEGG(cytMetIx)
                 % multiple cyt mets in that compartment have that KEGG ID
-                currMatchingCytMets = findMatches(cyt, strsplit(cytKegg, ','), ...
+                currMatchingCytMets = findMatches(cyt, strsplit(cytKegg, ';'), ...
                     cytComps, extractComp(metsToMatch{i}));
 
                 % ask user with all possible cyt mets
@@ -918,7 +922,8 @@ for j = 1:length(chl.rxns) % Looping through chloroplast model reactions
         modelRxnIx = strcmp(model.rxns, chl.rxns(j));
 
         % if stoichiometries are the same, just keep original
-        if areRxnsEquivalent(rxnNamesModel{modelRxnIx}, rxnNamesChl{j})
+        if areRxnsEquivalent(rxnNamesModel{modelRxnIx}, rxnNamesChl{j}, ...
+                onlyKnockOutExchanges)
             fprintf(['Rxn %s already exists with identical ' ...
                 'stoichiometry. Retaining original reaction\n'], ...
                 chl.rxns{j});
@@ -1238,7 +1243,7 @@ function comp = extractComp(metId)
     end
 end
 
-function res = areRxnsEquivalent(rxnEq1, rxnEq2)
+function res = areRxnsEquivalent(rxnEq1, rxnEq2, acceptExchanges)
     % Check if two reaction strings are equivalent, irrespective of
     % metabolite order
 
@@ -1272,7 +1277,25 @@ function res = areRxnsEquivalent(rxnEq1, rxnEq2)
             parts2 = split(rxnEq2, '-->');
         end
     end
-   
+
+    if acceptExchanges
+
+        % one is exchange the other is not
+        if length(parts1) ~= length(parts2)
+            res = false;
+            return
+        end
+
+        % both are exchange
+        if isscalar(parts1) && isscalar(parts2)
+            sortedSide1 = sortMetabolites(parts1{1});
+            sortedSide2 = sortMetabolites(parts1{1});
+            res = isequal(sortedSide1, sortedSide2);
+            return
+        end
+    end
+
+    % Both are non-exchanges
     % one part for substrates and one part for products
     if numel(parts1) ~= 2 || numel(parts2) ~= 2
         error('Invalid reaction format');
@@ -1304,7 +1327,7 @@ function dupIx = getDupKEGGs(model)
     keggMap = containers.Map('KeyType', 'char', 'ValueType', 'any');
     
     for i = 1:length(metKEGGIDs)
-        currIDs = strsplit(metKEGGIDs{i}, ',');
+        currIDs = strsplit(metKEGGIDs{i}, ';');
         compI = extractComp(mets{i});
         if isempty(compI)
             continue

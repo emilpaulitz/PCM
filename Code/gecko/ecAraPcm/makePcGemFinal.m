@@ -2,7 +2,8 @@
 clearvars -except gurobiAvailable projDir; clc;
 
 modelPath = [projDir 'Data/pcm/'];
-load(strcat(modelPath, 'species/Arabidopsis_thaliana.pcm.v2.mat'), 'model');
+load(strcat(modelPath, 'species/Arabidopsis_thaliana.pcm.v3.mat'), 'model');
+
 pcm = model;
 
 % format subsystems and rm A field to write a functioning sbml
@@ -14,13 +15,14 @@ if isfield(pcm, 'A')
     pcm = rmfield(pcm, 'A');
 end
 writeCbModel(pcm, 'fileName', ...
-    [projDir, 'Code/gecko/ecAraPcm/models/ath.pcm.v2.xml']);
+    [projDir, 'Code/gecko/ecAraPcm/models/ath.pcm.v3.xml']);
 
 %% check RAVEN and GECKO
 checkInstallation;
 GECKOInstaller.install;
 
 %% Set default model adapter
+% This defines the model version that is loaded!
 adapterLocation = fullfile(projDir, 'Code/gecko/ecAraPcm', ...
     'ecAraPcmAdapter.m');
 ModelAdapterManager.setDefault(adapterLocation);
@@ -30,7 +32,7 @@ model = loadConventionalGEM();
 
 %% create draft full ecGEM
 % The data was modified to include unreviewed proteins and exclude
-% duplications. See makePcGem.m
+% duplications
 
 dataPath = ['/home/emil/Desktop/PhD-Synch/pan_chloroplast/' ...
     'pan_chl_model/Code/gecko/ecAraPcm/data/'];
@@ -86,18 +88,15 @@ ecModel = applyKcatConstraints(ecModel);
 %% set ptot
 ecModel = setProtPoolSize(ecModel);
 
-%% Tune too low kcats until Rubisco is the most used protein
+%% Tune too low kcats until Rubisco would be the next protein to be tuned
+% Before, used the tunedKcats output for reverting the changes. However,
+% that table is not sorted by tuning iterations but by name of the reaction
+% since some enzymes might be tuned multiple times. Therefore, implement
+% this procedure by changing the code in sensitivityTuning.m (Look for
+% "% Custom code start" in sensitivityTuningRubisco.m)
 ecModel = setProtPoolSize(ecModel);
-[ecModel, tunedKcats] = sensitivityTuning(ecModel);
+[ecModel, tunedKcats] = sensitivityTuningRubisco(ecModel);
 %struct2table(tunedKcats)
-
-% Revert back all kcats that came after rubisco, including rubisco
-rbcIx = find(startsWith(tunedKcats.rxns, 'RBC_h') | ...
-    startsWith(tunedKcats.rxns, 'RBO_h'), 1 );
-for i = rbcIx:length(tunedKcats.rxns)
-    currRxnIx = strcmp(ecModel.ec.rxns, tunedKcats.rxns{i});
-    ecModel.ec.kcat(currRxnIx) = tunedKcats.oldKcat(i);
-end
 
 % apply custom kcats
 [ecModel, rxnUpdated, notMatch] = applyCustomKcats(ecModel);
@@ -107,8 +106,10 @@ ecModel = applyKcatConstraints(ecModel);
 ecModel = setProtPoolSize(ecModel);
 
 %% Write to disk
-saveEcModel(ecModel, 'ath.ecModel.yml');
-ecModel = loadEcModel('ath.ecModel.yml');
+% Writing to and reading from yaml not only introduces errors but shuffles
+% Miriams! Do not do it!
+%saveEcModel(ecModel, 'ath.ecModel.yml');
+%ecModel_yml = loadEcModel('ath.ecModel.yml');
 
 ecModel.id = 'Ath ecPCM';
 exportModel(ecModel, [modelPath 'ecPCM/Ath.tuned.xml']);

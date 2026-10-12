@@ -47,7 +47,7 @@ model = removeRxns(model, {'R01993', 'R01870', 'R00965'});
 % After extensive research on pyrimidine metabolism in chloroplasts, I
 % found that there are single enzymes that are known, but their connections
 % are missing. Generally, it is believed that cytidine metabolites are
-% esupplied from the cytosolic biosynthesis. Therefore, add transporters
+% supplied from the cytosolic biosynthesis. Therefore, add transporters
 % for the dead-end cytidine metabolites instead of assuming chloroplast
 % reactions
 model = addImportTransport(model, 'C00881', 'Deoxycytidine', 'dCyt', ...
@@ -594,7 +594,7 @@ model = removeRxns(model, {'R03269', 'R03035', 'R00130'});
 model = removeRxns(model, {'R06514', 'R02777'});
 
 % Found no evidence for chloroplast occurrence
-model = removeRxns(model, {'R02926', 'R01787'});
+model = removeRxns(model, {'R02926', 'R01787', 'R01561'});
 
 % Fate of beta-alanine in chloroplasts is unclear, but it is known to
 % accumulate for stress resistance. Add export to reflect that
@@ -630,7 +630,7 @@ model = removeRxns(model, {'R01101', 'R05549'});
 disp(['Working on degradation of various metabolites ' ...
     'produced spontaneously or outside the model'])
 
-% D-Alanine can be degraded, but is an orphan metabolite. Since these 
+% D-Alanine can be degraded, but is an orphan metabolite. Since this 
 % metabolite might occur randomly, add exchange but set bounds to 0 to
 % prevent the model from using it for energy metabolism. No evidence for 
 % transport found
@@ -638,6 +638,7 @@ model = addReaction(model, 'Exch_DAla', 'reactionName', ...
     'Exchange of D-alanine', 'reactionFormula', '<=> C00133[h]');
 model = addToSubsystem(model, {'Exch_DAla'}, 'exchange');
 model.ub(strcmp(model.rxns, 'Exch_DAla')) = 0;
+model.lb(strcmp(model.rxns, 'Exch_DAla')) = -0.1;
 % No evidence found for degradation reactions of D-arginine and analogous
 % reaction with L-alanine
 model = removeRxns(model, {'R02923', 'R08197'});
@@ -1042,6 +1043,10 @@ model.rxnKEGGID(strcmp(model.rxns, 'R10619')) = {'R10619'};
 % that are of no relevance in natural chloroplast metabolism
 model = removeRxns(model, {'R00703', 'R00754'});
 
+% Actually, choline was already there as a cytosolic metabolite from the
+% PLM. Name the chl version correspondingly
+model = mergeMets(model, 'C00114[c]', 'Cho[c]', metAnnoFields);
+model.mets(strcmp(model.mets, 'C00114[h]')) = {'Cho[h]'};
 
 %% Melatonin biosynthesis
 disp('Working on melatonin biosynthesis')
@@ -1396,9 +1401,6 @@ model = addRxnNote(model, rxnIx, ['Modified to account for stoichiometry; ' ...
         'Mechanism unknown']);
 
 % This is a dead-end even in KEGG
-% For some reason this does not remove the KEGG ID entry
-%rxnIx = strcmp(model.rxns, 'R03231');
-%model.rxnKEGGID(rxnIx) = [];
 model = removeRxns(model, {'R03231'});
 
 % Difficult case: R08549. Follow the definition and formula of Rhea
@@ -1433,6 +1435,13 @@ model.S(plastoquinolIx, rxnIx) = model.S(plastoquinolIx, rxnIx) + 2;
 model.S(plastoquinoneIx, rxnIx) = model.S(plastoquinoneIx, rxnIx) - 2;
 model = addRxnNote(model, rxnIx, ['Modified to account for stoichiometry; ' ...
         'Mechanism unknown']);
+% However, this lets a cycle produce plastoquinol (which should only be
+% possible from PSII). Therefore, adapt the following bounds
+model.lb(strcmp(model.rxns, 'R04786')) = 0;
+model.lb(strcmp(model.rxns, 'R07270')) = 0;
+model.lb(strcmp(model.rxns, 'R04800')) = 0;
+model.lb(strcmp(model.rxns, 'R04798')) = 0;
+model.lb(strcmp(model.rxns, 'R04787')) = 0;
 
 % Adapt the formulas to reflect Rhea and balance the reactions
 model.metFormulas(strcmp(model.mets, 'C00681[h]')) = {'C4H6O7PR'};
@@ -1452,6 +1461,7 @@ model.S(HIx, rxnIx) = model.S(HIx, rxnIx) - 4;
 
 %% miscellaneous
 disp('Working on miscellaneous changes')
+
 % Let MEMOTE find the NGAM reaction
 model.rxns(strcmp(model.rxns, 'R00086')) = {'NGAM_h'};
 
@@ -1471,8 +1481,9 @@ model.ub(strcmp(model.rxns, 'R08676')) = 1000;
 model.lb(strcmp(model.rxns, 'R00806')) = -1000;
 model.ub(strcmp(model.rxns, 'R00806')) = 1000;
 
-% some misannotated genes
-
+% according to MetaCyc and KEGG Pathways, this should not be reversible
+model.lb(strcmp(model.rxns, 'R01388')) = -1000;
+model.ub(strcmp(model.rxns, 'R01388')) = 0;
 
 % check for error messages
 if ~isempty(rxnsToLookAt)
@@ -1655,6 +1666,41 @@ model.subSystems(strcmp(model.rxns, 'hepta2octaPP_h')) = {''};
 model.grRules(strcmp(model.rxns, 'hepta2octaPP_h')) = ...
     model.grRules(strcmp(model.rxns, 'R07267'));
 
+%% Remove stoichiometrically identical rxns
+disp('Remove stoichiometrically identical rxns')
+
+% The choice of rxn to use depends on whether it is named, and whether
+% the rxn equation matches with the rxn definition on KEGG
+
+% R00226 and R00006 are now equal; use R00006
+% R00896 and R00895 are now equal; use R00895
+% R04441 and R01209 are now equal; use R04441
+% PyrDH2_h and R03270 are now equal; use PyrDH2_h
+% 6PGDHNAD_h and R10221 are now equal; use 6PGDHNAD_h
+% AGNDA_h and R00691 are now equal; use AGNDA_h
+% R00760 and R00867 and R03920 are now equal; use R00760
+model = removeRxns(model, {'R00226', 'R00896', 'R01209', 'R03270', ...
+                           'R10221', 'R00691', 'R00867', 'R03920'});
+
+numCols = size(model.S, 2);
+idColumns = false(numCols, numCols);
+
+for i = 1:numCols
+    for j = i+1:numCols
+        if isequal(model.S(:, i), model.S(:, j))
+            idColumns(i, j) = true;
+        end
+    end
+end
+
+% Display pairs of identical columns
+[rowIdx, colIdx] = find(idColumns);
+pairs = [rowIdx, colIdx];
+if ~isempty(pairs)
+    disp('Identical column pairs:');
+    disp(pairs);
+end
+
 %% Address stoichiometric consistency
 % Actually, there is nothing to do here since the stoichiometric
 % inconsistency comes only from pseudo-metabolites and photons, which is
@@ -1696,8 +1742,132 @@ for rxnIx = 1:length(model.rxns)
     end
 end
 
-% TODO add all new import and exchange reactions to the media tsv
-% TODO remove stoichiometrically identical rxns
+model = buildRxnEquations(model);
+
+%% Fill in metabolite annotations
+disp('Working on metabolite annotations')
+
+metFname = [projDir 'Data/met_translation.csv'];
+metTable = readtable(metFname);
+
+% Curate carlactonoate because its KEGG ID is not mapped in MNX
+model.metChEBIID{strcmp(model.mets, 'C23076[h]')} = 'CHEBI:194504';
+
+% The to-xml engine does not recognize KEGG IDs separated by ','
+model.metKEGGID = strrep(model.metKEGGID, ',', ';');
+
+% These fields will be updated (create them if necessary)
+fieldsToUpdate = {'metMetaNetXID', 'metInChIString', 'metBiGGID', ...
+            'metBioCycID', 'metChEBIID', 'metHMDBID', 'metSmiles', ...
+            'metReactomeID', 'metSEEDID'};
+corrTableCols = {'ID', 'InChI', 'bigg', 'biocyc', 'chebi', 'hmdb' ...
+                 'SMILES', 'reactome', 'seed'};
+model.metBiGGID = repmat({''}, size(model.mets));
+model.metHMDBID = repmat({''}, size(model.mets));
+model.metReactomeID = repmat({''}, size(model.mets));
+model.metSEEDID = repmat({''}, size(model.mets));
+
+for i = 1:length(model.metKEGGID)
+    currKEGGID = model.metKEGGID{i};
+    
+    % Handle exceptional cases
+    if strcmp(model.mets{i}, 'DHL[h]')
+        % Multiple are mapped; use this one
+        currKEGGID = 'C15973';
+    elseif strcmp(model.mets{i}, 'C23076[h]')
+        % Not mapped in MetaNetX, fall back on Chebi below
+        currKEGGID = '';
+    elseif contains(currKEGGID, ',')
+        % If multiple IDs, use model.mets entry without trailing '[h]'
+        % instead (Only case where this does not work is covered above)
+        currKEGGID = strrep(model.mets{i}, '[h]', '');
+    end
+    
+    % If KEGG ID is empty, try to fall back on Chebi
+    if isempty(currKEGGID)
+        currChebi = model.metChEBIID{i};
+        if isempty(currChebi)
+            continue
+        end
+        rowIdx = find(contains(metTable.chebi, ...
+                             strrep(currChebi, 'CHEBI:', '')));
+    else
+        rowIdx = find(contains(metTable.kegg, currKEGGID));
+    end
+    
+    % Update the model fields
+    if ~isempty(rowIdx)
+        for fieldIdx = 1:length(fieldsToUpdate)
+            fieldName = fieldsToUpdate{fieldIdx};
+            columnName = corrTableCols{fieldIdx};
+            if isempty(model.(fieldName){i})
+                model.(fieldName){i} = metTable.(columnName){rowIdx};
+            end
+        end
+    end
+end
+
+%% Fill in reaction annotations
+disp('Working on reaction annotations')
+
+rxnFname = [projDir 'Data/rxn_translation.csv'];
+rxnTable = readtable(rxnFname);
+
+% Curate these manually because something went wrong there
+model.rxnKEGGID(strcmp(model.rxns, 'R03052')) = {'R03052,R05071'};
+model.rxnKEGGID(strcmp(model.rxns, 'R00772')) = {'R00772,R01819'};
+model.rxnEC(strcmp(model.rxns, 'R00217')) = {'1.1.1.38,1.1.1.40,4.1.1.112'};
+
+% The to-xml-engine does not recognize ',', but does recognize ';'
+model.rxnEC = strrep(model.rxnEC, ',', ';');
+% Checked manually that eccodes contains no information rxnEC does not
+
+% These fields will be updated (create them if necessary)
+fieldsToUpdate = {'rxnMetaNetXID', 'rxnECNumbers', 'rxnBiGGID', ...
+                  'rxnBioCycID', 'rxnRheaID', 'rxnSEEDID'};
+corrTableCols = {'ID', 'EC', 'bigg', 'biocyc', 'rhea', 'seed'};
+model.rxnMetaNetXID = repmat({''}, size(model.rxns));
+model.rxnECNumbers = model.rxnEC;
+model.rxnBiGGID = repmat({''}, size(model.rxns));
+model.rxnBioCycID = repmat({''}, size(model.rxns));
+model.rxnRheaID = repmat({''}, size(model.rxns));
+model.rxnSEEDID = repmat({''}, size(model.rxns));
+
+for i = 1:length(model.rxnKEGGID)
+    currKEGGID = model.rxnKEGGID{i};
+    
+    % Handle exceptional cases
+    if strcmp(model.rxns{i}, 'StP1_h') || strcmp(model.rxns{i}, 'R01821_2')
+        currKEGGID = 'R01821';
+    elseif strcmp(model.rxns{i}, 'R03052')
+        currKEGGID = 'R03052';
+    elseif strcmp(model.rxns{i}, 'R00772')
+        currKEGGID = 'R00772';
+    end
+    
+    if isempty(currKEGGID)
+        continue
+    end
+    rowIdx = find(contains(rxnTable.kegg, currKEGGID));
+    
+    % Update the model fields
+    if ~isempty(rowIdx)
+        for fieldIdx = 1:length(fieldsToUpdate)
+            fieldName = fieldsToUpdate{fieldIdx};
+            columnName = corrTableCols{fieldIdx};
+            if isempty(model.(fieldName){i})
+                model.(fieldName){i} = rxnTable.(columnName){rowIdx};
+            end
+        end
+    end
+end
+
+% BRENDA is just exactly the same as the EC number?
+model.rxnBRENDAID = model.rxnECNumbers;
+
+% Keep these EC number fields for backwards compatibility
+model.rxnEC = model.rxnECNumbers;
+model.eccodes = model.rxnECNumbers;
 
 %% write pcm to disk
 disp('Writing to disk')
@@ -1720,9 +1890,6 @@ for i = 1:length(xmlModel.rxns)
     s = xmlModel.subSystemNames(logical(xmlModel.rxn2subSystem(i, :)));
     xmlModel.subSystems{i} = s;
 end
-
-% Also name the EC field so COBRA detects it
-xmlModel.rxnECNumbers = xmlModel.rxnEC;
 
 writeCbModel(xmlModel, 'fileName', ...
     [modelPath 'pcm.v' num2str(importVersion + 1) '.xml']);

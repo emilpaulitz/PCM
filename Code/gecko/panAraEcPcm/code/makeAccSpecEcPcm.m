@@ -3,7 +3,7 @@
 % to move the DLKcat.tsv file
 clearvars -except gurobiAvailable projDir; clc;
 
-generateNew = false;
+generateNew = true;
 runDLKcatNew = true;
 checkInstalls = false;
 defaultKCat = 26.5;
@@ -175,8 +175,9 @@ for accIx = 1:length(fileList)
     % high rates)
     ecModel = getKcatAcrossIsozymes(ecModel);
 
-    saveEcModel(ecModel, ['ath.' accUnderscore '.tmpVer.ecModel.yml']);
-    ecModel = loadEcModel(['ath.' accUnderscore '.tmpVer.ecModel.yml']);
+    % Saving to and reading from yaml destroys metMiriams
+    %saveEcModel(ecModel, ['ath.' accUnderscore '.tmpVer.ecModel.yml']);
+    %ecModel = loadEcModel(['ath.' accUnderscore '.tmpVer.ecModel.yml']);
 
     % use average kcat and MW for missing enzymes
     [ecModel, rxnsMissingGPR, standardMW, standardKcat] = ...
@@ -204,25 +205,27 @@ for accIx = 1:length(fileList)
     ecModel = setProtPoolSize(ecModel);
     
     %% Tune too low kcats until Rubisco is the most used protein
+    % Before, used the tunedKcats output for reverting the changes. 
+    % However, that table is not sorted by tuning iterations but by name of
+    % the reaction since some enzymes might be tuned multiple times.
+    % Therefore, implement this procedure by changing the code in
+    % sensitivityTuning.m (Look for "% Custom code start" in
+    % sensitivityTuningRubisco.m)
     ecModel = setProtPoolSize(ecModel);
-    [ecModel, tunedKcats] = sensitivityTuning(ecModel);
+    [ecModel, tunedKcats] = sensitivityTuningRubisco(ecModel);
     %struct2table(tunedKcats)
     
-    % Revert all kcats that came after rubisco, including rubisco
-    rbcIx = find(startsWith(tunedKcats.rxns, 'RBC_h') | ...
-        startsWith(tunedKcats.rxns, 'RBO_h'), 1 );
-    for i = rbcIx:length(tunedKcats.rxns)
-        currRxnIx = strcmp(ecModel.ec.rxns, tunedKcats.rxns{i});
-        ecModel.ec.kcat(currRxnIx) = tunedKcats.oldKcat(i);
-    end
+    % apply custom kcats
+    [ecModel, rxnUpdated, notMatch] = applyCustomKcats(ecModel);
     
     % apply new Kcats
     ecModel = applyKcatConstraints(ecModel);
     ecModel = setProtPoolSize(ecModel);
     
     %% Write to disk
-    saveEcModel(ecModel, ['ath.' accUnderscore '.ecModel.yml']);
-    ecModel = loadEcModel(['ath.' accUnderscore '.ecModel.yml']);
+    % Saving to and reading from yaml destroys metMiriams
+    %saveEcModel(ecModel, ['ath.' accUnderscore '.ecModel.yml']);
+    %ecModel = loadEcModel(['ath.' accUnderscore '.ecModel.yml']);
     
     ecModel.id = ['Ath ' acc 'ecPCM'];
     exportModel(ecModel, [outModelPath 'Ath.' accUnderscore '.ecModel.tuned.xml']);

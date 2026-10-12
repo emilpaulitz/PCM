@@ -5,7 +5,7 @@ clearvars -except gurobiAvailable projDir; clc;
 % when mapping complex gprs, do we require all Arabidopsis subunits to have
 % an ortholog in the new organism to consider the gpr valid?
 requireAllSubunits = false;
-importVersion = 1;
+importVersion = 2;
 ratio_demand = 0.8;
 
 % read media definitions
@@ -164,6 +164,8 @@ for orgIx = length(orgs):-1:1
     end
     writeCbModel(carved, 'fileName', ...
         outModelPath(modelPath, org, importVersion));
+
+    break
 end
 
 function outPath = outModelPath(modelPath, org, importVersion)

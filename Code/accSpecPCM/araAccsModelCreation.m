@@ -2,7 +2,7 @@
 % This script was run on a machine with Gurobi available
 clearvars -except gurobiAvailable projDir; clc;
 
-importVersion = 1;
+importVersion = 2;
 
 % when mapping complex gprs, do we require all subunits in unionPCM to have
 % an ortholog in the new organism to consider the gpr valid?
@@ -22,6 +22,7 @@ modelPath = strcat(projDir, 'Data/pcm/');
 
 % get demand production rate for heterotrophic conditions
 load(strcat(modelPath, 'pcm.v', num2str(importVersion), '.mat'), 'model');
+
 pcm = model;
 for rxnIx = 1:length(media.rxn)
     currRxnIx = strcmp(media.rxn{rxnIx}, model.rxns);
@@ -33,6 +34,7 @@ gr_het = solveLP(pcm).f;
 
 % get demand production rate under phototrophic conditions
 load(strcat(modelPath, 'pcm.v', num2str(importVersion), '.mat'), 'model');
+
 pcm = model;
 for rxnIx = 1:length(media.rxn)
     currRxnIx = strcmp(media.rxn{rxnIx}, model.rxns);
@@ -44,6 +46,7 @@ gr_photo = solveLP(pcm).f;
 
 % load the original again
 load(strcat(modelPath, 'pcm.v', num2str(importVersion), '.mat'), 'model');
+
 pcm = model;
 
 % gather list of all accession names
