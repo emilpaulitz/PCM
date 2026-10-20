@@ -3,9 +3,9 @@
 % to move the DLKcat.tsv file
 clearvars -except gurobiAvailable projDir; clc;
 
-generateNew = true;
+generateNew = false;
 runDLKcatNew = true;
-checkInstalls = false;
+checkInstalls = true;
 defaultKCat = 26.5;
 
 %% check installations
@@ -224,7 +224,7 @@ for accIx = 1:length(fileList)
     
     %% Write to disk
     % Saving to and reading from yaml destroys metMiriams
-    %saveEcModel(ecModel, ['ath.' accUnderscore '.ecModel.yml']);
+    saveEcModel(ecModel, ['ath.' accUnderscore '.ecModel.yml']);
     %ecModel = loadEcModel(['ath.' accUnderscore '.ecModel.yml']);
     
     ecModel.id = ['Ath ' acc 'ecPCM'];

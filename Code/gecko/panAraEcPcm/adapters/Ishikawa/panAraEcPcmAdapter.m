@@ -71,14 +71,15 @@ classdef panAraEcPcmAdapter < ModelAdapter
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
             % Indicates how spontaneous reactions are identified
-            spontMarked = contains(model.rxnNames, '(spontaneous)');
+            spontMarked = contains(model.rxnNames, '(spontaneous)') | ...
+                contains(model.grRules, 'spontaneous');
             transpWoGpr = isempty(model.grRules) & ...
                 (startsWith(model.rxns, 't_') | startsWith(model.rxns, 'Tr_')) ;
             slimer = startsWith(model.rxns, 'SLIMEr_');
             pool = contains(lower(model.rxns), 'pool');
             biom = strcmp(model.rxns, 'BiomassRxn');
 
-            spont = spontMarked | transpWoGpr | slimer | pool | biom;
+            spont = spontMarked | slimer | pool | biom | transpWoGpr;
 			spontRxnNames = model.rxnNames(spont);
 		end
 	end
