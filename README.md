@@ -41,9 +41,9 @@ The Repository is stuctured in folders Code, Data, and Figures
     - analysis contains sub-folders for each of the analyses performed in the manuscript (see `Code` sub-folders)
 
 ## Feedback
-If you spot a bug, problem, or possible improvement in the code or model, do not hesitate to get in contact, open an issue, or a pull request. Any feebdack is appreciated!
+If you spot a bug, problem, or possible improvement in the code or model, do not hesitate to get in contact, open an issue, or a pull request. Any feedback is appreciated!
 
-For improvements to the model, either suggest the changes, or: add a script that shows the changes made, and upload the new model with the version number updated. 
+For improvements to the model, either suggest the changes, or: add a script that shows the changes made, and upload the new model with the version number updated. An example can be seen in `Code/modelUpdates/updateToV2.m`, where version 2 of the PCM, used in the manuscript, was generated. 
 
 ## How to cite
 TBA
