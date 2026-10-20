@@ -22,9 +22,9 @@ chl = buildRxn2subSystem(chl, false);
 chl = creategrRulesField(chl);
 
 %% merge
-% sequence: 0 (no backup) 0 (no other symbs) 0 (not remove transp)
-% 0 (not add KEGGs) 1 (match anyway) 1 (match anyway) 1 (use rxn without
-% additional proton)
+% sequence: 1 (Biomass correct) 0 (no backup) 0 (no other symbs) 
+% 0 (not remove transp) 0 (not add KEGGs) 1 (match anyway) 1 (match anyway)
+% 1 (match anyway) 1 (use rxn without additional proton)
 [model, missingMets] = plugAndPlay(cyt, chl, true);
 
 %% postprocessing:

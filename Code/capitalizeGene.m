@@ -18,6 +18,8 @@ function s = capitalizeGene(x)
             s = ['AtCg' lower(x(5:end))];
         elseif startsWith(lower(x), 'atmg')
             s = ['AtMg' lower(x(5:end))];
+        elseif strcmpi(x, 'at1g68890/at1g68900')
+            s = 'At1g68890/At1g68900';
         else
             s = [upper(x(1)) lower(x(2:end))];
         end

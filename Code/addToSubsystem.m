@@ -1,6 +1,6 @@
 function model = addToSubsystem(model, rxnList, subsName)
     if ~any(strcmp(model.subSystemNames, subsName))
-        disp(['Did not find the specified subsystem' subsName])
+        disp(['Did not find the specified subsystem ' subsName])
     end
     for i = 1:length(rxnList)
         currRxn = find(strcmp(model.rxns, rxnList{i}));

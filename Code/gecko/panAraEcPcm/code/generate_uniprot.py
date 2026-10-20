@@ -1,13 +1,20 @@
 import os
 import pandas as pd
 
-projPath = '/home/emil/Desktop/PhD-Synch/pan_chloroplast/pan_chl_model/'
-geckoProjPath = projPath + 'Code/gecko/panAraEcPcm/'
+projDir = (os.path.abspath(os.getcwd())
+           .removesuffix('/Code/gecko/panAraEcPcm/code')
+           .removesuffix('/Code/gecko/panAraEcPcm')
+           .removesuffix('/Code/gecko')
+           .removesuffix('/Code') + '/')
+if not projDir.endswith('PCM/'):
+    exit('Could not properly define the projPath. Please run this script from the PCM folder.')
 
-# get accession from the files in projPath + 'Data/analysis/acc-spec-analysis/04_models/'
-accs = [fname.removesuffix('.pcm.v23.mat') 
-        for fname in os.listdir(projPath + 'Data/analysis/acc-spec-analysis/04_models/')
-        if fname.endswith('.pcm.v23.mat')]
+geckoProjPath = projDir + 'Code/gecko/panAraEcPcm/'
+
+# get accession from the files in projDir + 'Data/analysis/accSpecPCM/04_models/'
+accs = [fname.removesuffix('.mat') 
+        for fname in os.listdir(projDir + 'Data/analysis/accSpecPCM/04_models/')
+        if fname.endswith('.mat')]
 
 # for calculating protein masses
 aa_weights = {'A': 71.04, 'C': 103.01, 'D': 115.03, 'E': 129.04, 'F': 147.07,
@@ -29,12 +36,12 @@ def calc_weight(seq):
     return round(total_weight - (18.015 * (len(seq) - 1)))
 
 # read the real arabidopsis uniprot to append to the accession-specific results
-ara_uni = pd.read_csv(projPath + 'Code/gecko/ecAraPcm/data/uniprot.tsv', sep='\t', header=0)
+ara_uni = pd.read_csv(projDir + 'Code/gecko/ecAraPcm/data/uniprot.tsv', sep='\t', header=0)
 
 for acc in accs:
 
-    # get the corresponding fasta file from projPath + 'Data/analysis/acc-spec-analysis/02_chloroplast_fastas/'
-    fasta_file = f'{projPath}Data/analysis/acc-spec-analysis/02_chloroplast_fastas/{acc}.faa'
+    # get the corresponding fasta file from projDir + 'Data/analysis/accSpecPCM/02_chloroplast_fastas/'
+    fasta_file = f'{projDir}Data/analysis/accSpecPCM/02_chloroplast_fastas/{acc}.faa'
 
     # extract gene names and sequences
     with open(fasta_file, 'r') as infile:

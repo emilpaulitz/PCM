@@ -1,5 +1,9 @@
 **.asv
 **__pycache__
 .~lock*
+_ignore_*
 Resources/*
+**models_emil.py
 Code/gecko/ecAraPcm/data/kegg.tsv
+Data/analysis/panGenomeAnalysis/demandThresholdSensitivity/0*/
+Data/analysis/accSpecPCM/06_sampling/
