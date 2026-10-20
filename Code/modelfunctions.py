@@ -32,6 +32,12 @@ def get_ori_rid(rid):
     if '_EXP_' in rid:
         new_rid = rid[:rid.find('_EXP_')]
     return new_rid.removesuffix('_REV')
+
+# Get any reaction of the ecGEM that corresponds to the given conventional rid
+def get_any_rid(model, rid):
+    for r in model.reactions:
+        if r.id == rid or r.id.startswith(rid + '_'):
+            return r
     
 def find_group(model, r):
     if type(r) == str:

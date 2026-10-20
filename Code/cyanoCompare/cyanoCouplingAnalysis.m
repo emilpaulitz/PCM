@@ -20,16 +20,23 @@ nightAra = addReaction(nightAra, 'Im_starch', 'reactionFormula', ...
                         '--> starch2[h]', 'lowerBound', 0, 'upperBound', 8);
 
 % Read APC
+dayApcTrin = readCbModel([modelsPath 'day_apc_trin.xml']);
+nightApcTrin = readCbModel([modelsPath 'night_apc_trin.xml']);
 dayApc = readCbModel([modelsPath 'day_apc_trin.xml']);
 nightApc = readCbModel([modelsPath 'night_apc_trin.xml']);
 % Read ACY
+dayAcyTrin = readCbModel([modelsPath 'day_acy_trin.xml']);
+nightAcyTrin = readCbModel([modelsPath 'night_acy_trin.xml']);
 dayAcy = readCbModel([modelsPath 'day_acy_trin.xml']);
 nightAcy = readCbModel([modelsPath 'night_acy_trin.xml']);
 
 %% Apply F2C2
-models = {ara, nightAra, dayApc, nightApc, dayAcy, nightAcy};
-modelNames = {'AraCore', 'nightAraCore', 'dayApc_trin', 'nightApc_trin',...
-              'dayAcy_trin', 'nightAcy_trin'};
+models = {ara, nightAra, ...
+          dayApcTrin, nightApcTrin, dayAcyTrin, nightAcyTrin, ...
+          dayApc, nightApc, dayAcy, nightAcy};
+modelNames = {'AraCore', 'nightAraCore', ...
+        'dayApc_trin', 'nightApc_trin', 'dayAcy_trin', 'nightAcy_trin', ...
+        'dayApc', 'nightApc', 'dayAcy', 'nightAcy'};
 for modelIx = 1:length(models)
     disp(['Working on ' modelNames{modelIx}]);
 

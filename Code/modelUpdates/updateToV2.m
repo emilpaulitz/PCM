@@ -122,7 +122,6 @@ model = removeRxns(model, {'R02864', 'R03194'});
 % Remove a cluster of reactions dealing with lipids, interconverting
 % between general side chains and concrete metabolites. The cluster is not
 % connected to the rest of the metabolism
-% #phosphocholine
 model = removeRxns(model, {'R04480', 'R01318', 'R02241','R01999', ...
     'R00851', 'R07064', 'R07859', 'R01317', 'R07868', 'R07864', ...
     'R07865', 'R07057', 'R08177', 'R03814', 'R01596'});
@@ -148,7 +147,7 @@ model = removeRxns(model, {'R10712', 'R11312'});
 % contains 4 dead-end metabolites
 model = removeRxns(model, {'R02879'});
 
-% MEMOTE: these did not have a formula before. Taken from MetaNetX
+% These did not have a formula before. Taken from MetaNetX
 % MNXM726595 and MNXM726611, which map to the respective MetaCyc species
 model.metFormulas(strcmp(model.mets, 'C00996[h]')) = {'C34H30FeN4O4'};
 model.metCharges(strcmp(model.mets, 'C00996[h]')) = -1;
@@ -301,7 +300,7 @@ model = removeRxns(model, {'R01645'});
 % K7WQ45 that produce nerylneryl diphosphate 
 % (doi.org/10.1371/journal.pone.0119302). This is a precursor for
 % many non-canonical diterpenes (doi.org/10.1186/s12870-020-2293-x). 
-% Because these are species-specific and not too well studied, kepp the
+% Because these are species-specific and not well characterized, keep the
 % pathway around but end at that precursor
 [model, addedRxnId, errorMsg] = addKEGGReactionNew(model, 'R12638', ...
     'K7WQ45', 'doi.org/10.1371/journal.pone.0119302');
@@ -406,7 +405,7 @@ model = removeRxns(model, {'R03503', 'R03067'});
 % reactions catalyzed by At5g05980, remove it
 model = removeRxns(model, {'R02237'});
 
-% Lienar pathway as part of branched-chain amino acid degradation, which is
+% Linear pathway as part of branched-chain amino acid degradation, which is
 % unlikely to be correctly placed in chloroplasts. The best evidence is
 % provided by A0A9E7H647, an unreviewed uniprot entry. Remove the whole
 % pathway

@@ -5,8 +5,8 @@ analysisPath = [projDir 'Data/analysis/panGenomeAnalysis/' ...
     'demand_threshold_sensitivity/'];
 
 % load the union model for reference for the missingInOrg vector
-importVersion = 1;
-load(strcat(projDir, 'Data/pcm/pcm.v', num2str(importVersion), '.mat'), ...
+importVersion = 2;
+load([projDir, 'Data/pcm/pcm.v', num2str(importVersion), '.mat'], ...
     'model');
 unionModel = model;
 
@@ -47,8 +47,11 @@ modelIx = 0;
 for t = 0.0:0.1:1.0
     disp(['Working on ' num2str(t)])
     rxnPAV = [];
+    rxnPAVsupported = [];
+    rxnPAVscore_zero = [];
+    rxnPAVunsupported = [];
     orgsWorked = zeros(length(orgs));
-    for orgIx = length(orgs):-1:1
+    for orgIx = 1:length(orgs)
         org = orgs{orgIx};
         modelIx = modelIx + 1;
 
@@ -56,25 +59,26 @@ for t = 0.0:0.1:1.0
         data.species{modelIx} = org;
 
         % load missingInOrg and resulting carved model
-        currModelPath = [analysisPath '04_carved_models/' org '.' num2str(t) 'pcm.v1.mat'];
+        currModelPath = [analysisPath '04_carved_models/' org '.' ...
+                         num2str(t) '.pcm.v' num2str(importVersion) '.mat'];
         if ~isfile(currModelPath)
-            % this case happened 4 times, in those, no solution was found
-            % by the solver. It will appear as all-0 in the data
             continue
         end
         orgsWorked(orgIx) = 1;
         load(currModelPath)
-        load([analysisPath '01_genetic_evidence_vectors/' org '.mat'])
+        load([analysisPath '01_genetic_evidence_vectors/' org '.missingInOrg.mat'])
+        load([analysisPath '01_genetic_evidence_vectors/' org '.rxn_scores.mat'])
         rxnsRetained = ismember(unionModel.rxns, model.rxns);
         [photoProd, heteroProd] = calcDemandRate(model, media);
 
         % record interesting numbers
         % number of reactions
         data.nRxns(modelIx) = length(model.rxns);
-        % number of reactions with organism-specific genes (1 in missingInOrg)
+        % number of reactions with organism-specific genes
         data.nRxnsWithSupport(modelIx) = sum(rxnsRetained & ~missingInOrg);
-        % number of reactions retained for biomass-generation or flux consistency
-        data.nRxnsWithoutSupport(modelIx) = sum(rxnsRetained & missingInOrg);
+        % number of reactions retained for biomass-generation or flux
+        % consistency (excluding pseudo-reactions: -1 in rxn_scores)
+        data.nRxnsWithoutSupport(modelIx) = sum(rxnsRetained & (rxn_scores == -1));
         % number of reactions with evidence discarded for flux consistency reasons
         data.nRxnsDiscarded(modelIx) = sum(~rxnsRetained & ~missingInOrg);
         % actual demand production (ratio)
@@ -83,12 +87,30 @@ for t = 0.0:0.1:1.0
 
         % PAV 
         rxnPAV = [rxnPAV; transpose(rxnsRetained)];
+        rxnPAVsupported = [rxnPAVsupported; transpose(rxnsRetained & ~missingInOrg)];
+        rxnPAVscore_zero = [rxnPAVscore_zero; transpose(rxnsRetained & (rxn_scores == 0))];
+        rxnPAVunsupported = [rxnPAVunsupported; transpose(rxnsRetained & (rxn_scores == -1))];
     end
     
     % output resulting rxnPav
     resTable = array2table(rxnPAV, 'VariableNames', unionModel.rxns, ...
         'RowNames', orgs(logical(orgsWorked)));
     outPath = [analysisPath 'rxnPav_' num2str(t) '.csv'];
+    writetable(resTable, outPath, "WriteRowNames",true);
+
+    resTable = array2table(rxnPAVsupported, 'VariableNames', unionModel.rxns, ...
+        'RowNames', orgs(logical(orgsWorked)));
+    outPath = [analysisPath 'rxnPav_' num2str(t) '.supported.csv'];
+    writetable(resTable, outPath, "WriteRowNames",true);
+
+    resTable = array2table(rxnPAVscore_zero, 'VariableNames', unionModel.rxns, ...
+        'RowNames', orgs(logical(orgsWorked)));
+    outPath = [analysisPath 'rxnPav_' num2str(t) '.score_zero.csv'];
+    writetable(resTable, outPath, "WriteRowNames",true);
+
+    resTable = array2table(rxnPAVunsupported, 'VariableNames', unionModel.rxns, ...
+        'RowNames', orgs(logical(orgsWorked)));
+    outPath = [analysisPath 'rxnPav_' num2str(t) '.unsupported.csv'];
     writetable(resTable, outPath, "WriteRowNames",true);
 end
 

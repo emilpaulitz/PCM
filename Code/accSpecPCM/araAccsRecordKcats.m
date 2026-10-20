@@ -9,6 +9,12 @@ fileList = dir(fullfile(inModelPath, '*.mat'));
 media = readtable([projDir 'Data/analysis/simulationMedia.tsv'], ...
     'FileType', 'text', 'Delimiter', '\t');
 
+% laodEcModel requires a model Adapter to be set and takes the gecko dir
+% path from it. That one is the same across all accession-adapters
+adapterLocation = fullfile(projDir, ['Code/gecko/panAraEcPcm/' ...
+    'adapters/Col_0/panAraEcPcmAdapter.m']);
+ModelAdapterManager.setDefault(adapterLocation);
+
 outputTables = {};
 for accIx = 1:length(fileList)
     fileName = fileList(accIx).name;

@@ -7,10 +7,14 @@ requireAllSubunits = false;
 importVersion = 2;
 
 % If false, reads the solved models and generates carved COBRA models
+solveLocally = false; % if true, set onlyWriteGurobiModel to false
 onlyWriteGurobiModel = true;
-reGenerate = false; % Overwrite existing Gurobi models
+reGenerate = true; % Overwrite existing Gurobi models
 carvedModelOutPath = [projDir '/Data/analysis/panGenomeAnalysis/' ...
     'demand_threshold_sensitivity/04_carved_models/'];
+if onlyWriteGurobiModel && solveLocally
+    error('onlyWriteGurobiModel and solveLocally should not both be true');
+end
 
 % read media definitions
 media = readtable([projDir 'Data/analysis/simulationMedia.tsv'], ...
@@ -77,7 +81,6 @@ for ratioDemand = 0.0:0.1:1.0
                 '_' num2str(ratioDemand)];
         end
 
-
 	    disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 	    disp(['Working on ' org ', ' num2str(ratioDemand)])
 	    disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
@@ -85,10 +88,13 @@ for ratioDemand = 0.0:0.1:1.0
 	    % make org specific: replace gprs, find missing reactions
 	    [orgPcm, missingInOrg, orgRxnGenes] = makeSpeciesSpecificECAssoc(...
 		pcm, org, requireAllSubunits, projDir);
-        save([projDir 'Data/analysis/' ...
+
+        missingInOrgPath = [projDir 'Data/analysis/' ...
                 'panGenomeAnalysis/demand_threshold_sensitivity/' ...
-                '01_genetic_evidence_vectors/' org '_' ...
-                num2str(ratioDemand)], 'missingInOrg')
+                '01_genetic_evidence_vectors/' org '.missingInOrg.mat'];
+        if ~isfile(missingInOrgPath)
+            save(missingInOrgPath, 'missingInOrg')
+        end
 
 	    solInit = solveLP(orgPcm);
 
@@ -103,12 +109,20 @@ for ratioDemand = 0.0:0.1:1.0
 	    rxn_scores = ones(length(orgPcm.rxns), 1);
 	    rxn_scores(logical(missingInOrg)) = -1;
 	    rxn_scores(strcmpi(pcm.grRules, 'unknown') | ...
-		strcmpi(pcm.grRules, 'brenda evidence')) = 0;
-	    rxn_scores(contains(pcm.subSystems, 'pseudo') | ...
-		       contains(pcm.subSystems, 'import') | ...
-		       contains(pcm.subSystems, 'exchange') | ...
-		       contains(pcm.subSystems, 'export')) = 0;
+		           strcmpi(pcm.grRules, 'brenda evidence') | ...
+                   contains(pcm.subSystems, 'pseudo reaction') | ...
+                   contains(pcm.subSystems, 'import') | ...
+		           contains(pcm.subSystems, 'exchange') | ...
+		           contains(pcm.subSystems, 'export')) = 0; ...
 	    rxn_scores(contains(pcm.subSystems, 'transport')) = 1;
+
+        rxn_scoresPath = [projDir 'Data/analysis/' ...
+        'panGenomeAnalysis/demand_threshold_sensitivity/' ...
+        '01_genetic_evidence_vectors/' org '.rxn_scores.mat'];
+        if ~isfile(rxn_scoresPath)
+            save(rxn_scoresPath, 'rxn_scores')
+        end
+
 	    solved = false;
 	    broken = false;
 	    FeasibilityTol = 1e-6;
@@ -117,13 +131,15 @@ for ratioDemand = 0.0:0.1:1.0
 	    % try again
 	    while ~solved && ~broken
 
-        if onlyWriteGurobiModel
+        if onlyWriteGurobiModel || solveLocally
 		    [y_res, v_res] = carvePCM(orgPcm, M, eps, min_gr_photo, ...
 		        min_gr_hetero, rxn_scores, media, gurobiAvailable, true, ...
-		        FeasibilityTol, gurobiModelOut, ~onlyWriteGurobiModel);
-
-            broken=true;
-            break
+		        FeasibilityTol, gurobiModelOut, solveLocally);
+            
+            if onlyWriteGurobiModel
+                broken=true;
+                break
+            end
         else
             v_res = load([solvedModelsIn '.v_res.mat']).var;
             y_res = load([solvedModelsIn '.y_res.mat']).var;
@@ -186,8 +202,8 @@ for ratioDemand = 0.0:0.1:1.0
 		end
 	    end
 	    if broken
-		disp(['Did not find a solution for ' org])
-		continue
+		    disp(['Did not find a solution for ' org])
+		    continue
 	    end
 
 	    % if we found a working solution, produce and write out the model
@@ -203,7 +219,7 @@ for ratioDemand = 0.0:0.1:1.0
 end
 
 function outPath = outModelPath(modelPath, org, importVersion, ratioDemand)
-    outPath = [modelPath, org, '.', num2str(ratioDemand), 'pcm.v'...
+    outPath = [modelPath, org, '.', num2str(ratioDemand), '.pcm.v'...
                num2str(importVersion) '.mat'];
 end
 

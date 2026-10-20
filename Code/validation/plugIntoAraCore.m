@@ -4,7 +4,7 @@ clearvars -except gurobiAvailable projDir; clc;
 % specify the species that should be used to plug into AraCore. Leave empty
 %   to use the union PCM. Specify the version of the pcm that should be
 %   used
-useSpecies = 'Nicotiana_tabacum'; % 'Arabidopsis_thaliana';%
+useSpecies = 'Arabidopsis_thaliana';%'Nicotiana_tabacum'; % 
 importVersion = 3;
 
 useUnion = isempty(useSpecies);
