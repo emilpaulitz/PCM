@@ -1,0 +1,3 @@
+MEMOTE reports in this folder were generated with MEMOTE 0.16.0: `memote report snapshot --solver gurobi --solver-timeout 120 --filename name.html model.xml`. Which model was used in indicated in the report's file name. 
+
+`pcm.noConstNoLight.v2.html` shows stoichiometric consistency because the model used for generating this report had both pseudo-metabolites that are not retained in reactions, and light removed.
