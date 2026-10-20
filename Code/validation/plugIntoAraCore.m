@@ -5,7 +5,7 @@ clearvars -except gurobiAvailable projDir; clc;
 %   to use the union PCM. Specify the version of the pcm that should be
 %   used
 useSpecies = 'Arabidopsis_thaliana';%'Nicotiana_tabacum'; % 
-importVersion = 2;
+importVersion = 3;
 
 useUnion = isempty(useSpecies);
 
@@ -15,18 +15,24 @@ useUnion = isempty(useSpecies);
 cyt = readCbModel( ...
     [projDir 'Data/analysis/AraCore_v2_1.wKEGG.mat']);
 
-%% read pcm and plug into aracore
+%% read pcm
 if useUnion
     modelPath = strcat(projDir, 'Data/pcm/');
     load(strcat(modelPath, 'pcm.v', num2str(importVersion), '.mat'), 'model');
 else
     modelPath = strcat(projDir, 'Data/pcm/species/');
-    load(strcat(modelPath, useSpecies, '.pcm.v', num2str(importVersion), '.mat'), 'model');
+    load(strcat(modelPath, useSpecies, '.pcm.v', ...
+        num2str(importVersion), '.mat'), 'model');
 end
 chl = model;
 
-% sequence of inputs for the model used int the paper: 0, 0, 0, 1, 1, 1, 1
-[model, missingMets] = plugAndPlay(cyt, chl);
+%% plug into aracore
+% sequence of inputs for the model used int the paper: 0, 0, 0, 1, 1, 1, 0,
+% 1, 0, 0
+% keep the chloroplast exchange reactions and only knock them out for later
+% simulation
+[model, missingMets] = plugAndPlay(cyt, chl, false, ...
+    contains(cyt.rxns, 'Bio_'), true);
 
 %% postprocessing:
 model = buildRxn2subSystem(model, false);
@@ -42,8 +48,8 @@ model = addReaction(model, 'Im_Mg', 'reactionName', ...
 model = addToSubsystem(model, {'Im_Mg'}, 'import');
 
 % Aracore assumed AT4G22930, Dihydroorotase to be active in the plastid,
-% but newer findings place it in the cytosol. This reaction is thus
-% missing from the pcm. Add it to the cytosol and adapt transports
+% but newer findings place it in the mitochondrion. This reaction is thus
+% missing from the pcm. Add it to the mitochondrion and adapt transports
 % remove reactions: Tr_DHO1
 model = removeRxns(model, {'Tr_DHO1'});
 % add DHOase_m based on previous AraCore implementation in chloroplast

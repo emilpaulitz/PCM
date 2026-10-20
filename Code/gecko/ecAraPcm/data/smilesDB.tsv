@@ -1487,3 +1487,18 @@ gamma-Linolenoyl-CoA	CCCCCC=CCC=CCC=CCCCCC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(
 trans-2-Hydroxycinnamate	C1=CC=C(C(=C1)C=CC(=O)O)O
 glycerone phosphate	C(C(=O)COP(=O)(O)O)O
 constraint for import of oxaloacetate wrt carbon balance	
+2-cis,6-cis-Farnesyl diphosphate	CC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C
+5-Deoxy-D-ribulose 1-phosphate	CC(C(C(=O)COP(=O)([O-])[O-])O)O
+5-Deoxyribose-1-phosphate	CC1C(C(C(O1)OP(=O)(O)O)O)O
+B6 vitamers	
+Dimethyl selenide	C[Se]C
+Melatonin biosynthesis ex-/import constraint	
+Melatonin precursor export pseudo metabolite	
+Nerylneryl diphosphate	CC(=CCCC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C)C
+Nucleotides lump metabolite	
+Primary fluorescent chlorophyll catabolite	CCC1=C(NC(=C1C)C=O)CC2=C(C3=C(N2)C(=C4C(C(C(=N4)CC5C(=C(C(=O)N5)C=C)C)C)CCC(=O)O)C(C3=O)C(=O)OC)C
+Pyrimidine (precursor) ex-/import pseudo metabolite	
+alpha-Tocotrienol	CC1=C(C2=C(CCC(O2)(C)CCC=C(C)CCC=C(C)CCC=C(C)C)C(=C1O)C)C
+beta-Tocotrienol	CC1=CC(=C(C2=C1OC(CC2)(C)CCC=C(C)CCC=C(C)CCC=C(C)C)C)O
+delta-Tocotrienol	CC1=CC(=CC2=C1OC(CC2)(C)CCC=C(C)CCC=C(C)CCC=C(C)C)O
+gamma-Tocotrienol	CC1=C(C=C2CCC(OC2=C1C)(C)CCC=C(C)CCC=C(C)CCC=C(C)C)O

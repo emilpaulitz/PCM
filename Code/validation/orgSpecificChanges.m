@@ -1,6 +1,6 @@
 clearvars -except gurobiAvailable projDir; clc;
 
-importVersion = 1;
+importVersion = 2;
 modelPath = [projDir 'Data/pcm/species/'];
 
 %% Arabidopsis

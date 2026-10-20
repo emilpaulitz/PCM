@@ -9,7 +9,7 @@ classdef ecAraPcmAdapter < ModelAdapter
             obj.params.path = fullfile([currDir '/Code/gecko'], 'ecAraPcm');
 
 			% Path to the conventional GEM that this ecModel will be based on.
-			obj.params.convGEM = fullfile(obj.params.path,'models','ath.pcm.v2.xml');
+			obj.params.convGEM = fullfile(obj.params.path,'models','ath.pcm.v3.xml');
 
 			% Average enzyme saturation factor
 			obj.params.sigma = 0.5;
@@ -74,7 +74,15 @@ classdef ecAraPcmAdapter < ModelAdapter
             % Indicates how spontaneous reactions are identified. Here it
             % is done by the reaction have 'spontaneous' in its name.
             % pcm has a pseudo-gene called spontaneous identifying this
-            spont = contains(model.rxnNames, '(spontaneous)');
+            spontMarked = contains(model.rxnNames, '(spontaneous)') | ...
+                contains(model.grRules, 'spontaneous');
+            transpWoGpr = isempty(model.grRules) & ...
+                (startsWith(model.rxns, 't_') | startsWith(model.rxns, 'Tr_')) ;
+            slimer = startsWith(model.rxns, 'SLIMEr_');
+            pool = contains(lower(model.rxns), 'pool');
+            biom = strcmp(model.rxns, 'BiomassRxn');
+
+            spont = spontMarked | slimer | pool | biom | transpWoGpr;
 			spontRxnNames = model.rxnNames(spont);
 		end
 	end

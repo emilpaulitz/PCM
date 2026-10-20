@@ -1,0 +1,77 @@
+{
+    "parameters": {
+        "out_path": "/work/paulitz/busco/results/chunk_07",
+        "cpu": "8",
+        "force": "False",
+        "restart": "False",
+        "quiet": "False",
+        "download_path": "/work/paulitz/busco/downloads",
+        "datasets_version": "odb12.2",
+        "offline": "False",
+        "download_base_url": "https://busco-data.ezlab.org/v5/data/",
+        "auto-lineage": "True",
+        "auto-lineage-prok": "False",
+        "auto-lineage-euk": "True",
+        "use_augustus": "False",
+        "use_miniprot": "False",
+        "use_metaeuk": "False",
+        "skip_bbtools": "False",
+        "batch_mode": "False",
+        "tar": "False",
+        "opt-out-run-stats": "True",
+        "plot_percentages": "False",
+        "in": "/work/paulitz/busco/chunks/chunk_07/Populus_deltoides_combined.fa",
+        "out": "Populus_deltoides_combined.fa",
+        "mode": "proteins",
+        "main_out": "/work/paulitz/busco/results/chunk_07/Populus_deltoides_combined.fa",
+        "lineage_dataset": "/work/paulitz/busco/downloads/lineages/malpighiales_odb12.2",
+        "domain_run_name": "eukaryota_odb12.2",
+        "lineage_results_dir": "run_malpighiales_odb12.2",
+        "domain": "eukaryota",
+        "ncbi_taxid": "3646",
+        "orthodb_version": "12.2",
+        "dataset_version": "01"
+    },
+    "lineage_dataset": {
+        "name": "malpighiales_odb12.2",
+        "creation_date": "2026-05-13",
+        "number_of_buscos": "10444",
+        "number_of_species": "6"
+    },
+    "versions": {
+        "python": [
+            3,
+            12,
+            13,
+            "final",
+            0
+        ],
+        "busco": "6.1.0",
+        "hmmsearch": 3.4,
+        "sepp": "4.5.5"
+    },
+    "results": {
+        "parent_dataset": "eukaryota_odb12.2",
+        "one_line_summary": "C:89.1%[S:39.7%,D:49.4%],F:0.7%,M:10.2%,n:10444",
+        "Complete percentage": 89.1,
+        "Complete BUSCOs": 9307,
+        "Single copy percentage": 39.7,
+        "Single copy BUSCOs": 4149,
+        "Multi copy percentage": 49.4,
+        "Multi copy BUSCOs": 5158,
+        "Fragmented percentage": 0.7,
+        "Fragmented BUSCOs": 70,
+        "Missing percentage": 10.2,
+        "Missing BUSCOs": 1067,
+        "n_markers": 10444,
+        "domain": "eukaryota"
+    },
+    "placement_file_versions": [
+        "list_of_reference_markers.eukaryota_odb12.2.2026-05-13.txt",
+        "tree.eukaryota_odb12.2.2026-05-13.nwk",
+        "tree_metadata.eukaryota_odb12.2.2026-05-13.txt",
+        "supermatrix.aln.eukaryota_odb12.2.2026-05-13.faa",
+        "mapping_taxids-busco_dataset_name.eukaryota_odb12.2.2026-05-13.txt",
+        "mapping_taxid-lineage.eukaryota_odb12.2.2026-05-13.txt"
+    ]
+}

@@ -5,7 +5,8 @@ clearvars -except gurobiAvailable projDir; clc;
 % when mapping complex gprs, do we require all Arabidopsis subunits to have
 % an ortholog in the new organism to consider the gpr valid?
 requireAllSubunits = false;
-importVersion = 1;
+importVersion = 2;
+ratio_demand = 0.8;
 
 % read media definitions
 media = readtable([projDir 'Data/analysis/simulationMedia.tsv'], ...
@@ -69,17 +70,17 @@ for orgIx = length(orgs):-1:1
     eps = 1e-6;  % min flux
     % min expected growth; it would be unrealistic to have much less
     % production of biomass components than in another species
-    min_gr_photo = 0.8 * gr_photo;
-    min_gr_hetero = 0.8 * gr_het;
+    min_gr_photo = ratio_demand * gr_photo;
+    min_gr_hetero = ratio_demand * gr_het;
 
     rxn_scores = ones(length(orgPcm.rxns), 1);
     rxn_scores(logical(missingInOrg)) = -1;
     rxn_scores(strcmpi(pcm.grRules, 'unknown') | ...
-        strcmpi(pcm.grRules, 'brenda evidence')) = 0;
-    rxn_scores(contains(pcm.subSystems, 'pseudo') | ...
+	           strcmpi(pcm.grRules, 'brenda evidence') | ...
+               contains(pcm.subSystems, 'pseudo reaction') | ...
                contains(pcm.subSystems, 'import') | ...
-               contains(pcm.subSystems, 'exchange') | ...
-               contains(pcm.subSystems, 'export')) = 0;
+	           contains(pcm.subSystems, 'exchange') | ...
+	           contains(pcm.subSystems, 'export')) = 0; ...
     rxn_scores(contains(pcm.subSystems, 'transport')) = 1;
     solved = false;
     broken = false;
@@ -163,6 +164,8 @@ for orgIx = length(orgs):-1:1
     end
     writeCbModel(carved, 'fileName', ...
         outModelPath(modelPath, org, importVersion));
+
+    break
 end
 
 function outPath = outModelPath(modelPath, org, importVersion)

@@ -32,6 +32,12 @@ def get_ori_rid(rid):
     if '_EXP_' in rid:
         new_rid = rid[:rid.find('_EXP_')]
     return new_rid.removesuffix('_REV')
+
+# Get any reaction of the ecGEM that corresponds to the given conventional rid
+def get_any_rid(model, rid):
+    for r in model.reactions:
+        if r.id == rid or r.id.startswith(rid + '_'):
+            return r
     
 def find_group(model, r):
     if type(r) == str:
@@ -50,13 +56,17 @@ def find_group(model, r):
 #   'model': return solved model object
 def check_production(model, mid, add_export = list(), add_import = list(), exclude_rxns = list(), 
                      consumption = False, return_val = 'flux', perform_pfba = True,
-                     import_ub = 1000, export_lb = 0):
-    if type(mid) == str:
-        target_met = get_mid(model, mid)
+                     import_ub = 1000, export_lb = 0, mid_is_rxn = False):
+    if mid_is_rxn:
+        target_rxn = get_rid(model, mid) if type(mid) is str else mid
+    else:
+        target_met = get_mid(model, mid) if type(mid) == str else mid
+
     with model:
         for rid in exclude_rxns:
             get_rid(model, rid).knock_out()
 
+        # add exports
         exp_rxns = list()
         for exp in add_export:
             if type(export_lb) == dict:
@@ -68,6 +78,7 @@ def check_production(model, mid, add_export = list(), add_import = list(), exclu
             exp_rxns.append(rxn)
         model.add_reactions(exp_rxns)
 
+        # add imports
         imp_rxns = list()
         for imp in add_import:
             if type(import_ub) == dict:
@@ -79,11 +90,17 @@ def check_production(model, mid, add_export = list(), add_import = list(), exclu
             imp_rxns.append(rxn)
         model.add_reactions(imp_rxns)
 
-        biomass_reaction = Reaction('BIOMASS_tmp')
-        biomass_reaction.name = 'BIOMASS_tmp'
-        biomass_reaction.add_metabolites({target_met: 1 if consumption else -1})
-        model.add_reactions([biomass_reaction])
-        model.objective = 'BIOMASS_tmp'
+        # add optimization target
+        if mid_is_rxn:
+            model.objective = target_rxn.id
+            model.objective_direction = 'min' if consumption else 'max'
+        else:
+            biomass_reaction = Reaction('BIOMASS_tmp')
+            biomass_reaction.name = 'BIOMASS_tmp'
+            biomass_reaction.add_metabolites({target_met: 1 if consumption else -1})
+            model.add_reactions([biomass_reaction])
+            model.objective = 'BIOMASS_tmp'
+
         if return_val == 'sol':
             result = cobra.flux_analysis.pfba(model) if perform_pfba else model.optimize()
         elif return_val == 'model':

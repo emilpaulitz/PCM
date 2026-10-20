@@ -2,7 +2,7 @@
 clearvars -except gurobiAvailable projDir; clc;
 
 modelPath = strcat(projDir, 'Data/pcm/');
-importVersion = 1;
+importVersion = 2;
 
 % load the union pcm for the set of all rxns
 load([modelPath 'pcm.v' num2str(importVersion) '.mat'], 'model');
