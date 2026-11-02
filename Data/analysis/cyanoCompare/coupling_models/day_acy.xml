@@ -25476,7 +25476,7 @@
           <speciesReference species="M_AC__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="meta_R_ACtex" id="R_ACtex" name="acetate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction metaid="meta_R_ACtex" id="R_ACtex" name="acetate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -26563,7 +26563,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll1981"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_AKGtex" name="alpha-ketoglutarate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_AKGtex" name="alpha-ketoglutarate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -26739,7 +26739,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_ALAtex" name="L-alanine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_ALAtex" name="L-alanine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -27625,7 +27625,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_ARGtex" name="L-arginine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_ARGtex" name="L-arginine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -28549,7 +28549,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr1336"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_CA2tex" name="calcium (Ca+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_CA2tex" name="calcium (Ca+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -29593,7 +29593,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr0056"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_CITtex" name="citrate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_CITtex" name="citrate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -29621,7 +29621,7 @@
           <speciesReference species="M_cit_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_CO2tex" name="carbon dioxide transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_CO2tex" name="carbon dioxide transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -29706,7 +29706,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_COBALT2tex" name="cobalt (Co+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_COBALT2tex" name="cobalt (Co+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -29755,7 +29755,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_COt" name="co transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_COt" name="co transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -29847,7 +29847,7 @@
           <speciesReference species="M_h2co3_x__91__x__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_CRESOLtex" name="Cresol transport via diffusion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_CRESOLtex" name="Cresol transport via diffusion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -30042,7 +30042,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll1920"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_CU2tex" name="copper (Cu+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_CU2tex" name="copper (Cu+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -30135,7 +30135,7 @@
           <speciesReference species="M_cynt_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_CYNTtex" name="Cyanate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_CYNTtex" name="Cyanate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -32570,7 +32570,7 @@
           <speciesReference species="M_2dr5p_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_DRIBtex" name="5-Deoxy-D-ribose transport by diffusion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_DRIBtex" name="5-Deoxy-D-ribose transport by diffusion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -32611,7 +32611,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll1776"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_DRU1Ptex" name="S-methyl-5-thio-D-ribose 1-phosphate transport via diffusion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_DRU1Ptex" name="S-methyl-5-thio-D-ribose 1-phosphate transport via diffusion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -33964,7 +33964,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr1392"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_FE2tex" name="iron (II) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_FE2tex" name="iron (II) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -34055,7 +34055,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_FE3tex" name="iron (III) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_FE3tex" name="iron (III) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -34068,7 +34068,7 @@
           <speciesReference species="M_fe3_p__91__z__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="meta_R_FECHEabcpp" id="R_FECHEabcpp" name="Iron chelate transport via ABC system" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+      <reaction metaid="meta_R_FECHEabcpp" id="R_FECHEabcpp" name="Iron chelate transport via ABC system" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -34457,7 +34457,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll0771"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_FRUtex" name="D-fructose transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_FRUtex" name="D-fructose transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -34619,7 +34619,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr0018"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_FUMtex" name="fumarate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_FUMtex" name="fumarate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -35796,7 +35796,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_GLCGLYCtex" name="Glucosylglycerol transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_GLCGLYCtex" name="Glucosylglycerol transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -35921,7 +35921,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll0771"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_GLCtex" name="glucose transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_GLCtex" name="glucose transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -36102,7 +36102,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_GLNtex" name="L-glutamine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_GLNtex" name="L-glutamine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -36476,7 +36476,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_GLUtex" name="L-glutamate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_GLUtex" name="L-glutamate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -37004,7 +37004,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_GLYtex" name="Glycine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_GLYtex" name="Glycine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -37580,7 +37580,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_H2Otex" name="H2O transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_H2Otex" name="H2O transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -37625,7 +37625,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr2057"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_H2tex" name="release of H2" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_H2tex" name="release of H2" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -37728,7 +37728,7 @@
           <speciesReference species="M_hco3_x__91__x__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_HCO3tex" name="Bicarbonate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_HCO3tex" name="Bicarbonate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -38067,7 +38067,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_HIStex" name="L-histidine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_HIStex" name="L-histidine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -38487,7 +38487,7 @@
           <speciesReference species="M_h_x__91__x__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_Htex" name="proton transport via diffusion (extracellular to cytosol)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_Htex" name="proton transport via diffusion (extracellular to cytosol)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -39032,7 +39032,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_IspS"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_ISPtex" name="Isoprene transport (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="minus_inf" fbc:upperFluxBound="plus_inf">
+      <reaction id="R_ISPtex" name="Isoprene transport (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -39252,7 +39252,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_Kex" name="Potasium transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_Kex" name="Potasium transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -39458,7 +39458,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_LEUtex" name="L-leucine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_LEUtex" name="L-leucine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -39632,7 +39632,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_LYStex" name="L-lysine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_LYStex" name="L-lysine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -39720,7 +39720,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll0842"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_MALtex" name="Malate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_MALtex" name="Malate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -40190,7 +40190,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr0649"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_MG2tex" name="magnesium (Mg+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_MG2tex" name="magnesium (Mg+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -41129,7 +41129,7 @@
           <speciesReference species="M_mn2_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_MNtex" name="Manganese (Mn+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_MNtex" name="Manganese (Mn+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -41177,7 +41177,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_MOBDtex" name="molybdate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_MOBDtex" name="molybdate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -42043,7 +42043,7 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_NAtex" name="sodium transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_NAtex" name="sodium transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -42654,7 +42654,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll1852"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_NH4tex" name="ammonia transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_NH4tex" name="ammonia transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -42859,7 +42859,7 @@
           <speciesReference species="M_no3_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_NO3tex" name="nitrate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_NO3tex" name="nitrate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -43239,7 +43239,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll0398"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_Ni2tex" name="Ni (Ni+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_Ni2tex" name="Ni (Ni+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -43278,7 +43278,7 @@
           <speciesReference species="M_O2__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_O2tex" name="oxygen transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_O2tex" name="oxygen transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -46112,7 +46112,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr1254"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_PItex" name="phosphate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_PItex" name="phosphate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -47344,7 +47344,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_PROtex" name="L-proline transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_PROtex" name="L-proline transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -47890,7 +47890,7 @@
           <speciesReference species="M_ptrc_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_PTRCtex" name="putrescine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_PTRCtex" name="putrescine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -48211,7 +48211,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_slr1397"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_PYRtex" name="pyruvate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_PYRtex" name="pyruvate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -48386,7 +48386,7 @@
         <listOfReactants>
           <speciesReference species="M_o2_x__91__x__93__" stoichiometry="1" constant="true"/>
           <speciesReference species="M_rb15bp_x__91__x__93__" stoichiometry="1" constant="true"/>
-          <speciesReference species="M_CONST_rubisco__91__x__93__" stoichiometry="30" constant="true"/>
+          <speciesReference species="M_CONST_rubisco__91__x__93__" stoichiometry="33" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="M_2pglyc_x__91__x__93__" stoichiometry="1" constant="true"/>
@@ -49069,7 +49069,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_SERtex" name="L-serine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_SERtex" name="L-serine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -49200,7 +49200,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll1669"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_SO4tex" name="sulfate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_SO4tex" name="sulfate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -49367,7 +49367,7 @@
           <speciesReference species="M_spmd_h__91__h__93__" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction id="R_SPMDtex" name="spermidine transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_SPMDtex" name="spermidine transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -50063,7 +50063,7 @@
           <fbc:geneProductRef fbc:geneProduct="G_sll0409"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_SUCCtex" name="succinate transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_SUCCtex" name="succinate transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -50250,7 +50250,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_SUCRtex" name="sucrose transport transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_SUCRtex" name="sucrose transport transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -52263,7 +52263,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_UREAtex" name="Urea transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_UREAtex" name="Urea transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -52566,7 +52566,7 @@
           </fbc:and>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction id="R_Zn2tex" name="zinc (Zn+2) transport via diffusion (extracellular to periplasm)" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+      <reaction id="R_Zn2tex" name="zinc (Zn+2) transport via diffusion (extracellular to periplasm)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
         <notes>
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p>Confidence Level: NaN</p>
@@ -58528,9 +58528,9 @@
     <groups:listOfGroups>
       <groups:group metaid="meta_G_group1" sboTerm="SBO:0000633" groups:id="G_group1" groups:name="ADN salvage" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="ADN kinase" groups:idRef="R_ADNK_c"/>
           <groups:member groups:name="ADN nucleosidase" groups:idRef="R_ADNN_c"/>
           <groups:member groups:name="AD PRPP-transferase" groups:idRef="R_ADPRPPT_c"/>
+          <groups:member groups:name="ADN kinase" groups:idRef="R_ADNK_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group2" sboTerm="SBO:0000633" groups:id="G_group2" groups:name="Alanine, aspartate and glutamate metabolism" groups:kind="partonomy"/>
@@ -58607,9 +58607,9 @@
       <groups:group metaid="meta_G_group55" sboTerm="SBO:0000633" groups:id="G_group55" groups:name="Transport" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group56" sboTerm="SBO:0000633" groups:id="G_group56" groups:name="UMP synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="ORO PR-transferase" groups:idRef="R_OROPRT_c"/>
           <groups:member groups:name="OMP decarboxylase" groups:idRef="R_OMPDC_c"/>
           <groups:member groups:name="DHO dehydrogenase" groups:idRef="R_DHODH_m"/>
-          <groups:member groups:name="ORO PR-transferase" groups:idRef="R_OROPRT_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group57" sboTerm="SBO:0000633" groups:id="G_group57" groups:name="Ubiquinone and other pterpenoids biosynthesis" groups:kind="partonomy"/>
@@ -58623,26 +58623,26 @@
       </groups:group>
       <groups:group metaid="meta_G_group62" sboTerm="SBO:0000633" groups:id="G_group62" groups:name="alanine synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Ala transaminase" groups:idRef="R_AlaTA_m"/>
           <groups:member groups:name="Ala transaminase" groups:idRef="R_AlaTA_p"/>
+          <groups:member groups:name="Ala transaminase" groups:idRef="R_AlaTA_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group63" sboTerm="SBO:0000633" groups:id="G_group63" groups:name="arginine synthesis,IMP synthesis,AMP synthesis" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group64" sboTerm="SBO:0000633" groups:id="G_group64" groups:name="asparagine synthesis,lysine synthesis,methionine synthesis" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group65" sboTerm="SBO:0000633" groups:id="G_group65" groups:name="aspartate synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Asnase" groups:idRef="R_Asnase_c"/>
           <groups:member groups:name="Asp aminotransferase" groups:idRef="R_AspAT_p"/>
           <groups:member groups:name="Asp aminotransferase" groups:idRef="R_AspAT_c"/>
           <groups:member groups:name="Asp aminotransferase" groups:idRef="R_AspAT_m"/>
+          <groups:member groups:name="Asnase" groups:idRef="R_Asnase_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group66" sboTerm="SBO:0000633" groups:id="G_group66" groups:name="biomass reaction" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:name="Nitrogen limiting biomass" groups:idRef="R_Bio_NLim"/>
           <groups:member groups:name="Light limiting biomass" groups:idRef="R_Bio_opt"/>
-          <groups:member groups:name="Carbon limiting biomass" groups:idRef="R_Bio_CLim"/>
           <groups:member groups:name="Hydroxypyruvate transporter" groups:idRef="R_Tr_HPR1"/>
+          <groups:member groups:name="Carbon limiting biomass" groups:idRef="R_Bio_CLim"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group67" sboTerm="SBO:0000633" groups:id="G_group67" groups:name="carbon fixation" groups:kind="partonomy">
@@ -58652,60 +58652,21 @@
       </groups:group>
       <groups:group metaid="meta_G_group68" sboTerm="SBO:0000633" groups:id="G_group68" groups:name="cellulose synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="cellulose synthase" groups:idRef="R_CeS_c2"/>
-          <groups:member groups:name="cellulose synthase" groups:idRef="R_CeS_c1"/>
           <groups:member groups:name="cellulose synthase" groups:idRef="R_CeS_c3"/>
+          <groups:member groups:name="cellulose synthase" groups:idRef="R_CeS_c1"/>
+          <groups:member groups:name="cellulose synthase" groups:idRef="R_CeS_c2"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group69" sboTerm="SBO:0000633" groups:id="G_group69" groups:name="cysteine synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Ser O-acetyltransferase" groups:idRef="R_SerAcT_c"/>
+          <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_c"/>
           <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_m"/>
           <groups:member groups:name="Ser O-acetyltransferase" groups:idRef="R_SerAcT_m"/>
-          <groups:member groups:name="Cys synthase" groups:idRef="R_CysS_c"/>
+          <groups:member groups:name="Ser O-acetyltransferase" groups:idRef="R_SerAcT_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group70" sboTerm="SBO:0000633" groups:id="G_group70" groups:name="export" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Export Phe" groups:idRef="R_Ex_Phe_p"/>
-          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_m"/>
-          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_p"/>
-          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_c"/>
-          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_h"/>
-          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_m"/>
-          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_p"/>
-          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_c"/>
-          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_h"/>
-          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_m"/>
-          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_p"/>
-          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_c"/>
-          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_h"/>
-          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_m"/>
-          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_p"/>
-          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_c"/>
-          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_h"/>
-          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_m"/>
-          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_p"/>
-          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_c"/>
-          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_h"/>
-          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_m"/>
-          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_p"/>
-          <groups:member groups:name="Export starch" groups:idRef="R_Ex_starch"/>
-          <groups:member groups:name="Export glucose" groups:idRef="R_Ex_Glc"/>
-          <groups:member groups:name="Export fructose" groups:idRef="R_Ex_Frc"/>
-          <groups:member groups:name="Export sucrose" groups:idRef="R_Ex_Suc"/>
-          <groups:member groups:name="Export cell wall precursor" groups:idRef="R_Ex_cellulose"/>
-          <groups:member groups:name="Export maltose" groups:idRef="R_Ex_Mas"/>
-          <groups:member groups:name="Export signaling precursor" groups:idRef="R_Ex_Tre"/>
-          <groups:member groups:name="Maintenance" groups:idRef="R_NGAM_c"/>
-          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_c"/>
-          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_h"/>
-          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_m"/>
-          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_p"/>
-          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_c"/>
-          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_h"/>
-          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_m"/>
-          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_p"/>
           <groups:member groups:name="Export Asn" groups:idRef="R_Ex_Asn_c"/>
           <groups:member groups:name="Export Asn" groups:idRef="R_Ex_Asn_h"/>
           <groups:member groups:name="Export Asn" groups:idRef="R_Ex_Asn_m"/>
@@ -58724,7 +58685,6 @@
           <groups:member groups:name="Export Gln" groups:idRef="R_Ex_Gln_p"/>
           <groups:member groups:name="Export Glu" groups:idRef="R_Ex_Glu_c"/>
           <groups:member groups:name="Export Glu" groups:idRef="R_Ex_Glu_h"/>
-          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_c"/>
           <groups:member groups:name="Export Glu" groups:idRef="R_Ex_Glu_m"/>
           <groups:member groups:name="Export Glu" groups:idRef="R_Ex_Glu_p"/>
           <groups:member groups:name="Export Gly" groups:idRef="R_Ex_Gly_c"/>
@@ -58753,14 +58713,54 @@
           <groups:member groups:name="Export Met" groups:idRef="R_Ex_Met_p"/>
           <groups:member groups:name="Export Phe" groups:idRef="R_Ex_Phe_c"/>
           <groups:member groups:name="Export Phe" groups:idRef="R_Ex_Phe_h"/>
-          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_h"/>
           <groups:member groups:name="Export Phe" groups:idRef="R_Ex_Phe_m"/>
+          <groups:member groups:name="Export Phe" groups:idRef="R_Ex_Phe_p"/>
+          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_c"/>
+          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_h"/>
+          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_m"/>
+          <groups:member groups:name="Export Pro" groups:idRef="R_Ex_Pro_p"/>
+          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_c"/>
+          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_h"/>
+          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_m"/>
+          <groups:member groups:name="Export Ser" groups:idRef="R_Ex_Ser_p"/>
+          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_c"/>
+          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_h"/>
+          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_m"/>
+          <groups:member groups:name="Export Thr" groups:idRef="R_Ex_Thr_p"/>
+          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_c"/>
+          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_h"/>
+          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_m"/>
+          <groups:member groups:name="Export Trp" groups:idRef="R_Ex_Trp_p"/>
+          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_c"/>
+          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_h"/>
+          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_m"/>
+          <groups:member groups:name="Export Tyr" groups:idRef="R_Ex_Tyr_p"/>
+          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_c"/>
+          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_h"/>
+          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_m"/>
+          <groups:member groups:name="Export Val" groups:idRef="R_Ex_Val_p"/>
+          <groups:member groups:name="Export starch" groups:idRef="R_Ex_starch"/>
+          <groups:member groups:name="Export glucose" groups:idRef="R_Ex_Glc"/>
+          <groups:member groups:name="Export fructose" groups:idRef="R_Ex_Frc"/>
+          <groups:member groups:name="Export sucrose" groups:idRef="R_Ex_Suc"/>
+          <groups:member groups:name="Export cell wall precursor" groups:idRef="R_Ex_cellulose"/>
+          <groups:member groups:name="Export maltose" groups:idRef="R_Ex_Mas"/>
+          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_c"/>
+          <groups:member groups:name="Export signaling precursor" groups:idRef="R_Ex_Tre"/>
+          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_h"/>
+          <groups:member groups:name="Maintenance" groups:idRef="R_NGAM_c"/>
+          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_m"/>
+          <groups:member groups:name="Export Ala" groups:idRef="R_Ex_Ala_p"/>
+          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_c"/>
+          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_h"/>
+          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_m"/>
+          <groups:member groups:name="Export Arg" groups:idRef="R_Ex_Arg_p"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group71" sboTerm="SBO:0000633" groups:id="G_group71" groups:name="gluconeogenesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="PEP carboxylase" groups:idRef="R_PEPC1_c"/>
           <groups:member groups:name="Mal dehydrogenase" groups:idRef="R_MalDH1_c"/>
+          <groups:member groups:name="PEP carboxylase" groups:idRef="R_PEPC1_c"/>
           <groups:member groups:name="PEP carboxylase" groups:idRef="R_PEPC2_c"/>
         </groups:listOfMembers>
       </groups:group>
@@ -58776,10 +58776,10 @@
       </groups:group>
       <groups:group metaid="meta_G_group74" sboTerm="SBO:0000633" groups:id="G_group74" groups:name="glutamate synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH1NAD_m"/>
-          <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH3NADP_c"/>
           <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH1NADP_m"/>
           <groups:member groups:name="Glnase" groups:idRef="R_Glnase_c"/>
+          <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH1NAD_m"/>
+          <groups:member groups:name="Glu dehydrogenase" groups:idRef="R_GluDH3NADP_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group75" sboTerm="SBO:0000633" groups:id="G_group75" groups:name="glutamine synthesis" groups:kind="partonomy">
@@ -58796,27 +58796,27 @@
       </groups:group>
       <groups:group metaid="meta_G_group77" sboTerm="SBO:0000633" groups:id="G_group77" groups:name="glycolysis" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="GAP dehydrogenase" groups:idRef="R_GAPDH3_c"/>
           <groups:member groups:name="6-Phosphofructokinase" groups:idRef="R_F6PK1_c"/>
           <groups:member groups:name="Pyr kinase" groups:idRef="R_PyrK_c"/>
-          <groups:member groups:name="GAP dehydrogenase" groups:idRef="R_GAPDH3_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group78" sboTerm="SBO:0000633" groups:id="G_group78" groups:name="import" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="Import SO4" groups:idRef="R_Im_SO4"/>
           <groups:member groups:name="Import CO2" groups:idRef="R_Im_CO2"/>
+          <groups:member groups:name="Import H2S" groups:idRef="R_Im_H2S"/>
           <groups:member groups:name="Import H2O" groups:idRef="R_Im_H2O"/>
+          <groups:member groups:name="Export O2" groups:idRef="R_Ex_O2"/>
           <groups:member groups:name="Import Pi" groups:idRef="R_Im_Pi"/>
           <groups:member groups:name="Import NO3" groups:idRef="R_Im_NO3"/>
           <groups:member groups:name="Import NH4" groups:idRef="R_Im_NH4"/>
-          <groups:member groups:name="Import SO4" groups:idRef="R_Im_SO4"/>
-          <groups:member groups:name="Import H2S" groups:idRef="R_Im_H2S"/>
-          <groups:member groups:name="Export O2" groups:idRef="R_Ex_O2"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group79" sboTerm="SBO:0000633" groups:id="G_group79" groups:name="maintenance" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Maintenance" groups:idRef="R_NGAM_m"/>
           <groups:member groups:name="Amino acid composition" groups:idRef="R_Bio_AA"/>
+          <groups:member groups:name="Maintenance" groups:idRef="R_NGAM_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group80" sboTerm="SBO:0000633" groups:id="G_group80" groups:name="methionine synthesis" groups:kind="partonomy">
@@ -58829,15 +58829,12 @@
       <groups:group metaid="meta_G_group81" sboTerm="SBO:0000633" groups:id="G_group81" groups:name="methionine synthesis,THF recycling" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group82" sboTerm="SBO:0000633" groups:id="G_group82" groups:name="nitrate assimilation" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="NO3 reductase" groups:idRef="R_NO3R2_c"/>
           <groups:member groups:name="NO3 reductase" groups:idRef="R_NO3R1_c"/>
+          <groups:member groups:name="NO3 reductase" groups:idRef="R_NO3R2_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group83" sboTerm="SBO:0000633" groups:id="G_group83" groups:name="nucleotide metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dADPK_c"/>
-          <groups:member groups:name="Thymidine monophosphate kinase" groups:idRef="R_dTMPK_c"/>
-          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dUDPK_c"/>
           <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dCDPK_c"/>
           <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_UDPR_c"/>
           <groups:member groups:name="UMP/CMP kinase" groups:idRef="R_NMPK_c"/>
@@ -58853,6 +58850,9 @@
           <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dTDPK_c"/>
           <groups:member groups:name="guanylate kinase" groups:idRef="R_GMPK_c"/>
           <groups:member groups:name="Ribonucleoside-diphosphate reductase" groups:idRef="R_GDPR_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dADPK_c"/>
+          <groups:member groups:name="Thymidine monophosphate kinase" groups:idRef="R_dTMPK_c"/>
+          <groups:member groups:name="Nucleoside-diphosphate kinase" groups:idRef="R_dUDPK_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group84" sboTerm="SBO:0000633" groups:id="G_group84" groups:name="oxidative phosphorylation" groups:kind="partonomy">
@@ -58864,28 +58864,27 @@
       </groups:group>
       <groups:group metaid="meta_G_group85" sboTerm="SBO:0000633" groups:id="G_group85" groups:name="photorespiration" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Catalase" groups:idRef="R_CAT_p"/>
-          <groups:member groups:name="DHL dehydrogenase" groups:idRef="R_DHLDH1_m"/>
+          <groups:member groups:name="Mal dehydrogenase" groups:idRef="R_MalDH1_p"/>
           <groups:member groups:name="Gly hydroxymethyltransferase" groups:idRef="R_GlyHMT_m"/>
           <groups:member groups:name="Gly dehydrogenase" groups:idRef="R_GlyDH_m"/>
-          <groups:member groups:name="Mal dehydrogenase" groups:idRef="R_MalDH1_p"/>
           <groups:member groups:name="GCA oxidase" groups:idRef="R_GCAO_p"/>
           <groups:member groups:name="GCEA dehydrogenase" groups:idRef="R_GCEADH_p"/>
           <groups:member groups:name="Aminomethyltransferase" groups:idRef="R_AMT_m"/>
+          <groups:member groups:name="Catalase" groups:idRef="R_CAT_p"/>
+          <groups:member groups:name="DHL dehydrogenase" groups:idRef="R_DHLDH1_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group86" sboTerm="SBO:0000633" groups:id="G_group86" groups:name="photorespiration,glycine synthesis" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group87" sboTerm="SBO:0000633" groups:id="G_group87" groups:name="proline degradation" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="P5C dehydrogenase" groups:idRef="R_P5CDHNAD_m"/>
           <groups:member groups:name="P5C dehydrogenase" groups:idRef="R_P5CDHNADP_m"/>
           <groups:member groups:name="Pro dehydrogenase" groups:idRef="R_ProDHNAD_m"/>
           <groups:member groups:name="Pro dehydrogenase" groups:idRef="R_ProDHNADP_m"/>
-          <groups:member groups:name="P5C dehydrogenase" groups:idRef="R_P5CDHNAD_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group88" sboTerm="SBO:0000633" groups:id="G_group88" groups:name="proline synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="P5C reductase" groups:idRef="R_P5CRNAD_c"/>
           <groups:member groups:name="Glu kinase" groups:idRef="R_GluK_c"/>
           <groups:member groups:name="spontaneous" groups:idRef="R_GluSeADA_c"/>
           <groups:member groups:name="Arginase" groups:idRef="R_Arginase_m"/>
@@ -58895,32 +58894,33 @@
           <groups:member groups:name="GluSeA dehydrogenase" groups:idRef="R_GluSeADH_c"/>
           <groups:member groups:name="Orn aminotransferase" groups:idRef="R_OrnAT_m"/>
           <groups:member groups:name="GluSeA dehydrogenase" groups:idRef="R_GluSeADH_m"/>
+          <groups:member groups:name="P5C reductase" groups:idRef="R_P5CRNAD_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group89" sboTerm="SBO:0000633" groups:id="G_group89" groups:name="pyrophosphate recycling" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="PPi-dep.  Phosphofructokinase" groups:idRef="R_PPIF6PK_c"/>
           <groups:member groups:name="inorganic PPiase" groups:idRef="R_PPIase_c"/>
+          <groups:member groups:name="PPi-dep.  Phosphofructokinase" groups:idRef="R_PPIF6PK_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group90" sboTerm="SBO:0000633" groups:id="G_group90" groups:name="pyruvate decarboxylation" groups:kind="partonomy">
         <groups:listOfMembers>
+          <groups:member groups:name="Pyr dehydrogenase" groups:idRef="R_PyrDH2_m"/>
           <groups:member groups:name="DHL acetyltransferase" groups:idRef="R_DHLAcT_m"/>
           <groups:member groups:name="Pyr dehydrogenase" groups:idRef="R_PyrDH1_m"/>
-          <groups:member groups:name="Pyr dehydrogenase" groups:idRef="R_PyrDH2_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group91" sboTerm="SBO:0000633" groups:id="G_group91" groups:name="pyruvate decarboxylation,tricarboxylic acid cycle" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group92" sboTerm="SBO:0000633" groups:id="G_group92" groups:name="pyruvate metabolism" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNADP_m"/>
-          <groups:member groups:name="Mal dehydrogenase" groups:idRef="R_MalDH2NADP_c"/>
           <groups:member groups:name="Aconitase hydration" groups:idRef="R_cACNHA_c"/>
           <groups:member groups:name="Mal synthase" groups:idRef="R_MalS_c"/>
+          <groups:member groups:name="Mal dehydrogenase" groups:idRef="R_MalDH2NADP_c"/>
           <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNAD_c"/>
           <groups:member groups:name="Cit synthase" groups:idRef="R_CitS_c"/>
           <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNADP_c"/>
           <groups:member groups:name="Aconitase dehydration" groups:idRef="R_cACNDHA_c"/>
+          <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNADP_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group93" sboTerm="SBO:0000633" groups:id="G_group93" groups:name="serine racemization" groups:kind="partonomy">
@@ -58938,16 +58938,16 @@
       <groups:group metaid="meta_G_group96" sboTerm="SBO:0000633" groups:id="G_group96" groups:name="sucrose degradation" groups:kind="partonomy">
         <groups:listOfMembers>
           <groups:member groups:name="Suc synthase" groups:idRef="R_SucS_c"/>
-          <groups:member groups:name="Fructokinase" groups:idRef="R_FrcK_c"/>
           <groups:member groups:name="Fructofuranosidase" groups:idRef="R_FrcFD_c"/>
+          <groups:member groups:name="Fructokinase" groups:idRef="R_FrcK_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group97" sboTerm="SBO:0000633" groups:id="G_group97" groups:name="sucrose synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="S6P synthase" groups:idRef="R_S6PS_c"/>
           <groups:member groups:name="F26BP phosphorylase" groups:idRef="R_F26BPPh_c"/>
-          <groups:member groups:name="S6P phosphorylase" groups:idRef="R_S6PPh_c"/>
           <groups:member groups:name="F6P kinase" groups:idRef="R_F6PK2_c"/>
+          <groups:member groups:name="S6P phosphorylase" groups:idRef="R_S6PPh_c"/>
+          <groups:member groups:name="S6P synthase" groups:idRef="R_S6PS_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group98" sboTerm="SBO:0000633" groups:id="G_group98" groups:name="sucrose synthesis,gluconeogenesis,glycolysis" groups:kind="partonomy"/>
@@ -58957,47 +58957,6 @@
       <groups:group metaid="meta_G_group102" sboTerm="SBO:0000633" groups:id="G_group102" groups:name="tRNA biosynthesis" groups:kind="partonomy"/>
       <groups:group metaid="meta_G_group103" sboTerm="SBO:0000633" groups:id="G_group103" groups:name="transport" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Polyol transporter 5" groups:idRef="R_Tr_PLT5"/>
-          <groups:member groups:name="Dicarboxylate carrier" groups:idRef="R_Tr_DIC1"/>
-          <groups:member groups:name="Dicarboxylate carrier" groups:idRef="R_Tr_DIC2"/>
-          <groups:member groups:name="Dicarboxylate transporter" groups:idRef="R_Tr_DIT1"/>
-          <groups:member groups:name="Dicarboxylate transporter" groups:idRef="R_Tr_DIT2"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC1A"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC1B"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC1C"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC2A"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC2B"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC2C"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC3A"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC3B"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC3C"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC4A"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC4B"/>
-          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC4C"/>
-          <groups:member groups:name="SCA/Fum carrier" groups:idRef="R_Tr_SFC"/>
-          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT11"/>
-          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT12"/>
-          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT13"/>
-          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT14"/>
-          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT15"/>
-          <groups:member groups:name="Basic amino acid carriers" groups:idRef="R_Tr_BAC1"/>
-          <groups:member groups:name="transport, CAs [m]" groups:idRef="R_Tr_CAs_m"/>
-          <groups:member groups:name="Basic amino acid carriers" groups:idRef="R_Tr_BAC2"/>
-          <groups:member groups:name="Pro uniporter" groups:idRef="R_Tr_ProU"/>
-          <groups:member groups:name="Pro/Glu antiporter" groups:idRef="R_Tr_ProA"/>
-          <groups:member groups:name="P5C exporter" groups:idRef="R_Tr_P5C1"/>
-          <groups:member groups:name="P5C exporter" groups:idRef="R_Tr_P5C2"/>
-          <groups:member groups:name="PRPP exporter" groups:idRef="R_Tr_PRPP"/>
-          <groups:member groups:name="transport, CAs [h]" groups:idRef="R_Tr_CAs_h"/>
-          <groups:member groups:name="Fum exporter" groups:idRef="R_Tr_Fum"/>
-          <groups:member groups:name="H-Cys exporter" groups:idRef="R_Tr_HCys"/>
-          <groups:member groups:name="ORO exporter" groups:idRef="R_Tr_ORO"/>
-          <groups:member groups:name="DHO shuffle" groups:idRef="R_Tr_DHO2"/>
-          <groups:member groups:name="Gly/Ser shuffle" groups:idRef="R_Tr_GlySer"/>
-          <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2h"/>
-          <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2m"/>
-          <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2p"/>
-          <groups:member groups:name="CO2 diffusion" groups:idRef="R_Tr_CO2h"/>
           <groups:member groups:name="CO2 diffusion" groups:idRef="R_Tr_CO2m"/>
           <groups:member groups:name="H2O diffusion" groups:idRef="R_Tr_H2Oh"/>
           <groups:member groups:name="H2O diffusion" groups:idRef="R_Tr_H2Om"/>
@@ -59024,80 +58983,121 @@
           <groups:member groups:name="Cys diffusion" groups:idRef="R_Tr_Cys"/>
           <groups:member groups:name="Glu diffusion" groups:idRef="R_Tr_Glu1"/>
           <groups:member groups:name="Gln diffusion" groups:idRef="R_Tr_Gln"/>
-          <groups:member groups:name="Glc transporter" groups:idRef="R_Tr_pGlc"/>
+          <groups:member groups:name="SO4 diffusion" groups:idRef="R_Tr_SO4"/>
           <groups:member groups:name="Gly diffusion" groups:idRef="R_Tr_Gly"/>
+          <groups:member groups:name="NO2 transporter" groups:idRef="R_Tr_NO2"/>
           <groups:member groups:name="His diffusion" groups:idRef="R_Tr_His1"/>
           <groups:member groups:name="Ile diffusion" groups:idRef="R_Tr_Ile1"/>
+          <groups:member groups:name="CO2 diffusion" groups:idRef="R_Tr_CO2h"/>
           <groups:member groups:name="Leu diffusion" groups:idRef="R_Tr_Leu1"/>
-          <groups:member groups:name="Lys diffusion" groups:idRef="R_Tr_Lys1"/>
-          <groups:member groups:name="Met diffusion" groups:idRef="R_Tr_Met1"/>
-          <groups:member groups:name="Phe diffusion" groups:idRef="R_Tr_Phe1"/>
-          <groups:member groups:name="Pro diffusion" groups:idRef="R_Tr_Pro1"/>
-          <groups:member groups:name="Ser diffusion" groups:idRef="R_Tr_Ser1"/>
-          <groups:member groups:name="Thr diffusion" groups:idRef="R_Tr_Thr1"/>
-          <groups:member groups:name="Trp diffusion" groups:idRef="R_Tr_Trp1"/>
-          <groups:member groups:name="Tyr diffusion" groups:idRef="R_Tr_Tyr1"/>
-          <groups:member groups:name="Val diffusion" groups:idRef="R_Tr_Val1"/>
-          <groups:member groups:name="Ala exporter" groups:idRef="R_Tr_Ala2"/>
-          <groups:member groups:name="Arg exporter" groups:idRef="R_Tr_Arg2"/>
-          <groups:member groups:name="Asn importer" groups:idRef="R_Tr_Asn2"/>
-          <groups:member groups:name="Asn importer" groups:idRef="R_Tr_Asn3"/>
-          <groups:member groups:name="Glu importer" groups:idRef="R_Tr_Glu2"/>
-          <groups:member groups:name="His exporter" groups:idRef="R_Tr_His2"/>
-          <groups:member groups:name="His importer" groups:idRef="R_Tr_His3"/>
-          <groups:member groups:name="Ile exporter" groups:idRef="R_Tr_Ile2"/>
-          <groups:member groups:name="Ile importer" groups:idRef="R_Tr_Ile3"/>
-          <groups:member groups:name="Leu exporter" groups:idRef="R_Tr_Leu2"/>
-          <groups:member groups:name="Leu importer" groups:idRef="R_Tr_Leu3"/>
-          <groups:member groups:name="Lys exporter" groups:idRef="R_Tr_Lys2"/>
-          <groups:member groups:name="Met importer" groups:idRef="R_Tr_Met2"/>
-          <groups:member groups:name="Met importer" groups:idRef="R_Tr_Met3"/>
-          <groups:member groups:name="Phe exporter" groups:idRef="R_Tr_Phe2"/>
-          <groups:member groups:name="Phe importer" groups:idRef="R_Tr_Phe3"/>
-          <groups:member groups:name="Pro importer" groups:idRef="R_Tr_Pro2"/>
-          <groups:member groups:name="Ser exporter" groups:idRef="R_Tr_Ser2"/>
-          <groups:member groups:name="Ser importer" groups:idRef="R_Tr_Ser3"/>
-          <groups:member groups:name="Thr exporter" groups:idRef="R_Tr_Thr2"/>
-          <groups:member groups:name="Thr importer" groups:idRef="R_Tr_Thr3"/>
-          <groups:member groups:name="Trp exporter" groups:idRef="R_Tr_Trp2"/>
-          <groups:member groups:name="Trp importer" groups:idRef="R_Tr_Trp3"/>
-          <groups:member groups:name="Tyr exporter" groups:idRef="R_Tr_Tyr2"/>
-          <groups:member groups:name="Tyr importer" groups:idRef="R_Tr_Tyr3"/>
-          <groups:member groups:name="Val exporter" groups:idRef="R_Tr_Val2"/>
-          <groups:member groups:name="Val importer" groups:idRef="R_Tr_Val3"/>
-          <groups:member groups:name="Import Photon" groups:idRef="R_Im_hnu"/>
-          <groups:member groups:name="SO4 diffusion" groups:idRef="R_Tr_SO4"/>
-          <groups:member groups:name="NO2 transporter" groups:idRef="R_Tr_NO2"/>
-          <groups:member groups:name="Mas exporter" groups:idRef="R_Tr_Mex1"/>
           <groups:member groups:name="Nucleotide transporter" groups:idRef="R_Tr_NTT"/>
+          <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2p"/>
+          <groups:member groups:name="Lys diffusion" groups:idRef="R_Tr_Lys1"/>
           <groups:member groups:name="ADP/ATP carrier" groups:idRef="R_Tr_AAC"/>
+          <groups:member groups:name="Met diffusion" groups:idRef="R_Tr_Met1"/>
           <groups:member groups:name="Brittle1 protein transporter" groups:idRef="R_Tr_BT11"/>
+          <groups:member groups:name="Phe diffusion" groups:idRef="R_Tr_Phe1"/>
           <groups:member groups:name="Brittle1 protein transporter" groups:idRef="R_Tr_BT12"/>
+          <groups:member groups:name="Pro diffusion" groups:idRef="R_Tr_Pro1"/>
           <groups:member groups:name="Brittle1 protein transporter" groups:idRef="R_Tr_BT13"/>
+          <groups:member groups:name="Ser diffusion" groups:idRef="R_Tr_Ser1"/>
           <groups:member groups:name="NAD transporter" groups:idRef="R_Tr_NDT1"/>
+          <groups:member groups:name="Thr diffusion" groups:idRef="R_Tr_Thr1"/>
           <groups:member groups:name="NAD transporter" groups:idRef="R_Tr_NDT2"/>
+          <groups:member groups:name="Trp diffusion" groups:idRef="R_Tr_Trp1"/>
           <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT1"/>
+          <groups:member groups:name="Tyr diffusion" groups:idRef="R_Tr_Tyr1"/>
           <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT2"/>
+          <groups:member groups:name="Val diffusion" groups:idRef="R_Tr_Val1"/>
           <groups:member groups:name="TP/Pi translocator" groups:idRef="R_Tr_TPT3"/>
+          <groups:member groups:name="Ala exporter" groups:idRef="R_Tr_Ala2"/>
           <groups:member groups:name="PEP/Pi translocator" groups:idRef="R_Tr_PPT"/>
+          <groups:member groups:name="Arg exporter" groups:idRef="R_Tr_Arg2"/>
           <groups:member groups:name="GCA/GCEA shuffle" groups:idRef="R_Tr_GCA1"/>
+          <groups:member groups:name="Asn importer" groups:idRef="R_Tr_Asn2"/>
           <groups:member groups:name="GCA/GCEA shuffle" groups:idRef="R_Tr_GCEA1"/>
+          <groups:member groups:name="Asn importer" groups:idRef="R_Tr_Asn3"/>
           <groups:member groups:name="G6P exporter" groups:idRef="R_Tr_GPT1"/>
+          <groups:member groups:name="Glu importer" groups:idRef="R_Tr_Glu2"/>
+          <groups:member groups:name="Glc transporter" groups:idRef="R_Tr_pGlc"/>
+          <groups:member groups:name="His exporter" groups:idRef="R_Tr_His2"/>
+          <groups:member groups:name="Mas exporter" groups:idRef="R_Tr_Mex1"/>
+          <groups:member groups:name="His importer" groups:idRef="R_Tr_His3"/>
+          <groups:member groups:name="Polyol transporter 5" groups:idRef="R_Tr_PLT5"/>
+          <groups:member groups:name="Ile exporter" groups:idRef="R_Tr_Ile2"/>
+          <groups:member groups:name="Dicarboxylate carrier" groups:idRef="R_Tr_DIC1"/>
+          <groups:member groups:name="Ile importer" groups:idRef="R_Tr_Ile3"/>
+          <groups:member groups:name="Dicarboxylate carrier" groups:idRef="R_Tr_DIC2"/>
+          <groups:member groups:name="Leu exporter" groups:idRef="R_Tr_Leu2"/>
+          <groups:member groups:name="Dicarboxylate transporter" groups:idRef="R_Tr_DIT1"/>
+          <groups:member groups:name="Leu importer" groups:idRef="R_Tr_Leu3"/>
+          <groups:member groups:name="Dicarboxylate transporter" groups:idRef="R_Tr_DIT2"/>
+          <groups:member groups:name="Lys exporter" groups:idRef="R_Tr_Lys2"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC1A"/>
+          <groups:member groups:name="Met importer" groups:idRef="R_Tr_Met2"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC1B"/>
+          <groups:member groups:name="Met importer" groups:idRef="R_Tr_Met3"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC1C"/>
+          <groups:member groups:name="Phe exporter" groups:idRef="R_Tr_Phe2"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC2A"/>
+          <groups:member groups:name="Phe importer" groups:idRef="R_Tr_Phe3"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC2B"/>
+          <groups:member groups:name="Pro importer" groups:idRef="R_Tr_Pro2"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC2C"/>
+          <groups:member groups:name="Ser exporter" groups:idRef="R_Tr_Ser2"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC3A"/>
+          <groups:member groups:name="Ser importer" groups:idRef="R_Tr_Ser3"/>
+          <groups:member groups:name="transport, CAs [m]" groups:idRef="R_Tr_CAs_m"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC3B"/>
+          <groups:member groups:name="Thr exporter" groups:idRef="R_Tr_Thr2"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC3C"/>
+          <groups:member groups:name="Thr importer" groups:idRef="R_Tr_Thr3"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC4A"/>
+          <groups:member groups:name="Trp exporter" groups:idRef="R_Tr_Trp2"/>
+          <groups:member groups:name="transport, CAs [h]" groups:idRef="R_Tr_CAs_h"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC4B"/>
+          <groups:member groups:name="Trp importer" groups:idRef="R_Tr_Trp3"/>
+          <groups:member groups:name="Di-/ri-carboxylate carrier" groups:idRef="R_Tr_DTC4C"/>
+          <groups:member groups:name="Tyr exporter" groups:idRef="R_Tr_Tyr2"/>
+          <groups:member groups:name="SCA/Fum carrier" groups:idRef="R_Tr_SFC"/>
+          <groups:member groups:name="Tyr importer" groups:idRef="R_Tr_Tyr3"/>
+          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT11"/>
+          <groups:member groups:name="Val exporter" groups:idRef="R_Tr_Val2"/>
+          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT12"/>
+          <groups:member groups:name="Val importer" groups:idRef="R_Tr_Val3"/>
+          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT13"/>
+          <groups:member groups:name="Import Photon" groups:idRef="R_Im_hnu"/>
+          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT14"/>
+          <groups:member groups:name="B0,+-type amino acid transporter 1" groups:idRef="R_Tr_BAT15"/>
+          <groups:member groups:name="Basic amino acid carriers" groups:idRef="R_Tr_BAC1"/>
+          <groups:member groups:name="Basic amino acid carriers" groups:idRef="R_Tr_BAC2"/>
+          <groups:member groups:name="Pro uniporter" groups:idRef="R_Tr_ProU"/>
+          <groups:member groups:name="Pro/Glu antiporter" groups:idRef="R_Tr_ProA"/>
+          <groups:member groups:name="P5C exporter" groups:idRef="R_Tr_P5C1"/>
+          <groups:member groups:name="P5C exporter" groups:idRef="R_Tr_P5C2"/>
+          <groups:member groups:name="PRPP exporter" groups:idRef="R_Tr_PRPP"/>
+          <groups:member groups:name="Fum exporter" groups:idRef="R_Tr_Fum"/>
+          <groups:member groups:name="H-Cys exporter" groups:idRef="R_Tr_HCys"/>
+          <groups:member groups:name="ORO exporter" groups:idRef="R_Tr_ORO"/>
+          <groups:member groups:name="DHO shuffle" groups:idRef="R_Tr_DHO2"/>
+          <groups:member groups:name="Gly/Ser shuffle" groups:idRef="R_Tr_GlySer"/>
+          <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2h"/>
+          <groups:member groups:name="O2 diffusion" groups:idRef="R_Tr_O2m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group104" sboTerm="SBO:0000633" groups:id="G_group104" groups:name="trehalose synthesis" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="UDPG:G6P glucosyltransferase" groups:idRef="R_TPS_c"/>
           <groups:member groups:name="Tre phosphatase" groups:idRef="R_TPP_c"/>
+          <groups:member groups:name="UDPG:G6P glucosyltransferase" groups:idRef="R_TPS_c"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group105" sboTerm="SBO:0000633" groups:id="G_group105" groups:name="tricarboxylic acid cycle" groups:kind="partonomy">
         <groups:listOfMembers>
-          <groups:member groups:name="Fum hydratase" groups:idRef="R_FumHA_m"/>
           <groups:member groups:name="KG dehydrogenase" groups:idRef="R_KGDH_m"/>
           <groups:member groups:name="DHL succinyltransferase" groups:idRef="R_DHLST_m"/>
-          <groups:member groups:name="SCA-CoA ligase" groups:idRef="R_SCACoAL_m"/>
           <groups:member groups:name="iCit dehydrogenase" groups:idRef="R_iCitDHNAD_m"/>
+          <groups:member groups:name="SCA-CoA ligase" groups:idRef="R_SCACoAL_m"/>
+          <groups:member groups:name="Fum hydratase" groups:idRef="R_FumHA_m"/>
         </groups:listOfMembers>
       </groups:group>
       <groups:group metaid="meta_G_group106" sboTerm="SBO:0000633" groups:id="G_group106" groups:name="tricarboxylic acid cycle,glyoxylate cycle" groups:kind="partonomy"/>
